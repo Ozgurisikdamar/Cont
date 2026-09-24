@@ -1,10 +1,47 @@
-# ContextLens
+<div align="center">
 
-**Conversation-aware topic analysis for English text, with calibrated
-confidence, an "I'm not sure" answer, a running conversation theme, key-less
-web search and a local SQLite history.**
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1020,45:4338CA,100:06B6D4&height=220&section=header&text=ContextLens&fontSize=58&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38&desc=Conversation-aware%20topic%20intelligence%20for%20English%20text&descAlignY=60&descSize=18" width="100%" alt="ContextLens banner"/>
 
-```
+<br/>
+
+<img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.11"/>
+<img src="https://img.shields.io/badge/PyTorch-2.5.1-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch 2.5.1"/>
+<img src="https://img.shields.io/badge/SQLite-Local%20History-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite"/>
+<img src="https://img.shields.io/badge/Model-MiniLM-FFD21E?style=for-the-badge&logo=huggingface&logoColor=111827" alt="MiniLM"/>
+<img src="https://img.shields.io/badge/Tests-162%20Passed-22C55E?style=for-the-badge&logo=pytest&logoColor=white" alt="162 tests passed"/>
+
+<br/><br/>
+
+<strong>Classify → detect uncertainty → remember context → compose a theme → search → persist.</strong>
+
+<br/><br/>
+
+<table>
+<tr>
+<td align="center"><strong>8</strong><br/><sub>GENERAL TOPICS</sub></td>
+<td align="center"><strong>28</strong><br/><sub>SUBTOPICS</sub></td>
+<td align="center"><strong>42,942</strong><br/><sub>TRAINING PASSAGES</sub></td>
+<td align="center"><strong>19.9 ms</strong><br/><sub>MEDIAN LATENCY</sub></td>
+</tr>
+</table>
+
+<p>
+<a href="#1-purpose"><b>Purpose</b></a> ·
+<a href="#3-architecture"><b>Architecture</b></a> ·
+<a href="#4-dataset"><b>Dataset</b></a> ·
+<a href="#5-model"><b>Model</b></a> ·
+<a href="#10-evaluation"><b>Evaluation</b></a> ·
+<a href="#7-installation"><b>Install</b></a>
+</p>
+
+</div>
+
+> **ContextLens** is a conversation-aware topic analysis system with calibrated confidence, an explicit **"I'm not sure"** path, a decaying conversation theme, key-less web search and local SQLite history.
+
+<details>
+<summary><strong>▶ Quick preview</strong></summary>
+
+```text
 $ python project.py
 ContextLens - English conversation topic analysis
 Model ready (v1.0.0, …s).
@@ -17,6 +54,8 @@ Subtopics     :
   - Technology > Quantum Computing (…)
 …
 ```
+
+</details>
 
 The full, real output of a three-message conversation is in
 [§14 Example output](#14-example-output).
@@ -58,19 +97,48 @@ Everything — data, input, output, documentation — is English.
 ## 3. Architecture
 
 ```mermaid
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, ui-sans-serif, system-ui","lineColor":"#64748B","primaryTextColor":"#FFFFFF"}}}%%
 flowchart LR
-    U[user message] --> P[preprocess<br/>NFKC, HTML/URL removal]
-    P --> E[sentence encoder]
-    E --> G[general head<br/>+ temperature]
-    E --> S[subtopic heads<br/>one per general topic]
-    E --> O[OOD gate<br/>cosine to centroids]
-    G & S & O --> D{decision}
-    D -->|ok| T[conversation tracker<br/>decay]
-    D -->|uncertain| T0[shown, weight 0]
-    T --> C[theme composer<br/>taxonomy roles]
-    C --> Q[query builder]
-    Q --> W[Wikipedia → DuckDuckGo<br/>cache · retries · breaker]
-    D & C & Q & W --> DB[(SQLite)]
+    U["💬 User message"] --> P["✨ Preprocess"]
+    P --> E["🧠 Sentence encoder"]
+
+    subgraph INT["INTELLIGENCE"]
+      direction TB
+      E --> G["General topic<br/>+ calibration"]
+      E --> S["Subtopics<br/>multi-label"]
+      E --> O["OOD gate<br/>centroid similarity"]
+      G --> D{"Decision"}
+      S --> D
+      O --> D
+    end
+
+    D -->|"confident"| T["🧭 Conversation tracker<br/>decay"]
+    D -->|"uncertain"| X["⚠️ Show uncertainty<br/>weight = 0"]
+
+    T --> C["🧩 Theme composer"]
+    C --> Q["🔎 Query builder"]
+    Q --> W["🌐 Wikipedia<br/>↳ DuckDuckGo fallback"]
+
+    D --> DB[("🗃️ SQLite")]
+    C --> DB
+    Q --> DB
+    W --> DB
+
+    classDef input fill:#0F172A,stroke:#38BDF8,color:#FFFFFF,stroke-width:2px;
+    classDef intelligence fill:#312E81,stroke:#818CF8,color:#FFFFFF,stroke-width:2px;
+    classDef decision fill:#7C3AED,stroke:#C4B5FD,color:#FFFFFF,stroke-width:2px;
+    classDef context fill:#0F766E,stroke:#5EEAD4,color:#FFFFFF,stroke-width:2px;
+    classDef retrieval fill:#075985,stroke:#7DD3FC,color:#FFFFFF,stroke-width:2px;
+    classDef warn fill:#7C2D12,stroke:#FDBA74,color:#FFFFFF,stroke-width:2px;
+    classDef db fill:#111827,stroke:#94A3B8,color:#FFFFFF,stroke-width:2px;
+
+    class U,P input;
+    class E,G,S,O intelligence;
+    class D decision;
+    class T,C context;
+    class Q,W retrieval;
+    class X warn;
+    class DB db;
 ```
 
 Details, the sequence of one turn and the database schema:
@@ -96,6 +164,23 @@ therefore **built from English Wikipedia**:
 | out-of-taxonomy | 1,327 Wikipedia passages from 12 unrelated categories (cooking, music, cars, …) |
 | licence | Wikipedia CC BY-SA 4.0; Stack Exchange CC BY-SA 4.0 — [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) |
 
+<div align="center">
+
+### Dataset at a glance
+
+<table>
+<tr>
+<td width="50%" align="center"><img src="reports/figures/eda_general_distribution.png" alt="General topic distribution" width="100%"/></td>
+<td width="50%" align="center"><img src="reports/figures/eda_subtopic_distribution.png" alt="Subtopic distribution" width="100%"/></td>
+</tr>
+<tr>
+<td align="center"><sub>General-topic distribution</sub></td>
+<td align="center"><sub>Subtopic distribution</sub></td>
+</tr>
+</table>
+
+</div>
+
 **Why this data:** it is the only source that covers all 8 × 28 topics in
 English, it is reproducible from pinned snapshots, its labels come from a
 human-curated structure (the category graph) rather than from us, and it has a
@@ -119,6 +204,14 @@ Held-out results (`reports/evaluation.json`, never used for a choice):
 |---|---:|---:|---:|---:|
 | Wikipedia test (6,427 passages) | 0.835 | 0.834 | 0.835 | 0.031 |
 | Stack Exchange questions (10,087) | 0.775 | 0.756 | 0.773 | 0.067 |
+
+<div align="center">
+
+<img src="reports/figures/reliability_final.png" alt="Reliability diagram" width="70%"/>
+
+<sub>Calibration / reliability of the final model</sub>
+
+</div>
 
 Subtopics: macro-F1 0.647 on Wikipedia, 0.701 on questions (25 labels);
 the right subtopic is in the top 3 for 86% of Wikipedia passages.
@@ -220,6 +313,27 @@ confident errors and latency. Summary of the final run:
 | accuracy of the answered ones | 0.868 | 0.812 |
 | off-topic texts flagged uncertain | 33.3% (675 passages) | 43.6% (6,000 questions) |
 | median latency per message | 19.9 ms (p95 28.3 ms) | |
+
+<div align="center">
+
+### Evaluation visuals
+
+<table>
+<tr>
+<td width="50%" align="center"><img src="reports/figures/confusion_wiki_test.png" alt="Wikipedia test confusion matrix" width="100%"/></td>
+<td width="50%" align="center"><img src="reports/figures/confusion_se_ext_test.png" alt="Stack Exchange test confusion matrix" width="100%"/></td>
+</tr>
+<tr>
+<td align="center"><sub>Wikipedia test</sub></td>
+<td align="center"><sub>Stack Exchange external test</sub></td>
+</tr>
+</table>
+
+<img src="reports/figures/subtopic_f1_wiki_test.png" alt="Subtopic F1 scores" width="82%"/>
+
+<sub>Per-subtopic F1 on the Wikipedia test split</sub>
+
+</div>
 
 ## 11. Tests
 
@@ -358,6 +472,10 @@ Project management: [CLAUDE.md](CLAUDE.md) (quick reference),
 
 All issues with measurements and workarounds: [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
 
+<br/>
+
+---
+
 ## 17. Future work
 
 - A human-annotated set of real chat messages for the 28 subtopics (the external
@@ -366,3 +484,14 @@ All issues with measurements and workarounds: [KNOWN_ISSUES.md](KNOWN_ISSUES.md)
 - Distilling the encoder further or ONNX export for faster start-up.
 - More key-less search providers; per-user option to never send queries.
 - Encrypting the local database.
+
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:06B6D4,55:4338CA,100:0B1020&height=110&section=footer" width="100%" alt="Footer"/>
+
+<sub><strong>ContextLens</strong> · Context-aware NLP, calibrated uncertainty, local-first history.</sub>
+
+</div>
