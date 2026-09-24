@@ -436,3 +436,38 @@ comment; enabling them is a two-line change once Actions minutes exist.
 **Consequence (not hidden).** The audit asked for CI on every push; on this
 account that is not achievable today. What is guaranteed is that the CI
 definition exists, is correct, and passes locally (`reports/tests/`).
+
+## D-33 · Subtopic head: flat softmax kept, objective renamed "primary subtopic + secondary sibling suggestions"
+**Decision.** The subtopic head stays a 28-way softmax over the *primary*
+subtopic (C = 16 on the 1.2.0 corpus). The product claim changes: ContextLens
+does **primary subtopic classification with secondary sibling suggestions**
+(siblings whose share of the parent mass passes τ = 0.40), not true
+multi-label classification. README, model card, model report, architecture
+and final report use this wording.
+**Comparison** (`scripts/head_comparison.py`, `reports/experiments/head_comparison.json`;
+fine-tuned MiniLM embeddings; C and τ chosen per head on val; dev data only;
+rule fixed before running: mean of val subtopic macro-F1 and ext_dev subtopic
+macro-F1, heads within 0.005 broken by multi-label behaviour):
+
+| head | val sub macro-F1 | val micro-F1 | ext_dev sub macro-F1 | multi-label passages with ≥2 gold found | single-label passages given extra labels | head latency |
+|---|---:|---:|---:|---:|---:|---:|
+| flat softmax (primary label) | **0.660** | 0.669 | **0.691** | 5.7% | 5.3% | 0.13 ms |
+| one-vs-rest sigmoid, 28 labels | 0.649 | 0.657 | 0.678 | **11.8%** | 9.4% | 1.7 ms |
+| hierarchical sigmoid (per general topic) | 0.657 | 0.666 | 0.685 | 0.0% | 0.0% | 1.8 ms |
+
+General-topic macro-F1 is within 0.003 across heads (val 0.848–0.850, ext_dev
+0.741–0.747). The softmax wins on score; the hierarchical sigmoid ties within
+tolerance but never predicts a second label.
+**What the data says about multi-label.** Only 6% of passages have more than
+one subtopic, and every sigmoid head's macro-F1 optimum is the highest
+threshold on the grid (0.95): the best-scoring decision is to predict one
+label. The genuine multi-label head (one-vs-rest) does find a second gold label
+twice as often as the softmax (11.8% vs 5.7% of multi-label passages) but pays
+with 1–1.4 points of macro-F1 and more false extra labels. With these labels
+a second subtopic is a suggestion, not a prediction, and the documentation
+says so.
+**Process note (not hidden).** The first run capped the threshold grid at
+0.70; both sigmoid heads chose the cap, and on that run the rule picked the
+hierarchical sigmoid (`reports/experiments/head_comparison_grid070.json`).
+The grid was widened to 0.95 in both the experiment and production training
+before any other decision, and the rerun is the one used.
