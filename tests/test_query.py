@@ -34,3 +34,11 @@ def test_keyword_refinement_can_be_disabled():
 def test_concepts_extend_candidates_up_to_a_bound():
     q = build_query("science books about biology", "", {}, concepts=("biology", "science", "x", "y"))
     assert q.candidates() == ["science books about biology", "biology", "science", "x"]  # at most 4 queries
+
+
+def test_keywords_do_not_repeat_the_theme_in_another_number():
+    from contextlens.services.query import salient_keywords
+
+    vocab = {"novel": 9.0, "narration": 8.0, "novels": 7.0, "cells": 6.0, "cell": 5.0}
+    assert salient_keywords("The novel's narration and the novels", vocab, "novels", 2) == ["narration"]
+    assert salient_keywords("cells and cell", vocab, "biology", 3) == ["cells"]

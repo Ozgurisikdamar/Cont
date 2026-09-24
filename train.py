@@ -115,6 +115,8 @@ def main(argv: list[str] | None = None) -> int:
         model.min_confidence = float(max(ok)) if ok else float(min(conf["min_confidence_grid"]))
         log.info("min_confidence=%.2f (sweep on ext_dev: %s)", model.min_confidence, min_conf_sweep)
 
+    model.min_known_word_share = float(conf.get("min_known_word_share", 0.4))
+
     gp_test, _, _ = model.predict_proba(test[0])
     test_report = multiclass_report(test[1], gp_test, space.general_ids)
     log.info("test (report only): acc=%.4f macroF1=%.4f", test_report["accuracy"], test_report["macro_f1"])
@@ -133,6 +135,7 @@ def main(argv: list[str] | None = None) -> int:
             "subtopic_C": cfg.subtopic_C,
             "ood_keep_quantile": cfg.ood_keep_quantile,
             "ood_calibration": ood_calibration,
+            "min_known_word_share": model.min_known_word_share,
         },
         "preprocessing": "contextlens.preprocessing.text.normalize (NFKC, HTML/URL/mention removal, no lower-casing)",
         "train_seconds": round(train_seconds, 1),
@@ -142,7 +145,7 @@ def main(argv: list[str] | None = None) -> int:
         "subtopic_threshold_sweep": val_report["subtopic_threshold_sweep"],
         "min_confidence_sweep_ext_dev": min_conf_sweep,
     }
-    vocabulary = build_vocabulary([t.lower() for t in train[0]], cfg.vocabulary_size)
+    vocabulary = build_vocabulary([t.lower() for t in train[0]], train[1], cfg.vocabulary_size)
     save_artifact(model, out_dir, vocabulary, save_encoder=not args.no_save_encoder)
     log.info("artifact written to %s (%.0fs)", out_dir, train_seconds)
     return 0

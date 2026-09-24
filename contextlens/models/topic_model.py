@@ -17,6 +17,7 @@ Artifacts are written by ``train.py`` and loaded with integrity checks (see
 from __future__ import annotations
 
 import logging
+import re
 import time
 from dataclasses import dataclass, field
 from typing import Any
@@ -27,6 +28,8 @@ from contextlens.models.heads import FlatSubtopicSoftmax, HierarchicalSubtopics,
 from contextlens.preprocessing.text import is_informative, normalize
 
 log = logging.getLogger(__name__)
+
+WORD = re.compile(r"[^\W\d_]+")
 
 
 @dataclass(frozen=True)
@@ -68,6 +71,11 @@ class TopicModel:
     metadata: dict = field(default_factory=dict)
     max_subtopics: int = 3  # at most this many subtopics are reported per text
     head_type: str = "hierarchical"  # "hierarchical" | "flat_softmax" (docs/EXPERIMENTS.md, E-7)
+    # Language gate: English words known to the model (training vocabulary + stop
+    # words). A text of >= 3 words of which fewer than this share are known is
+    # answered "uncertain" (decisions.md D-29). Empty set = gate off.
+    known_words: frozenset[str] = frozenset()
+    min_known_word_share: float = 0.4
 
     @property
     def sub_index(self) -> dict[str, int]:
@@ -94,6 +102,20 @@ class TopicModel:
             conditional = self.subtopic_heads.conditional(X, self.sub_index, len(self.subtopic_ids))
         ood = (X @ self.centroids.T).max(axis=1)
         return general, conditional, ood
+
+    def looks_english(self, text: str) -> bool:
+        """False when most words of a (normalised) text are unknown English words."""
+        if not self.known_words:
+            return True
+        words = [w for w in WORD.findall(text.lower()) if len(w) >= 2]
+        if len(words) < 3:
+            return True
+        return sum(w in self.known_words for w in words) / len(words) >= self.min_known_word_share
+
+    def uncertain_mask(self, texts: list[str], general: np.ndarray, ood: np.ndarray) -> np.ndarray:
+        """The deployed "uncertain" rule for a batch (used by evaluation and decay tuning)."""
+        english = np.array([self.looks_english(t) for t in texts], dtype=bool)
+        return (ood < self.ood_threshold) | (general.max(axis=1) < self.min_confidence) | ~english
 
     def predict(self, text: str) -> Prediction:
         return self.predict_many([text])[0]
@@ -123,6 +145,8 @@ class TopicModel:
             reasons.append("far from all training topics (possible out-of-taxonomy input)")
         if gp[g] < self.min_confidence:
             reasons.append(f"low confidence ({gp[g]:.0%})")
+        if not self.looks_english(text):
+            reasons.append("does not look like English (the model covers English only)")
         joint = gp[self.parent_col] * cond
         return Prediction(
             text=text,

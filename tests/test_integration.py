@@ -279,3 +279,14 @@ def test_empty_batch_is_handled(fake_model):
     gp, cond, ood = fake_model.predict_proba([])
     assert gp.shape == (0, len(fake_model.general_ids)) and cond.shape[0] == 0 and ood.shape == (0,)
     assert fake_model.predict_many([]) == []
+
+
+def test_language_gate_flags_non_english_text(fake_model):
+    words = frozenset("quantum processors can speed up certain algorithms by using qubits the a of".split())
+    model = dataclasses.replace(fake_model, known_words=words)
+    assert model.looks_english("Quantum processors can speed up certain algorithms by using qubits.")
+    assert not model.looks_english("bu aksam arkadaslarimla sinemaya gidecegim")
+    assert model.looks_english("qubit")  # fewer than three words: gate does not apply
+    p = model.predict("bu aksam arkadaslarimla sinemaya gidecegim")
+    assert p.status == "uncertain" and any("English" in r for r in p.reasons)
+    assert dataclasses.replace(fake_model, known_words=frozenset()).looks_english("bu aksam sinemaya")

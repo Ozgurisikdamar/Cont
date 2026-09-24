@@ -10,8 +10,8 @@ One card per trained general-topic model, in the format of the project brief. Pr
 | Features | none (predicts the most frequent training class) |
 | Hyper-parameters | - (chosen on val macro-F1; grid: -) |
 | Train metrics | – |
-| Validation metrics | Wikipedia val: acc 0.152, macro-F1 0.033, weighted-F1 0.040, ECE 0.848 · Stack Exchange ext_dev: acc 0.093, macro-F1 0.021, weighted-F1 0.016, ECE 0.907 |
-| Test metrics † | Wikipedia test: acc 0.152, macro-F1 0.033, weighted-F1 0.040, ECE 0.848 · Stack Exchange ext_test: acc 0.084, macro-F1 0.019, weighted-F1 0.013, ECE 0.916 |
+| Validation metrics | Wikipedia val: acc 0.154, macro-F1 0.034, weighted-F1 0.041, ECE 0.846 · Stack Exchange ext_dev: acc 0.148, macro-F1 0.032, weighted-F1 0.038, ECE 0.852 |
+| Test metrics † | Wikipedia test: acc 0.156, macro-F1 0.034, weighted-F1 0.042, ECE 0.844 · Stack Exchange ext_test: acc 0.149, macro-F1 0.032, weighted-F1 0.038, ECE 0.851 |
 | Training time | – |
 | Inference time | – |
 | Notes | – |
@@ -167,19 +167,34 @@ One card per trained general-topic model, in the format of the project brief. Pr
 | Notes | train-val macro-F1 gap 0.026 |
 | Decision | Not selected: best frozen encoder on Wikipedia val, not on questions; 4-5x slower and 3x larger than the small encoders. |
 
+### E-2.5 · `minilm-l6-ft|logreg`
+
+| field | value |
+|---|---|
+| Model | multinomial logistic regression, class_weight=balanced |
+| Features | all-MiniLM-L6-v2 fine-tuned on the training split (E-5), exported, 384-d |
+| Hyper-parameters | C=2.0 (chosen on val macro-F1; grid: C over {1, 4, 16} (TF-IDF) or {0.5, 2, 8, 32} (embeddings)) |
+| Train metrics | acc 0.954, macro-F1 0.954, weighted-F1 0.954, ECE 0.004 |
+| Validation metrics | Wikipedia val: acc 0.841, macro-F1 0.840, weighted-F1 0.842, ECE 0.083 · Stack Exchange ext_dev: acc 0.770, macro-F1 0.755, weighted-F1 0.770, ECE 0.134 |
+| Test metrics † | Wikipedia test: acc 0.834, macro-F1 0.833, weighted-F1 0.834, ECE 0.085 · Stack Exchange ext_test: acc 0.773, macro-F1 0.758, weighted-F1 0.773, ECE 0.133 |
+| Training time | 1.4 s head fit (embedding extraction is cached and not included) |
+| Inference time | median 15.8 ms / p95 21.0 ms per text, batch 6.41 ms/text; size 90.9 MB |
+| Notes | train-val macro-F1 gap 0.114 (memorises the training set) |
+| Decision | SELECTED (docs/MODEL_REPORT.md): best on Wikipedia val and on Stack Exchange ext_dev, smallest and fastest encoder. |
+
 ### E-5 · `finetune_minilm-l6`
 
 | field | value |
 |---|---|
 | Model | shared transformer encoder (mean pooling) + general head (class-weighted cross-entropy) + subtopic head (BCE) |
 | Features | sentence-transformers/all-MiniLM-L6-v2 embeddings (frozen, 384-d, L2-normalised), fine-tuned end to end |
-| Hyper-parameters | lr 5e-05, epochs 3 (best epoch by val macro-F1), batch 32, max 64 tokens, AdamW, linear warm-up; subtopic threshold 0.3 (val) |
-| Train metrics | per-epoch training loss: 0.9212, 0.4824, 0.3556 |
-| Validation metrics | Wikipedia val: acc 0.845, macro-F1 0.843, weighted-F1 0.845, ECE 0.069, subtopic macro-F1 0.489 · Stack Exchange ext_dev: acc 0.770, macro-F1 0.752, weighted-F1 0.766, ECE 0.115 |
-| Test metrics † | Wikipedia test: acc 0.830, macro-F1 0.829, weighted-F1 0.829, ECE 0.079 · Stack Exchange ext_test: acc 0.772, macro-F1 0.752, weighted-F1 0.769, ECE 0.111 |
-| Training time | 3074.1 s on cpu (epoch 1: 1061.0 s, epoch 2: 621.8 s, epoch 3: 1391.2 s) |
-| Inference time | median 13.0 ms per text; 90.9 MB |
-| Notes | val macro-F1 by epoch: 0.8326, 0.8381, 0.8428 |
+| Hyper-parameters | lr 5e-05, epochs 3 (best epoch by val macro-F1), batch 32, max 64 tokens, AdamW, linear warm-up; subtopic threshold 0.25 (val) |
+| Train metrics | per-epoch training loss: 0.918, 0.4784, 0.3498 |
+| Validation metrics | Wikipedia val: acc 0.838, macro-F1 0.837, weighted-F1 0.839, ECE 0.077, subtopic macro-F1 0.473 · Stack Exchange ext_dev: acc 0.771, macro-F1 0.758, weighted-F1 0.771, ECE 0.117 |
+| Test metrics † | Wikipedia test: acc 0.832, macro-F1 0.831, weighted-F1 0.833, ECE 0.078 · Stack Exchange ext_test: acc 0.775, macro-F1 0.761, weighted-F1 0.775, ECE 0.116 |
+| Training time | 1832.4 s on cpu (epoch 1: 659.6 s, epoch 2: 567.7 s, epoch 3: 605.1 s) |
+| Inference time | median 16.02 ms per text; 90.9 MB |
+| Notes | val macro-F1 by epoch: 0.8288, 0.8349, 0.8368 |
 | Decision | The fine-tuned encoder is exported and used with logistic-regression heads (row minilm-l6-ft above), which keeps the artifact format, temperature scaling and OOD gate of the frozen encoders. |
 
 ### E-5 · `finetune_minilm-l6.run1`

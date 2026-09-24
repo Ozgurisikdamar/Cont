@@ -15,7 +15,8 @@ Metrics per decay value:
   switch_lag       turns needed after a topic switch until the theme follows
   tangent_robust   share of tangent turns where the theme stays on the segment topic
   accumulation_3   P(all three topics of a Books -> Science -> Biology style
-                   3-message sequence of distinct topics are in the theme)
+                   3-message sequence of distinct topics are in the theme), with
+                   messages the model classified correctly and confidently
   spurious_topics  mean number of theme topics that are neither the current nor
                    the previous segment topic (noise let in by a low share)
 
@@ -56,7 +57,7 @@ P_TANGENT, P_OOD = 0.15, 0.10
 
 def predictions(model, texts: list[str]) -> tuple[np.ndarray, np.ndarray]:
     gp, _, ood = model.predict_proba(texts)
-    uncertain = (ood < model.ood_threshold) | (gp.max(axis=1) < model.min_confidence)
+    uncertain = model.uncertain_mask(texts, gp, ood)
     return gp, uncertain
 
 
@@ -144,9 +145,11 @@ def main() -> None:
         gp, unc = predictions(model, [normalize(t) for t in part.text])
         y = space.encode_general(part.general)
         # segment turns: every passage of the topic (uncertain ones get weight 0, as in the app);
-        # the accumulation probe: confident messages only (it tests the decay, not the classifier)
+        # the accumulation probe: messages the model classified correctly and confidently -
+        # it tests the decay, not the classifier (with all messages its ceiling is
+        # P(three correct predictions) ~ accuracy^3, whatever the decay).
         pools = {c: np.where(y == c)[0] for c in range(len(space.general_ids))}
-        confident = {c: np.where((y == c) & ~unc)[0] for c in range(len(space.general_ids))}
+        confident = {c: np.where((y == c) & ~unc & (gp.argmax(axis=1) == c))[0] for c in range(len(space.general_ids))}
         ood_gp, ood_unc = predictions(model, [normalize(t) for t in ood[ood.split == split].text])
         rows = [
             simulate(d, pools, confident, gp, unc, ood_gp, ood_unc, space.general_ids, m, RANDOM_SEED)

@@ -2,9 +2,10 @@
 
 The query is the composed theme phrase, optionally refined with up to
 ``max_keywords`` salient words from the latest message. Only words present in
-the public training vocabulary (``vocabulary``: word -> IDF) are eligible, so
-names, typos and other personal tokens a user types are never sent to the
-search provider. Words are ranked by IDF (rarer = more specific).
+the public training vocabulary (``vocabulary``: word -> keyword weight = IDF x
+topic concentration, see contextlens.models.training.build_vocabulary) are
+eligible, so names, typos and other personal tokens a user types are never
+sent to the search provider. Words are ranked by weight.
 """
 
 from __future__ import annotations
@@ -29,14 +30,20 @@ class SearchQuery:
         return [q for q in dict.fromkeys(ordered) if q][:MAX_QUERIES]
 
 
+def _stem(word: str) -> str:
+    """Crude plural folding so "novel" does not repeat "novels" in a query."""
+    return word[:-1] if len(word) > 3 and word.endswith("s") and not word.endswith("ss") else word
+
+
 def salient_keywords(message: str, vocabulary: dict[str, float], exclude: str, limit: int) -> list[str]:
-    excluded = set(content_words(exclude))
+    excluded = {_stem(w) for w in content_words(exclude)}
     seen: set[str] = set()
     candidates = []
     for word in content_words(message):
-        if word in excluded or word in seen or len(word) < MIN_KEYWORD_LENGTH or word not in vocabulary:
+        stem = _stem(word)
+        if stem in excluded or stem in seen or len(word) < MIN_KEYWORD_LENGTH or word not in vocabulary:
             continue
-        seen.add(word)
+        seen.add(stem)
         candidates.append(word)
     candidates.sort(key=lambda w: (-vocabulary[w], w))
     return candidates[:limit]

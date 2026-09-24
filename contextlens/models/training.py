@@ -57,11 +57,29 @@ def centroids_of(X: np.ndarray, y: np.ndarray, n_classes: int) -> np.ndarray:
     return cents / np.linalg.norm(cents, axis=1, keepdims=True)
 
 
-def build_vocabulary(texts: list[str], size: int) -> dict[str, float]:
-    """IDF of content words in the training corpus (used for query keywords)."""
+def build_vocabulary(texts: list[str], labels: np.ndarray, size: int) -> dict[str, float]:
+    """Keyword weight of content words in the training corpus (used for search-query keywords).
+
+    weight = IDF x topic concentration, where the concentration is the largest
+    class-size-normalised share of the word's documents in one general topic
+    (1/n_classes for a word spread evenly, 1.0 for a word of a single topic).
+    IDF alone favours words that are rare in an encyclopedia but generic in
+    conversation ("things", "carry"); the concentration keeps the topical ones.
+    """
     vec = TfidfVectorizer(stop_words="english", min_df=3, max_features=size, token_pattern=r"(?u)\b[a-z][a-z\-]+\b")  # noqa: S106
-    vec.fit(texts)
-    return {w: round(float(idf), 4) for w, idf in zip(vec.get_feature_names_out(), vec.idf_, strict=True)}
+    X = vec.fit_transform(texts)
+    present = (X > 0).astype(np.float64)
+    n_classes = int(labels.max()) + 1
+    # document frequency per class, normalised by class size -> P(class | word) up to a constant
+    per_class = np.vstack(
+        [
+            np.asarray(present[labels == c].sum(axis=0)).ravel() / max(int((labels == c).sum()), 1)
+            for c in range(n_classes)
+        ]
+    )
+    concentration = per_class.max(axis=0) / np.maximum(per_class.sum(axis=0), 1e-12)
+    weights = vec.idf_ * concentration
+    return {w: round(float(x), 4) for w, x in zip(vec.get_feature_names_out(), weights, strict=True)}
 
 
 def fit_topic_model(

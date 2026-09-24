@@ -56,22 +56,24 @@ def evaluate_split(model, space: LabelSpace, texts: list[str], yg: np.ndarray, Y
         out["subtopics_given_correct_general"] = multilabel_report(
             Ys[right], dec[right], cond[right], space.subtopic_ids
         )
-    out["deployed_gate"] = gate_summary(model, gp, ood, yg)
+    out["deployed_gate"] = gate_summary(model, texts, gp, ood, yg)
     out["_gp"] = gp
     return out
 
 
-def gate_summary(model, gp: np.ndarray, ood: np.ndarray, yg: np.ndarray | None = None) -> dict:
+def gate_summary(model, texts: list[str], gp: np.ndarray, ood: np.ndarray, yg: np.ndarray | None = None) -> dict:
     """What the user sees: share of texts answered 'uncertain' by the deployed rule
-    (OOD score below threshold OR calibrated confidence below min_confidence)."""
+    (OOD score below threshold OR calibrated confidence below min_confidence OR
+    not English)."""
     conf = gp.max(axis=1)
     by_ood, by_conf = ood < model.ood_threshold, conf < model.min_confidence
-    uncertain = by_ood | by_conf
+    uncertain = model.uncertain_mask(texts, gp, ood)
     out: dict = {
         "n": int(len(conf)),
         "uncertain_rate": round(float(uncertain.mean()), 4),
         "uncertain_by_ood_score": round(float(by_ood.mean()), 4),
         "uncertain_by_low_confidence": round(float(by_conf.mean()), 4),
+        "uncertain_by_language": round(float(np.mean([not model.looks_english(t) for t in texts])), 4),
     }
     if yg is not None:
         correct = gp.argmax(axis=1) == yg
@@ -269,13 +271,13 @@ def main() -> int:
         | {
             "id_kept": float(np.mean(res_test["ood_scores"] >= model.ood_threshold)),
             "ood_flagged": float(np.mean(ood_scores_wiki < model.ood_threshold)),
-            "deployed_gate": gate_summary(model, gp_ood_wiki, ood_scores_wiki),
+            "deployed_gate": gate_summary(model, ood_test, gp_ood_wiki, ood_scores_wiki),
         },
         "stackexchange": ood_report(res_se["ood_scores"], ood_scores_se)
         | {
             "id_kept": float(np.mean(res_se["ood_scores"] >= model.ood_threshold)),
             "ood_flagged": float(np.mean(ood_scores_se < model.ood_threshold)),
-            "deployed_gate": gate_summary(model, gp_ood_se, ood_scores_se),
+            "deployed_gate": gate_summary(model, se_ood, gp_ood_se, ood_scores_se),
         },
     }
     yg_test = space.encode_general(test.general)
@@ -286,9 +288,9 @@ def main() -> int:
     # --- error-analysis breakdowns (docs/ERROR_ANALYSIS.md) ---------------------------
     gp_se = res_se["_gp"]
     yg_se = space.encode_general(se_test.general)
-    unc_se = (res_se["ood_scores"] < model.ood_threshold) | (gp_se.max(axis=1) < model.min_confidence)
-    ood_wiki_flag = (ood_scores_wiki < model.ood_threshold) | (gp_ood_wiki.max(axis=1) < model.min_confidence)
-    ood_se_flag = (ood_scores_se < model.ood_threshold) | (gp_ood_se.max(axis=1) < model.min_confidence)
+    unc_se = model.uncertain_mask(s_texts, gp_se, res_se["ood_scores"])
+    ood_wiki_flag = model.uncertain_mask(ood_test, gp_ood_wiki, ood_scores_wiki)
+    ood_se_flag = model.uncertain_mask(se_ood, gp_ood_se, ood_scores_se)
     report["analysis"] = {
         "wiki_test_accuracy_by_words": by_group(
             res_test["_gp"].argmax(1) == yg_test, [length_bucket(t, (15, 25, 40)) for t in t_texts]

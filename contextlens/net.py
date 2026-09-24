@@ -60,7 +60,7 @@ def get_json(
             resp = sess.get(url, params=params, timeout=timeout)
         except (requests.Timeout, requests.ConnectionError) as exc:
             last_error = exc
-            log.warning("request to %s failed (%s), attempt %d", url, type(exc).__name__, attempt + 1)
+            log.info("request to %s failed (%s), attempt %d", url, type(exc).__name__, attempt + 1)
         else:
             if resp.status_code == 200:
                 if len(resp.content) > MAX_RESPONSE_BYTES:
@@ -72,7 +72,7 @@ def get_json(
             last_error = NetworkError(f"HTTP {resp.status_code} from {url}", status=resp.status_code)
             if resp.status_code not in RETRYABLE_STATUS:
                 raise last_error
-            log.warning("HTTP %s from %s, attempt %d", resp.status_code, url, attempt + 1)
+            log.info("HTTP %s from %s, attempt %d", resp.status_code, url, attempt + 1)
             retry_after = resp.headers.get("Retry-After")
             if retry_after and retry_after.isdigit() and attempt < retries:
                 sleep(min(float(retry_after), MAX_RETRY_AFTER_SECONDS))

@@ -120,6 +120,7 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
             "subtopic_threshold": model.subtopic_threshold,
             "ood_threshold": model.ood_threshold,
             "min_confidence": model.min_confidence,
+            "min_known_word_share": model.min_known_word_share,
             "encoder_probe": encoder_probe(model.encoder),
             "checksums": {name: sha256_file(directory / name) for name in CHECKSUMMED_FILES},
         }
@@ -193,7 +194,16 @@ def load_artifact(
         metadata=meta,
         max_subtopics=max_subtopics,
         head_type=heads["head_type"],
+        known_words=known_words(directory),
+        min_known_word_share=float(meta.get("min_known_word_share", 0.4)),
     )
+
+
+def known_words(directory: Path) -> frozenset[str]:
+    """Training vocabulary + English stop words (the language gate's word list)."""
+    from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
+
+    return frozenset(load_vocabulary(directory)) | frozenset(ENGLISH_STOP_WORDS)
 
 
 def load_vocabulary(directory: Path) -> dict[str, float]:
