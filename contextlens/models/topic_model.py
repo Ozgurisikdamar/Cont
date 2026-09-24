@@ -17,7 +17,6 @@ Artifacts are written by ``train.py`` and loaded with integrity checks (see
 from __future__ import annotations
 
 import logging
-import re
 import time
 from dataclasses import dataclass, field
 from typing import Any
@@ -25,11 +24,11 @@ from typing import Any
 import numpy as np
 
 from contextlens.models.heads import FlatSubtopicSoftmax, HierarchicalSubtopics, calibrated_softmax, grouped_probs
-from contextlens.preprocessing.text import is_informative, normalize
+from contextlens.preprocessing.text import is_informative, needs_language_check, normalize
 
 log = logging.getLogger(__name__)
 
-WORD = re.compile(r"[^\W\d_]+")
+NOT_ENGLISH = "not English - ContextLens analyses English text only"
 
 
 @dataclass(frozen=True)
@@ -41,7 +40,7 @@ class SubtopicScore:
 @dataclass(frozen=True)
 class Prediction:
     text: str
-    status: str  # "ok" | "uncertain" | "uninformative"
+    status: str  # "ok" | "uncertain" | "non_english" | "uninformative"
     general: str | None
     confidence: float  # calibrated P(general)
     general_probs: dict[str, float]
@@ -71,11 +70,9 @@ class TopicModel:
     metadata: dict = field(default_factory=dict)
     max_subtopics: int = 3  # at most this many subtopics are reported per text
     head_type: str = "hierarchical"  # "hierarchical" | "flat_softmax" (docs/EXPERIMENTS.md, E-7)
-    # Language gate: English words known to the model (training vocabulary + stop
-    # words). A text of >= 3 words of which fewer than this share are known is
-    # answered "uncertain" (decisions.md D-29). Empty set = gate off.
-    known_words: frozenset[str] = frozenset()
-    min_known_word_share: float = 0.4
+    # Language gate (contextlens.models.language.LanguageGate, decisions.md D-30):
+    # any object with is_english(text) -> bool. None = gate off.
+    language_gate: Any = None
 
     @property
     def sub_index(self) -> dict[str, int]:
@@ -104,13 +101,8 @@ class TopicModel:
         return general, conditional, ood
 
     def looks_english(self, text: str) -> bool:
-        """False when most words of a (normalised) text are unknown English words."""
-        if not self.known_words:
-            return True
-        words = [w for w in WORD.findall(text.lower()) if len(w) >= 2]
-        if len(words) < 3:
-            return True
-        return sum(w in self.known_words for w in words) / len(words) >= self.min_known_word_share
+        """False when the language gate is confident the (normalised) text is not English."""
+        return True if self.language_gate is None else bool(self.language_gate.is_english(text))
 
     def uncertain_mask(self, texts: list[str], general: np.ndarray, ood: np.ndarray) -> np.ndarray:
         """The deployed "uncertain" rule for a batch (used by evaluation and decay tuning)."""
@@ -122,11 +114,21 @@ class TopicModel:
 
     def predict_many(self, texts: list[str]) -> list[Prediction]:
         cleaned = [normalize(t) for t in texts]
-        informative = [i for i, t in enumerate(cleaned) if is_informative(t)]
         results: list[Prediction | None] = [None] * len(texts)
+        informative = []
         for i, t in enumerate(cleaned):
-            if i not in informative:
+            # Order matters: a text of English stop words only is uninformative, a
+            # text in another language (in any script) is "non_english" - it must
+            # not be reported as "nothing to analyse" - and only English text with
+            # content words reaches the classifier.
+            if not needs_language_check(t):
                 results[i] = Prediction(t, "uninformative", None, 0.0, {}, (), {}, 0.0, ("no content words",))
+            elif not self.looks_english(t):
+                results[i] = Prediction(t, "non_english", None, 0.0, {}, (), {}, 0.0, (NOT_ENGLISH,))
+            elif not is_informative(t):
+                results[i] = Prediction(t, "uninformative", None, 0.0, {}, (), {}, 0.0, ("no content words",))
+            else:
+                informative.append(i)
         if informative:
             t0 = time.perf_counter()
             general, conditional, ood = self.predict_proba([cleaned[i] for i in informative])
@@ -145,8 +147,6 @@ class TopicModel:
             reasons.append("far from all training topics (possible out-of-taxonomy input)")
         if gp[g] < self.min_confidence:
             reasons.append(f"low confidence ({gp[g]:.0%})")
-        if not self.looks_english(text):
-            reasons.append("does not look like English (the model covers English only)")
         joint = gp[self.parent_col] * cond
         return Prediction(
             text=text,

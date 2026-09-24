@@ -48,6 +48,12 @@ def render_turn(result: TurnResult, tax_display: Callable[[str], str], print_: C
         print_("\nNothing topical to analyse - please type a sentence about a subject.")
         return
     print_("\n[Text analysis]")
+    if pred.status == "non_english":
+        print_("Language      : not English - ContextLens analyses English text only.")
+        print_("                This message was not added to the conversation theme.")
+        print_("\n[Conversation]")
+        print_(f"Theme         : {result.theme.label}")
+        return
     print_(f"General topic : {tax_display(pred.general or '')}")
     print_(f"Confidence    : {pct(pred.confidence)}")
     print_("Subtopics     :")

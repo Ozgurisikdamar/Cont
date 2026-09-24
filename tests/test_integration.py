@@ -281,15 +281,63 @@ def test_empty_batch_is_handled(fake_model):
     assert fake_model.predict_many([]) == []
 
 
+class _FakeLangId:
+    """fastText stand-in: Turkish when a word ends in -iyor/-ecegim, else English."""
+
+    def predict(self, text, k=1):
+        tr = any(w.endswith(("iyor", "ecegim", "cegim")) for w in text.lower().split())
+        return (["__label__tr"], [0.95]) if tr else (["__label__en"], [0.9])
+
+
+def _gate(lexicon=("quantum", "qubits", "processors")):
+    from contextlens.models.language import LanguageGate
+
+    return LanguageGate(_FakeLangId(), frozenset(lexicon), {"1": 0.5, "2": 0.5, "3": 0.3, "4+": 0.3})
+
+
 def test_language_gate_flags_non_english_text(fake_model):
-    words = frozenset("quantum processors can speed up certain algorithms by using qubits the a of".split())
-    model = dataclasses.replace(fake_model, known_words=words)
+    model = dataclasses.replace(fake_model, language_gate=_gate())
     assert model.looks_english("Quantum processors can speed up certain algorithms by using qubits.")
-    assert not model.looks_english("bu aksam arkadaslarimla sinemaya gidecegim")
-    assert model.looks_english("qubit")  # fewer than three words: gate does not apply
-    p = model.predict("bu aksam arkadaslarimla sinemaya gidecegim")
-    assert p.status == "uncertain" and any("English" in r for r in p.reasons)
-    assert dataclasses.replace(fake_model, known_words=frozenset()).looks_english("bu aksam sinemaya")
+    assert not model.looks_english("bu aksam sinemaya gidecegim")
+    p = model.predict("bu aksam sinemaya gidecegim")
+    assert p.status == "non_english" and p.uncertain and p.general is None
+    assert any("English" in r for r in p.reasons)
+    assert dataclasses.replace(fake_model, language_gate=None).looks_english("bu aksam sinemaya gidecegim")
+
+
+def test_language_gate_trusts_the_lexicon_over_the_identifier(fake_model):
+    model = dataclasses.replace(fake_model, language_gate=_gate(lexicon=("geliyor",)))
+    assert model.looks_english("geliyor")  # every word is a known English-corpus word
+
+
+def test_text_in_another_script_is_non_english_not_uninformative(fake_model):
+    class Cyrillic:
+        def predict(self, text, k=1):
+            return (["__label__ru"], [0.99])
+
+    from contextlens.models.language import LanguageGate
+
+    model = dataclasses.replace(fake_model, language_gate=LanguageGate(Cyrillic(), frozenset(), {"4+": 0.3, "2": 0.5}))
+    assert model.predict("привет мир").status == "non_english"
+    assert model.predict("the and of").status == "uninformative"  # English stop words only
+
+
+def test_language_gate_round_trips_through_the_artifact(fake_model, tmp_path):
+    from contextlens.models.language import FASTTEXT_MODEL
+
+    if not FASTTEXT_MODEL.exists():
+        pytest.skip("fastText lid.176.ftz not downloaded")
+    from contextlens.models.language import LanguageGate, load_fasttext
+
+    gate = LanguageGate(load_fasttext(FASTTEXT_MODEL), frozenset({"qubit"}), {"1": 0.5, "2": 0.5, "3": 0.3, "4+": 0.3})
+    out = tmp_path / "model"
+    save_artifact(dataclasses.replace(fake_model, language_gate=gate), out, {}, save_encoder=False)
+    loaded = load_artifact(out, encoder=FakeEncoder())
+    assert loaded.language_gate.reject_confidence == gate.reject_confidence
+    assert loaded.language_gate.lexicon == frozenset({"qubit"})
+    (out / "lexicon.txt").write_text("qubit\nmerhaba\n")
+    with pytest.raises(ArtifactError, match="checksum mismatch"):
+        load_artifact(out, encoder=FakeEncoder())
 
 
 def _artifact_with_encoder_dir(fake_model, tmp_path):

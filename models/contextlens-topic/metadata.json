@@ -12,7 +12,15 @@
     "subtopic_C": 8.0,
     "ood_keep_quantile": 0.05,
     "ood_calibration": "se_ext_dev",
-    "min_known_word_share": 0.4
+    "language_gate": {
+      "method": "fasttext lid.176 + training-split lexicon (scripts/language_gate_experiment.py)",
+      "reject_confidence": {
+        "1": 0.5,
+        "2": 0.5,
+        "3": 0.3,
+        "4+": 0.3
+      }
+    }
   },
   "preprocessing": "contextlens.preprocessing.text.normalize (NFKC, HTML/URL/mention removal, no lower-casing)",
   "train_seconds": 217.8,
@@ -571,9 +579,10 @@
   "checksums": {
     "heads.skops": "fcf0c2285cc2a85914c0f276d522aaed2fa2ee595cecf3c2fa279c78aeebb59b",
     "centroids.npy": "bc86e4edb097857912f34981df6306745816c9c1823d4976aebf3948ca6e7012",
-    "vocabulary.json": "c781a737b509244d14d3a19debe112456e139f720206e2c401c3f7a035dccf4b"
+    "vocabulary.json": "c781a737b509244d14d3a19debe112456e139f720206e2c401c3f7a035dccf4b",
+    "lexicon.txt": "8920b8eb9c23a78689db4e746fc9fe2a0adee2f74a9562382805ec1e8630e27d",
+    "langid.ftz": "8f3472cfe8738a7b6099e8e999c3cbfae0dcd15696aac7d7738a8039db603e83"
   },
-  "min_known_word_share": 0.4,
   "encoder_manifest": [
     {
       "path": "1_Pooling/config.json",
@@ -630,5 +639,13 @@
       "size": 231508,
       "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
     }
-  ]
+  ],
+  "language_gate": {
+    "reject_confidence": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.3,
+      "4+": 0.3
+    }
+  }
 }

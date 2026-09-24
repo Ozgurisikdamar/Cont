@@ -8,6 +8,8 @@ Layout of ``models/contextlens-topic/``::
     heads.skops        general head + subtopic heads (skops, not pickle)
     centroids.npy      class centroids for the OOD gate (allow_pickle=False)
     vocabulary.json    word -> IDF, used to pick query keywords
+    lexicon.txt        English word types of the training split (language gate)
+    langid.ftz         fastText lid.176 language identifier (language gate)
     encoder/           local copy of the sentence encoder (safetensors); every
                        file is listed in metadata.json -> encoder_manifest
                        (relative path, size, SHA-256)
@@ -25,6 +27,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -33,6 +36,7 @@ import skops.io as sio
 
 from contextlens.models.encoders import ENCODERS, SentenceEncoder
 from contextlens.models.heads import FlatSubtopicSoftmax, HierarchicalSubtopics, MultiLabelHead
+from contextlens.models.language import LanguageGate, load_fasttext, read_lexicon, write_lexicon
 from contextlens.models.topic_model import TopicModel
 
 log = logging.getLogger(__name__)
@@ -48,6 +52,7 @@ TRUSTED_TYPES = {
     "builtins.str",
 }
 CHECKSUMMED_FILES = ("heads.skops", "centroids.npy", "vocabulary.json")
+LANGUAGE_FILES = ("lexicon.txt", "langid.ftz")  # checksummed when present
 
 # Encoder fingerprint: the heads only make sense on the embeddings they were
 # trained on. Loading a different encoder (e.g. the Hub base model instead of the
@@ -142,6 +147,10 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
     sio.dump(heads, directory / "heads.skops")
     np.save(directory / "centroids.npy", model.centroids.astype(np.float32), allow_pickle=False)
     (directory / "vocabulary.json").write_text(json.dumps(vocabulary, sort_keys=True), encoding="utf-8")
+    gate = model.language_gate
+    if gate is not None:
+        write_lexicon(gate.lexicon, directory / "lexicon.txt")
+        shutil.copyfile(gate.source, directory / "langid.ftz")
     if save_encoder:
         model.encoder.save(directory / "encoder")
     meta = dict(model.metadata)
@@ -157,9 +166,12 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
             "subtopic_threshold": model.subtopic_threshold,
             "ood_threshold": model.ood_threshold,
             "min_confidence": model.min_confidence,
-            "min_known_word_share": model.min_known_word_share,
+            "language_gate": None if gate is None else {"reject_confidence": gate.reject_confidence},
             "encoder_probe": encoder_probe(model.encoder),
-            "checksums": {name: sha256_file(directory / name) for name in CHECKSUMMED_FILES},
+            "checksums": {
+                name: sha256_file(directory / name)
+                for name in (*CHECKSUMMED_FILES, *(LANGUAGE_FILES if gate is not None else ()))
+            },
         }
     )
     (directory / "metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
@@ -199,7 +211,8 @@ def load_artifact(
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         raise ArtifactError(f"cannot read {meta_path}: {exc}") from exc
-    for name in CHECKSUMMED_FILES:
+    gate_meta = meta.get("language_gate")
+    for name in (*CHECKSUMMED_FILES, *(LANGUAGE_FILES if gate_meta else ())):
         path = directory / name
         if not path.exists():
             raise ArtifactError(f"artifact file missing: {path}\n{HOW_TO_BUILD}")
@@ -234,8 +247,23 @@ def load_artifact(
         metadata=meta,
         max_subtopics=max_subtopics,
         head_type=heads["head_type"],
-        known_words=known_words(directory),
-        min_known_word_share=float(meta.get("min_known_word_share", 0.4)),
+        language_gate=_load_language_gate(directory, gate_meta),
+    )
+
+
+def _load_language_gate(directory: Path, gate_meta: Any) -> LanguageGate | None:
+    if not gate_meta:
+        log.warning("the artifact has no language gate; non-English text will be classified")
+        return None
+    try:
+        model = load_fasttext(directory / "langid.ftz")
+    except (OSError, ValueError, ImportError) as exc:
+        raise ArtifactError(f"cannot load the language identifier: {exc}\n{HOW_TO_BUILD}") from exc
+    return LanguageGate(
+        model,
+        read_lexicon(directory / "lexicon.txt"),
+        {str(k): float(v) for k, v in gate_meta["reject_confidence"].items()},
+        source=directory / "langid.ftz",
     )
 
 

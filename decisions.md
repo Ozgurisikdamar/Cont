@@ -283,7 +283,7 @@ theme topics per turn and a 1.3-turn lag after a topic switch
 the classifier's accuracy³ (~0.67) whatever the decay; it now draws correctly
 and confidently classified passages — it measures the decay, not the model.
 
-## D-29 · Language gate
+## D-29 · Language gate (superseded by D-30)
 **Decision.** A text of ≥ 3 words of which < 40% are known English words
 (training vocabulary + stop words) is answered *uncertain*.
 **Why.** The centroid gate did not catch non-English text (a Turkish sentence
@@ -293,3 +293,37 @@ ext_dev questions; Turkish, German, Spanish and French example sentences score
 0.00–0.33.
 **Alternatives.** A language-identification model (another dependency for a
 one-language system); character n-gram heuristics (less transparent).
+
+## D-30 · Language gate: fastText lid.176 + training lexicon, per-length thresholds (replaces D-29)
+**Decision.** A text is *non-English* (new status `non_english`, reported as
+"not English", never classified) when fastText lid.176's top language is not
+English with probability ≥ c(n) **and** at least one of its words is outside
+the lexicon of the Wikipedia training split (46,488 word types). c = 0.5 for
+1–2 words, 0.3 for 3 and more. The check runs before the informativeness
+check, so a text in another script is reported as non-English rather than
+"nothing to analyse"; a text of English stop words only stays uninformative.
+**Why.** D-29's gate skipped texts of fewer than 3 words and rejected only
+39.6% of non-English dev texts. On the dev half of a Tatoeba set (18
+languages, full sentences and 1/2/3-word cuts) plus 2,000 in-domain English
+texts, `reports/experiments/language_gate.json`:
+
+| words | English accepted (Tatoeba / in-domain) | non-English rejected, D-29 → D-30 |
+|---|---|---|
+| 1 | 0.998 / 0.993 | 0.000 → 0.505 |
+| 2 | 0.997 / 0.991 | 0.000 → 0.755 |
+| 3 | 0.996 / 0.991 | 0.790 → 0.932 |
+| ≥ 4 | 0.999 / 1.000 | 0.866 → 0.986 |
+| all | 0.997 / 0.994 | 0.396 → 0.788 |
+
+Selection rule: per length bucket, highest balanced accuracy subject to ≥ 0.99
+English acceptance on both English sets. Plain classifiers could not meet the
+English constraint at every length (best balanced accuracy: fastText 0.938,
+py3langid 0.867, lingua 0.850 — but in-domain one-word English acceptance
+0.63 or lower): one or two words are often ambiguous ("Tom", "La", "Die"),
+and rare English terms ("titration": French 0.998) are what a character
+n-gram model gets wrong and a lexicon gets right. 0.015 ms per text, 0.9 MB.
+**Alternatives.** lingua (96 MB, weaker on short text), py3langid (weak on
+short text; its package pins numpy ≥ 2, which conflicts with the pinned 1.26),
+a per-word dictionary vote (no source of foreign vocabulary without new data).
+**Limits.** Single words are only half caught; "guten tag" (German 0.49) passes
+the gate. The locked Tatoeba half is evaluated once after the model freeze.

@@ -17,7 +17,15 @@
     0.6
   ],
   "min_confidence_min_coverage": 0.9,
-  "min_known_word_share": 0.4,
   "vocabulary_size": 40000,
-  "selection_note": "Encoder: fine-tuned all-MiniLM-L6-v2 (best on Wikipedia val and Stack Exchange ext_dev, smallest, fastest). Head: flat subtopic softmax (won E-7 on val and ext_dev for every encoder). OOD threshold calibrated on real questions (E-9). min_confidence: largest grid value keeping >= 90% of ext_dev questions answered. Language gate: 0.4 known-word share (D-29). See decisions.md D-22..D-29 and docs/MODEL_REPORT.md."
+  "selection_note": "Encoder: fine-tuned all-MiniLM-L6-v2 (best on Wikipedia val and Stack Exchange ext_dev, smallest, fastest). Head: flat subtopic softmax (won E-7 on val and ext_dev for every encoder). OOD threshold calibrated on real questions (E-9). min_confidence: largest grid value keeping >= 90% of ext_dev questions answered. Language gate: fastText lid.176 + lexicon, per-length reject confidence chosen on dev (D-30). See decisions.md D-22..D-29 and docs/MODEL_REPORT.md.",
+  "language_gate": {
+    "method": "fasttext lid.176 + training-split lexicon (scripts/language_gate_experiment.py)",
+    "reject_confidence": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.3,
+      "4+": 0.3
+    }
+  }
 }

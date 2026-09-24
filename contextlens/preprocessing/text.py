@@ -28,6 +28,9 @@ _HASHTAG = re.compile(r"(?<!\w)#(\w+)")
 _HTML_TAG = re.compile(r"<[^>]{1,200}>")
 _WORD = re.compile(r"[a-z][a-z'\-]*")
 _SPACES = re.compile(r"\s+")
+# Words in any script (letters only, apostrophes inside a word kept), used by the
+# language gate; _WORD above is the ASCII tokenizer of the English model.
+WORD_RE = re.compile(r"[^\W\d_]+(?:['\u2019][^\W\d_]+)*")
 
 MAX_INPUT_CHARS = 5000
 
@@ -62,3 +65,18 @@ def content_words(text: str) -> list[str]:
 def is_informative(text: str) -> bool:
     """False for empty, punctuation-only, numeric-only or stop-word-only input."""
     return bool(content_words(text))
+
+
+def letter_words(text: str) -> list[str]:
+    """Lower-cased words in any script (no digits or symbols)."""
+    return WORD_RE.findall(normalize(text, lowercase=True))
+
+
+def needs_language_check(text: str) -> bool:
+    """True when a text has at least one word that is not an English stop word.
+
+    Texts made only of English stop words ("what is it") are uninformative, not
+    foreign; texts in another script ("привет мир") have no English content words
+    but must still reach the language gate so the user learns why they got no
+    topic."""
+    return any(w not in ENGLISH_STOP_WORDS for w in letter_words(text))

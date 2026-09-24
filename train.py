@@ -28,6 +28,13 @@ from contextlens.evaluation.metrics import multiclass_report
 from contextlens.logging_setup import setup_logging
 from contextlens.models.artifact import save_artifact
 from contextlens.models.encoders import ENCODERS, SentenceEncoder
+from contextlens.models.language import (
+    FASTTEXT_MODEL,
+    LanguageGate,
+    build_lexicon,
+    ensure_fasttext_model,
+    load_fasttext,
+)
 from contextlens.models.training import TrainConfig, build_vocabulary, fit_topic_model
 from contextlens.preprocessing.text import normalize
 from contextlens.reproducibility import seed_everything
@@ -115,7 +122,15 @@ def main(argv: list[str] | None = None) -> int:
         model.min_confidence = float(max(ok)) if ok else float(min(conf["min_confidence_grid"]))
         log.info("min_confidence=%.2f (sweep on ext_dev: %s)", model.min_confidence, min_conf_sweep)
 
-    model.min_known_word_share = float(conf.get("min_known_word_share", 0.4))
+    # Language gate (decisions.md D-30): thresholds chosen on dev data by
+    # scripts/language_gate_experiment.py and recorded in configs/model.json.
+    ft_path = ensure_fasttext_model(FASTTEXT_MODEL)
+    model.language_gate = LanguageGate(
+        load_fasttext(ft_path),
+        build_lexicon(train[0]),
+        {k: float(v) for k, v in conf["language_gate"]["reject_confidence"].items()},
+        source=ft_path,
+    )
 
     gp_test, _, _ = model.predict_proba(test[0])
     test_report = multiclass_report(test[1], gp_test, space.general_ids)
@@ -135,7 +150,7 @@ def main(argv: list[str] | None = None) -> int:
             "subtopic_C": cfg.subtopic_C,
             "ood_keep_quantile": cfg.ood_keep_quantile,
             "ood_calibration": ood_calibration,
-            "min_known_word_share": model.min_known_word_share,
+            "language_gate": conf["language_gate"],
         },
         "preprocessing": "contextlens.preprocessing.text.normalize (NFKC, HTML/URL/mention removal, no lower-casing)",
         "train_seconds": round(train_seconds, 1),
