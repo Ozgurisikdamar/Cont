@@ -1,3 +1,2 @@
 All checks passed!
-ruff exit 0
-71 files already formatted
+82 files already formatted
