@@ -18,7 +18,7 @@ RANDOM_SEED = 42
 
 # User agent sent to every third-party HTTP service (Wikimedia policy requires a
 # descriptive UA with contact information).
-USER_AGENT = "ContextLensNLP/1.0 (https://github.com/Ozgurisikdamar/Cont)"
+USER_AGENT = "ContextLensNLP/1.0 (https://github.com/Ozgurisikdamar/ContexLens-NLP)"
 
 
 @dataclass(frozen=True)

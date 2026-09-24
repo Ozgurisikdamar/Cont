@@ -158,7 +158,7 @@ The full comparison: [docs/MODEL_REPORT.md](docs/MODEL_REPORT.md) · every exper
 Python 3.11, CPU is enough (a GPU is used automatically when present).
 
 ```bash
-git clone https://github.com/Ozgurisikdamar/Cont.git && cd Cont
+git clone https://github.com/Ozgurisikdamar/ContexLens-NLP.git && cd ContexLens-NLP
 python -m venv .venv && . .venv/bin/activate
 pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1   # CPU build, avoids CUDA wheels
 pip install -r requirements.txt                 # runtime + training
