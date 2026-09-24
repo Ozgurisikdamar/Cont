@@ -64,10 +64,35 @@ Status of the work, sprint by sprint. The detailed "why" of each choice is in
 - With results: README, MODEL_REPORT, MODEL_CARD, EXPERIMENTS, ERROR_ANALYSIS,
   TEST_REPORT, FINAL_REPORT, KNOWN_ISSUES, PROJECT_STATE, handover.
 
+## S9 — Hardening pass (v1.1.0) ✅
+Every audit item has its own commit and a row in `docs/HARDENING.md`.
+- Encoder files covered by a SHA-256 manifest; loader refuses missing, changed
+  or extra files.
+- Network tests split into resilience (`network`) and live smoke
+  (`network_live`).
+- Language gate: fastText lid.176 + training lexicon, per-length thresholds on
+  the Tatoeba dev half; new `non_english` status (D-30).
+- Tracker: context expires after 4 unconfident turns, dominant topic changes
+  after 2 agreeing confident turns; tuned on validation conversations (D-31).
+- 310-passage label audit with Wilson CIs; Science root cause →
+  taxonomy 1.2.0, corpus relabelled, MiniLM fine-tuned again (D-32).
+- Subtopic heads compared (softmax / one-vs-rest / per-parent sigmoid): softmax
+  kept, objective renamed "primary subtopic + secondary sibling suggestions" (D-33).
+- Off-topic: CLINC150 chat added; seven detectors compared on dev; Mahalanobis
+  gate (D-34).
+- CI workflow (manual trigger; Actions billing blocks automatic runs) +
+  `scripts/ci.sh` (D-35).
+- Locked holdout built before any v1.1 decision, freeze fingerprint, evaluated
+  once after the freeze (run 2 after a data-partition fix, run 1 archived, D-36).
+- Repository renamed to `ContexLens`; documentation regenerated from `reports/`;
+  benchmark rerun on the 1.2.0 corpus (development splits only).
+
 ## Backlog (not planned for v1)
 - E-6: fine-tune e5-small-v2 and compare on ext_dev.
-- Rework the Science class; explicit off-topic class trained on real data.
+- Allow a second general topic ("Physics + history") for history-of-a-field questions.
+- Human-labelled off-topic chat from real users and a detector trained on it.
 - Re-embed with a newer Wikipedia snapshot when one is published on the Hub.
 - Human-annotated conversational test set (the Stack Exchange titles are questions,
-  not chat turns).
+  CLINC150 is assistant commands) and a human re-annotation of the audit's weak list.
+- Enable automatic CI triggers once the account has Actions minutes.
 - More providers for key-less search; per-user search opt-out setting.

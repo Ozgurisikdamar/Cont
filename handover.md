@@ -41,13 +41,28 @@ backlog at the end of `sprints.md`.
    `data/processed/embeddings/` (keyed by content hash), so re-running a section
    is cheap.
 
+8. **Locked data is read once.** `evaluate.py --stage locked` needs
+   `reports/locked/FREEZE.json`; files in the fingerprint (`configs/*.json`,
+   `contextlens/config.py`, passages, artifact metadata, locked manifest) must
+   not change afterwards. Stack Exchange views are independent flags — the one
+   partition bug of this project was an exclusive field (D-36).
+9. **Actions never start on this account** (billing): the workflow is manual
+   only; run `bash scripts/ci.sh` locally.
+10. **Monitor-type watchers expire after a few minutes;** for runs of an hour
+   use a background shell that waits and writes a log line.
+11. **Embedding caches are keyed by the whole split's text hash:** a relabel
+   that drops passages re-encodes the whole split for every encoder (~1.5 h for
+   the full benchmark on 4 vCPU).
+
 ## 4. How to continue
 
 ```bash
 . .venv/bin/activate
 pytest -q                          # offline suite
 pytest -q -m model                 # needs models/contextlens-topic
+bash scripts/ci.sh                 # lint + types + offline + model tests
 python scripts/report_tables.py    # regenerate reports/tables.md
+python evaluate.py --stage dev     # development evaluation (never --stage locked again without a D-entry)
 ```
 
 ## 5. Session log
@@ -81,3 +96,19 @@ python scripts/report_tables.py    # regenerate reports/tables.md
 - The superseded v1.0 artifact (45 MB) was removed from git history on the
   owner's request (filter-branch on the two commits before the final model,
   force push); the working tree did not change.
+
+### 2026-09-24 (hardening) — v1.1.0
+- Applied the final-hardening brief item by item (docs/HARDENING.md, D-30 …
+  D-36): encoder manifest, network test split, fastText language gate, tracker
+  expiry + hysteresis, 310-passage audit, taxonomy 1.2.0 (Science root cause),
+  head comparison, seven off-topic detectors, CI, locked holdout + freeze.
+- Locked evaluation ran twice: run 1 dropped Stack Exchange questions that
+  belonged to both views (exclusive field). Repaired offline, re-frozen, run 2
+  recorded with its reason; run 1 kept next to it.
+- hsm accuracy 0.19 on the locked set: reported, not tuned.
+- Repository renamed twice (ContexLens-NLP, then ContexLens); GitHub redirects
+  the old names to the same refs. The HTTP User-Agent still names
+  ContexLens-NLP because `contextlens/config.py` is in the frozen fingerprint.
+- Benchmark rerun on the 1.2.0 corpus after the freeze, development splits
+  only; it does not change the frozen selection.
+
