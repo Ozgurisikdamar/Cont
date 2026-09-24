@@ -53,12 +53,12 @@ and the final choice are in [MODEL_REPORT.md](MODEL_REPORT.md).
 
 | id | outcome | decision |
 |---|---|---|
-| E-0 | macro-F1 0.03 | floor |
-| E-1 | 0.79–0.80 on Wikipedia, 0.59–0.64 on questions; train macro-F1 0.95–1.00 | lexical models rejected (no transfer) |
-| E-2 | 0.81–0.84 / 0.68–0.74; mpnet best on Wikipedia, e5/bge best on questions | embeddings, selection must look at questions |
-| E-3 | ≤ 0.71 / 0.64 | rejected |
-| E-4 | 0.62 / 0.51, ~2 s per text | rejected |
-| E-5 | 0.843 / 0.752, 13 ms per text | **selected encoder** (D-22) |
+| E-0 | macro-F1 0.035 / 0.021 | floor |
+| E-1 | 0.80–0.81 on Wikipedia, 0.59–0.64 on questions; train macro-F1 0.94–1.00 | lexical models rejected (no transfer) |
+| E-2 | 0.83–0.85 / 0.71–0.75; mpnet best on Wikipedia, e5/bge best on questions | embeddings, selection must look at questions |
+| E-3 | ≤ 0.73 / 0.64 | rejected |
+| E-4 | 0.62 / 0.51, ~2 s per text (v1.0 labels, not rerun) | rejected |
+| E-5 | v1.0 labels 0.843 / 0.752; taxonomy 1.2.0 0.848 / 0.749 with the production LR head, 13.5 ms per text | **selected encoder** (D-22); confirmed by the 1.2.0 rerun on tie-breakers |
 | E-6 | **not run** — dropped when the owner decided to proceed with MiniLM after E-5 | – |
 | E-7 | H3 flat softmax best for every encoder | **selected head** (D-23) |
 | E-8 | temperature scaling never raises ECE | applied |
