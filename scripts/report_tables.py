@@ -22,8 +22,10 @@ EXP = PATHS.reports / "experiments"
 
 
 # Partial re-runs write <section><suffix>.json (run_experiments.py --out-suffix);
-# "_ft" holds the runs with the fine-tuned encoder. They are merged into one table.
-SUFFIXES = ("", "_ft")
+# "_ft" holds runs with the fine-tuned encoder, "_latency_idle" a re-run on an idle
+# machine of a row whose latency was measured while other jobs used the CPU.
+# Later suffixes override earlier ones row by row.
+SUFFIXES = ("", "_ft", "_latency_idle")
 
 
 def load(name: str) -> dict | None:

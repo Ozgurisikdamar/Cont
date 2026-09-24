@@ -1,150 +1,171 @@
-# Model report
+# Model report — v1.1.0
 
 Which model ContextLens uses and why. Every number is copied from
 `reports/experiments/*.json` (rendered in `reports/tables.md` and, one card per
-model, `reports/experiment_log.md` by `scripts/report_tables.py`) or from
-`reports/evaluation.json` (the final model, `evaluate.py`). Protocol and
-experiment registry: [EXPERIMENTS.md](EXPERIMENTS.md).
+model, `reports/experiment_log.md` by `scripts/report_tables.py`) or from the
+locked evaluation (`reports/locked/results.json`). Protocol and experiment
+registry: [EXPERIMENTS.md](EXPERIMENTS.md).
 
 **Selection rule.** Hyper-parameters on Wikipedia *val*; model families on *val*
 **and** Stack Exchange *ext_dev* (real questions — the input the application
-actually receives). *test* and *ext_test* are reported, never used to choose.
-Tie-breakers: latency, size, calibration.
+actually receives). Tie-breakers: latency, size, calibration. No test data is
+read by any development script; the final model is measured once on the
+locked holdout (§6).
 
-## 1. Result in one table (general topic, macro-F1)
+**Timeline.** The encoder was chosen in v1.0 (D-22) and fine-tuned again on
+taxonomy 1.2.0 before the freeze. The benchmark below was **rerun on the 1.2.0
+corpus after the freeze**, development splits only, so that the tables describe
+the data the model was trained on; §1 checks that the rerun does not overturn
+the frozen choice.
+
+## 1. Result in one table (general topic, macro-F1, taxonomy 1.2.0)
 
 | model | Wikipedia val | Stack Exchange ext_dev | ms / text | MB |
 |---|---:|---:|---:|---:|
-| majority class | 0.033 | 0.021 | – | – |
-| zero-shot NLI (bart-large-mnli, sample of 320) | 0.623 | 0.511 | 2,556 | – |
-| zero-shot label similarity (best: mpnet-base) | 0.708 | 0.640 | – | – |
-| TF-IDF word + logistic regression | 0.793 | 0.595 | 1.6 | 10.6 |
-| TF-IDF word + complement NB (best lexical on questions) | 0.803 | 0.643 | 1.8 | 17.8 |
-| TF-IDF word+char + logistic regression | 0.800 | 0.618 | 4.7 | 21.1 |
-| all-MiniLM-L6-v2 (frozen) + LR | 0.813 | 0.679 | 14.9 | 90.9 |
-| bge-small-en-v1.5 (frozen) + LR | 0.823 | 0.735 | 27.9 | 133.4 |
-| e5-small-v2 (frozen) + LR | 0.823 | 0.743 | 27.1 | 133.4 |
-| all-mpnet-base-v2 (frozen) + LR | 0.836 | 0.737 | 66.7 | 437.9 |
-| **all-MiniLM-L6-v2 fine-tuned (two heads)** ¹ | **0.843** | **0.752** | **13.0** | **90.9** |
+| majority class | 0.035 | 0.021 | – | – |
+| zero-shot NLI (bart-large-mnli, sample of 320; labels v1.0, not rerun) | 0.623 | 0.511 | 2,556 | – |
+| zero-shot label similarity (best: mpnet-base) | 0.728 | 0.640 | – | – |
+| TF-IDF word + logistic regression | 0.805 | 0.593 | 1.5 | 9.9 |
+| TF-IDF word + complement NB (best lexical on questions) | 0.813 | 0.636 | 1.5 | 16.7 |
+| TF-IDF word+char + logistic regression | 0.808 | 0.614 | 4.5 | 20.0 |
+| all-MiniLM-L6-v2 (frozen) + LR | 0.830 | 0.712 | 14.1 | 90.9 |
+| all-mpnet-base-v2 (frozen) + LR | **0.849** | 0.713 | 66.3 | 437.9 |
+| bge-small-en-v1.5 (frozen) + LR | 0.838 | 0.736 | 27.8 | 133.4 |
+| e5-small-v2 (frozen) + LR | 0.842 | 0.747 | 25.3 ¹ | 133.4 |
+| **all-MiniLM-L6-v2 fine-tuned + LR** | 0.848 | **0.749** | **13.5** | **90.9** |
 
-¹ labels v1.0, like every other row (`finetune_minilm-l6.labels-v1.0.json`).
-After the label fix of D-27 (v1.1) the same recipe gives 0.837 / 0.758 with its
-own head and 0.840 / 0.756 with the production LR head (`general_ft.json`) —
-the two label versions have slightly different validation sets, so the rows are
-not directly comparable.
+¹ re-measured on an idle machine (`general_latency_idle.json`); the benchmark
+run measured 695 ms because the test suite was running at the same time.
 
-(latency: median single-text prediction on the reference CPU; MB: encoder +
-head in memory. Full tables with accuracy, weighted-F1, ECE, test columns and
-training time: `reports/tables.md`.)
+Latency: median single-text prediction on the reference CPU; MB: encoder + head
+in memory. Full tables (accuracy, weighted-F1, ECE, training time):
+`reports/tables.md`.
+
+**Does the rerun change the choice?** No. The fine-tuned MiniLM is the best
+model on real questions (0.749; e5-small 0.747 is within noise) and ties
+mpnet-base on Wikipedia val (0.848 vs 0.849), while being 5× faster and
+5× smaller than mpnet-base and 2× faster than e5-small. On the v1.0 labels it
+led on both sets (0.843 / 0.752); on 1.2.0 the margins are narrower and the
+tie-breakers decide. The frozen selection stands; a fine-tuned e5-small (E-6)
+remains the obvious untested alternative.
 
 ## 2. What the benchmark showed
 
-1. **Lexical models do not transfer.** TF-IDF + LR/NB/SVM reach 0.79–0.80
-   macro-F1 on Wikipedia but only 0.59–0.64 on real questions; their training
-   macro-F1 is 0.95–1.00, i.e. they memorise encyclopedic vocabulary. The same ranking shows on *test* / *ext_test*.
-2. **Sentence embeddings transfer much better**: frozen encoders + a linear
-   head lose 8–13 points between Wikipedia and questions instead of 16–20.
-   Among them the largest (mpnet-base) is best on Wikipedia but **not** on
-   questions — choosing on Wikipedia alone would have picked the wrong model
-   and paid 2.5× the latency of e5-small.
-3. **Zero-shot is not good enough.** Label-description similarity needs no
-   training but stays ≤ 0.71 / 0.64; zero-shot NLI is worse (0.62 / 0.51) and
-   150–200× slower than the fine-tuned encoder. (NLI was measured on a stratified
-   sample of 40 texts per class per split — wider uncertainty.)
-4. **Fine-tuning pays.** Fine-tuning the smallest encoder (MiniLM, 3 epochs on
-   CPU, 51 min) beats every frozen encoder on both selection sets while staying
-   the fastest and smallest. Validation macro-F1 per epoch 0.833 → 0.838 → 0.843
-   (best epoch = last; the gain per epoch is shrinking).
+1. **Lexical models do not transfer.** TF-IDF + LR / NB / SVM reach 0.80–0.81
+   macro-F1 on Wikipedia but 0.59–0.64 on real questions; their training
+   macro-F1 is 0.94–1.00, i.e. they memorise encyclopedic vocabulary.
+2. **Sentence embeddings transfer much better**, and the ranking changes with
+   the input style: mpnet-base is the best frozen encoder on Wikipedia but
+   among the worst on questions (0.713), where the small bge / e5 encoders
+   lead. Choosing on Wikipedia alone would pick the wrong, slowest model.
+3. **Zero-shot is not good enough**: label similarity ≤ 0.73 / 0.64; NLI
+   0.62 / 0.51 and ~200× slower.
+4. **Fine-tuning the smallest encoder** (3 epochs, ~40 min on CPU) lifts
+   MiniLM from 0.830 / 0.712 frozen to 0.848 / 0.749 — the largest gain of any
+   single change, at no inference cost. Validation macro-F1 per epoch
+   0.843 → 0.845 → 0.848.
 
-## 3. Subtopics: hierarchical vs flat (E-7)
+## 3. Subtopics: one primary subtopic + sibling suggestions
 
-Three ways to predict the 28 subtopics were compared for every encoder; τ is
-the sibling threshold tuned on val (0.20–0.70). Subtopic macro-F1; "SE" is the
-Stack Exchange subtopic set (25 labels with questions).
+**Benchmark heads (E-7, rerun on 1.2.0).** Subtopic macro-F1, val / SE
+subtopic questions (τ tuned on val, grid 0.20–0.70):
 
-| encoder | H1 hierarchical (val / SE) | H2 flat multi-label (val / SE) | H3 flat softmax (val / SE) |
+| encoder | H1 hierarchical | H2 flat multi-label (sigmoids) | H3 flat softmax |
 |---|---|---|---|
-| TF-IDF word+char | 0.651 / 0.628 | **0.665 / 0.650** | 0.660 / 0.641 |
-| bge-small | 0.662 / 0.688 | 0.607 / 0.660 | **0.676 / 0.709** |
-| e5-small | 0.674 / 0.695 | 0.615 / 0.659 | **0.688 / 0.716** |
-| mpnet-base | 0.692 / 0.690 | 0.656 / 0.687 | **0.699 / 0.712** |
+| TF-IDF word+char | 0.656 / 0.624 | 0.665 / 0.641 | 0.665 / 0.639 |
+| bge-small | 0.669 / 0.692 | 0.612 / 0.658 | **0.676 / 0.711** |
+| mpnet-base | 0.698 / 0.688 | 0.661 / 0.671 | **0.703 / 0.700** |
 
-H3 (one softmax over the 28 subtopics; the general topic is the sum of its
-subtopics' probabilities) also gives the **best general-topic** macro-F1 for
-every encoder (e.g. e5-small 0.840 vs 0.821 on val, 0.871 vs 0.847 on the SE
-subtopic questions). Reading: training on 28 finer classes gives the general
-decision more structure, and a single softmax keeps the subtopics of one
-general topic in competition, which a set of independent sigmoids does not.
-H2's thresholds sat at the top of the allowed range (0.70), a sign that its
-independent sigmoids are over-confident. **Decision: H3 for the production
-model** (decisions.md D-23). Multi-label output is kept: the best subtopic of
-the predicted general topic is always returned, siblings are added when their
-conditional probability reaches τ.
+H3 also gives the best general-topic macro-F1 for every encoder. The sigmoid
+heads' thresholds sat at the top of the grid (0.70).
+
+**Production encoder (E-15, D-33).** Because 6% of passages carry two
+subtopics, the softmax was re-examined against genuine multi-label heads on
+the fine-tuned encoder, with a wider threshold grid (0.20–0.95):
+
+| head | val sub macro-F1 | val sub micro-F1 | ext_dev sub macro-F1 | 2nd gold label found | extra label on single-label | ext_dev general macro-F1 |
+|---|---:|---:|---:|---:|---:|---:|
+| **flat softmax** | **0.660** | **0.669** | **0.691** | 5.7% | 5.3% | **0.747** |
+| one-vs-rest sigmoid | 0.649 | 0.657 | 0.678 | 11.8% | 9.4% | 0.741 |
+| per-parent sigmoid | 0.657 | 0.666 | 0.685 | 0.0% | 0.0% | 0.741 |
+
+The softmax wins on every quality metric. The one-vs-rest head finds more
+second labels but adds wrong ones almost as often; the per-parent head's best
+threshold predicts exactly one label. **Decision:** keep the softmax and
+describe the output honestly as **primary subtopic classification with
+secondary sibling suggestions** (siblings with P(sub | general) ≥ 0.40).
 
 ## 4. Calibration (E-8)
 
-Temperature scaling (T fitted on val by NLL) lowers ECE where the model is
-miscalibrated and never raises it: bge-small on questions 0.067 → 0.046,
-mpnet-base 0.041 → 0.017, TF-IDF 0.055 → 0.024; e5-small is already calibrated
-(T = 1.03). The production model applies temperature scaling to its head
-(for H3 the temperature is fitted on the NLL of the *general* topic).
+Temperature scaling (T fitted on val by NLL) lowers ECE on questions for every
+model, e.g. bge-small 0.072 → 0.051, mpnet-base 0.047 → 0.026, TF-IDF 0.053 →
+0.027 (`calibration.json`). The production head applies temperature scaling
+(T = 1.428, fitted on the general-topic NLL); locked ECE 0.058 (Wikipedia) /
+0.056 (questions).
 
-## 5. Saying "uncertain" (E-9)
+## 5. Saying "uncertain" and "non_english"
 
-In-distribution scores compared: max softmax probability, energy, maximum
-cosine to the 8 class centroids, mean cosine to the 10 nearest training
-passages. Two threshold calibrations were compared (keep 95% of in-domain
-texts): on Wikipedia val passages, or on Stack Exchange ext_dev questions.
+**Benchmark scores (E-9, rerun).** On questions vs off-topic questions,
+embedding-geometry scores beat probability scores: bge-small centroid AUROC
+0.894, mpnet-base kNN 0.934 vs MSP 0.73–0.76. A threshold calibrated on
+Wikipedia passages keeps only 65–91% of genuine questions, so thresholds are
+calibrated on questions (D-24).
 
-* On **questions vs off-topic questions** the embedding-geometry scores are
-  best: bge-small centroid cosine AUROC 0.894, kNN 0.885, vs MSP 0.768.
-* A threshold calibrated on **Wikipedia** passages is wrong for questions:
-  with bge-small centroid cosine it answers only 92.0% of genuine questions
-  (e5-small 65.9%, mpnet-base 66.2%) instead of the intended 95%, because a
-  10-word question lies farther from every centroid than a 25-word passage.
-* **Decision:** centroid cosine, threshold calibrated on ext_dev questions
-  (D-24). kNN scores are similar but need the training embeddings at run time.
+**Detector comparison on the production model (E-16, D-34).** Seven detectors
+on development data, threshold keeping 95% of ext_dev questions:
 
-## 6. Final model
+| detector | AUROC Wikipedia / SE / chat | recall Wikipedia OOD / SE off-topic / chat |
+|---|---|---|
+| centroid cosine (v1.0) | 0.846 / 0.851 / 0.904 | 0.27 / 0.45 / 0.58 |
+| **Mahalanobis** | 0.904 / 0.904 / 0.958 | 0.24 / 0.56 / 0.79 |
+
+(the other five — MSP, energy, kNN, binary classifier, explicit "other" class
+— are in `reports/tables.md`; the two trained on CLINC chat catch chat well
+but do not generalise to off-topic questions.) Mahalanobis is deployed.
+
+**Language gate (E-13, D-30).** fastText lid.176 with the training lexicon as a
+tie-breaker, reject confidence per input length chosen on the Tatoeba dev
+half with ≥ 99% English kept.
+
+## 6. Final model and locked result
 
 | | |
 |---|---|
-| encoder | all-MiniLM-L6-v2 fine-tuned 3 epochs on the v1.1 training split (30.5 min on 4 vCPU), exported without its heads, float16 on disk (45 MB) |
-| head | `flat_softmax`: multinomial LR (C = 8, class-weighted) over the 28 subtopics on the encoder's embeddings; temperature T = 1.431 fitted on the general-topic NLL of val |
-| subtopic rule | best child of the predicted general topic + siblings with P(sub \| general) ≥ τ = 0.40 (val sweep 0.20–0.70), at most 3 shown |
-| uncertain | centroid cosine < 0.705 (keeps 95% of ext_dev questions) **or** confidence < 0.50 (coverage rule, D-25) **or** not English (D-29) |
-| training | `train.py` 218 s (encoding + heads), `configs/model.json` |
+| encoder | all-MiniLM-L6-v2 fine-tuned 3 epochs on the 1.2.0 training split (39.8 min on 4 vCPU), exported without its heads, float16 on disk |
+| head | `flat_softmax`: multinomial LR (C = 16, class-weighted) over the 28 subtopics; T = 1.428 |
+| subtopic rule | primary subtopic of the predicted general topic + siblings with P(sub \| general) ≥ 0.40, at most 3 |
+| uncertain | Mahalanobis score below the ext_dev 5th percentile **or** confidence < 0.50 (coverage rule, D-25) |
+| non_english | language gate (D-30) |
+| artifact | 47 MB, `train.py` 41 s with cached embeddings, `configs/model.json` |
 
-**Held-out results** (`reports/evaluation.json`; nothing here was used for a
-decision):
+**Locked holdout** (`reports/locked/results.json`, evaluated once after
+`scripts/freeze.py`; run 2 after a data-partition fix, D-36):
 
 | set | n | accuracy | macro-F1 | weighted-F1 | ECE |
 |---|---:|---:|---:|---:|---:|
-| Wikipedia test (general) | 6,427 | 0.835 | 0.834 | 0.835 | 0.031 |
-| Stack Exchange ext_test (general) | 10,087 | 0.775 | 0.756 | 0.773 | 0.067 |
-| Stack Exchange subtopic ext_test (general) | 1,642 | 0.878 | 0.862 | 0.879 | 0.028 |
+| Wikipedia, unseen articles | 374 | 0.848 | 0.838 | 0.847 | 0.058 |
+| Stack Exchange questions (2026) | 1,623 | 0.804 | 0.730 | 0.796 | 0.056 |
+| … without history of science | 1,524 | 0.843 | 0.818 | – | – |
 
-| subtopics | macro-F1 | micro-F1 | samples-F1 | Hamming | subset acc | P@1 | R@3 |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Wikipedia test | 0.647 | 0.647 | 0.652 | 0.027 | 0.598 | 0.666 | 0.862 |
-| … when the general topic is right | 0.775 | 0.775 | 0.781 | 0.017 | 0.716 | 0.791 | 0.975 |
-| Stack Exchange ext_test (25 labels) | 0.701 | 0.694 | 0.701 | 0.023 | 0.640 | 0.717 | 0.902 |
+| subtopics | micro-F1 | macro-F1 (supported) | P@1 | R@3 |
+|---|---:|---:|---:|---:|
+| Wikipedia | 0.659 | 0.664 | 0.668 | 0.853 |
+| questions | 0.603 | 0.507 | 0.624 | 0.830 |
 
-**The uncertain answer in use** (deployed rule, test sets):
+| gate | result |
+|---|---|
+| in-domain flagged | 4.0% (Wikipedia) / 9.3% (questions); accuracy of the answered 0.861 / 0.844, of the flagged 0.53 / 0.40 |
+| off-topic flagged | CLINC150 chat 78.1% (AUROC 0.961), off-topic questions 48.5% (AUROC 0.887) |
+| non-English rejected | 48% / 76% / 93% / 97% for 1 / 2 / 3 words / sentences; English kept ≥ 99.6% |
 
-| set | answered "uncertain" | accuracy of answered | accuracy of uncertain |
-|---|---:|---:|---:|
-| Wikipedia test | 6.8% | 0.868 | 0.378 |
-| Stack Exchange ext_test | 9.2% | 0.812 | 0.402 |
-| out-of-taxonomy Wikipedia (675) | 33.3% | – | – |
-| off-topic Stack Exchange (6,000) | 43.6% | – | – |
+The locked Wikipedia numbers match development (val macro-F1 0.850) closely;
+questions are lower than ext_dev only through the history-of-science site
+(accuracy 0.19), whose questions are about the history of one field — the
+visible cost of D-32 (docs/ERROR_ANALYSIS.md).
 
-The gate removes mostly wrong answers (accuracy of the flagged ones 0.38–0.40),
-but it catches only a third to a half of off-topic texts at the chosen 95%
-in-domain operating point (AUROC 0.850 / 0.845) — see KNOWN_ISSUES.md.
+**Cost.** Median 19.9 ms per message (p95 30.3 ms), 5.7 ms per text in
+batches, model load 2.6 s — on a 4-vCPU CPU, no GPU.
 
-**Cost.** Median 19.9 ms per message (p95 28.3 ms), 5.5 ms per text in batches,
-model load 2.8 s, 45 MB on disk — on a 4-vCPU CPU, no GPU.
-
-**Acceptance.** All five brief sentences, the quantum pair, the pizza sentence
-and the three-message conversation pass (docs/TEST_REPORT.md).
+**Acceptance.** All five brief sentences, the quantum pair, the pizza
+sentence, the three-message conversation and the tangent / switch / expiry
+cases pass (docs/TEST_REPORT.md).
