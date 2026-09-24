@@ -1,9 +1,11 @@
-"""Render benchmark JSON (reports/experiments/*.json, reports/evaluation.json) as Markdown tables.
+"""Render benchmark JSON (reports/experiments/*.json) as Markdown tables.
 
     python scripts/report_tables.py        # writes reports/tables.md
 
 The model report and final report copy their tables from this output, so no
-number in the documentation is typed by hand.
+number in the documentation is typed by hand. Only development data appears
+here (Wikipedia ``val``, Stack Exchange ``ext_dev``, CLINC150 / Tatoeba dev
+halves); the locked holdout is in reports/locked/results.json.
 """
 
 from __future__ import annotations
@@ -57,8 +59,6 @@ def general_table(general: dict) -> str:
                 f(r["val"].get("ece")),
                 f(r["se_ext_dev"]["accuracy"]),
                 f(r["se_ext_dev"]["macro_f1"]),
-                f(r["test"]["macro_f1"]),
-                f(r["se_ext_test"]["macro_f1"]),
                 f(r.get("train", {}).get("macro_f1")),
                 f(lat.get("single_ms_median"), 1),
                 f(r.get("size_mb"), 1),
@@ -74,8 +74,6 @@ def general_table(general: dict) -> str:
             "val ECE",
             "ext_dev acc",
             "ext_dev macro-F1",
-            "test macro-F1 †",
-            "ext_test macro-F1 †",
             "train macro-F1",
             "ms / text",
             "MB",
@@ -103,7 +101,6 @@ def hierarchy_table(hier: dict) -> str:
                 f(d.get("macro_f1_supported", d["macro_f1"])),
                 f(d["micro_f1"]),
                 f(r["val"]["general"]["macro_f1"]),
-                f(r["test"]["subtopics"]["macro_f1"]),
             ]
         )
     return table(
@@ -120,7 +117,6 @@ def hierarchy_table(hier: dict) -> str:
             "ext_dev macro-F1 (25 labels)",
             "ext_dev micro-F1",
             "val general macro-F1",
-            "test macro-F1 †",
         ],
         rows,
     )
@@ -129,7 +125,7 @@ def hierarchy_table(hier: dict) -> str:
 def calibration_table(cal: dict) -> str:
     rows = []
     for feat, r in cal.items():
-        for split in ("val", "test", "se_ext_dev", "se_ext_test"):
+        for split in ("val", "se_ext_dev"):
             c = r[split]
             rows.append(
                 [
@@ -150,7 +146,7 @@ def ood_table(ood: dict) -> str:
     for feat, scorers in ood.items():
         for sname, r in scorers.items():
             thr = r["thresholds_at_95"]
-            for pair in ("wiki_val", "wiki_test", "se_ext_dev", "se_ext_test"):
+            for pair in ("wiki_val", "se_ext_dev"):
                 p = r[pair]
                 rows.append(
                     [
@@ -189,6 +185,75 @@ def ood_table(ood: dict) -> str:
             "OOD flagged @SE-thr",
             "ID kept @wiki-thr",
             "OOD flagged @wiki-thr",
+        ],
+        rows,
+    )
+
+
+def head_comparison_table(hc: dict) -> str:
+    rows = [
+        [
+            f"`{name}`",
+            f(r["score"]),
+            f(r["val_general_macro_f1"]),
+            f(r["se_ext_dev_general_macro_f1"]),
+            f(r["se_ext_dev_general_ece"]),
+            f(r["val_sub_macro_f1"]),
+            f(r["val_sub_micro_f1"]),
+            f(r["sesub_ext_dev_macro_f1_supported"]),
+            f(r["val_multilabel_rows_2plus_found"]),
+            f(r["val_extra_labels_on_single"]),
+            f(r["head_latency_ms"], 2),
+        ]
+        for name, r in hc["summary"].items()
+    ]
+    return table(
+        [
+            "head",
+            "selection score",
+            "val general macro-F1",
+            "ext_dev general macro-F1",
+            "ext_dev ECE",
+            "val sub macro-F1",
+            "val sub micro-F1",
+            "ext_dev sub macro-F1",
+            "2nd gold label found",
+            "extra label on single",
+            "head ms",
+        ],
+        rows,
+    )
+
+
+def ood_detector_table(od: dict) -> str:
+    rows = []
+    for name, r in od["results"].items():
+        pairs, op = r["pairs"], r["operating_point"]
+        rec, cov = op["offtopic_recall"], op["coverage"]
+        rows.append(
+            [
+                f"`{name}`",
+                *[f(pairs[p]["auroc"]) for p in ("wiki_in_vs_wiki_ood", "se_in_vs_se_ood", "se_in_vs_chat_ood")],
+                f(pairs["se_in_vs_chat_ood"]["fpr_at_95tpr"]),
+                f(rec["wiki_ood"]),
+                f(rec["se_ood"]),
+                f(rec["chat_ood"]),
+                f(cov["se_in"]),
+                f(op.get("se_in_accuracy_answered")),
+            ]
+        )
+    return table(
+        [
+            "detector",
+            "AUROC wiki",
+            "AUROC SE",
+            "AUROC chat",
+            "FPR@95TPR chat",
+            "recall wiki OOD",
+            "recall SE OOD",
+            "recall chat",
+            "SE coverage",
+            "SE acc answered",
         ],
         rows,
     )
@@ -277,10 +342,6 @@ def card(eid: str, name: str, r: dict) -> str:
             f"Wikipedia val: {_metrics(r.get('val'))} · Stack Exchange ext_dev: {_metrics(r.get('se_ext_dev'))}",
         ],
         [
-            "Test metrics †",
-            f"Wikipedia test: {_metrics(r.get('test'))} · Stack Exchange ext_test: {_metrics(r.get('se_ext_test'))}",
-        ],
-        [
             "Training time",
             "–"
             if r.get("train_seconds") is None
@@ -315,7 +376,8 @@ def experiment_log() -> str:
         "# Experiment log (generated by scripts/report_tables.py)",
         "One card per trained general-topic model, in the format of the project brief. "
         "Protocol, the other experiments (subtopics, calibration, OOD, decay) and the discussion: "
-        "docs/EXPERIMENTS.md and docs/MODEL_REPORT.md. † report only - not used for any decision.",
+        "docs/EXPERIMENTS.md and docs/MODEL_REPORT.md. Development splits only; the locked "
+        "holdout is evaluated once in reports/locked/results.json.",
     ]
     counters: dict[str, int] = {}
 
@@ -348,8 +410,10 @@ def experiment_log() -> str:
                 f"Wikipedia val: {_metrics(r['val']['general'])}, subtopic macro-F1 {f(r['val']['subtopics'].get('macro_f1'))} · Stack Exchange ext_dev: {_metrics(r['se_ext_dev']['general'])}",
             ],
             [
-                "Test metrics †",
-                f"Wikipedia test: {_metrics(r['test']['general'])} · Stack Exchange ext_test: {_metrics(r['se_ext_test']['general'])}",
+                "Test metrics",
+                "not computed (development splits only; locked holdout: reports/locked/results.json)"
+                if "test" not in r
+                else f"legacy run: Wikipedia test: {_metrics(r['test']['general'])}",
             ],
             [
                 "Training time",
@@ -371,16 +435,16 @@ def experiment_log() -> str:
 def main() -> None:
     parts = [
         "# Benchmark tables (generated by scripts/report_tables.py)",
-        "† test / ext_test columns are for reporting only; no decision used them.",
+        "Development data only (Wikipedia val, Stack Exchange ext_dev, CLINC150 / Tatoeba dev halves). "
+        "The locked holdout is reported once in reports/locked/results.json; the v1.0 test / ext_test "
+        "splits are legacy and no longer evaluated here.",
     ]
     if (g := load("general")) is not None:
         parts += ["## General topic — featurizer × head (best hyper-parameters on validation)", general_table(g)]
     if (e := load("ensemble")) is not None:
         parts += ["## General topic — concatenated encoder embeddings", general_table(e)]
     if (z := load("zeroshot")) is not None:
-        rows = [
-            r for name, res in z.items() for r in simple_rows(name, res, ("val", "se_ext_dev", "test", "se_ext_test"))
-        ]
+        rows = [r for name, res in z.items() for r in simple_rows(name, res, ("val", "se_ext_dev"))]
         parts += ["## Zero-shot label similarity (no training)", table(["model", "split", "acc", "macro-F1"], rows)]
     if (n := load("zeroshot_nli")) is not None:
         rows = [
@@ -402,7 +466,7 @@ def main() -> None:
                 f(r[s]["general"].get("macro_f1")),
                 f(r[s].get("subtopics", {}).get("macro_f1_supported", r[s].get("subtopics", {}).get("macro_f1"))),
             ]
-            for s in ("val", "se_ext_dev", "sesub_ext_dev", "test", "se_ext_test", "sesub_ext_test")
+            for s in ("val", "se_ext_dev", "sesub_ext_dev")
             if s in r
         ]
         parts += [
@@ -410,6 +474,12 @@ def main() -> None:
             f"{r['latency_single_ms_median']} ms/text, {r['size_mb']} MB)",
             table(["model", "split", "general acc", "general macro-F1", "subtopic macro-F1"], rows),
             "history: " + json.dumps(r["history"]),
+        ]
+    if (hc := load("head_comparison")) is not None:
+        parts += [
+            f"## Subtopic head comparison on the production encoder (`{hc['encoder']}`; chosen: "
+            f"`{hc['chosen']}`, decisions.md D-33)",
+            head_comparison_table(hc),
         ]
     if (h := load("hierarchy")) is not None:
         parts += ["## Subtopics — hierarchical vs flat", hierarchy_table(h)]
@@ -435,6 +505,14 @@ def main() -> None:
         ]
     if (o := load("ood")) is not None:
         parts += ["## Out-of-taxonomy detection", ood_table(o)]
+    if (od := load("ood_detectors")) is not None:
+        parts += [
+            f"## Off-topic detector comparison (`{od['encoder']}` + `{od['head_type']}`; chosen: "
+            f"`{od['chosen']}`, decisions.md D-34)",
+            ood_detector_table(od),
+        ]
+    if (lg := load("language_gate")) is not None and "selected" in lg:
+        parts += ["## Language gate", "selected: `" + json.dumps(lg["selected"]) + "` (decisions.md D-30)"]
     if (d := load("decay")) is not None:
         cols = ["decay", "min_share", "switch_rule", "confirm_turns", "expire_after"]
         mets = ["theme_accuracy", "switch_lag", "tangent_robust", "false_switch_rate", "accumulation_3",
