@@ -1,6 +1,6 @@
 # Taxonomy — 8 general topics, 28 subtopics
 
-Source of truth: [`configs/taxonomy.json`](../configs/taxonomy.json) (version 1.1.0 — 1.0.0 also seeded *quantum_computing* with Quantum information science@0; removed because it labelled entanglement physics as Technology, [DATASET_CARD.md §9](DATASET_CARD.md)).
+Source of truth: [`configs/taxonomy.json`](../configs/taxonomy.json) (version 1.2.0). 1.1.0 removed the seed Quantum information science@0 from *quantum_computing* (it labelled entanglement physics as Technology, decisions.md D-27); 1.2.0 redefines Science and applies the fixes of the 310-passage label audit (decisions.md D-32, [DATASET_CARD.md §10](DATASET_CARD.md)).
 Everything below is read from that file at runtime; nothing about the taxonomy is
 hard-coded in Python. `contextlens.taxonomy.load_taxonomy()` validates it
 (unique ids, every `broader` refers to an existing topic).
@@ -13,7 +13,7 @@ hard-coded in Python. `contextlens.taxonomy.load_taxonomy()` validates it
 | **Biology** (`biology`) | domain | science | — | |
 | **Chemistry** (`chemistry`) | domain | science | — | |
 | **Technology** (`technology`) | domain | — | — | |
-| **Science** (`science`) | domain | — | — | about science itself: method, history, research practice |
+| **Science** (`science`) | domain | — | — | the scientific enterprise itself: method, philosophy of science, research practice and publishing, misconduct, the history of science *as such* — not the history of one field (D-32) |
 | **Books** (`books`) | format | — | — | a *medium* that wraps any domain |
 | **Sports** (`sports`) | domain | — | — | |
 | **History** (`history`) | domain | — | `history of {topic}` | can frame another domain |
@@ -33,7 +33,7 @@ questions come from: `site[tag]`, or the whole site when no tag is given.
 | general | id | name | query phrase | seed categories | excl. | Stack Exchange |
 |---|---|---|---|---|---:|---|
 | physics | `quantum_mechanics` | Quantum Mechanics | quantum mechanics | Quantum mechanics@2 | 2 | physics[quantum-mechanics] |
-| physics | `relativity` | Relativity | theory of relativity | Theory of relativity@2 | 1 | physics[general-relativity], physics[special-relativity] |
+| physics | `relativity` | Relativity | theory of relativity | Theory of relativity@2 | 2 | physics[general-relativity], physics[special-relativity] |
 | physics | `astrophysics` | Astrophysics | astrophysics | Astrophysics@2 | 1 | physics[astrophysics] |
 | physics | `classical_mechanics` | Classical Mechanics | classical mechanics | Classical mechanics@2 | 2 | physics[classical-mechanics], physics[newtonian-mechanics] |
 | biology | `genetics` | Genetics | genetics | Genetics@2 | 1 | biology[genetics] |
@@ -47,9 +47,9 @@ questions come from: `site[tag]`, or the whole site when no tag is given.
 | technology | `artificial_intelligence` | Artificial Intelligence | artificial intelligence | Artificial intelligence@2, Machine learning@1 | 2 | ai |
 | technology | `software` | Software | software | Software engineering@2, Software@1 | 1 | softwareengineering |
 | technology | `hardware` | Hardware | computer hardware | Computer hardware@2 | 1 | superuser[cpu], superuser[motherboard] |
-| science | `scientific_method` | Scientific Method | scientific method | Scientific method@1, Philosophy of science@0 | 2 | philosophy[scientific-method], hsm[scientific-method] |
-| science | `history_of_science` | History of Science | history of science | History of science@2 | 0 | hsm |
-| science | `scientific_research` | Scientific Research | scientific research | Research@0, Metascience@1, Research methods@0, Design of experiments@0, Scientific misconduct@1, Peer review@0, Open science@0, Research ethics@0, Research and development@0, Academic publishing@0 | 1 | academia[research-process] |
+| science | `scientific_method` | Scientific Method | scientific method | Scientific method@1, Philosophy of science@0 | 3 | philosophy[scientific-method], hsm[scientific-method] |
+| science | `history_of_science` | History of Science | history of science | History of science@1 | 2 | hsm |
+| science | `scientific_research` | Scientific Research | scientific research | Research@0, Metascience@1, Research methods@0, Design of experiments@0, Scientific misconduct@1, Peer review@0, Open science@0, Research ethics@0 | 1 | academia[research-process] |
 | books | `novels` | Novels | novels | Novels@1 | 0 | — |
 | books | `science_books` | Science Books | popular science books | Science books@1, Popular science books@1 | 1 | — |
 | books | `poetry` | Poetry | poetry | Poetry@1, Genres of poetry@1, Poems@2, Poetics@1 | 1 | literature[poetry] |
@@ -58,8 +58,8 @@ questions come from: `site[tag]`, or the whole site when no tag is given.
 | sports | `basketball` | Basketball | basketball | Basketball@2 | 0 | sports[basketball] |
 | sports | `olympics` | Olympics | Olympic Games | Olympic Games@2 | 0 | sports[olympics] |
 | history | `ottoman_history` | Ottoman History | Ottoman Empire history | History of the Ottoman Empire@2, Ottoman Empire@2 | 0 | history[ottoman-empire] |
-| history | `world_wars` | World Wars | World War I and World War II | World War I@2, World War II@2 | 1 | history[world-war-two], history[world-war-one] |
-| history | `ancient_history` | Ancient History | ancient history | Ancient history@2 | 0 | history[ancient-history], history[ancient-rome], history[ancient-greece] |
+| history | `world_wars` | World Wars | World War I and World War II | World War I@2, World War II@2 | 2 | history[world-war-two], history[world-war-one] |
+| history | `ancient_history` | Ancient History | ancient history | Ancient history@2 | 1 | history[ancient-history], history[ancient-rome], history[ancient-greece] |
 
 Three subtopics (novels, science books, authors) have no Stack Exchange tag with
 a clean mapping, so the external **subtopic** benchmark covers 25/28 subtopics.
@@ -78,10 +78,24 @@ inspection found and fixed (details in [decisions.md](../decisions.md)):
 * `Classical_mechanics@2` reached acoustics and musical instruments; excluded.
 * `Artificial_intelligence@2` reached AI in fiction and films; global
   exclusions (`fiction`, `films`, `television`, …) remove those branches.
+* **1.2.0 (D-32):** `History_of_science@2` reached the history of physics,
+  biology, chemistry, astronomy and mathematics, natural history, museums,
+  expeditions and instruments, so Science was trained as a mixture of every
+  other class; the seed is now @1 with exclusions for those branches.
+  `Research_and_development@0` and `Academic_publishing@0` brought business
+  R&D and publishing-industry articles and were removed.
+* **1.2.0, audit fixes (D-32):** each systematic error of the 310-passage
+  audit was traced to the category that brought it in —
+  `Recipients_of_…` (politicians via the Olympic Order; global),
+  `Relativity_critics` and `Dimension` (politicians, algebraic geometry),
+  `Research_methods` / `Scientific_observation` sub-categories under
+  *scientific_method* (instruments, cell-biology techniques),
+  `Science_and_technology_during_…` under *world_wars* (radar),
+  `Historians_of_…` under *ancient_history* (modern scholars).
 
 Global exclusions (`global_exclude_category_patterns`) remove maintenance and
 non-topical categories everywhere: stubs, lists, templates, portals, images,
-disambiguation, people, awards, popular culture, fiction and media works.
+disambiguation, people, awards and award recipients, popular culture, fiction and media works.
 Scientists are removed from science subtopics (`science_person_exclude_patterns`)
 because a biography is about a person, not about the field.
 
@@ -89,7 +103,7 @@ because a biography is about a person, not about the field.
 
 1. **General topic** = the general topic whose crawl reaches the article at the
    **smallest depth**. A tie between two general topics → the article is
-   *ambiguous* and excluded (831 articles; listed in
+   *ambiguous* and excluded (831 articles at the corpus build; listed in
    `data/manifest/ambiguous_titles.txt`).
 2. **Subtopics** = every subtopic of that general topic reaching the article at
    the minimum depth, plus others of the same general topic reached at depth ≤ 1.
