@@ -1,0 +1,30 @@
+{
+  "frozen_at": "2026-09-24T19:33:30+00:00",
+  "commit": "f0f1b0638887583f8dc751df488dff07f5a56557",
+  "settings": {
+    "db_path": "/home/user/Cont/contextlens.db",
+    "model_dir": "/home/user/Cont/models/contextlens-topic",
+    "log_level": "WARNING",
+    "min_confidence": "None",
+    "max_subtopics": "3",
+    "decay": "0.7",
+    "theme_min_share": "0.2",
+    "max_theme_topics": "3",
+    "theme_expire_after": "4",
+    "theme_confirm_turns": "2",
+    "web_enabled": "True",
+    "web_timeout": "6.0",
+    "web_retries": "2",
+    "web_backoff": "1.0",
+    "max_results": "3",
+    "cache_ttl_hours": "72"
+  },
+  "files": {
+    "configs/model.json": "ef105afc2a6fd7220fec81994ad34f0041180acc3e3d87fbdda59ce15042189e",
+    "configs/taxonomy.json": "fcaee3accc1026cf5395bc29728128286c9b09d6c810fd4e5d0e9c48879932ad",
+    "contextlens/config.py": "3f9d45a873873edd9f4ac9cadf16f16acfa23bfad637b9d0c1b482709b5a9d94",
+    "data/processed/passages.parquet": "376a6fad8b94e279421c11f7b8dff4e7142dfbcc2cca7f57a86d9c1a9d9cdac5",
+    "data/locked/MANIFEST.json": "78f3cb1b90ec99db132f143d36a3173d073e3c57c12010aea09fd3bfce93379b",
+    "models/contextlens-topic/metadata.json": "daf72ce7747253891232d58a4f54ed39e12bac9e100e6c04ddbb7c29e292b2b0"
+  }
+}
