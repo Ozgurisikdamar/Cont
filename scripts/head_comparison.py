@@ -65,7 +65,7 @@ from contextlens.models.heads import (
 log = logging.getLogger("head_comparison")
 
 C_GRID = [1.0, 4.0, 8.0, 16.0]
-THRESHOLDS = [round(x, 2) for x in np.arange(0.20, 0.71, 0.05)]
+THRESHOLDS = [round(x, 2) for x in np.arange(0.20, 0.96, 0.05)]
 DEV = ("val", "se_ext_dev", "sesub_ext_dev")
 TOL_GENERAL, TOL_SCORE = 0.01, 0.005
 
