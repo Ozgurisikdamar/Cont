@@ -146,7 +146,7 @@ reset an explicit, queryable event.
 ## D-15 · Artifact format
 **Decision.** Heads in `skops` loaded with an explicit trusted-type allowlist;
 centroids as `.npy` without pickle; SHA-256 of every file in `metadata.json`,
-verified at load; encoder weights copied next to the heads (git-ignored).
+verified at load; encoder weights copied next to the heads (committed since D-26) and checked by fingerprint (D-18).
 **Why.** Pickle executes code on load; checksums catch partial copies and edits.
 
 ## D-16 · Reproducibility
@@ -202,3 +202,54 @@ in the benchmark and stored in the artifact; `CONTEXTLENS_MIN_CONFIDENCE`
 overrides it.
 **Why.** The console used to override the artifact with a hard-coded 0.40, so the
 application could behave differently from what `evaluate.py` measured.
+
+## D-22 · Encoder: all-MiniLM-L6-v2 fine-tuned on the training split
+**Decision.** The production encoder is MiniLM-L6 fine-tuned for 3 epochs with a
+general + subtopic head (`scripts/finetune_transformer.py`), exported without
+its heads and used like a frozen encoder under the production heads.
+**Why.** Best general-topic macro-F1 on both selection sets (Wikipedia val
+0.843, Stack Exchange ext_dev 0.752 vs 0.836 / 0.743 for the best frozen
+encoders), and the smallest and fastest candidate (13 ms per text, 91 MB).
+Owner's instruction at the end of the benchmark: go with MiniLM.
+**Alternatives.** Frozen e5-small / bge-small (−1 to −2 points, 2× latency);
+mpnet-base (best frozen on Wikipedia, not on questions, 5× latency); TF-IDF
+(does not transfer to questions); zero-shot NLI (0.51 on questions, ~2 s per
+text). Table: docs/MODEL_REPORT.md §1.
+**Consequence.** The encoder is not on the Hub; its weights ship with the
+artifact (D-26). The fine-tuned model's own subtopic head was weak (flat BCE),
+hence the exported encoder + production heads.
+
+## D-23 · Head: one softmax over the 28 subtopics
+**Decision.** `head_type = flat_softmax`: P(general) = sum of the
+subtopics' probabilities; P(subtopic | general) = share within the parent.
+**Why.** Won E-7 for every embedding encoder on val **and** on the Stack
+Exchange subtopic set, for subtopics and for the general topic
+(docs/MODEL_REPORT.md §3).
+**Alternatives.** H1 hierarchical (separate general head + one multi-label head
+per general topic, the original design, kept as `head_type = hierarchical`);
+H2 flat multi-label (worst; over-confident sigmoids).
+
+## D-24 · Out-of-taxonomy gate: centroid cosine, calibrated on real questions
+**Decision.** A message is *uncertain* when its maximum cosine to the 8 class
+centroids is below the value that keeps 95% of Stack Exchange ext_dev
+in-domain questions.
+**Why.** Best AUROC on questions among the scores that need no training data
+at run time; a Wikipedia-calibrated threshold answered only 66–92% of genuine
+questions (E-9).
+
+## D-25 · Minimum confidence chosen by a coverage rule
+**Decision.** `min_confidence` = the largest value in {0.30 … 0.60} that still
+answers ≥ 90% of ext_dev in-domain questions (computed in `train.py`, stored in
+the artifact with the whole sweep).
+**Why.** The confidence floor trades wrong answers for "uncertain" answers; a
+fixed number has no justification, a coverage target does and is tuned on
+development data only.
+
+## D-26 · The trained model is committed
+**Decision.** `models/contextlens-topic/` (heads, centroids, vocabulary,
+float16 encoder, metadata with checksums) is in the repository.
+**Why.** The encoder is fine-tuned (not downloadable), and rebuilding it costs
+~50 minutes of CPU; with the artifact committed a clone runs immediately and the
+shipped model is exactly the evaluated one.
+**Alternatives.** Git LFS or a release asset (extra tooling for users);
+download from the Hub (only possible for frozen encoders).

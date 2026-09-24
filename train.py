@@ -59,7 +59,7 @@ def main(argv: list[str] | None = None) -> int:
         general_C=float(conf["general_C"]),
         subtopic_C=float(conf["subtopic_C"]),
         ood_keep_quantile=float(conf["ood_keep_quantile"]),
-        min_confidence=float(conf["min_confidence"]),
+        min_confidence=0.0 if conf["min_confidence"] == "auto" else float(conf["min_confidence"]),
         vocabulary_size=int(conf["vocabulary_size"]),
         head_type=conf.get("head_type", "hierarchical"),
     )
@@ -95,6 +95,26 @@ def main(argv: list[str] | None = None) -> int:
     )
     train_seconds = time.perf_counter() - t0
 
+    min_conf_sweep = None
+    if conf["min_confidence"] == "auto":
+        # Largest threshold that still answers >= min_coverage of real in-domain
+        # questions (Stack Exchange ext_dev; never ext_test).
+        se = load_se_general()
+        dev = se[(se.split == "ext_dev") & ~se.is_ood]
+        gp_dev, _, _ = model.predict_proba([normalize(t) for t in dev.text])
+        conf_dev, correct = gp_dev.max(axis=1), gp_dev.argmax(axis=1) == space.encode_general(dev.general)
+        min_conf_sweep = [
+            {
+                "min_confidence": t,
+                "coverage": round(float(np.mean(conf_dev >= t)), 4),
+                "accuracy_answered": round(float(np.mean(correct[conf_dev >= t])), 4),
+            }
+            for t in conf["min_confidence_grid"]
+        ]
+        ok = [r["min_confidence"] for r in min_conf_sweep if r["coverage"] >= conf["min_confidence_min_coverage"]]
+        model.min_confidence = float(max(ok)) if ok else float(min(conf["min_confidence_grid"]))
+        log.info("min_confidence=%.2f (sweep on ext_dev: %s)", model.min_confidence, min_conf_sweep)
+
     gp_test, _, _ = model.predict_proba(test[0])
     test_report = multiclass_report(test[1], gp_test, space.general_ids)
     log.info("test (report only): acc=%.4f macroF1=%.4f", test_report["accuracy"], test_report["macro_f1"])
@@ -120,6 +140,7 @@ def main(argv: list[str] | None = None) -> int:
         | {"subtopic_macro_f1": val_report["subtopic_macro_f1"]},
         "test_metrics": {k: test_report[k] for k in ("accuracy", "macro_f1", "weighted_f1", "ece")},
         "subtopic_threshold_sweep": val_report["subtopic_threshold_sweep"],
+        "min_confidence_sweep_ext_dev": min_conf_sweep,
     }
     vocabulary = build_vocabulary([t.lower() for t in train[0]], cfg.vocabulary_size)
     save_artifact(model, out_dir, vocabulary, save_encoder=not args.no_save_encoder)

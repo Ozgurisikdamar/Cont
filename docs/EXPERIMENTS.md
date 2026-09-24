@@ -29,12 +29,36 @@ and where the raw output is. Result tables are generated from the JSON files by
 | E-3 | can labels alone classify (no training)? | cosine similarity of the text to a label description ("Physics: a text about physics, including quantum mechanics, …"), softmax with τ = 0.05 | `--sections zeroshot` | `zeroshot.json` |
 | E-4 | zero-shot NLI | facebook/bart-large-mnli, hypothesis "This text is about {label}.", 40 texts per class from val and ext_dev (NLI costs 8 forward passes per text) | `zeroshot_nli.py --per-class 40` | `zeroshot_nli.json` |
 | E-5 | does fine-tuning beat frozen embeddings? | shared all-MiniLM-L6-v2 encoder, mean pooling, general head (class-weighted CE) + subtopic head (BCE), AdamW lr 5e-5, 3 epochs, batch 32, max 64 tokens, linear warm-up 6%; best epoch by val macro-F1 | `finetune_transformer.py --encoder minilm-l6` | `finetune_minilm-l6.json` |
-| E-6 | do two encoders help? | concatenated embeddings of two encoders × LR (C grid of E-2) | `--sections ensemble` | `ensemble.json` |
+| E-6 | do two encoders help? | concatenated embeddings of two encoders × LR (C grid of E-2) — **planned, not run** | `--sections ensemble` | – |
 | E-7 | how to predict subtopics? | H1 hierarchical: P(general) × P(subtopic \| general) with one one-vs-rest head per general topic; H2 flat multi-label over 28 subtopics; H3 flat softmax over the primary subtopic with the general topic derived. Decision rule: best child of the predicted general topic always, siblings added above τ; τ swept 0.20–0.70 on val | `--sections hierarchy` | `hierarchy.json` |
-| E-8 | are the probabilities trustworthy? | ECE / NLL before and after temperature scaling (T fitted on val by NLL) | `--sections calibration` | `calibration.json` |
+| E-8 | are the probabilities trustworthy? | ECE / NLL before and after temperature scaling (T fitted on val by NLL), for the 8-way softmax head and for the H3 subtopic softmax (T fitted on the general-topic NLL) | `--sections calibration` | `calibration.json` |
+| E-8b | which confidence floor? | coverage and accuracy of kept / rejected predictions for min_confidence ∈ {0 … 0.7}; the production value is chosen in `train.py` by the rule of D-25 | `train.py` (the `--sections selective` variant exists but was not run for the report) | artifact `metadata.json → min_confidence_sweep_ext_dev` |
 | E-9 | how to say "uncertain"? | in-distribution scores: max softmax probability (MSP), energy (logsumexp of logits / T), max cosine to class centroids, mean cosine to the 10 nearest training passages; threshold at 95% in-distribution kept, calibrated on Wikipedia val **or** on Stack Exchange ext_dev | `--sections ood` | `ood.json` |
 | E-10 | which conversation decay? | simulated conversations from held-out passages with the trained model's predictions: 3 segments × 3–6 turns, 15% tangents, 10% OOD; decay ∈ {0, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9}; select max val theme accuracy subject to 3-topic accumulation ≥ 0.80 | `tune_decay.py` | `decay.json` |
 | E-11 | final model on everything held out | trained artifact on test, ext_test (general + subtopic), OOD test, calibration, latency, acceptance probes | `evaluate.py` | `reports/evaluation.json` |
+
+## Results and decisions
+
+The per-model cards required by the brief (ID, model, features,
+hyper-parameters, train / validation / test metrics, training and inference
+time, notes, decision) are generated from the JSON files:
+**[`reports/experiment_log.md`](../reports/experiment_log.md)**. The discussion
+and the final choice are in [MODEL_REPORT.md](MODEL_REPORT.md).
+
+| id | outcome | decision |
+|---|---|---|
+| E-0 | macro-F1 0.03 | floor |
+| E-1 | 0.79–0.80 on Wikipedia, 0.59–0.64 on questions; train macro-F1 0.95–1.00 | lexical models rejected (no transfer) |
+| E-2 | 0.81–0.84 / 0.68–0.74; mpnet best on Wikipedia, e5/bge best on questions | embeddings, selection must look at questions |
+| E-3 | ≤ 0.71 / 0.64 | rejected |
+| E-4 | 0.62 / 0.51, ~2 s per text | rejected |
+| E-5 | 0.843 / 0.752, 13 ms per text | **selected encoder** (D-22) |
+| E-6 | **not run** — dropped when the owner decided to proceed with MiniLM after E-5 | – |
+| E-7 | H3 flat softmax best for every encoder | **selected head** (D-23) |
+| E-8 | temperature scaling never raises ECE | applied |
+| E-9 | centroid cosine best on questions; Wikipedia-calibrated threshold answers only 66–92% of genuine questions | **gate + calibration on questions** (D-24) |
+| E-10 | see `decay.json` | decay (below) |
+| E-11 | final numbers | `reports/evaluation.json`, FINAL_REPORT |
 
 ## Notes on the protocol
 

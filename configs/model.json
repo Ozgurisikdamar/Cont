@@ -1,11 +1,22 @@
 {
   "model_name": "contextlens-topic",
   "model_version": "1.0.0",
-  "encoder": "bge-small",
+  "encoder": "minilm-l6-ft",
+  "head_type": "flat_softmax",
   "general_C": 8.0,
   "subtopic_C": 8.0,
+  "ood_calibration": "se_ext_dev",
   "ood_keep_quantile": 0.05,
-  "min_confidence": 0.40,
+  "min_confidence": "auto",
+  "min_confidence_grid": [
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.6
+  ],
+  "min_confidence_min_coverage": 0.9,
   "vocabulary_size": 40000,
-  "selection_note": "Chosen from reports/experiments/*.json - see docs/MODEL_REPORT.md (ADR-009 in decisions.md)."
+  "selection_note": "Encoder: fine-tuned all-MiniLM-L6-v2 (best on Wikipedia val and Stack Exchange ext_dev, smallest, fastest). Head: flat subtopic softmax (won E-7 on val and ext_dev for every encoder). OOD threshold calibrated on real questions (E-9). min_confidence: largest grid value keeping >= 90% of ext_dev questions answered. See decisions.md D-22..D-25 and docs/MODEL_REPORT.md."
 }
