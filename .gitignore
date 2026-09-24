@@ -1,0 +1,26 @@
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.env
+
+# Large or regenerable data (rebuild with scripts/download_data.py)
+data/raw/
+data/processed/embeddings/
+data/external/stackexchange/api_cache/
+data/external/se_general_eval.jsonl
+
+# Model weights (the small classifier heads ARE committed; encoder weights are downloaded)
+models/*/encoder/
+models/*.pt
+models/*.bin
+models/*.safetensors
+
+# Runtime artefacts
+*.db
+*.db-wal
+*.db-shm
+logs/

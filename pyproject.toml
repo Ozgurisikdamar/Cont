@@ -1,0 +1,43 @@
+[project]
+name = "contextlens"
+version = "1.0.0"
+description = "Conversation-aware English topic analysis: hierarchical topic classification, context tracking and key-less web search."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = [".venv", "data", "models", "reports"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "S", "RUF"]
+ignore = [
+    "S101",   # asserts are fine in tests
+    "S311",   # random is not used for security
+    "RUF001", # typographic quotes in docstrings are intentional
+    "RUF002",
+    "RUF003",
+    "S603",   # subprocess calls in tests use fixed argument lists
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "B011"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
+check_untyped_defs = true
+exclude = ["^scripts/", "^tests/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "network: test needs internet access (deselect with -m 'not network')",
+    "model: test needs the trained model artifact",
+]

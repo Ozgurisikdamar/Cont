@@ -1,0 +1,11 @@
+{
+  "model_name": "contextlens-topic",
+  "model_version": "1.0.0",
+  "encoder": "bge-small",
+  "general_C": 8.0,
+  "subtopic_C": 8.0,
+  "ood_keep_quantile": 0.05,
+  "min_confidence": 0.40,
+  "vocabulary_size": 40000,
+  "selection_note": "Chosen from reports/experiments/*.json - see docs/MODEL_REPORT.md (ADR-009 in decisions.md)."
+}

@@ -1,0 +1,29 @@
+{
+  "comment": "Acceptance cases from the project brief (translated to English). They are NEVER added to training data; tests/test_leakage.py asserts that none of them occurs in the corpus.",
+  "single": [
+    {"id": "quantum_physics", "text": "In quantum entanglement, the wave functions of particles can change together.",
+     "general": "physics", "subtopic": "quantum_mechanics"},
+    {"id": "quantum_technology", "text": "Quantum processors can speed up certain algorithms by using qubits.",
+     "general": "technology", "subtopic": "quantum_computing"},
+    {"id": "test_a_books", "text": "I read the novel I borrowed from the library; the author's narration was very fluent.",
+     "general": "books"},
+    {"id": "test_b_science", "text": "Scientists test their hypotheses using experiments and observation.",
+     "general": "science"},
+    {"id": "test_c_biology", "text": "Cells carry DNA and living things diversify through evolution.",
+     "general": "biology"}
+  ],
+  "ood": [
+    {"id": "pizza", "text": "I'm going to order pizza tonight."}
+  ],
+  "conversation": {
+    "messages": [
+      "I read the novel I borrowed from the library; the author's narration was very fluent.",
+      "Scientists test their hypotheses using experiments and observation.",
+      "Cells carry DNA and living things diversify through evolution."
+    ],
+    "expected_after": [
+      {"after_turn": 2, "generals": ["books", "science"], "phrase": "science books"},
+      {"after_turn": 3, "generals": ["books", "science", "biology"], "phrase": "science books about biology"}
+    ]
+  }
+}

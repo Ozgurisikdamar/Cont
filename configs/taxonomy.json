@@ -1,0 +1,716 @@
+{
+  "version": "1.0.0",
+  "description": "ContextLens topic taxonomy: 8 general topics, 28 subtopics. Labels are stable snake_case ids; display names are for the UI. 'seeds' are Wikipedia categories written as 'Category_name@max_depth' (DBpedia 'dbc:' names) used to build the training corpus; 'stackexchange' lists (site, tag) pairs used only for the external evaluation set. See docs/TAXONOMY.md.",
+  "global_exclude_category_patterns": [
+    "(?i)stubs?$",
+    "(?i)(^|_)lists?(_|$)",
+    "(?i)templates?",
+    "(?i)wikipedia",
+    "(?i)(^|_)images?(_|$)",
+    "(?i)video_games",
+    "(?i)(^|_)portals?(_|$)",
+    "(?i)redirects?",
+    "(?i)disambiguation",
+    "(?i)hidden_categories",
+    "(?i)articles_",
+    "(?i)^works_by_",
+    "(?i)_logos?$",
+    "(?i)(^|_)people(_|$)",
+    "(?i)popular_culture",
+    "(?i)fiction",
+    "(?i)(^|_)(films?|songs?|albums?|television|anime|manga)(_|$)",
+    "(?i)(^|_)(awards?|prizes?)(_|$)"
+  ],
+  "science_person_exclude_patterns": [
+    "(?i)(physicists|chemists|biologists|geneticists|ecologists|astronomers|astrophysicists|mathematicians|scientists|engineers|researchers|inventors|people|alumni|awards|prizes|laureates|medalists|academic_journals|journals|periodicals|institutes|organizations|organisations|companies|societies|museums|universities|laboratories|conferences|fictional|in_fiction|in_popular_culture|films|television|songs|albums|games|toys)"
+  ],
+  "general_topics": [
+    {
+      "id": "physics",
+      "name": "Physics",
+      "role": "domain",
+      "phrase": "physics",
+      "broader": "science",
+      "perspective_template": null,
+      "subtopics": [
+        {
+          "id": "quantum_mechanics",
+          "name": "Quantum Mechanics",
+          "phrase": "quantum mechanics",
+          "seeds": [
+            "Quantum_mechanics@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [
+            "(?i)quantum_information|quantum_computing|quantum_cryptograph"
+          ],
+          "stackexchange": [
+            [
+              "physics",
+              "quantum-mechanics"
+            ]
+          ]
+        },
+        {
+          "id": "relativity",
+          "name": "Relativity",
+          "phrase": "theory of relativity",
+          "seeds": [
+            "Theory_of_relativity@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "physics",
+              "general-relativity"
+            ],
+            [
+              "physics",
+              "special-relativity"
+            ]
+          ]
+        },
+        {
+          "id": "astrophysics",
+          "name": "Astrophysics",
+          "phrase": "astrophysics",
+          "seeds": [
+            "Astrophysics@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "physics",
+              "astrophysics"
+            ]
+          ]
+        },
+        {
+          "id": "classical_mechanics",
+          "name": "Classical Mechanics",
+          "phrase": "classical mechanics",
+          "seeds": [
+            "Classical_mechanics@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [
+            "(?i)acoustic|(^|_)sound|noise|audio|music|hearing|loudspeaker|microphone"
+          ],
+          "stackexchange": [
+            [
+              "physics",
+              "classical-mechanics"
+            ],
+            [
+              "physics",
+              "newtonian-mechanics"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biology",
+      "name": "Biology",
+      "role": "domain",
+      "phrase": "biology",
+      "broader": "science",
+      "perspective_template": null,
+      "subtopics": [
+        {
+          "id": "genetics",
+          "name": "Genetics",
+          "phrase": "genetics",
+          "seeds": [
+            "Genetics@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "biology",
+              "genetics"
+            ]
+          ]
+        },
+        {
+          "id": "evolution",
+          "name": "Evolution",
+          "phrase": "evolution",
+          "seeds": [
+            "Evolutionary_biology@2",
+            "Evolution@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "biology",
+              "evolution"
+            ]
+          ]
+        },
+        {
+          "id": "cell_biology",
+          "name": "Cell Biology",
+          "phrase": "cell biology",
+          "seeds": [
+            "Cell_biology@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "biology",
+              "cell-biology"
+            ]
+          ]
+        },
+        {
+          "id": "ecology",
+          "name": "Ecology",
+          "phrase": "ecology",
+          "seeds": [
+            "Ecology@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "biology",
+              "ecology"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chemistry",
+      "name": "Chemistry",
+      "role": "domain",
+      "phrase": "chemistry",
+      "broader": "science",
+      "perspective_template": null,
+      "subtopics": [
+        {
+          "id": "organic_chemistry",
+          "name": "Organic Chemistry",
+          "phrase": "organic chemistry",
+          "seeds": [
+            "Organic_chemistry@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "chemistry",
+              "organic-chemistry"
+            ]
+          ]
+        },
+        {
+          "id": "chemical_reactions",
+          "name": "Chemical Reactions",
+          "phrase": "chemical reactions",
+          "seeds": [
+            "Chemical_reactions@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "chemistry",
+              "reaction-mechanism"
+            ],
+            [
+              "chemistry",
+              "reaction-control"
+            ]
+          ]
+        },
+        {
+          "id": "periodic_table",
+          "name": "Periodic Table",
+          "phrase": "periodic table of elements",
+          "seeds": [
+            "Periodic_table@2",
+            "Chemical_elements@0"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [
+            "(?i)predicted_by"
+          ],
+          "stackexchange": [
+            [
+              "chemistry",
+              "periodic-trends"
+            ],
+            [
+              "chemistry",
+              "periodic-table"
+            ],
+            [
+              "chemistry",
+              "elements"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "role": "domain",
+      "phrase": "technology",
+      "broader": null,
+      "perspective_template": null,
+      "subtopics": [
+        {
+          "id": "quantum_computing",
+          "name": "Quantum Computing",
+          "phrase": "quantum computing",
+          "seeds": [
+            "Quantum_computing@2",
+            "Quantum_gates@1",
+            "Quantum_information_science@0"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [
+            "(?i)post-quantum|companies"
+          ],
+          "stackexchange": [
+            [
+              "quantumcomputing",
+              null
+            ]
+          ]
+        },
+        {
+          "id": "artificial_intelligence",
+          "name": "Artificial Intelligence",
+          "phrase": "artificial intelligence",
+          "seeds": [
+            "Artificial_intelligence@2",
+            "Machine_learning@1"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [
+            "(?i)(^|_)art$|artificial_intelligence_art|conferences|competitions|publications|deaths|existential_risk|regulation"
+          ],
+          "stackexchange": [
+            [
+              "ai",
+              null
+            ]
+          ]
+        },
+        {
+          "id": "software",
+          "name": "Software",
+          "phrase": "software",
+          "seeds": [
+            "Software_engineering@2",
+            "Software@1"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "softwareengineering",
+              null
+            ]
+          ]
+        },
+        {
+          "id": "hardware",
+          "name": "Hardware",
+          "phrase": "computer hardware",
+          "seeds": [
+            "Computer_hardware@2"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "superuser",
+              "cpu"
+            ],
+            [
+              "superuser",
+              "motherboard"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "role": "domain",
+      "phrase": "science",
+      "broader": null,
+      "perspective_template": null,
+      "subtopics": [
+        {
+          "id": "scientific_method",
+          "name": "Scientific Method",
+          "phrase": "scientific method",
+          "seeds": [
+            "Scientific_method@1",
+            "Philosophy_of_science@0"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [
+            "(?i)techniques|data_analysis|heuristics|religion|dating_methods|evidence-based|hypotheses"
+          ],
+          "stackexchange": [
+            [
+              "philosophy",
+              "scientific-method"
+            ],
+            [
+              "hsm",
+              "scientific-method"
+            ]
+          ]
+        },
+        {
+          "id": "history_of_science",
+          "name": "History of Science",
+          "phrase": "history of science",
+          "seeds": [
+            "History_of_science@2"
+          ],
+          "exclude": [],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "hsm",
+              null
+            ]
+          ]
+        },
+        {
+          "id": "scientific_research",
+          "name": "Scientific Research",
+          "phrase": "scientific research",
+          "seeds": [
+            "Research@0",
+            "Metascience@1",
+            "Research_methods@0",
+            "Design_of_experiments@0",
+            "Scientific_misconduct@1",
+            "Peer_review@0",
+            "Open_science@0",
+            "Research_ethics@0",
+            "Research_and_development@0",
+            "Academic_publishing@0"
+          ],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "academia",
+              "research-process"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "books",
+      "name": "Books",
+      "role": "format",
+      "phrase": "books",
+      "broader": null,
+      "perspective_template": null,
+      "subtopics": [
+        {
+          "id": "novels",
+          "name": "Novels",
+          "phrase": "novels",
+          "seeds": [
+            "Novels@1"
+          ],
+          "exclude": [],
+          "exclude_patterns": [],
+          "stackexchange": []
+        },
+        {
+          "id": "science_books",
+          "name": "Science Books",
+          "phrase": "popular science books",
+          "seeds": [
+            "Science_books@1",
+            "Popular_science_books@1"
+          ],
+          "exclude": [],
+          "exclude_patterns": [
+            "(?i)psychology|social_sciences"
+          ],
+          "stackexchange": []
+        },
+        {
+          "id": "poetry",
+          "name": "Poetry",
+          "phrase": "poetry",
+          "seeds": [
+            "Poetry@1",
+            "Genres_of_poetry@1",
+            "Poems@2",
+            "Poetics@1"
+          ],
+          "exclude": [],
+          "exclude_patterns": [
+            "(?i)organizations|publishers|museums|festivals|houses|depictions|characters|aviation"
+          ],
+          "stackexchange": [
+            [
+              "literature",
+              "poetry"
+            ]
+          ]
+        },
+        {
+          "id": "authors",
+          "name": "Authors",
+          "phrase": "authors and writers",
+          "seeds": [
+            "Novelists@2",
+            "Writers@2"
+          ],
+          "exclude": [],
+          "exclude_patterns": [],
+          "stackexchange": []
+        }
+      ]
+    },
+    {
+      "id": "sports",
+      "name": "Sports",
+      "role": "domain",
+      "phrase": "sports",
+      "broader": null,
+      "perspective_template": null,
+      "subtopics": [
+        {
+          "id": "football",
+          "name": "Football (Soccer)",
+          "phrase": "association football",
+          "seeds": [
+            "Association_football@2"
+          ],
+          "exclude": [],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "sports",
+              "football"
+            ]
+          ]
+        },
+        {
+          "id": "basketball",
+          "name": "Basketball",
+          "phrase": "basketball",
+          "seeds": [
+            "Basketball@2"
+          ],
+          "exclude": [],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "sports",
+              "basketball"
+            ]
+          ]
+        },
+        {
+          "id": "olympics",
+          "name": "Olympics",
+          "phrase": "Olympic Games",
+          "seeds": [
+            "Olympic_Games@2"
+          ],
+          "exclude": [],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "sports",
+              "olympics"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "name": "History",
+      "role": "domain",
+      "phrase": "history",
+      "broader": null,
+      "perspective_template": "history of {topic}",
+      "subtopics": [
+        {
+          "id": "ottoman_history",
+          "name": "Ottoman History",
+          "phrase": "Ottoman Empire history",
+          "seeds": [
+            "History_of_the_Ottoman_Empire@2",
+            "Ottoman_Empire@2"
+          ],
+          "exclude": [],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "history",
+              "ottoman-empire"
+            ]
+          ]
+        },
+        {
+          "id": "world_wars",
+          "name": "World Wars",
+          "phrase": "World War I and World War II",
+          "seeds": [
+            "World_War_I@2",
+            "World_War_II@2"
+          ],
+          "exclude": [],
+          "exclude_patterns": [
+            "(?i)cultural|media|works_about|(^|_)(art|arts|music|literature|memorials?)(_|$)|controversies"
+          ],
+          "stackexchange": [
+            [
+              "history",
+              "world-war-two"
+            ],
+            [
+              "history",
+              "world-war-one"
+            ]
+          ]
+        },
+        {
+          "id": "ancient_history",
+          "name": "Ancient History",
+          "phrase": "ancient history",
+          "seeds": [
+            "Ancient_history@2"
+          ],
+          "exclude": [],
+          "exclude_patterns": [],
+          "stackexchange": [
+            [
+              "history",
+              "ancient-history"
+            ],
+            [
+              "history",
+              "ancient-rome"
+            ],
+            [
+              "history",
+              "ancient-greece"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "ood_evaluation_seeds": {
+    "comment": "Out-of-taxonomy Wikipedia categories. 'val' categories are used to tune the OOD threshold; 'test' categories are disjoint and only used for reporting.",
+    "val": [
+      "Cooking_techniques",
+      "Music_genres",
+      "Fashion",
+      "Tourism",
+      "Dog_breeds",
+      "Gardening"
+    ],
+    "test": [
+      "Cuisine",
+      "Painting",
+      "Dance",
+      "Automobiles",
+      "Personal_finance",
+      "Beer_styles"
+    ]
+  },
+  "stackexchange_general_sites": {
+    "comment": "MTEB StackExchangeClustering site -> general topic mapping (external evaluation only). Sites mapped to null are out-of-taxonomy (OOD).",
+    "in_taxonomy": {
+      "physics.stackexchange.com.txt": "physics",
+      "astronomy.stackexchange.com.txt": "physics",
+      "biology.stackexchange.com.txt": "biology",
+      "chemistry.stackexchange.com.txt": "chemistry",
+      "quantumcomputing.stackexchange.com.txt": "technology",
+      "ai.stackexchange.com.txt": "technology",
+      "softwareengineering.stackexchange.com.txt": "technology",
+      "hsm.stackexchange.com.txt": "science",
+      "literature.stackexchange.com.txt": "books",
+      "sports.stackexchange.com.txt": "sports",
+      "history.stackexchange.com.txt": "history"
+    },
+    "ood": [
+      "cooking.stackexchange.com.txt",
+      "travel.stackexchange.com.txt",
+      "pets.stackexchange.com.txt",
+      "gardening.stackexchange.com.txt",
+      "bicycles.stackexchange.com.txt",
+      "coffee.stackexchange.com.txt",
+      "beer.stackexchange.com.txt",
+      "parenting.stackexchange.com.txt",
+      "money.stackexchange.com.txt",
+      "woodworking.stackexchange.com.txt",
+      "music.stackexchange.com.txt",
+      "photo.stackexchange.com.txt",
+      "fitness.stackexchange.com.txt",
+      "diy.stackexchange.com.txt",
+      "movies.stackexchange.com.txt"
+    ]
+  },
+  "composition": {
+    "comment": "Templates used by contextlens.services.composer to turn the active conversation topics into one phrase. 'format' topics (Books) wrap the domain phrase; a 'perspective' topic (History) frames another domain; a topic whose 'broader' topic is also active narrows it.",
+    "format_template": "{domain} {format}",
+    "format_narrow_template": "{broader} {format} about {narrow}",
+    "narrow_template": "{narrow} ({broader})",
+    "pair_template": "{a} and {b}"
+  }
+}
