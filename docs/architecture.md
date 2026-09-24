@@ -96,38 +96,47 @@ sequenceDiagram
 
 ## 3. Model
 
+Production configuration (`configs/model.json`, decisions D-22…D-25): encoder
+**all-MiniLM-L6-v2 fine-tuned** on the training split, head type
+**`flat_softmax`**.
+
 ```mermaid
 flowchart LR
-    x["text"] --> n["normalize"] --> e["sentence encoder<br/>(L2-normalised embedding)"]
-    e --> g["general head<br/>multinomial LR / T"] --> pg["P(general)"]
-    e --> h["8 subtopic heads<br/>one-vs-rest LR per general"] --> pc["P(sub | general)"]
-    e --> o["max cosine to the 8<br/>training centroids"] --> od{"ood ≥ τ_ood<br/>and conf ≥ 0.40?"}
+    x["text"] --> n["normalize"] --> e["fine-tuned MiniLM encoder<br/>(L2-normalised, 384-d)"]
+    e --> s["softmax over 28 subtopics<br/>LR logits / T"]
+    s --> pg["P(general) = Σ P(children)"]
+    s --> pc["P(sub | general) = share in parent"]
+    e --> o["max cosine to the 8<br/>training centroids"] --> od{"ood ≥ τ_ood<br/>and conf ≥ min_conf?"}
     pg --> od
-    pc --> dec["best child always +<br/>siblings ≥ τ_sub"]
+    pc --> dec["best child of predicted general +<br/>siblings ≥ τ_sub (max 3)"]
     od -->|yes| ok["status ok"]
     od -->|no| unc["status uncertain"]
 ```
 
-* **Hierarchy is enforced by construction:** subtopics are only chosen among the
-  children of the predicted general topic, and the joint score is
-  `P(general) · P(subtopic | general)`.
-* **Calibration:** the general head's logits are divided by a temperature fitted
-  on the validation split (NLL minimisation).
-* **Thresholds** (subtopic τ_sub, OOD τ_ood) are tuned on validation data only;
-  the values are stored in the artifact metadata.
-* Which encoder and regularisation won, and why: [MODEL_REPORT.md](MODEL_REPORT.md).
+* **Hierarchy is enforced by construction:** P(general) is the sum of its
+  subtopics, subtopics are only chosen among the children of the predicted
+  general topic, and the joint score is `P(general) · P(subtopic | general)`.
+* The alternative `head_type = hierarchical` (separate general LR head + one
+  one-vs-rest head per general topic) is still supported and tested; the
+  benchmark chose `flat_softmax` (docs/MODEL_REPORT.md §3).
+* **Calibration:** logits are divided by a temperature fitted on the validation
+  split (NLL of the general topic).
+* **Thresholds:** subtopic τ_sub on Wikipedia val; OOD τ_ood keeps 95% of
+  Stack Exchange ext_dev questions; min_conf by the coverage rule (D-25).
+  All values are stored in the artifact metadata.
 
 ### Artifact (`models/contextlens-topic/`)
 
 | file | content |
 |---|---|
-| `metadata.json` | name, version, training time, dataset fingerprint, encoder repo + revision, thresholds, temperature, validation and test metrics, SHA-256 of the files below |
-| `heads.skops` | general and subtopic heads (skops, loaded with an explicit trusted-type allowlist — no pickle) |
+| `metadata.json` | name, version, training time, dataset fingerprint, encoder, head type, thresholds, temperature, validation and test metrics, min_confidence sweep, encoder fingerprint (probe embedding), SHA-256 of the files below |
+| `heads.skops` | head type + heads (skops, loaded with an explicit trusted-type allowlist — no pickle) |
 | `centroids.npy` | 8 × d class centroids for the OOD gate |
 | `vocabulary.json` | word → IDF from the training split (query keyword filter) |
-| `encoder/` | a local copy of the sentence encoder (git-ignored; re-created by `train.py`) |
+| `encoder/` | the fine-tuned sentence encoder (float16 safetensors + tokenizer), committed |
 
-`load_artifact` verifies every checksum and refuses to load a modified file;
+`load_artifact` verifies every checksum, re-encodes a probe sentence to check
+the encoder (D-18) and refuses to load a modified or mismatched artifact;
 a missing artifact produces an error that says how to build it. The model is
 **never retrained at start-up**.
 

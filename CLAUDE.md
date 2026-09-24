@@ -42,6 +42,7 @@ python project.py --no-web --once "text"
 python scripts/download_data.py --all   # corpus + Stack Exchange sets (network, ~20 min)
 python scripts/eda.py
 python scripts/run_experiments.py       # benchmark (CPU: about an hour)
+python scripts/finetune_transformer.py --encoder minilm-l6 --export models/finetuned/minilm-l6   # ~50 min CPU
 python train.py && python scripts/tune_decay.py && python evaluate.py
 
 ruff check . && ruff format --check . && mypy contextlens project.py train.py evaluate.py
@@ -63,7 +64,7 @@ data/manifest/    committed label manifest (articles.csv, crawl stats)
 data/processed/   committed passages (parquet)
 data/external/    Stack Exchange evaluation sets
 reports/          experiment JSON, evaluation JSON, figures
-models/           trained artifact (encoder weights git-ignored)
+models/           trained artifact contextlens-topic/ (committed, incl. float16 encoder)
 tests/            unit, integration, acceptance, edge cases
 ```
 

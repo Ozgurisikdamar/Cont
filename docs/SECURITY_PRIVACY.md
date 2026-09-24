@@ -19,7 +19,7 @@ key-less.
 | 1 | SQL | injection through message text or table names | every statement is parameterised; the only dynamic identifier (`count(table)`) is checked against an allow-list | `tests/test_db.py::test_sql_injection_is_stored_literally`, `::test_count_rejects_unknown_table` |
 | 2 | database integrity | orphaned rows, partial writes, concurrent access | `PRAGMA foreign_keys=ON`, one transaction per write, WAL, `busy_timeout=5000`; a locked or unwritable database becomes a `DatabaseError` → a warning, never a crash | `::test_foreign_keys_enforced`, `::test_locked_database_surfaces_as_database_error`, `tests/test_integration.py::test_database_failure_is_a_warning_not_a_crash` |
 | 3 | schema | an older program opening a newer database | `PRAGMA user_version`; newer schemas are refused | `::test_newer_schema_is_refused` |
-| 4 | model artifact | code execution through pickle; tampered or truncated files | heads stored with **skops** and loaded with an explicit allow-list of types; `.npy` loaded with `allow_pickle=False`; SHA-256 of every file checked against `metadata.json`; encoder weights loaded from safetensors | `contextlens/models/artifact.py`, `tests/test_integration.py::test_artifact_round_trip_and_integrity` |
+| 4 | model artifact | code execution through pickle; tampered or truncated files | heads stored with **skops** and loaded with an explicit allow-list of types; `.npy` loaded with `allow_pickle=False`; SHA-256 of every file checked against `metadata.json`; encoder weights loaded from safetensors and verified by a probe-embedding fingerprint (a swapped or missing encoder is refused, no silent Hub fallback) | `contextlens/models/artifact.py`, `tests/test_integration.py::test_artifact_round_trip_and_integrity`, `::test_artifact_refuses_an_encoder_it_was_not_trained_with`, `tests/test_encoders.py` |
 | 5 | input size | memory/time exhaustion from a huge paste | the model reads at most 5,000 characters; the database stores at most 10,000 | `contextlens/preprocessing/text.py`, `tests/test_db.py::test_stored_message_length_is_bounded`, `tests/test_acceptance.py::test_very_long_input_is_handled` |
 | 6 | input content | HTML/script, control characters, odd Unicode | NFKC normalisation, HTML unescape + tag removal, control characters removed; nothing user-supplied is ever rendered as HTML (terminal output only) | `tests/test_text.py` |
 | 7 | web responses | malicious links, oversized or malformed payloads | HTTPS-only URLs on allow-listed domains (`wikipedia.org`, `duckduckgo.com`); snippets stripped of markup and truncated (200/500 chars); responses > 5 MB rejected; malformed JSON → provider treated as failed | `tests/test_websearch.py::test_parse_wikipedia_orders_by_search_rank_and_drops_unsafe_urls`, `::test_clean_snippet_and_url_validation`, `::test_parse_wikipedia_handles_malformed_payloads` |
@@ -40,3 +40,7 @@ key-less.
 * The classifier's output can be wrong with high confidence on text unlike its
   training data; the OOD gate reduces but does not remove this
   ([MODEL_CARD.md](MODEL_CARD.md)).
+* Checksums detect corruption and accidental edits, not a deliberate attacker:
+  someone who can write `metadata.json` can also rewrite the hashes. There is no
+  signature; the safety of loading still rests on skops' type allow-list and on
+  safetensors (neither executes code).
