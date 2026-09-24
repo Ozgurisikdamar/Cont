@@ -1,8 +1,21 @@
 # Project state — 2026-09-24
 
-**Status: complete (v1.0.0).** All brief requirements are implemented,
-trained, evaluated, tested and documented. Open items are limitations, not
-unfinished work (KNOWN_ISSUES.md).
+**Status: hardening / corrective pass in progress.** v1.0.0 was trained,
+evaluated and documented, but an audit found methodological gaps that must be
+closed before the project is called complete (docs/HARDENING.md):
+
+| # | gap | state |
+|---|---|---|
+| 1 | subtopic objective is a softmax while the data is multi-label | open |
+| 2 | test / ext_test were reported during development — no untouched final holdout | open |
+| 3 | off-topic detection catches only 33–44% | open |
+| 4 | Science class weak (F1 0.369 on questions) | open |
+| 5 | conversation theme never expires on uncertain streaks; tangents move the theme | open |
+| 6 | language gate skips texts with fewer than 3 words | open |
+| 7 | no CI; the network test cannot fail when both providers fail | open |
+| 8 | label audit only 48 passages | open |
+| 9 | encoder files not covered by SHA-256 checksums | open |
+| 10 | repository name `Cont` | open |
 
 ## Completed
 
@@ -23,7 +36,7 @@ unfinished work (KNOWN_ISSUES.md).
 
 ## In progress
 
-Nothing.
+The corrective pass above; every item gets its own commit.
 
 ## Decisions (headline; all in decisions.md)
 
