@@ -1,0 +1,490 @@
+{
+ "method": "6 random training passages per general topic (pandas sample, random_state=42); each passage and its article title read and judged by hand. Verdicts: correct / weak_passage (article label right, passage carries no topical signal) / wrong_label (article belongs to another general topic).",
+ "n": 48,
+ "items": [
+  {
+   "passage_id": "13399188-2",
+   "title": "Communal roosting",
+   "general": "biology",
+   "subtopics": [
+    "ecology",
+    "evolution"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "53653356-3",
+   "title": "Elective genetic and genomic testing",
+   "general": "biology",
+   "subtopics": [
+    "genetics"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "2652348-3",
+   "title": "Imaging genetics",
+   "general": "biology",
+   "subtopics": [
+    "genetics"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "5103200-0",
+   "title": "Darwin (unit)",
+   "general": "biology",
+   "subtopics": [
+    "evolution"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "60885357-2",
+   "title": "Mutation accumulation theory",
+   "general": "biology",
+   "subtopics": [
+    "evolution",
+    "genetics"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "8960415-0",
+   "title": "Exonic splicing enhancer",
+   "general": "biology",
+   "subtopics": [
+    "genetics"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "4059688-1",
+   "title": "Ashik",
+   "general": "books",
+   "subtopics": [
+    "poetry"
+   ],
+   "verdict": "weak_passage",
+   "note": "article on the ashik bardic tradition (poetry) but the passage describes a professional musician"
+  },
+  {
+   "passage_id": "155505-0",
+   "title": "On the Beach (novel)",
+   "general": "books",
+   "subtopics": [
+    "novels"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "531939-3",
+   "title": "334 (novel)",
+   "general": "books",
+   "subtopics": [
+    "novels"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "5983758-1",
+   "title": "The Ancient Engineers",
+   "general": "books",
+   "subtopics": [
+    "science_books"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "35398888-0",
+   "title": "Abdulla Qodiriy",
+   "general": "books",
+   "subtopics": [
+    "authors"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "8635168-2",
+   "title": "The Laughing Cavalier (novel)",
+   "general": "books",
+   "subtopics": [
+    "novels"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "12420832-1",
+   "title": "Amyloid (mycology)",
+   "general": "chemistry",
+   "subtopics": [
+    "chemical_reactions"
+   ],
+   "verdict": "wrong_label",
+   "note": "amyloid reaction in mycology is fungal biology (iodine staining), not chemistry"
+  },
+  {
+   "passage_id": "57654857-3",
+   "title": "Chloroeremomycin",
+   "general": "chemistry",
+   "subtopics": [
+    "organic_chemistry"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "2749404-3",
+   "title": "W\u00f6hler synthesis",
+   "general": "chemistry",
+   "subtopics": [
+    "chemical_reactions",
+    "organic_chemistry"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "3325084-0",
+   "title": "Weinreb ketone synthesis",
+   "general": "chemistry",
+   "subtopics": [
+    "chemical_reactions"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "22526-2",
+   "title": "Organometallic chemistry",
+   "general": "chemistry",
+   "subtopics": [
+    "organic_chemistry"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "6086259-2",
+   "title": "Zincke\u2013Suhl reaction",
+   "general": "chemistry",
+   "subtopics": [
+    "chemical_reactions"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "1424742-0",
+   "title": "Joseph Nasi",
+   "general": "history",
+   "subtopics": [
+    "ottoman_history"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "19342741-3",
+   "title": "Wonders of the World",
+   "general": "history",
+   "subtopics": [
+    "ancient_history"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "57554503-3",
+   "title": "Nino Luraghi",
+   "general": "history",
+   "subtopics": [
+    "ancient_history"
+   ],
+   "verdict": "weak_passage",
+   "note": "biography of a historian; the passage is about his academic fellowship"
+  },
+  {
+   "passage_id": "34915981-1",
+   "title": "World War I memorials",
+   "general": "history",
+   "subtopics": [
+    "world_wars"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "20591579-2",
+   "title": "Ioannis Pangas",
+   "general": "history",
+   "subtopics": [
+    "ottoman_history"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "66216049-2",
+   "title": "Ullah millet",
+   "general": "history",
+   "subtopics": [
+    "ottoman_history"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "27667-3",
+   "title": "Space",
+   "general": "physics",
+   "subtopics": [
+    "relativity"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "5118041-0",
+   "title": "Constraint algebra",
+   "general": "physics",
+   "subtopics": [
+    "quantum_mechanics"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "361897-1",
+   "title": "Astrophysics",
+   "general": "physics",
+   "subtopics": [
+    "astrophysics"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "3205338-3",
+   "title": "Heliospheric current sheet",
+   "general": "physics",
+   "subtopics": [
+    "astrophysics"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "72614183-0",
+   "title": "Permutationally invariant quantum state tomography",
+   "general": "physics",
+   "subtopics": [
+    "quantum_mechanics"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "35132005-1",
+   "title": "Gibbons\u2013Hawking ansatz",
+   "general": "physics",
+   "subtopics": [
+    "relativity"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "16264545-2",
+   "title": "Challenge\u2013dechallenge\u2013rechallenge",
+   "general": "science",
+   "subtopics": [
+    "scientific_research"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "6277878-3",
+   "title": "Open science",
+   "general": "science",
+   "subtopics": [
+    "scientific_research"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "70026998-2",
+   "title": "Bioinformatics Research Network",
+   "general": "science",
+   "subtopics": [
+    "scientific_research"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "6956596-2",
+   "title": "Trend analysis",
+   "general": "science",
+   "subtopics": [
+    "scientific_method",
+    "scientific_research"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "40835006-2",
+   "title": "Invalid science",
+   "general": "science",
+   "subtopics": [
+    "scientific_research"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "1006496-3",
+   "title": "Open Polar Sea",
+   "general": "science",
+   "subtopics": [
+    "history_of_science"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "20345847-1",
+   "title": "Vancouver Organizing Committee for the 2010 Olympic and Paralympic Winter Games",
+   "general": "sports",
+   "subtopics": [
+    "olympics"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "43445032-3",
+   "title": "Walking football",
+   "general": "sports",
+   "subtopics": [
+    "football"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "26363198-0",
+   "title": "Mitre Revolve",
+   "general": "sports",
+   "subtopics": [
+    "football"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "71387593-3",
+   "title": "NBA Academy",
+   "general": "sports",
+   "subtopics": [
+    "basketball"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "73773859-3",
+   "title": "Professionalism in women's association football",
+   "general": "sports",
+   "subtopics": [
+    "football"
+   ],
+   "verdict": "weak_passage",
+   "note": "women's football article; the passage is about coal-mining labour disputes"
+  },
+  {
+   "passage_id": "3341914-0",
+   "title": "Group of death",
+   "general": "sports",
+   "subtopics": [
+    "football"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "22042939-3",
+   "title": "Spin model",
+   "general": "technology",
+   "subtopics": [
+    "quantum_computing"
+   ],
+   "verdict": "wrong_label",
+   "note": "spin models are statistical/quantum physics, not quantum-computing technology"
+  },
+  {
+   "passage_id": "41035808-1",
+   "title": "Management Component Transport Protocol",
+   "general": "technology",
+   "subtopics": [
+    "hardware"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "40946774-3",
+   "title": "Pattern language (formal languages)",
+   "general": "technology",
+   "subtopics": [
+    "artificial_intelligence"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "12027634-2",
+   "title": "ASK Group",
+   "general": "technology",
+   "subtopics": [
+    "software"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "70181938-0",
+   "title": "Postman (software)",
+   "general": "technology",
+   "subtopics": [
+    "software"
+   ],
+   "verdict": "correct",
+   "note": ""
+  },
+  {
+   "passage_id": "18457137-3",
+   "title": "Personal computer",
+   "general": "technology",
+   "subtopics": [
+    "hardware"
+   ],
+   "verdict": "correct",
+   "note": ""
+  }
+ ]
+}

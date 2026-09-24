@@ -297,8 +297,8 @@
   "selected_articles": 11937,
   "articles_with_text": 11169,
   "recovered_by_source": {
-    "dump_redirect": 49,
-    "legacy_dump": 904,
+    "dump_redirect": 50,
+    "legacy_dump": 909,
     "legacy_dump_redirect": 10
   },
   "missing_text": [
@@ -1074,6 +1074,6 @@
   "passages": 43260,
   "duplicate_passages_removed": 38,
   "near_duplicate_passages_removed": 12,
-  "ood_articles": 617,
-  "ood_passages": 1223
+  "ood_articles": 669,
+  "ood_passages": 1327
 }

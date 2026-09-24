@@ -129,3 +129,24 @@ def test_locked_database_surfaces_as_database_error(tmp_path, monkeypatch):
     other.rollback()
     other.close()
     d.close()
+
+
+def test_stored_message_length_is_bounded(tmp_path):
+    from contextlens.database.db import MAX_CONTENT_CHARS, Database
+
+    db = Database(tmp_path / "c.db")
+    sid = db.start_session(None)
+    db.add_text(
+        sid,
+        1,
+        "x" * (MAX_CONTENT_CHARS * 3),
+        general_topic=None,
+        general_confidence=None,
+        subtopics=[],
+        general_probs={},
+        uncertain=True,
+        status="uncertain",
+        model_version_id=None,
+    )
+    assert len(db.session_texts(sid)[0].content) == MAX_CONTENT_CHARS
+    db.close()

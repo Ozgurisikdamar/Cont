@@ -61,3 +61,14 @@ def test_multilabel_report():
 def test_ood_report_separable():
     rep = ood_report(np.array([0.9, 0.8, 0.95]), np.array([0.1, 0.2]))
     assert rep["auroc"] == 1.0 and rep["fpr_at_95_tpr"] == 0.0
+
+
+def test_macro_f1_over_supported_labels_ignores_absent_classes():
+    import numpy as np
+
+    from contextlens.evaluation.metrics import multilabel_report
+
+    y = np.array([[1, 0, 0], [0, 1, 0]])  # label 2 never occurs in this evaluation set
+    rep = multilabel_report(y, y.copy(), y.astype(float), ["a", "b", "c"])
+    assert rep["macro_f1"] < 1.0  # the absent label counts as F1 = 0
+    assert rep["macro_f1_supported"] == 1.0 and rep["labels_supported"] == 2

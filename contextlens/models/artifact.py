@@ -8,11 +8,13 @@ Layout of ``models/contextlens-topic/``::
     heads.skops        general head + subtopic heads (skops, not pickle)
     centroids.npy      class centroids for the OOD gate (allow_pickle=False)
     vocabulary.json    word -> IDF, used to pick query keywords
-    encoder/           optional local copy of the sentence encoder
+    encoder/           local copy of the sentence encoder (safetensors)
 
-Loading refuses to continue when a file is missing, a checksum does not match
-or the skops file contains types outside an explicit allow-list - a corrupt or
-tampered artifact never runs silently.
+Loading refuses to continue when a file is missing, a checksum does not match,
+the skops file contains types outside an explicit allow-list, or the encoder
+does not reproduce the fingerprint recorded at training time (the embedding of
+a fixed probe sentence) - a corrupt, tampered or mismatched artifact never runs
+silently.
 """
 
 from __future__ import annotations
@@ -43,6 +45,13 @@ TRUSTED_TYPES = {
 }
 CHECKSUMMED_FILES = ("heads.skops", "centroids.npy", "vocabulary.json")
 
+# Encoder fingerprint: the heads only make sense on the embeddings they were
+# trained on. Loading a different encoder (e.g. the Hub base model instead of the
+# fine-tuned one) raises no error by itself, so the artifact stores the embedding
+# of this sentence and load_artifact checks that the loaded encoder reproduces it.
+PROBE_TEXT = "Entangled qubits, the Ottoman Empire, a novel about football and the periodic table."
+PROBE_MIN_COSINE = 0.999
+
 
 class ArtifactError(RuntimeError):
     """Raised when the model artifact is missing, corrupt or untrusted."""
@@ -63,6 +72,32 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
+def encoder_probe(encoder: Any) -> list[float]:
+    """Embedding of PROBE_TEXT, rounded for storage in metadata.json."""
+    return [round(float(x), 6) for x in np.asarray(encoder.encode([PROBE_TEXT]))[0]]
+
+
+def verify_encoder(encoder: Any, meta: dict[str, Any], centroids: np.ndarray) -> None:
+    """Raise ArtifactError unless ``encoder`` is the one the heads were trained with."""
+    expected = meta.get("encoder_probe")
+    if not expected:
+        raise ArtifactError(f"the artifact has no encoder fingerprint; retrain it.\n{HOW_TO_BUILD}")
+    ref = np.asarray(expected, dtype=np.float64)
+    got = np.asarray(encoder.encode([PROBE_TEXT]), dtype=np.float64)[0]
+    if got.shape != ref.shape or ref.shape[0] != centroids.shape[1]:
+        raise ArtifactError(
+            f"encoder dimension {got.shape[0]} does not match the artifact ({ref.shape[0]}); "
+            "the encoder is not the one the model was trained with"
+        )
+    cosine = float(got @ ref / max(np.linalg.norm(got) * np.linalg.norm(ref), 1e-12))
+    if cosine < PROBE_MIN_COSINE:
+        raise ArtifactError(
+            f"the loaded encoder ({getattr(encoder, 'source', meta.get('encoder'))}) does not reproduce the "
+            f"embedding recorded at training time (cosine {cosine:.4f} < {PROBE_MIN_COSINE}); "
+            f"the classifier heads would receive embeddings they were never trained on.\n{HOW_TO_BUILD}"
+        )
+
+
 def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, float], save_encoder: bool) -> None:
     directory.mkdir(parents=True, exist_ok=True)
     sio.dump({"general_head": model.general_head, "subtopic_heads": model.subtopic_heads}, directory / "heads.skops")
@@ -80,6 +115,7 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
             "subtopic_threshold": model.subtopic_threshold,
             "ood_threshold": model.ood_threshold,
             "min_confidence": model.min_confidence,
+            "encoder_probe": encoder_probe(model.encoder),
             "checksums": {name: sha256_file(directory / name) for name in CHECKSUMMED_FILES},
         }
     )
@@ -120,10 +156,14 @@ def load_artifact(
     heads = _load_heads(directory / "heads.skops")
     centroids = np.load(directory / "centroids.npy", allow_pickle=False)
     if encoder is None:
-        key = meta["encoder"]
+        key = meta.get("encoder")
         if key not in ENCODERS:
             raise ArtifactError(f"unknown encoder {key!r} in metadata")
-        encoder = SentenceEncoder(key, local_path=directory / "encoder")
+        try:
+            encoder = SentenceEncoder(key, local_path=directory / "encoder")
+        except (OSError, ValueError) as exc:  # FileNotFoundError is an OSError
+            raise ArtifactError(f"cannot load the sentence encoder {key!r}: {exc}\n{HOW_TO_BUILD}") from exc
+    verify_encoder(encoder, meta, centroids)
     return TopicModel(
         general_ids=list(meta["general_ids"]),
         subtopic_ids=list(meta["subtopic_ids"]),

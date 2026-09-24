@@ -1,9 +1,10 @@
 """Fit the production :class:`TopicModel` (used by ``train.py`` and the tests).
 
-Every data-dependent choice uses the *validation* split only:
-temperature (NLL), subtopic threshold (macro-F1 sweep) and the OOD threshold
-(quantile of validation in-distribution scores). The test split is never seen
-here.
+Every data-dependent choice uses held-out *development* data only: temperature
+(NLL on validation), subtopic threshold (macro-F1 sweep on validation) and the
+OOD threshold (quantile of in-distribution scores on the calibration texts -
+validation passages, or real user questions from Stack Exchange ext_dev when
+``ood_calibration_texts`` is given). Test data is never seen here.
 """
 
 from __future__ import annotations
@@ -35,7 +36,7 @@ class TrainConfig:
     general_C: float
     subtopic_C: float
     thresholds: tuple[float, ...] = tuple(round(x, 2) for x in np.arange(0.20, 0.71, 0.05))
-    ood_keep_quantile: float = 0.05  # 5% of in-distribution validation texts fall below the gate
+    ood_keep_quantile: float = 0.05  # 5% of in-distribution calibration texts fall below the gate
     min_confidence: float = 0.40
     vocabulary_size: int = 40000
 
@@ -59,8 +60,13 @@ def fit_topic_model(
     train: tuple[list[str], np.ndarray, np.ndarray],
     val: tuple[list[str], np.ndarray, np.ndarray],
     cfg: TrainConfig,
+    ood_calibration_texts: list[str] | None = None,
 ) -> tuple[TopicModel, dict]:
-    """Train on ``train`` = (texts, general labels, subtopic matrix); tune on ``val``."""
+    """Train on ``train`` = (texts, general labels, subtopic matrix); tune on ``val``.
+
+    ``ood_calibration_texts`` - in-distribution texts whose score quantile sets the
+    OOD threshold (default: the validation passages).
+    """
     Xtr, Xva = encoder.encode(train[0]), encoder.encode(val[0])
     ytr, Ytr = train[1], train[2]
     yva, Yva = val[1], val[2]
@@ -79,8 +85,8 @@ def fit_topic_model(
     best_macro, _, threshold = max(sweep)
 
     cents = centroids_of(Xtr, ytr, n_general)
-    ood_val = (Xva @ cents.T).max(axis=1)
-    ood_threshold = float(np.quantile(ood_val, cfg.ood_keep_quantile))
+    Xcal = encoder.encode(ood_calibration_texts) if ood_calibration_texts else Xva
+    ood_threshold = float(np.quantile((Xcal @ cents.T).max(axis=1), cfg.ood_keep_quantile))
 
     model = TopicModel(
         general_ids=space.general_ids,

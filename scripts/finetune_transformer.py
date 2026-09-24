@@ -76,6 +76,29 @@ def predict(
     return np.concatenate(gps), np.concatenate(sps)
 
 
+def export_sentence_transformer(model: TwoHead, spec: dict, max_len: int, target: Path, half: bool = True) -> None:
+    """Save the fine-tuned encoder (not the heads) in sentence-transformers format.
+
+    The runtime pipeline then uses it like any other frozen encoder: embeddings
+    -> calibrated logistic-regression heads (train.py), so the artifact format,
+    calibration and OOD gate stay the same. Weights are stored in float16 by
+    default (half the size); they load back as float32, and every later step
+    (benchmark, train.py, evaluate.py) sees exactly these rounded weights.
+    """
+    from sentence_transformers import SentenceTransformer, models
+
+    pin = {"revision": spec["revision"]}
+    word = models.Transformer(spec["repo"], max_seq_length=max_len, model_args=pin, tokenizer_args=pin, config_args=pin)
+    word.auto_model.load_state_dict(model.encoder.state_dict())
+    pooling = models.Pooling(word.get_word_embedding_dimension(), pooling_mode="mean")
+    target.mkdir(parents=True, exist_ok=True)
+    st = SentenceTransformer(modules=[word, pooling], device="cpu")
+    if half:
+        st.half()
+    st.save(str(target))
+    log.info("exported fine-tuned encoder to %s (%s)", target, "float16" if half else "float32")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--encoder", default="minilm-l6", choices=sorted(ENCODERS))
@@ -83,7 +106,14 @@ def main() -> int:
     ap.add_argument("--lr", type=float, default=5e-5)
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--max-len", type=int, default=64)
-    ap.add_argument("--save", action="store_true")
+    ap.add_argument("--save", action="store_true", help="also save the raw two-head state dict (.pt)")
+    ap.add_argument(
+        "--export",
+        type=Path,
+        default=None,
+        help="write the fine-tuned encoder as a sentence-transformers model (mean pooling) to this directory",
+    )
+    ap.add_argument("--export-float32", action="store_true", help="export float32 weights instead of float16")
     args = ap.parse_args()
     setup_logging("INFO", PATHS.root / "logs" / f"finetune_{args.encoder}.log")
     seed_everything(RANDOM_SEED)
@@ -199,6 +229,10 @@ def main() -> int:
     out.write_text(json.dumps(results, indent=2), encoding="utf-8")
     if args.save:
         torch.save(model.state_dict(), PATHS.models / f"finetuned_{args.encoder}.pt")
+    if args.export is not None:
+        export_sentence_transformer(model, spec, args.max_len, args.export, half=not args.export_float32)
+        results["exported_to"] = str(args.export)
+        out.write_text(json.dumps(results, indent=2), encoding="utf-8")
     log.info("wrote %s", out)
     return 0
 

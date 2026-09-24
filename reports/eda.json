@@ -725,10 +725,10 @@
     ]
   },
   "ood": {
-    "passages": 1223,
+    "passages": 1327,
     "by_split": {
-      "val": 652,
-      "test": 571
+      "test": 675,
+      "val": 652
     },
     "by_category": {
       "Dog_breeds": 118,
@@ -736,26 +736,27 @@
       "Cooking_techniques": 116,
       "Beer_styles": 116,
       "Painting": 114,
-      "Cuisine": 112,
       "Dance": 112,
+      "Cuisine": 112,
       "Fashion": 110,
+      "Cars": 104,
       "Music_genres": 104,
       "Gardening": 103,
       "Tourism": 101
     },
     "text": {
-      "n": 1223,
+      "n": 1327,
       "words": {
         "min": 12,
         "p5": 13.0,
         "median": 24.0,
-        "mean": 26.13,
+        "mean": 25.97,
         "p95": 48.0,
         "max": 60
       },
       "chars": {
         "median": 147.0,
-        "mean": 161.7,
+        "mean": 160.9,
         "max": 467
       },
       "anomalies": {
@@ -766,8 +767,8 @@
         "emoji": 0,
         "mojibake": 0,
         "replacement_char": 0,
-        "non_ascii": 116,
-        "latex": 0
+        "non_ascii": 128,
+        "latex": 1
       },
       "empty": 0,
       "exact_duplicates": 0

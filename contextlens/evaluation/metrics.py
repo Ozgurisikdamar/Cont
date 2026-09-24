@@ -8,7 +8,6 @@ import numpy as np
 from sklearn.metrics import (
     accuracy_score,
     average_precision_score,
-    brier_score_loss,
     confusion_matrix,
     f1_score,
     hamming_loss,
@@ -93,6 +92,10 @@ def multilabel_report(y_true: np.ndarray, y_pred: np.ndarray, scores: np.ndarray
         "n": int(len(y_true)),
         "micro_f1": float(f1_score(y_true, y_pred, average="micro", zero_division=0)),
         "macro_f1": float(f1_score(y_true, y_pred, average="macro", zero_division=0)),
+        # labels absent from ``y_true`` score F1 = 0 by definition; for evaluation sets that
+        # cover only part of the label space this average is the meaningful one
+        "macro_f1_supported": float(np.mean(f[s > 0])) if (s > 0).any() else 0.0,
+        "labels_supported": int((s > 0).sum()),
         "weighted_f1": float(f1_score(y_true, y_pred, average="weighted", zero_division=0)),
         "samples_f1": float(f1_score(y_true, y_pred, average="samples", zero_division=0)),
         "hamming_loss": float(hamming_loss(y_true, y_pred)),
@@ -118,7 +121,3 @@ def ood_report(in_scores: np.ndarray, ood_scores: np.ndarray) -> dict:
         "n_in": int(len(in_scores)),
         "n_ood": int(len(ood_scores)),
     }
-
-
-def binary_brier(y_true: np.ndarray, p: np.ndarray) -> float:
-    return float(brier_score_loss(y_true, p))

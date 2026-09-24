@@ -20,8 +20,10 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+import numpy as np
+
 from contextlens.config import PATHS, RANDOM_SEED, load_settings
-from contextlens.data.dataset import DataMissingError, LabelSpace, load_passages
+from contextlens.data.dataset import DataMissingError, LabelSpace, load_passages, load_se_general
 from contextlens.evaluation.metrics import multiclass_report
 from contextlens.logging_setup import setup_logging
 from contextlens.models.artifact import save_artifact
@@ -69,7 +71,7 @@ def main(argv: list[str] | None = None) -> int:
     space = LabelSpace.from_taxonomy(tax)
     children = {g: tax.children_of(g) for g in tax.general_ids}
 
-    def split(name: str) -> tuple[list[str], object, object]:
+    def split(name: str) -> tuple[list[str], np.ndarray, np.ndarray]:
         part = df[df.split == name]
         texts = [normalize(t) for t in part.text]
         return texts, space.encode_general(part.general), space.encode_subtopics(part.subtopics)
@@ -77,13 +79,23 @@ def main(argv: list[str] | None = None) -> int:
     train, val, test = split("train"), split("val"), split("test")
     log.info("train=%d val=%d test=%d passages", len(train[0]), len(val[0]), len(test[0]))
 
+    ood_calibration = conf.get("ood_calibration", "wiki_val")
+    calibration_texts = None
+    if ood_calibration == "se_ext_dev":  # real user questions, in-distribution only (never ext_test)
+        se = load_se_general()
+        calibration_texts = [normalize(t) for t in se[(se.split == "ext_dev") & ~se.is_ood].text]
+    elif ood_calibration != "wiki_val":
+        log.error("unknown ood_calibration %r (expected wiki_val or se_ext_dev)", ood_calibration)
+        return 2
     t0 = time.perf_counter()
     encoder = SentenceEncoder(cfg.encoder)
-    model, val_report = fit_topic_model(encoder, space, children, train, val, cfg)  # type: ignore[arg-type]
+    model, val_report = fit_topic_model(
+        encoder, space, children, train, val, cfg, ood_calibration_texts=calibration_texts
+    )
     train_seconds = time.perf_counter() - t0
 
     gp_test, _, _ = model.predict_proba(test[0])
-    test_report = multiclass_report(test[1], gp_test, space.general_ids)  # type: ignore[arg-type]
+    test_report = multiclass_report(test[1], gp_test, space.general_ids)
     log.info("test (report only): acc=%.4f macroF1=%.4f", test_report["accuracy"], test_report["macro_f1"])
 
     model.metadata = {
@@ -98,6 +110,7 @@ def main(argv: list[str] | None = None) -> int:
             "general_C": cfg.general_C,
             "subtopic_C": cfg.subtopic_C,
             "ood_keep_quantile": cfg.ood_keep_quantile,
+            "ood_calibration": ood_calibration,
         },
         "preprocessing": "contextlens.preprocessing.text.normalize (NFKC, HTML/URL/mention removal, no lower-casing)",
         "train_seconds": round(train_seconds, 1),

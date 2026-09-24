@@ -9,8 +9,10 @@ Selection protocol (no test-set peeking):
 Sections (run all by default):
   general      featurizer x head grid for the 8 general topics
   zeroshot     label-description similarity with sentence encoders (no training)
+  ensemble     concatenated embeddings of two encoders + logistic regression
   hierarchy    flat vs hierarchical subtopic modelling, threshold sweep
   calibration  ECE / reliability before and after temperature scaling
+  selective    accuracy vs. coverage for confidence thresholds (choice of min_confidence)
   ood          out-of-distribution scores (MSP, energy, centroid, kNN)
 
     python scripts/run_experiments.py [--sections general hierarchy ...]
@@ -44,7 +46,7 @@ from contextlens.evaluation.metrics import (
     reliability_curve,
 )
 from contextlens.logging_setup import setup_logging
-from contextlens.models.encoders import ENCODERS, SentenceEncoder, cached_encode
+from contextlens.models.encoders import SentenceEncoder, available_encoders, cached_encode
 from contextlens.models.featurizers import TFIDF_FEATURIZERS
 from contextlens.models.heads import (
     HierarchicalSubtopics,
@@ -68,9 +70,12 @@ THRESHOLDS = [round(x, 2) for x in np.arange(0.20, 0.71, 0.05)]
 LATENCY_SAMPLES = 200
 
 
+OUT_SUFFIX = ""
+
+
 def dump(name: str, payload: dict) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / f"{name}.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    (OUT / f"{name}{OUT_SUFFIX}.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
 def compact(report: dict) -> dict:
@@ -156,7 +161,7 @@ def general_candidates(feat: str) -> list[tuple[str, dict, object]]:
     return [("logreg", {"C": c}, lambda X, y, c=c: fit_softmax(X, y, c)) for c in C_GRID_EMB]
 
 
-def section_general(data: Data) -> dict:
+def section_general(data: Data, feats: list[str] | None = None) -> dict:
     labels = data.space.general_ids
     eval_splits = ["val", "test", "se_ext_dev", "se_ext_test"]
     results: dict[str, dict] = {}
@@ -170,7 +175,7 @@ def section_general(data: Data) -> dict:
             for s in eval_splits
         },
     }
-    for feat in [*TFIDF_FEATURIZERS, *ENCODERS]:
+    for feat in feats or [*TFIDF_FEATURIZERS, *available_encoders()]:
         X, vec, fit_feat_s = features(data, feat, eval_splits)
         best_by_head: dict[str, dict] = {}
         for head, params, fit in general_candidates(feat):
@@ -206,6 +211,43 @@ def section_general(data: Data) -> dict:
             results[name] = row
             log.info("%s -> val %s | ext_dev %s", name, row["val"], row["se_ext_dev"])
     dump("general", results)
+    return results
+
+
+# --------------------------------------------------------------- section: ensemble
+ENSEMBLE_PAIRS = [("bge-small", "e5-small"), ("bge-small", "mpnet-base"), ("e5-small", "mpnet-base")]
+
+
+def section_ensemble(data: Data) -> dict:
+    """Concatenated embeddings of two encoders + one logistic-regression head."""
+    labels = data.space.general_ids
+    eval_splits = ["val", "test", "se_ext_dev", "se_ext_test"]
+    results: dict[str, dict] = {}
+    for a, b in ENSEMBLE_PAIRS:
+        X = {s: np.hstack([embed(data, a, s), embed(data, b, s)]) for s in ["train", *eval_splits]}
+        best = None
+        for c in C_GRID_EMB:
+            t0 = time.perf_counter()
+            clf = fit_softmax(X["train"], data.yg["train"], c)
+            train_s = time.perf_counter() - t0
+            val = multiclass_report(data.yg["val"], clf.predict_proba(X["val"]), labels)
+            log.info("%s+%s C=%s val mF1=%.4f", a, b, c, val["macro_f1"])
+            if best is None or val["macro_f1"] > best[0]:
+                best = (val["macro_f1"], c, clf, train_s)
+        assert best is not None
+        _, c, clf, train_s = best
+        row: dict = {"feature": f"{a}+{b}", "head": "logreg", "params": {"C": c}, "train_seconds": round(train_s, 1)}
+        for s in eval_splits:
+            row[s] = compact(multiclass_report(data.yg[s], clf.predict_proba(X[s]), labels))
+        row["train"] = compact(multiclass_report(data.yg["train"], clf.predict_proba(X["train"]), labels))
+        row["size_mb"] = round(encoder_size_mb(a) + encoder_size_mb(b) + len(pickle.dumps(clf)) / 1e6, 2)
+        row["latency"] = latency(
+            lambda t, c=clf, a=a, b=b: c.predict_proba(np.hstack([_encoder(a).encode(t), _encoder(b).encode(t)])),
+            data.text["val"],
+        )
+        results[f"{a}+{b}|logreg"] = row
+        log.info("%s+%s|logreg -> val %s | ext_dev %s", a, b, row["val"], row["se_ext_dev"])
+    dump("ensemble", results)
     return results
 
 
@@ -337,6 +379,37 @@ def section_calibration(data: Data, feats: list[str]) -> dict:
     return results
 
 
+# ------------------------------------------------------------- section: selective
+CONFIDENCE_GRID = [0.0, 0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.7]
+
+
+def section_selective(data: Data, feats: list[str]) -> dict:
+    """Accuracy of the kept predictions vs. the share kept, per confidence threshold."""
+    results: dict = {}
+    for feat in feats:
+        X, _, _ = features(data, feat, ["val", "se_ext_dev"])
+        C = 16.0 if feat in TFIDF_FEATURIZERS else 8.0
+        clf = fit_softmax(X["train"], data.yg["train"], C)
+        T = fit_temperature(clf.decision_function(X["val"]), data.yg["val"])
+        row: dict = {"temperature": round(T, 4)}
+        for split in ("val", "se_ext_dev"):
+            probs = calibrated_softmax(clf.decision_function(X[split]), T)
+            conf, correct = probs.max(axis=1), probs.argmax(axis=1) == data.yg[split]
+            row[split] = [
+                {
+                    "min_confidence": t,
+                    "coverage": round(float(np.mean(conf >= t)), 4),
+                    "accuracy_kept": round(float(np.mean(correct[conf >= t])), 4) if (conf >= t).any() else None,
+                    "accuracy_rejected": round(float(np.mean(correct[conf < t])), 4) if (conf < t).any() else None,
+                }
+                for t in CONFIDENCE_GRID
+            ]
+        results[feat] = row
+        log.info("selective %s: %s", feat, row["se_ext_dev"])
+    dump("selective", results)
+    return results
+
+
 # --------------------------------------------------------------------- section: ood
 def section_ood(data: Data, feats: list[str]) -> dict:
     results = {}
@@ -394,20 +467,30 @@ def main() -> int:
         default=["tfidf-word+char", "bge-small", "mpnet-base"],
         help="featurizers for the hierarchy/calibration/ood sections",
     )
+    parser.add_argument(
+        "--general-feats", nargs="+", default=None, help="featurizers for the general section (default: all)"
+    )
+    parser.add_argument("--out-suffix", default="", help="suffix for the output JSON names (partial re-runs)")
     args = parser.parse_args()
+    global OUT_SUFFIX
+    OUT_SUFFIX = args.out_suffix
     setup_logging("INFO", PATHS.root / "logs" / "experiments.log")
     seed_everything(RANDOM_SEED)
     data = Data()
     for section in args.sections:
         t0 = time.perf_counter()
         if section == "general":
-            section_general(data)
+            section_general(data, args.general_feats)
         elif section == "zeroshot":
             section_zeroshot(data)
+        elif section == "ensemble":
+            section_ensemble(data)
         elif section == "hierarchy":
             section_hierarchy(data, args.feats)
         elif section == "calibration":
             section_calibration(data, args.feats)
+        elif section == "selective":
+            section_selective(data, args.feats)
         elif section == "ood":
             section_ood(data, args.feats)
         else:

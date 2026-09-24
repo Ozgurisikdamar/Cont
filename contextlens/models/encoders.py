@@ -10,6 +10,8 @@ from pathlib import Path
 
 import numpy as np
 
+from contextlens.config import REPO_ROOT
+
 log = logging.getLogger(__name__)
 
 # Candidate encoders evaluated in docs/EXPERIMENTS.md. Revisions are pinned so
@@ -35,7 +37,20 @@ ENCODERS: dict[str, dict[str, str]] = {
         "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
         "prefix": "",
     },
+    # all-MiniLM-L6-v2 fine-tuned on the training split with a general + subtopic
+    # head (scripts/finetune_transformer.py --export). Weights are local, not on the Hub.
+    "minilm-l6-ft": {
+        "repo": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "prefix": "",
+        "local": "models/finetuned/minilm-l6",
+    },
 }
+
+
+def available_encoders() -> list[str]:
+    """Registry keys that can be loaded now (a local fine-tuned encoder must have been exported)."""
+    return [k for k, spec in ENCODERS.items() if "local" not in spec or (REPO_ROOT / spec["local"]).exists()]
 
 
 def best_device() -> str:
@@ -62,12 +77,36 @@ class SentenceEncoder:
 
         spec = ENCODERS[self.key]
         self.prefix = spec["prefix"]
-        if self.local_path is not None and self.local_path.exists():
-            self.model = SentenceTransformer(str(self.local_path), device=best_device())
+        found = self._resolve_local(spec)
+        if found is not None:
+            self.model = SentenceTransformer(str(found), device=best_device())
+            self.source = str(found)
+        elif "local" in spec:
+            # A fine-tuned encoder has no Hub fallback: silently loading the base
+            # model would give embeddings the heads were never trained on.
+            raise FileNotFoundError(
+                f"fine-tuned encoder {self.key!r} not found (looked in: "
+                f"{', '.join(str(p) for p in self._candidates(spec))}); create it with "
+                f"python scripts/finetune_transformer.py --encoder minilm-l6 --export {spec['local']}"
+            )
         else:  # pinned revision from the Hugging Face Hub (cached after the first download)
             self.model = SentenceTransformer(spec["repo"], device=best_device(), revision=spec["revision"])
+            self.source = f"{spec['repo']}@{spec['revision']}"
         self.model.max_seq_length = self.max_seq_length
         self.dim = int(self.model.get_sentence_embedding_dimension() or 0)
+
+    def _candidates(self, spec: dict[str, str]) -> list[Path]:
+        paths = [self.local_path] if self.local_path is not None else []
+        if "local" in spec:
+            paths.append(REPO_ROOT / spec["local"])
+        return paths
+
+    def _resolve_local(self, spec: dict[str, str]) -> Path | None:
+        """First candidate directory that holds a saved sentence-transformers model."""
+        for path in self._candidates(spec):
+            if (path / "modules.json").is_file():
+                return path
+        return None
 
     def encode(self, texts: list[str], show_progress: bool = False) -> np.ndarray:
         if not texts:
@@ -81,7 +120,23 @@ class SentenceEncoder:
         ).astype(np.float32)
 
     def save(self, path: Path) -> None:
-        self.model.save(str(path))
+        """Save the encoder; weights that are exactly representable in float16 are stored as float16.
+
+        The fine-tuned encoder is exported in float16 (halving the file), so its
+        float32 copy in memory round-trips losslessly; a Hub encoder in float32 is
+        saved unchanged.
+        """
+        import torch
+
+        params = list(self.model.parameters())
+        half_exact = all(torch.equal(p, p.detach().half().float()) for p in params if p.is_floating_point())
+        if half_exact:
+            self.model.half()
+        try:
+            self.model.save(str(path))
+        finally:
+            if half_exact:
+                self.model.float()
 
 
 def cached_encode(encoder: SentenceEncoder, texts: list[str], cache_dir: Path, name: str) -> np.ndarray:

@@ -60,9 +60,9 @@ by scanning all 41 shards: "Gold", "Neon", "Silicon", "Spacetime",
 rejected. (3) DBpedia reflects a newer Wikipedia, so renamed articles exist in the
 dumps under an old title that now redirects. A REST-API backfill was tried and
 dropped: uncached pages returned 429 with a 30 s `Retry-After`.
-**Consequence.** 11,786 of 12,597 wanted titles (in-taxonomy + OOD) have text:
-10,823 exact, 49 by redirect (2023), 904 exact + 10 by redirect (2022). The
-remaining 811 are mostly articles created after March 2022; they are listed in
+**Consequence.** 11,169 of the 11,937 selected in-taxonomy articles have text:
+10,270 exact, 43 by redirect (2023), 846 exact + 10 by redirect (2022). The
+remaining 768 are mostly articles created after March 2022; they are listed in
 `data/manifest/crawl_stats.json → missing_text`. Every article's source is in
 `articles.csv → text_source`.
 

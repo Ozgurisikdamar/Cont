@@ -27,6 +27,7 @@ from pathlib import Path
 log = logging.getLogger(__name__)
 
 BUSY_TIMEOUT_MS = 5000
+MAX_CONTENT_CHARS = 10_000  # longer messages are stored truncated (the model reads 5,000)
 
 MIGRATIONS: list[str] = [
     # v0 -> v1: initial schema
@@ -224,7 +225,7 @@ class Database:
                 (
                     session_id,
                     turn,
-                    content,
+                    content[:MAX_CONTENT_CHARS],
                     utcnow(),
                     general_topic,
                     general_confidence,

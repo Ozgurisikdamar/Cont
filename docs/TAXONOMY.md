@@ -121,7 +121,8 @@ Evaluation sets (never used for training):
 
 * Wikipedia categories — validation: Cooking techniques, Music genres, Fashion,
   Tourism, Dog breeds, Gardening; test (disjoint): Cuisine, Painting, Dance,
-  Automobiles, Personal finance, Beer styles.
+  Cars, Personal finance, Beer styles (`Automobiles` was replaced by
+  `Cars`: the former category is empty in DBpedia, the renamed one has 686 articles).
 * Stack Exchange sites — cooking, travel, pets, gardening, bicycles, coffee,
   beer, parenting, money, woodworking, music, photo, fitness, diy, movies.
 

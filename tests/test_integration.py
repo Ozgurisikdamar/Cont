@@ -143,6 +143,47 @@ def test_artifact_round_trip_and_integrity(fake_model, tmp_path):
         load_artifact(out, encoder=FakeEncoder())
 
 
+class _OtherEncoder(FakeEncoder):
+    """Same dimension, different embedding space (a stand-in for the wrong encoder)."""
+
+    def encode(self, texts: list[str], show_progress: bool = False) -> np.ndarray:
+        return np.roll(super().encode(texts), 7, axis=1)
+
+
+def test_artifact_refuses_an_encoder_it_was_not_trained_with(fake_model, tmp_path):
+    out = tmp_path / "model"
+    save_artifact(fake_model, out, {}, save_encoder=False)
+    with pytest.raises(ArtifactError, match="does not reproduce"):
+        load_artifact(out, encoder=_OtherEncoder())
+
+
+def test_artifact_without_encoder_fingerprint_is_refused(fake_model, tmp_path):
+    out = tmp_path / "model"
+    save_artifact(fake_model, out, {}, save_encoder=False)
+    meta = json.loads((out / "metadata.json").read_text())
+    del meta["encoder_probe"]
+    (out / "metadata.json").write_text(json.dumps(meta))
+    with pytest.raises(ArtifactError, match="fingerprint"):
+        load_artifact(out, encoder=FakeEncoder())
+
+
+def test_unloadable_encoder_becomes_an_artifact_error(fake_model, tmp_path, monkeypatch):
+    from contextlens.models import artifact
+
+    out = tmp_path / "model"
+    save_artifact(fake_model, out, {}, save_encoder=False)
+    meta = json.loads((out / "metadata.json").read_text())
+    meta["encoder"] = "minilm-l6-ft"
+    (out / "metadata.json").write_text(json.dumps(meta))
+
+    def missing(*args, **kwargs):
+        raise FileNotFoundError("fine-tuned encoder not found")
+
+    monkeypatch.setattr(artifact, "SentenceEncoder", missing)
+    with pytest.raises(ArtifactError, match="cannot load the sentence encoder"):
+        load_artifact(out)
+
+
 def test_missing_artifact_explains_how_to_build(tmp_path):
     with pytest.raises(ArtifactError, match="python train.py"):
         load_artifact(tmp_path / "nothing")
