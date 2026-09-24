@@ -542,3 +542,11 @@ the saved file (`--repair`, no network). The configuration was re-frozen (only
 the locked manifest changed) and the locked evaluation run a second time with
 the reason recorded in the results. Both runs are committed; the model was not
 changed between them, so no decision could use the locked numbers.
+**Run 2 results** (`reports/locked/results.json`, raw predictions in
+`reports/locked/raw/`): Wikipedia locked passages accuracy 0.848, macro-F1
+0.838, ECE 0.058; Stack Exchange 2026 questions accuracy 0.804, macro-F1 0.730
+(0.843 / 0.818 without hsm over the 7 other topics; hsm accuracy 0.19 — the
+D-32 scope decision, visible and not tuned away); off-topic AUROC 0.887 (SE
+off-topic sites) and 0.961 (CLINC chat), flagged 48.5% and 78.1% of them;
+9.3% of in-domain questions marked uncertain, accuracy on the answered ones
+0.844. Run 1 differed only in the Stack Exchange general view.

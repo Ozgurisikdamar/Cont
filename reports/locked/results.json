@@ -1,0 +1,4448 @@
+{
+  "stage": "locked",
+  "model": {
+    "model_name": "contextlens-topic",
+    "model_version": "1.1.0",
+    "trained_at": "2026-09-24T19:25:07+00:00",
+    "dataset_version": "4efffb5a217b1723",
+    "encoder": "minilm-l6-ft",
+    "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "head_type": "flat_softmax",
+    "ood_method": "mahalanobis"
+  },
+  "load_seconds": 2.6,
+  "evaluated_at": "2026-09-24T19:37:08+00:00",
+  "freeze": {
+    "frozen_at": "2026-09-24T19:36:51+00:00",
+    "commit": "96132001674cd2dbfd25871f0d5c110c19796c5f"
+  },
+  "rerun_reason": "run 2 after fixing the locked Stack Exchange view partition bug (D-36); model and configuration unchanged",
+  "locked": {
+    "wiki": {
+      "general": {
+        "n": 374,
+        "accuracy": 0.8475935828877005,
+        "macro_precision": 0.8369194562161837,
+        "macro_recall": 0.8452346743295018,
+        "macro_f1": 0.8382222967353372,
+        "weighted_precision": 0.8533210423760642,
+        "weighted_recall": 0.8475935828877005,
+        "weighted_f1": 0.8473428101091605,
+        "log_loss": 0.50919303538108,
+        "brier": 0.23979863073380972,
+        "ece": 0.057905238340473994,
+        "per_class": {
+          "physics": {
+            "precision": 0.9245283018867925,
+            "recall": 0.8166666666666667,
+            "f1": 0.8672566371681416,
+            "support": 60
+          },
+          "biology": {
+            "precision": 0.8775510204081632,
+            "recall": 0.7166666666666667,
+            "f1": 0.7889908256880734,
+            "support": 60
+          },
+          "chemistry": {
+            "precision": 0.7714285714285715,
+            "recall": 0.9,
+            "f1": 0.8307692307692308,
+            "support": 30
+          },
+          "technology": {
+            "precision": 0.8863636363636364,
+            "recall": 0.8666666666666667,
+            "f1": 0.8764044943820225,
+            "support": 45
+          },
+          "science": {
+            "precision": 0.625,
+            "recall": 0.6896551724137931,
+            "f1": 0.6557377049180327,
+            "support": 29
+          },
+          "books": {
+            "precision": 0.8260869565217391,
+            "recall": 0.95,
+            "f1": 0.8837209302325582,
+            "support": 60
+          },
+          "sports": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1": 0.9333333333333333,
+            "support": 45
+          },
+          "history": {
+            "precision": 0.851063829787234,
+            "recall": 0.8888888888888888,
+            "f1": 0.8695652173913043,
+            "support": 45
+          }
+        },
+        "confusion_matrix": [
+          [
+            49,
+            1,
+            2,
+            4,
+            2,
+            2,
+            0,
+            0
+          ],
+          [
+            1,
+            43,
+            4,
+            0,
+            4,
+            2,
+            1,
+            5
+          ],
+          [
+            1,
+            2,
+            27,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            39,
+            3,
+            1,
+            2,
+            0
+          ],
+          [
+            2,
+            2,
+            0,
+            0,
+            20,
+            4,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1,
+            1,
+            0,
+            57,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            42,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            2,
+            2,
+            0,
+            40
+          ]
+        ],
+        "labels": [
+          "physics",
+          "biology",
+          "chemistry",
+          "technology",
+          "science",
+          "books",
+          "sports",
+          "history"
+        ]
+      },
+      "subtopics": {
+        "n": 374,
+        "micro_f1": 0.6590038314176245,
+        "macro_f1": 0.5929133934474652,
+        "macro_f1_supported": 0.664063000661161,
+        "labels_supported": 25,
+        "weighted_f1": 0.6618967625675746,
+        "samples_f1": 0.6670231729055258,
+        "hamming_loss": 0.025496562261268143,
+        "subset_accuracy": 0.6256684491978609,
+        "precision_at_1": 0.6684491978609626,
+        "recall_at_3": 0.8533868092691621,
+        "per_label": {
+          "quantum_mechanics": {
+            "precision": 0.5384615384615384,
+            "recall": 0.4666666666666667,
+            "f1": 0.5,
+            "support": 15
+          },
+          "relativity": {
+            "precision": 0.5454545454545454,
+            "recall": 0.4,
+            "f1": 0.46153846153846156,
+            "support": 15
+          },
+          "astrophysics": {
+            "precision": 0.43478260869565216,
+            "recall": 0.6666666666666666,
+            "f1": 0.5263157894736842,
+            "support": 15
+          },
+          "classical_mechanics": {
+            "precision": 0.5714285714285714,
+            "recall": 0.23529411764705882,
+            "f1": 0.3333333333333333,
+            "support": 17
+          },
+          "genetics": {
+            "precision": 0.625,
+            "recall": 0.5882352941176471,
+            "f1": 0.6060606060606061,
+            "support": 17
+          },
+          "evolution": {
+            "precision": 0.7142857142857143,
+            "recall": 0.29411764705882354,
+            "f1": 0.4166666666666667,
+            "support": 17
+          },
+          "cell_biology": {
+            "precision": 0.46153846153846156,
+            "recall": 0.4,
+            "f1": 0.42857142857142855,
+            "support": 15
+          },
+          "ecology": {
+            "precision": 0.5882352941176471,
+            "recall": 0.6666666666666666,
+            "f1": 0.625,
+            "support": 15
+          },
+          "organic_chemistry": {
+            "precision": 0.6842105263157895,
+            "recall": 0.65,
+            "f1": 0.6666666666666666,
+            "support": 20
+          },
+          "chemical_reactions": {
+            "precision": 0.8461538461538461,
+            "recall": 0.7333333333333333,
+            "f1": 0.7857142857142857,
+            "support": 15
+          },
+          "periodic_table": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "quantum_computing": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "artificial_intelligence": {
+            "precision": 0.5833333333333334,
+            "recall": 0.4666666666666667,
+            "f1": 0.5185185185185185,
+            "support": 15
+          },
+          "software": {
+            "precision": 0.7647058823529411,
+            "recall": 0.7647058823529411,
+            "f1": 0.7647058823529411,
+            "support": 17
+          },
+          "hardware": {
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "f1": 0.9032258064516129,
+            "support": 15
+          },
+          "scientific_method": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "history_of_science": {
+            "precision": 0.46153846153846156,
+            "recall": 0.42857142857142855,
+            "f1": 0.4444444444444444,
+            "support": 14
+          },
+          "scientific_research": {
+            "precision": 0.5555555555555556,
+            "recall": 0.6666666666666666,
+            "f1": 0.6060606060606061,
+            "support": 15
+          },
+          "novels": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1": 0.9333333333333333,
+            "support": 15
+          },
+          "science_books": {
+            "precision": 0.7647058823529411,
+            "recall": 0.8666666666666667,
+            "f1": 0.8125,
+            "support": 15
+          },
+          "poetry": {
+            "precision": 0.75,
+            "recall": 0.8,
+            "f1": 0.7741935483870968,
+            "support": 15
+          },
+          "authors": {
+            "precision": 0.5454545454545454,
+            "recall": 0.8,
+            "f1": 0.6486486486486487,
+            "support": 15
+          },
+          "football": {
+            "precision": 0.8125,
+            "recall": 0.8666666666666667,
+            "f1": 0.8387096774193549,
+            "support": 15
+          },
+          "basketball": {
+            "precision": 0.8571428571428571,
+            "recall": 0.8,
+            "f1": 0.8275862068965517,
+            "support": 15
+          },
+          "olympics": {
+            "precision": 0.7647058823529411,
+            "recall": 0.8666666666666667,
+            "f1": 0.8125,
+            "support": 15
+          },
+          "ottoman_history": {
+            "precision": 0.8125,
+            "recall": 0.8666666666666667,
+            "f1": 0.8387096774193549,
+            "support": 15
+          },
+          "world_wars": {
+            "precision": 0.8461538461538461,
+            "recall": 0.7333333333333333,
+            "f1": 0.7857142857142857,
+            "support": 15
+          },
+          "ancient_history": {
+            "precision": 0.65,
+            "recall": 0.8666666666666667,
+            "f1": 0.7428571428571429,
+            "support": 15
+          }
+        }
+      },
+      "subtopics_given_correct_general": {
+        "n": 317,
+        "micro_f1": 0.7818181818181819,
+        "macro_f1": 0.7004059288857329,
+        "macro_f1_supported": 0.7844546403520211,
+        "labels_supported": 25,
+        "weighted_f1": 0.7931509098337596,
+        "samples_f1": 0.7869610935856993,
+        "hamming_loss": 0.01622352410995944,
+        "subset_accuracy": 0.7381703470031545,
+        "precision_at_1": 0.7886435331230284,
+        "recall_at_3": 0.965825446898002,
+        "per_label": {
+          "quantum_mechanics": {
+            "precision": 0.6363636363636364,
+            "recall": 0.5384615384615384,
+            "f1": 0.5833333333333334,
+            "support": 13
+          },
+          "relativity": {
+            "precision": 0.6,
+            "recall": 0.46153846153846156,
+            "f1": 0.5217391304347826,
+            "support": 13
+          },
+          "astrophysics": {
+            "precision": 0.45454545454545453,
+            "recall": 0.7142857142857143,
+            "f1": 0.5555555555555556,
+            "support": 14
+          },
+          "classical_mechanics": {
+            "precision": 0.6666666666666666,
+            "recall": 0.36363636363636365,
+            "f1": 0.47058823529411764,
+            "support": 11
+          },
+          "genetics": {
+            "precision": 0.625,
+            "recall": 0.7142857142857143,
+            "f1": 0.6666666666666666,
+            "support": 14
+          },
+          "evolution": {
+            "precision": 0.8333333333333334,
+            "recall": 0.5,
+            "f1": 0.625,
+            "support": 10
+          },
+          "cell_biology": {
+            "precision": 0.6,
+            "recall": 0.5454545454545454,
+            "f1": 0.5714285714285714,
+            "support": 11
+          },
+          "ecology": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307693,
+            "support": 12
+          },
+          "organic_chemistry": {
+            "precision": 0.9285714285714286,
+            "recall": 0.7222222222222222,
+            "f1": 0.8125,
+            "support": 18
+          },
+          "chemical_reactions": {
+            "precision": 1.0,
+            "recall": 0.7857142857142857,
+            "f1": 0.88,
+            "support": 14
+          },
+          "periodic_table": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "quantum_computing": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "artificial_intelligence": {
+            "precision": 0.875,
+            "recall": 0.7,
+            "f1": 0.7777777777777778,
+            "support": 10
+          },
+          "software": {
+            "precision": 0.8125,
+            "recall": 0.8125,
+            "f1": 0.8125,
+            "support": 16
+          },
+          "hardware": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1": 0.9333333333333333,
+            "support": 15
+          },
+          "scientific_method": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "history_of_science": {
+            "precision": 0.6666666666666666,
+            "recall": 0.8571428571428571,
+            "f1": 0.75,
+            "support": 7
+          },
+          "scientific_research": {
+            "precision": 1.0,
+            "recall": 0.7692307692307693,
+            "f1": 0.8695652173913043,
+            "support": 13
+          },
+          "novels": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1": 0.9333333333333333,
+            "support": 15
+          },
+          "science_books": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 13
+          },
+          "poetry": {
+            "precision": 0.8,
+            "recall": 0.8571428571428571,
+            "f1": 0.8275862068965517,
+            "support": 14
+          },
+          "authors": {
+            "precision": 0.8571428571428571,
+            "recall": 0.8,
+            "f1": 0.8275862068965517,
+            "support": 15
+          },
+          "football": {
+            "precision": 0.9285714285714286,
+            "recall": 0.8666666666666667,
+            "f1": 0.896551724137931,
+            "support": 15
+          },
+          "basketball": {
+            "precision": 0.9230769230769231,
+            "recall": 0.8571428571428571,
+            "f1": 0.8888888888888888,
+            "support": 14
+          },
+          "olympics": {
+            "precision": 0.8666666666666667,
+            "recall": 1.0,
+            "f1": 0.9285714285714286,
+            "support": 13
+          },
+          "ottoman_history": {
+            "precision": 0.8666666666666667,
+            "recall": 0.8666666666666667,
+            "f1": 0.8666666666666667,
+            "support": 15
+          },
+          "world_wars": {
+            "precision": 0.8461538461538461,
+            "recall": 0.9166666666666666,
+            "f1": 0.88,
+            "support": 12
+          },
+          "ancient_history": {
+            "precision": 0.9285714285714286,
+            "recall": 1.0,
+            "f1": 0.9629629629629629,
+            "support": 13
+          }
+        }
+      },
+      "deployed_gate": {
+        "n": 374,
+        "uncertain_rate": 0.0401,
+        "uncertain_by_ood_score": 0.0,
+        "uncertain_by_low_confidence": 0.0374,
+        "uncertain_by_language": 0.0027,
+        "accuracy_all": 0.8476,
+        "accuracy_answered": 0.8607,
+        "accuracy_uncertain": 0.5333
+      }
+    },
+    "wiki_errors": [
+      {
+        "text": "Little England beyond Wales is a name that has been applied to an area of southern Pembrokeshire and southwestern Carmarthenshire in Wales, which has been English in language and culture for many centuries despite its remoteness from England.",
+        "true": "biology",
+        "pred": "history",
+        "confidence": 0.958
+      },
+      {
+        "text": "Interdigitation is the interlinking of biological components that resembles the fingers of two hands being locked together.",
+        "true": "science",
+        "pred": "biology",
+        "confidence": 0.956
+      },
+      {
+        "text": "Angiogenin (ANG) also known as ribonuclease 5 is a small 123 amino acid protein that in humans is encoded by the ANG gene.",
+        "true": "chemistry",
+        "pred": "biology",
+        "confidence": 0.945
+      },
+      {
+        "text": "Hambach Forest is an ancient forest located near in North Rhine-Westphalia, western Germany, between Cologne and Aachen.",
+        "true": "biology",
+        "pred": "history",
+        "confidence": 0.927
+      },
+      {
+        "text": "Joint constraints are rotational constraints on the joints of an artificial system.",
+        "true": "physics",
+        "pred": "technology",
+        "confidence": 0.921
+      },
+      {
+        "text": "Numerical Recipes is the generic title of a series of books on algorithms and numerical analysis by William H. Press, Saul A. Teukolsky, William T. Vetterling and Brian P. Flannery.",
+        "true": "books",
+        "pred": "technology",
+        "confidence": 0.921
+      },
+      {
+        "text": "GM3 (monosialodihexosylganglioside) is a type of ganglioside. The letter G refers to ganglioside, and M is for monosialic acid as it has one sialic acid only.",
+        "true": "biology",
+        "pred": "chemistry",
+        "confidence": 0.919
+      },
+      {
+        "text": "Benzylthiouracil (BTU) is an antithyroid preparation. It is a thioamide, closely related to propylthiouracil.",
+        "true": "biology",
+        "pred": "chemistry",
+        "confidence": 0.919
+      },
+      {
+        "text": "Mechanical explanations of gravitation (or kinetic theories of gravitation) are attempts to explain the action of gravity by aid of basic mechanical processes, such as pressure forces caused by pushes, without the use of any action at a distance.",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.912
+      },
+      {
+        "text": "After Man: A Zoology of the Future is a 1981 speculative evolution book written by Scottish geologist and palaeontologist Dougal Dixon and illustrated by several illustrators including Diz Wallis, John Butler, Brian McIntyre, Philip Hood, Roy Woodard and Gary Marsh.",
+        "true": "biology",
+        "pred": "books",
+        "confidence": 0.906
+      },
+      {
+        "text": "Langtang National Park is a national protected area in north-central Nepal. It was established in 1976 as Nepal's first Himalayan national park and the country's fourth protected area.",
+        "true": "biology",
+        "pred": "history",
+        "confidence": 0.898
+      },
+      {
+        "text": "Cedrus libani, the cedar of Lebanon or Lebanese cedar, is a species of tree in the genus cedrus, a part of the pine family, native to the mountains of the Eastern Mediterranean basin.",
+        "true": "books",
+        "pred": "biology",
+        "confidence": 0.896
+      },
+      {
+        "text": "Onshape is a computer-aided design (CAD) software system, delivered over the Internet via a software as a service (SAAS) model.",
+        "true": "physics",
+        "pred": "technology",
+        "confidence": 0.879
+      },
+      {
+        "text": "Kartlos is the eponymous ancestor of the Georgians (Kartvelians) in Georgian mythology, more specifically of the nation of Kartli (Caucasian Iberia).",
+        "true": "biology",
+        "pred": "history",
+        "confidence": 0.874
+      },
+      {
+        "text": "The Biographical Encyclopedia of Astronomers (BEA) is a two-volume biographical dictionary, first published in 2007, with a second edition released in 2014.",
+        "true": "science",
+        "pred": "books",
+        "confidence": 0.869
+      },
+      {
+        "text": "Istanbul L\u00fctfi K\u0131rdar International Convention and Exhibition Center, often referred as Istanbul L\u00fctfi K\u0131rdar ICEC, shortly ICEC,, formerly Istanbul Sports and Exhibition Hall (\u0130stanbul Spor ve Sergi Saray\u0131), is a multi-purpose convention complex located in Harbiye neighborhood of \u015ei\u015fli district in Istanbul, Turkey.",
+        "true": "sports",
+        "pred": "history",
+        "confidence": 0.865
+      },
+      {
+        "text": "Modern valence bond theory is the application of valence bond theory (VBT) with computer programs that are competitive in accuracy and economy with programs for the Hartree\u2013Fock or post-Hartree-Fock methods.",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.862
+      },
+      {
+        "text": "A History of the Theories of Aether and Electricity is any of three books written by British mathematician Sir Edmund Taylor Whittaker FRS FRSE on the history of electromagnetic theory, covering the development of classical electromagnetism, optics, and aether theories.",
+        "true": "physics",
+        "pred": "books",
+        "confidence": 0.858
+      },
+      {
+        "text": "ISO 1 is an international standard set by the International Organization for Standardization that specifies the standard reference temperature for geometrical product specification and verification.",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.85
+      },
+      {
+        "text": "Vis viva (from the Latin for \"living force\") is a historical term used to describe a quantity similar to kinetic energy in an early formulation of the principle of conservation of energy.",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.823
+      },
+      {
+        "text": "Francien is a 19th-century term in linguistics that was applied to the French dialect that was spoken in the \u00cele-de-France region (with Paris at its centre) before the establishment of the French language as a standard language.",
+        "true": "science",
+        "pred": "books",
+        "confidence": 0.817
+      },
+      {
+        "text": "Charles Iain Kerr, 1st Baron Teviot, DSO, MC (3 May 1874 \u2013 7 January 1968), was a British politician.",
+        "true": "history",
+        "pred": "books",
+        "confidence": 0.814
+      },
+      {
+        "text": "A Survivor from Warsaw, Op. 46, is a cantata by the Los Angeles-based Austrian composer Arnold Schoenberg, written in tribute to Holocaust victims.",
+        "true": "history",
+        "pred": "books",
+        "confidence": 0.809
+      },
+      {
+        "text": "Lodestones are naturally magnetized pieces of the mineral magnetite. They are naturally occurring magnets, which can attract iron.",
+        "true": "history",
+        "pred": "chemistry",
+        "confidence": 0.798
+      },
+      {
+        "text": "Guy Coburn Robson (1888\u20131945) was a British zoologist, specializing in Mollusca, who first named and described Mesonychoteuthis hamiltoni, the colossal squid.",
+        "true": "biology",
+        "pred": "science",
+        "confidence": 0.793
+      },
+      {
+        "text": "Dasotraline (INN; former developmental code name SEP-225,289) is a serotonin-norepinephrine-dopamine reuptake inhibitor (SNDRI) that was under development by Sunovion for the treatment of attention-deficit hyperactivity disorder (ADHD) and binge eating disorder (BED).",
+        "true": "chemistry",
+        "pred": "biology",
+        "confidence": 0.79
+      },
+      {
+        "text": "Diatribe de progidiosis crucibus is a 1661 work by the Jesuit scholar Athanasius Kircher.",
+        "true": "science",
+        "pred": "books",
+        "confidence": 0.772
+      },
+      {
+        "text": "In the philosophy of mind, the China brain thought experiment (also known as the Chinese Nation or Chinese Gym) considers what would happen if each member of the Chinese nation were asked to simulate the action of one neuron in the brain, using telephones or walkie-talkies to simulate the axons and dendrites that connect neurons.",
+        "true": "technology",
+        "pred": "science",
+        "confidence": 0.758
+      },
+      {
+        "text": "The Democracy in Europe Movement 2025, or DiEM25, is a pan-European political movement and political party founded in 2016 by a group of Europeans, including Yanis Varoufakis and Sre\u0107ko Horvat.",
+        "true": "biology",
+        "pred": "sports",
+        "confidence": 0.756
+      },
+      {
+        "text": "Glycan-Protein interactions represent a class of biomolecular interactions that occur between free or protein-bound glycans and their cognate binding partners.",
+        "true": "biology",
+        "pred": "chemistry",
+        "confidence": 0.728
+      },
+      {
+        "text": "The Max Planck Institute for Ornithology was a non-university research institution under the sponsorship of the Max Planck Society for the Advancement of Science (MPG).",
+        "true": "biology",
+        "pred": "physics",
+        "confidence": 0.712
+      },
+      {
+        "text": "Alfons Goop (15 October 1910 \u2013 25 September 1993) was a Liechtensteiner politician during World War II.",
+        "true": "sports",
+        "pred": "books",
+        "confidence": 0.699
+      },
+      {
+        "text": "An expansion pack, expansion set, supplement, or simply expansion, is an addition to an existing role-playing game, tabletop game, video game, collectible card game or miniature wargame.",
+        "true": "technology",
+        "pred": "sports",
+        "confidence": 0.688
+      },
+      {
+        "text": "DOGMA, short for Developing Ontology-Grounded Methods and Applications, is the name of research project in progress at Vrije Universiteit Brussel's STARLab, Semantics Technology and Applications Research Laboratory.",
+        "true": "technology",
+        "pred": "science",
+        "confidence": 0.686
+      },
+      {
+        "text": "Konstanze Kr\u00fcger-Farrouj (n\u00e9e Konstanze Deubner, born 22 January 1968) is a German zoologist and behaviour researcher.",
+        "true": "biology",
+        "pred": "science",
+        "confidence": 0.666
+      },
+      {
+        "text": "Eugenics has influenced political, public health and social movements in Japan since the late 19th and early 20th century.",
+        "true": "history",
+        "pred": "science",
+        "confidence": 0.635
+      },
+      {
+        "text": "Prem Saran Satsangi is the eighth and current Sant Satguru of Radha Soami Sect, Dayalbagh.",
+        "true": "physics",
+        "pred": "books",
+        "confidence": 0.632
+      },
+      {
+        "text": "In metallurgy, the Darken equations are used to describe the solid-state diffusion of materials in binary solutions.",
+        "true": "chemistry",
+        "pred": "physics",
+        "confidence": 0.63
+      },
+      {
+        "text": "The Law of Citations (Lex citationum) was a Roman law issued from Ravenna in AD 426 by the emperor Valentinian III, or rather by his regent mother, Galla Placidia Augusta, to the Senate and the people of Rome, and it was included in both Theodosius II's law compilation of 438 (Codex Theodosianus 1, 4, 3) and the first edition of",
+        "true": "history",
+        "pred": "science",
+        "confidence": 0.624
+      },
+      {
+        "text": "An implementation intention is a self-regulatory strategy in the form of if-then-plans that can lead to better goal attainment, as well as create useful habits and modify problematic behaviors.",
+        "true": "biology",
+        "pred": "science",
+        "confidence": 0.592
+      }
+    ],
+    "se_general": {
+      "general": {
+        "n": 1623,
+        "accuracy": 0.8034504004929144,
+        "macro_precision": 0.7284093738871604,
+        "macro_recall": 0.7459007225081653,
+        "macro_f1": 0.7304339009122028,
+        "weighted_precision": 0.7943138812399027,
+        "weighted_recall": 0.8034504004929144,
+        "weighted_f1": 0.7961717377356925,
+        "log_loss": 0.6388322286916412,
+        "brier": 0.2914617613473436,
+        "ece": 0.05600105747462524,
+        "per_class": {
+          "physics": {
+            "precision": 0.8597285067873304,
+            "recall": 0.8728943338437979,
+            "f1": 0.8662613981762918,
+            "support": 653
+          },
+          "biology": {
+            "precision": 0.7948717948717948,
+            "recall": 0.775,
+            "f1": 0.7848101265822784,
+            "support": 120
+          },
+          "chemistry": {
+            "precision": 0.8031088082901554,
+            "recall": 0.8611111111111112,
+            "f1": 0.8310991957104558,
+            "support": 180
+          },
+          "technology": {
+            "precision": 0.8371335504885994,
+            "recall": 0.8566666666666667,
+            "f1": 0.8467874794069192,
+            "support": 300
+          },
+          "science": {
+            "precision": 0.3220338983050847,
+            "recall": 0.1919191919191919,
+            "f1": 0.24050632911392406,
+            "support": 99
+          },
+          "books": {
+            "precision": 0.7019867549668874,
+            "recall": 0.828125,
+            "f1": 0.7598566308243727,
+            "support": 128
+          },
+          "sports": {
+            "precision": 0.6595744680851063,
+            "recall": 0.9117647058823529,
+            "f1": 0.7654320987654321,
+            "support": 34
+          },
+          "history": {
+            "precision": 0.8488372093023255,
+            "recall": 0.6697247706422018,
+            "f1": 0.7487179487179487,
+            "support": 109
+          }
+        },
+        "confusion_matrix": [
+          [
+            570,
+            8,
+            22,
+            21,
+            16,
+            10,
+            4,
+            2
+          ],
+          [
+            5,
+            93,
+            7,
+            6,
+            3,
+            3,
+            0,
+            3
+          ],
+          [
+            14,
+            6,
+            155,
+            2,
+            0,
+            2,
+            1,
+            0
+          ],
+          [
+            27,
+            3,
+            2,
+            257,
+            7,
+            4,
+            0,
+            0
+          ],
+          [
+            42,
+            1,
+            3,
+            14,
+            19,
+            15,
+            0,
+            5
+          ],
+          [
+            2,
+            4,
+            3,
+            3,
+            3,
+            106,
+            4,
+            3
+          ],
+          [
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            31,
+            0
+          ],
+          [
+            3,
+            1,
+            1,
+            2,
+            11,
+            11,
+            7,
+            73
+          ]
+        ],
+        "labels": [
+          "physics",
+          "biology",
+          "chemistry",
+          "technology",
+          "science",
+          "books",
+          "sports",
+          "history"
+        ]
+      },
+      "deployed_gate": {
+        "n": 1623,
+        "uncertain_rate": 0.093,
+        "uncertain_by_ood_score": 0.04,
+        "uncertain_by_low_confidence": 0.0647,
+        "uncertain_by_language": 0.0049,
+        "accuracy_all": 0.8035,
+        "accuracy_answered": 0.8444,
+        "accuracy_uncertain": 0.404
+      }
+    },
+    "se_general_without_hsm": {
+      "n": 1524,
+      "accuracy": 0.8431758530183727,
+      "macro_f1_present_classes": 0.8177793487299404,
+      "classes": [
+        "physics",
+        "biology",
+        "chemistry",
+        "technology",
+        "books",
+        "sports",
+        "history"
+      ]
+    },
+    "se_general_errors": [
+      {
+        "text": "Options to improve current visual filter",
+        "true": "physics",
+        "pred": "technology",
+        "confidence": 0.976
+      },
+      {
+        "text": "Was there a MIX (assembly language) user group",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.975
+      },
+      {
+        "text": "Understanding the behaviour of a cue ball in billiards after it strikes another ball",
+        "true": "physics",
+        "pred": "sports",
+        "confidence": 0.973
+      },
+      {
+        "text": "Maximum horizontal distance obtained by throwing ball from a height",
+        "true": "physics",
+        "pred": "sports",
+        "confidence": 0.972
+      },
+      {
+        "text": "Earliest known usage of the term \"generative artificial intelligence\" in computer science",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.968
+      },
+      {
+        "text": "What are ways that AI is affecting physics similar to how it is affecting mathematics?",
+        "true": "physics",
+        "pred": "technology",
+        "confidence": 0.965
+      },
+      {
+        "text": "Does the rate of \\rm H-burning approach a limit as temperature increases?",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.965
+      },
+      {
+        "text": "Why Euler didn't include viscosity in equations of fluid dynamics?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.963
+      },
+      {
+        "text": "What is Marx's conception of science in the labor theory of value?",
+        "true": "history",
+        "pred": "science",
+        "confidence": 0.962
+      },
+      {
+        "text": "Why is the Hadamard gate in quantum computation named after Hadamard?",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.959
+      },
+      {
+        "text": "Who is Prof. Y in Einstein\u2013Born correspondence?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.957
+      },
+      {
+        "text": "What were the powers of the women police workers in London during World War I?",
+        "true": "books",
+        "pred": "history",
+        "confidence": 0.957
+      },
+      {
+        "text": "History of the principle of superposition of forces in classical mechanics",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.956
+      },
+      {
+        "text": "Is it a coincidence that the heaviest element (so far) oganesson is a \"noble gas\"?",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.954
+      },
+      {
+        "text": "How did Banshees go from wailing fairy women to evil ghosts attacking people with screams?",
+        "true": "history",
+        "pred": "books",
+        "confidence": 0.949
+      },
+      {
+        "text": "How to generate a \u201cclinical care plan template\u201d from a set of historical documents?",
+        "true": "technology",
+        "pred": "science",
+        "confidence": 0.949
+      },
+      {
+        "text": "Would a bird get fried if it stood on a microwave-frequency power line?",
+        "true": "physics",
+        "pred": "science",
+        "confidence": 0.948
+      },
+      {
+        "text": "Is there a feminine version of Fitz?",
+        "true": "history",
+        "pred": "books",
+        "confidence": 0.947
+      },
+      {
+        "text": "What's the original source and form of the \"I believe in the sun\" poem?",
+        "true": "history",
+        "pred": "books",
+        "confidence": 0.947
+      },
+      {
+        "text": "How did Michael Polanyi come to correspond with Einstein?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.946
+      },
+      {
+        "text": "Why does sodium exist in space as free atoms/ions while chlorine as HCl?",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.944
+      },
+      {
+        "text": "Could Cauchy\u2019s definitions support Epsilon\u2013Delta rigor as later formalized by Weierstrass?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.944
+      },
+      {
+        "text": "How do paleontologists know when they're missing a tailbone in a dinosaur fossil?",
+        "true": "history",
+        "pred": "biology",
+        "confidence": 0.944
+      },
+      {
+        "text": "Can the two strands of one blunt end be attached to different linkers?",
+        "true": "biology",
+        "pred": "chemistry",
+        "confidence": 0.943
+      },
+      {
+        "text": "What are the proper names of Charo, Biscuter, and Bromide in the Carvalho series?",
+        "true": "books",
+        "pred": "chemistry",
+        "confidence": 0.942
+      },
+      {
+        "text": "How to make a separable product state in a given sub-Hilbert space",
+        "true": "technology",
+        "pred": "physics",
+        "confidence": 0.941
+      },
+      {
+        "text": "Prebiotic Life - Mechanistic approach",
+        "true": "chemistry",
+        "pred": "biology",
+        "confidence": 0.941
+      },
+      {
+        "text": "Origin of commutator of two operators",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.941
+      },
+      {
+        "text": "Factors influencing the timing of the unhinging of the wrists in a golf swing",
+        "true": "physics",
+        "pred": "sports",
+        "confidence": 0.94
+      },
+      {
+        "text": "What was the exact statement of the Poincar\u00e9\u2013Bendixson theorem proved by Poincare and Bendixson?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.937
+      },
+      {
+        "text": "How are the relative energies of conformers measured?",
+        "true": "chemistry",
+        "pred": "physics",
+        "confidence": 0.936
+      },
+      {
+        "text": "Did Gauss describe Graeffe's algorithm on polynomial roots calculation in an unpublished notebook?",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.935
+      },
+      {
+        "text": "Why doesn't sugar spontaneously switch chirality?",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.932
+      },
+      {
+        "text": "Deriving helium atom wavefunction",
+        "true": "chemistry",
+        "pred": "physics",
+        "confidence": 0.928
+      },
+      {
+        "text": "Reconstructing quantum state from its reduced density matrices",
+        "true": "technology",
+        "pred": "physics",
+        "confidence": 0.926
+      },
+      {
+        "text": "When is the earliest unambiguous evidence of a pizza with both tomato sauce and cheese?",
+        "true": "history",
+        "pred": "science",
+        "confidence": 0.926
+      },
+      {
+        "text": "Why does the arrogance melt in the pocket?",
+        "true": "books",
+        "pred": "sports",
+        "confidence": 0.923
+      },
+      {
+        "text": "Conversion of Knochel\u2013Hauser base to TEMPO",
+        "true": "chemistry",
+        "pred": "books",
+        "confidence": 0.923
+      },
+      {
+        "text": "Bypassing the fermium wall: Could elements with Z 100 be forged in a \u2018superkilonova\u2019?",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.922
+      },
+      {
+        "text": "High-pitched \"dog whistles\" exist; what about high-pitched \"dog bells\"?",
+        "true": "physics",
+        "pred": "books",
+        "confidence": 0.921
+      }
+    ],
+    "se_subtopic": {
+      "general": {
+        "n": 1212,
+        "accuracy": 0.8234323432343235,
+        "macro_precision": 0.770398276380243,
+        "macro_recall": 0.8095563924616225,
+        "macro_f1": 0.771974111955742,
+        "weighted_precision": 0.8194267375706059,
+        "weighted_recall": 0.8234323432343235,
+        "weighted_f1": 0.8097786907334321,
+        "log_loss": 0.5760558116641887,
+        "brier": 0.26015719027403406,
+        "ece": 0.05028725709804286,
+        "per_class": {
+          "physics": {
+            "precision": 0.8522727272727273,
+            "recall": 0.9202453987730062,
+            "f1": 0.8849557522123894,
+            "support": 489
+          },
+          "biology": {
+            "precision": 0.75,
+            "recall": 0.875,
+            "f1": 0.8076923076923077,
+            "support": 48
+          },
+          "chemistry": {
+            "precision": 0.856,
+            "recall": 0.8991596638655462,
+            "f1": 0.8770491803278688,
+            "support": 119
+          },
+          "technology": {
+            "precision": 0.8589341692789969,
+            "recall": 0.8643533123028391,
+            "f1": 0.8616352201257862,
+            "support": 317
+          },
+          "science": {
+            "precision": 0.6935483870967742,
+            "recall": 0.3006993006993007,
+            "f1": 0.4195121951219512,
+            "support": 143
+          },
+          "books": {
+            "precision": 0.5857142857142857,
+            "recall": 0.9111111111111111,
+            "f1": 0.7130434782608696,
+            "support": 45
+          },
+          "sports": {
+            "precision": 0.7391304347826086,
+            "recall": 1.0,
+            "f1": 0.85,
+            "support": 17
+          },
+          "history": {
+            "precision": 0.8275862068965517,
+            "recall": 0.7058823529411765,
+            "f1": 0.7619047619047619,
+            "support": 34
+          }
+        },
+        "confusion_matrix": [
+          [
+            450,
+            4,
+            11,
+            11,
+            5,
+            4,
+            4,
+            0
+          ],
+          [
+            1,
+            42,
+            0,
+            3,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            4,
+            107,
+            1,
+            0,
+            2,
+            1,
+            0
+          ],
+          [
+            27,
+            3,
+            2,
+            274,
+            7,
+            4,
+            0,
+            0
+          ],
+          [
+            44,
+            2,
+            3,
+            28,
+            43,
+            18,
+            0,
+            5
+          ],
+          [
+            0,
+            1,
+            2,
+            1,
+            0,
+            41,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            5,
+            1,
+            1,
+            24
+          ]
+        ],
+        "labels": [
+          "physics",
+          "biology",
+          "chemistry",
+          "technology",
+          "science",
+          "books",
+          "sports",
+          "history"
+        ]
+      },
+      "subtopics": {
+        "n": 1212,
+        "micro_f1": 0.6034618410700237,
+        "macro_f1": 0.43438537519888004,
+        "macro_f1_supported": 0.5067829377320267,
+        "labels_supported": 24,
+        "weighted_f1": 0.6168380265651198,
+        "samples_f1": 0.6062981298129814,
+        "hamming_loss": 0.0297029702970297,
+        "subset_accuracy": 0.556930693069307,
+        "precision_at_1": 0.6237623762376238,
+        "recall_at_3": 0.83003300330033,
+        "per_label": {
+          "quantum_mechanics": {
+            "precision": 0.5369127516778524,
+            "recall": 0.7339449541284404,
+            "f1": 0.6201550387596899,
+            "support": 109
+          },
+          "relativity": {
+            "precision": 0.7987421383647799,
+            "recall": 0.6381909547738693,
+            "f1": 0.7094972067039106,
+            "support": 199
+          },
+          "astrophysics": {
+            "precision": 0.25555555555555554,
+            "recall": 0.7666666666666667,
+            "f1": 0.38333333333333336,
+            "support": 30
+          },
+          "classical_mechanics": {
+            "precision": 0.7880794701986755,
+            "recall": 0.6918604651162791,
+            "f1": 0.7368421052631579,
+            "support": 172
+          },
+          "genetics": {
+            "precision": 0.3888888888888889,
+            "recall": 0.4666666666666667,
+            "f1": 0.42424242424242425,
+            "support": 15
+          },
+          "evolution": {
+            "precision": 0.5714285714285714,
+            "recall": 0.5714285714285714,
+            "f1": 0.5714285714285714,
+            "support": 21
+          },
+          "cell_biology": {
+            "precision": 0.6363636363636364,
+            "recall": 0.4666666666666667,
+            "f1": 0.5384615384615384,
+            "support": 15
+          },
+          "ecology": {
+            "precision": 0.3333333333333333,
+            "recall": 0.42857142857142855,
+            "f1": 0.375,
+            "support": 7
+          },
+          "organic_chemistry": {
+            "precision": 0.868421052631579,
+            "recall": 0.6111111111111112,
+            "f1": 0.717391304347826,
+            "support": 108
+          },
+          "chemical_reactions": {
+            "precision": 0.5121951219512195,
+            "recall": 0.525,
+            "f1": 0.5185185185185185,
+            "support": 40
+          },
+          "periodic_table": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "quantum_computing": {
+            "precision": 0.7236842105263158,
+            "recall": 0.55,
+            "f1": 0.625,
+            "support": 100
+          },
+          "artificial_intelligence": {
+            "precision": 0.6635514018691588,
+            "recall": 0.71,
+            "f1": 0.6859903381642513,
+            "support": 100
+          },
+          "software": {
+            "precision": 0.7073170731707317,
+            "recall": 0.58,
+            "f1": 0.6373626373626373,
+            "support": 100
+          },
+          "hardware": {
+            "precision": 0.25396825396825395,
+            "recall": 0.9411764705882353,
+            "f1": 0.4,
+            "support": 17
+          },
+          "scientific_method": {
+            "precision": 0.15789473684210525,
+            "recall": 0.6,
+            "f1": 0.25,
+            "support": 5
+          },
+          "history_of_science": {
+            "precision": 0.5882352941176471,
+            "recall": 0.10101010101010101,
+            "f1": 0.1724137931034483,
+            "support": 99
+          },
+          "scientific_research": {
+            "precision": 0.5333333333333333,
+            "recall": 0.41025641025641024,
+            "f1": 0.463768115942029,
+            "support": 39
+          },
+          "novels": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "science_books": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "poetry": {
+            "precision": 0.8333333333333334,
+            "recall": 0.7777777777777778,
+            "f1": 0.8045977011494253,
+            "support": 45
+          },
+          "authors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "football": {
+            "precision": 0.7,
+            "recall": 0.9333333333333333,
+            "f1": 0.8,
+            "support": 15
+          },
+          "basketball": {
+            "precision": 0.25,
+            "recall": 0.5,
+            "f1": 0.3333333333333333,
+            "support": 2
+          },
+          "olympics": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "ottoman_history": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "world_wars": {
+            "precision": 0.9444444444444444,
+            "recall": 0.7727272727272727,
+            "f1": 0.85,
+            "support": 22
+          },
+          "ancient_history": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 12
+          }
+        }
+      },
+      "subtopics_given_correct_general": {
+        "n": 998,
+        "micro_f1": 0.7318702290076335,
+        "macro_f1": 0.5432656449152183,
+        "macro_f1_supported": 0.6613668720707007,
+        "labels_supported": 23,
+        "weighted_f1": 0.7515921285078246,
+        "samples_f1": 0.7363059452237808,
+        "hamming_loss": 0.02011165187517893,
+        "subset_accuracy": 0.6763527054108216,
+        "precision_at_1": 0.751503006012024,
+        "recall_at_3": 0.9599198396793587,
+        "per_label": {
+          "quantum_mechanics": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8247422680412371,
+            "f1": 0.7655502392344498,
+            "support": 97
+          },
+          "relativity": {
+            "precision": 0.8881118881118881,
+            "recall": 0.671957671957672,
+            "f1": 0.7650602409638554,
+            "support": 189
+          },
+          "astrophysics": {
+            "precision": 0.3333333333333333,
+            "recall": 0.8214285714285714,
+            "f1": 0.4742268041237113,
+            "support": 28
+          },
+          "classical_mechanics": {
+            "precision": 0.8321678321678322,
+            "recall": 0.7628205128205128,
+            "f1": 0.7959866220735786,
+            "support": 156
+          },
+          "genetics": {
+            "precision": 0.5,
+            "recall": 0.5833333333333334,
+            "f1": 0.5384615384615384,
+            "support": 12
+          },
+          "evolution": {
+            "precision": 0.9230769230769231,
+            "recall": 0.6,
+            "f1": 0.7272727272727273,
+            "support": 20
+          },
+          "cell_biology": {
+            "precision": 0.7,
+            "recall": 0.4666666666666667,
+            "f1": 0.56,
+            "support": 15
+          },
+          "ecology": {
+            "precision": 0.6,
+            "recall": 0.6,
+            "f1": 0.6,
+            "support": 5
+          },
+          "organic_chemistry": {
+            "precision": 0.9705882352941176,
+            "recall": 0.673469387755102,
+            "f1": 0.7951807228915663,
+            "support": 98
+          },
+          "chemical_reactions": {
+            "precision": 0.5675675675675675,
+            "recall": 0.5526315789473685,
+            "f1": 0.56,
+            "support": 38
+          },
+          "periodic_table": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "quantum_computing": {
+            "precision": 0.8461538461538461,
+            "recall": 0.7432432432432432,
+            "f1": 0.7913669064748201,
+            "support": 74
+          },
+          "artificial_intelligence": {
+            "precision": 0.7888888888888889,
+            "recall": 0.7802197802197802,
+            "f1": 0.7845303867403315,
+            "support": 91
+          },
+          "software": {
+            "precision": 0.8169014084507042,
+            "recall": 0.6304347826086957,
+            "f1": 0.7116564417177914,
+            "support": 92
+          },
+          "hardware": {
+            "precision": 0.2909090909090909,
+            "recall": 0.9411764705882353,
+            "f1": 0.4444444444444444,
+            "support": 17
+          },
+          "scientific_method": {
+            "precision": 0.3,
+            "recall": 0.75,
+            "f1": 0.42857142857142855,
+            "support": 4
+          },
+          "history_of_science": {
+            "precision": 0.7692307692307693,
+            "recall": 0.5263157894736842,
+            "f1": 0.625,
+            "support": 19
+          },
+          "scientific_research": {
+            "precision": 0.7272727272727273,
+            "recall": 0.8,
+            "f1": 0.7619047619047619,
+            "support": 20
+          },
+          "novels": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "science_books": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "poetry": {
+            "precision": 1.0,
+            "recall": 0.8536585365853658,
+            "f1": 0.9210526315789473,
+            "support": 41
+          },
+          "authors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "football": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1": 0.9333333333333333,
+            "support": 15
+          },
+          "basketball": {
+            "precision": 0.25,
+            "recall": 0.5,
+            "f1": 0.3333333333333333,
+            "support": 2
+          },
+          "olympics": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "ottoman_history": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "world_wars": {
+            "precision": 1.0,
+            "recall": 0.9444444444444444,
+            "f1": 0.9714285714285714,
+            "support": 18
+          },
+          "ancient_history": {
+            "precision": 0.8571428571428571,
+            "recall": 1.0,
+            "f1": 0.9230769230769231,
+            "support": 6
+          }
+        }
+      },
+      "deployed_gate": {
+        "n": 1212,
+        "uncertain_rate": 0.0809,
+        "uncertain_by_ood_score": 0.0305,
+        "uncertain_by_low_confidence": 0.0561,
+        "uncertain_by_language": 0.0066,
+        "accuracy_all": 0.8234,
+        "accuracy_answered": 0.8609,
+        "accuracy_uncertain": 0.398
+      }
+    },
+    "offtopic": {
+      "se_sites": {
+        "auroc": 0.8864713212104663,
+        "aupr_ood": 0.8054172608675343,
+        "fpr_at_95_tpr": 0.5267249757045676,
+        "n_in": 1623,
+        "n_ood": 1029,
+        "in_domain_reference": "se_general",
+        "deployed_gate": {
+          "n": 1029,
+          "uncertain_rate": 0.4849,
+          "uncertain_by_ood_score": 0.4043,
+          "uncertain_by_low_confidence": 0.2556,
+          "uncertain_by_language": 0.0058
+        }
+      },
+      "chat": {
+        "auroc": 0.9613271860680873,
+        "aupr_ood": 0.9820136898645673,
+        "fpr_at_95_tpr": 0.2,
+        "n_in": 1623,
+        "n_ood": 4350,
+        "in_domain_reference": "se_general",
+        "deployed_gate": {
+          "n": 4350,
+          "uncertain_rate": 0.7811,
+          "uncertain_by_ood_score": 0.7547,
+          "uncertain_by_low_confidence": 0.3384,
+          "uncertain_by_language": 0.0021
+        }
+      }
+    },
+    "language": {
+      "1": {
+        "english_accepted": 0.999,
+        "non_english_rejected": 0.4831,
+        "n_english": 3000,
+        "n_non_english": 6800
+      },
+      "2": {
+        "english_accepted": 0.9973,
+        "non_english_rejected": 0.7584,
+        "n_english": 2981,
+        "n_non_english": 6506
+      },
+      "3": {
+        "english_accepted": 0.9958,
+        "non_english_rejected": 0.9259,
+        "n_english": 2857,
+        "n_non_english": 5666
+      },
+      "full": {
+        "english_accepted": 0.9987,
+        "non_english_rejected": 0.9672,
+        "n_english": 3000,
+        "n_non_english": 6800
+      }
+    },
+    "calibration": {
+      "wiki": [
+        {
+          "bin": "0.2-0.3",
+          "n": 1,
+          "confidence": 0.27419643307076497,
+          "accuracy": 0.0
+        },
+        {
+          "bin": "0.3-0.4",
+          "n": 5,
+          "confidence": 0.3545755996071907,
+          "accuracy": 0.4
+        },
+        {
+          "bin": "0.4-0.5",
+          "n": 8,
+          "confidence": 0.44872014369925806,
+          "accuracy": 0.625
+        },
+        {
+          "bin": "0.5-0.6",
+          "n": 24,
+          "confidence": 0.5559492207576571,
+          "accuracy": 0.5416666666666666
+        },
+        {
+          "bin": "0.6-0.7",
+          "n": 16,
+          "confidence": 0.6501722525077985,
+          "accuracy": 0.5
+        },
+        {
+          "bin": "0.7-0.8",
+          "n": 25,
+          "confidence": 0.7572504270759498,
+          "accuracy": 0.68
+        },
+        {
+          "bin": "0.8-0.9",
+          "n": 61,
+          "confidence": 0.861821895494016,
+          "accuracy": 0.7868852459016393
+        },
+        {
+          "bin": "0.9-1.0",
+          "n": 234,
+          "confidence": 0.95071092311156,
+          "accuracy": 0.9572649572649573
+        }
+      ],
+      "se_general": [
+        {
+          "bin": "0.2-0.3",
+          "n": 5,
+          "confidence": 0.2808886254163155,
+          "accuracy": 0.0
+        },
+        {
+          "bin": "0.3-0.4",
+          "n": 29,
+          "confidence": 0.36101292208184116,
+          "accuracy": 0.1724137931034483
+        },
+        {
+          "bin": "0.4-0.5",
+          "n": 71,
+          "confidence": 0.4558156926232296,
+          "accuracy": 0.4647887323943662
+        },
+        {
+          "bin": "0.5-0.6",
+          "n": 82,
+          "confidence": 0.5494753185133986,
+          "accuracy": 0.4634146341463415
+        },
+        {
+          "bin": "0.6-0.7",
+          "n": 78,
+          "confidence": 0.6544846380719684,
+          "accuracy": 0.4358974358974359
+        },
+        {
+          "bin": "0.7-0.8",
+          "n": 115,
+          "confidence": 0.7540133135873294,
+          "accuracy": 0.6
+        },
+        {
+          "bin": "0.8-0.9",
+          "n": 225,
+          "confidence": 0.8595723658194329,
+          "accuracy": 0.7244444444444444
+        },
+        {
+          "bin": "0.9-1.0",
+          "n": 1018,
+          "confidence": 0.9523578755430415,
+          "accuracy": 0.9449901768172888
+        }
+      ]
+    },
+    "analysis": {
+      "wiki_accuracy_by_words": {
+        "16-25": {
+          "n": 165,
+          "rate": 0.8182
+        },
+        "26-40": {
+          "n": 129,
+          "rate": 0.8527
+        },
+        ">40": {
+          "n": 33,
+          "rate": 0.8788
+        },
+        "1-15": {
+          "n": 47,
+          "rate": 0.9149
+        }
+      },
+      "wiki_accuracy_by_label_count": {
+        "1 subtopic(s)": {
+          "n": 362,
+          "rate": 0.8425
+        },
+        "2 subtopic(s)": {
+          "n": 11,
+          "rate": 1.0
+        },
+        "3 subtopic(s)": {
+          "n": 1,
+          "rate": 1.0
+        }
+      },
+      "wiki_confusion_pairs": [
+        {
+          "true": "biology",
+          "pred": "history",
+          "count": 5,
+          "share_of_true_class": 0.0833
+        },
+        {
+          "true": "biology",
+          "pred": "science",
+          "count": 4,
+          "share_of_true_class": 0.0667
+        },
+        {
+          "true": "biology",
+          "pred": "chemistry",
+          "count": 4,
+          "share_of_true_class": 0.0667
+        },
+        {
+          "true": "physics",
+          "pred": "technology",
+          "count": 4,
+          "share_of_true_class": 0.0667
+        },
+        {
+          "true": "science",
+          "pred": "books",
+          "count": 4,
+          "share_of_true_class": 0.1379
+        },
+        {
+          "true": "technology",
+          "pred": "science",
+          "count": 3,
+          "share_of_true_class": 0.0667
+        },
+        {
+          "true": "history",
+          "pred": "science",
+          "count": 2,
+          "share_of_true_class": 0.0444
+        },
+        {
+          "true": "technology",
+          "pred": "sports",
+          "count": 2,
+          "share_of_true_class": 0.0444
+        },
+        {
+          "true": "physics",
+          "pred": "science",
+          "count": 2,
+          "share_of_true_class": 0.0333
+        },
+        {
+          "true": "physics",
+          "pred": "chemistry",
+          "count": 2,
+          "share_of_true_class": 0.0333
+        }
+      ],
+      "se_accuracy_by_words": {
+        "1-7": {
+          "n": 378,
+          "rate": 0.7804
+        },
+        "8-12": {
+          "n": 660,
+          "rate": 0.8091
+        },
+        ">12": {
+          "n": 585,
+          "rate": 0.812
+        }
+      },
+      "se_accuracy_by_site": {
+        "hsm": {
+          "n": 99,
+          "rate": 0.1919
+        },
+        "history": {
+          "n": 109,
+          "rate": 0.6697
+        },
+        "quantumcomputing": {
+          "n": 100,
+          "rate": 0.74
+        },
+        "biology": {
+          "n": 120,
+          "rate": 0.775
+        },
+        "astronomy": {
+          "n": 100,
+          "rate": 0.81
+        },
+        "literature": {
+          "n": 128,
+          "rate": 0.8281
+        },
+        "chemistry": {
+          "n": 180,
+          "rate": 0.8611
+        },
+        "physics": {
+          "n": 553,
+          "rate": 0.8843
+        },
+        "ai": {
+          "n": 100,
+          "rate": 0.91
+        },
+        "sports": {
+          "n": 34,
+          "rate": 0.9118
+        },
+        "softwareengineering": {
+          "n": 100,
+          "rate": 0.92
+        }
+      },
+      "se_uncertain_rate_by_site": {
+        "ai": {
+          "n": 100,
+          "rate": 0.03
+        },
+        "physics": {
+          "n": 553,
+          "rate": 0.0542
+        },
+        "chemistry": {
+          "n": 180,
+          "rate": 0.0556
+        },
+        "sports": {
+          "n": 34,
+          "rate": 0.0588
+        },
+        "astronomy": {
+          "n": 100,
+          "rate": 0.06
+        },
+        "quantumcomputing": {
+          "n": 100,
+          "rate": 0.09
+        },
+        "softwareengineering": {
+          "n": 100,
+          "rate": 0.1
+        },
+        "literature": {
+          "n": 128,
+          "rate": 0.1172
+        },
+        "biology": {
+          "n": 120,
+          "rate": 0.125
+        },
+        "history": {
+          "n": 109,
+          "rate": 0.1743
+        },
+        "hsm": {
+          "n": 99,
+          "rate": 0.3232
+        }
+      },
+      "se_confusion_pairs": [
+        {
+          "true": "science",
+          "pred": "physics",
+          "count": 42,
+          "share_of_true_class": 0.4242
+        },
+        {
+          "true": "technology",
+          "pred": "physics",
+          "count": 27,
+          "share_of_true_class": 0.09
+        },
+        {
+          "true": "physics",
+          "pred": "chemistry",
+          "count": 22,
+          "share_of_true_class": 0.0337
+        },
+        {
+          "true": "physics",
+          "pred": "technology",
+          "count": 21,
+          "share_of_true_class": 0.0322
+        },
+        {
+          "true": "physics",
+          "pred": "science",
+          "count": 16,
+          "share_of_true_class": 0.0245
+        },
+        {
+          "true": "science",
+          "pred": "books",
+          "count": 15,
+          "share_of_true_class": 0.1515
+        },
+        {
+          "true": "chemistry",
+          "pred": "physics",
+          "count": 14,
+          "share_of_true_class": 0.0778
+        },
+        {
+          "true": "science",
+          "pred": "technology",
+          "count": 14,
+          "share_of_true_class": 0.1414
+        },
+        {
+          "true": "history",
+          "pred": "books",
+          "count": 11,
+          "share_of_true_class": 0.1009
+        },
+        {
+          "true": "history",
+          "pred": "science",
+          "count": 11,
+          "share_of_true_class": 0.1009
+        }
+      ]
+    }
+  },
+  "legacy_seen_in_v1": {
+    "wiki": {
+      "general": {
+        "n": 6053,
+        "accuracy": 0.8471832149347431,
+        "macro_precision": 0.8376567814144622,
+        "macro_recall": 0.8424543177902102,
+        "macro_f1": 0.8392820776159655,
+        "weighted_precision": 0.8502079020288248,
+        "weighted_recall": 0.8471832149347431,
+        "weighted_f1": 0.8479225391182867,
+        "log_loss": 0.48687163878891565,
+        "brier": 0.22151402927642946,
+        "ece": 0.03252367990467898,
+        "per_class": {
+          "physics": {
+            "precision": 0.9015421115065243,
+            "recall": 0.8042328042328042,
+            "f1": 0.8501118568232662,
+            "support": 945
+          },
+          "biology": {
+            "precision": 0.8728813559322034,
+            "recall": 0.8486096807415036,
+            "f1": 0.8605744125326371,
+            "support": 971
+          },
+          "chemistry": {
+            "precision": 0.8455882352941176,
+            "recall": 0.9126984126984127,
+            "f1": 0.8778625954198473,
+            "support": 630
+          },
+          "technology": {
+            "precision": 0.8392857142857143,
+            "recall": 0.8844086021505376,
+            "f1": 0.8612565445026178,
+            "support": 744
+          },
+          "science": {
+            "precision": 0.6,
+            "recall": 0.6580645161290323,
+            "f1": 0.6276923076923077,
+            "support": 465
+          },
+          "books": {
+            "precision": 0.8417338709677419,
+            "recall": 0.8451417004048583,
+            "f1": 0.8434343434343434,
+            "support": 988
+          },
+          "sports": {
+            "precision": 0.9242658423493045,
+            "recall": 0.9171779141104295,
+            "f1": 0.9207082371054658,
+            "support": 652
+          },
+          "history": {
+            "precision": 0.8759571209800919,
+            "recall": 0.8693009118541033,
+            "f1": 0.8726163234172387,
+            "support": 658
+          }
+        },
+        "confusion_matrix": [
+          [
+            760,
+            24,
+            47,
+            45,
+            34,
+            27,
+            5,
+            3
+          ],
+          [
+            8,
+            824,
+            47,
+            10,
+            47,
+            17,
+            8,
+            10
+          ],
+          [
+            11,
+            25,
+            575,
+            4,
+            9,
+            3,
+            0,
+            3
+          ],
+          [
+            18,
+            17,
+            2,
+            658,
+            37,
+            7,
+            4,
+            1
+          ],
+          [
+            25,
+            33,
+            5,
+            41,
+            306,
+            40,
+            4,
+            11
+          ],
+          [
+            21,
+            13,
+            1,
+            14,
+            44,
+            835,
+            22,
+            38
+          ],
+          [
+            0,
+            2,
+            0,
+            10,
+            5,
+            22,
+            598,
+            15
+          ],
+          [
+            0,
+            6,
+            3,
+            2,
+            28,
+            41,
+            6,
+            572
+          ]
+        ],
+        "labels": [
+          "physics",
+          "biology",
+          "chemistry",
+          "technology",
+          "science",
+          "books",
+          "sports",
+          "history"
+        ]
+      },
+      "subtopics": {
+        "n": 6053,
+        "micro_f1": 0.6698017085978525,
+        "macro_f1": 0.6594678150840123,
+        "macro_f1_supported": 0.6594678150840123,
+        "labels_supported": 28,
+        "weighted_f1": 0.6704696005071049,
+        "samples_f1": 0.675119775318024,
+        "hamming_loss": 0.02485780368648368,
+        "subset_accuracy": 0.6215099950437799,
+        "precision_at_1": 0.688253758466876,
+        "recall_at_3": 0.8707252602015529,
+        "per_label": {
+          "quantum_mechanics": {
+            "precision": 0.6346153846153846,
+            "recall": 0.5463576158940397,
+            "f1": 0.5871886120996441,
+            "support": 302
+          },
+          "relativity": {
+            "precision": 0.6149068322981367,
+            "recall": 0.5722543352601156,
+            "f1": 0.592814371257485,
+            "support": 173
+          },
+          "astrophysics": {
+            "precision": 0.6425531914893617,
+            "recall": 0.5571955719557196,
+            "f1": 0.5968379446640316,
+            "support": 271
+          },
+          "classical_mechanics": {
+            "precision": 0.7177033492822966,
+            "recall": 0.5617977528089888,
+            "f1": 0.6302521008403361,
+            "support": 267
+          },
+          "genetics": {
+            "precision": 0.7062937062937062,
+            "recall": 0.6495176848874598,
+            "f1": 0.6767169179229481,
+            "support": 311
+          },
+          "evolution": {
+            "precision": 0.6605504587155964,
+            "recall": 0.5373134328358209,
+            "f1": 0.5925925925925926,
+            "support": 268
+          },
+          "cell_biology": {
+            "precision": 0.6720647773279352,
+            "recall": 0.6484375,
+            "f1": 0.6600397614314115,
+            "support": 256
+          },
+          "ecology": {
+            "precision": 0.7511111111111111,
+            "recall": 0.6425855513307985,
+            "f1": 0.6926229508196722,
+            "support": 263
+          },
+          "organic_chemistry": {
+            "precision": 0.5734767025089605,
+            "recall": 0.6639004149377593,
+            "f1": 0.6153846153846154,
+            "support": 241
+          },
+          "chemical_reactions": {
+            "precision": 0.6946564885496184,
+            "recall": 0.6920152091254753,
+            "f1": 0.6933333333333334,
+            "support": 263
+          },
+          "periodic_table": {
+            "precision": 0.6513761467889908,
+            "recall": 0.8502994011976048,
+            "f1": 0.7376623376623377,
+            "support": 167
+          },
+          "quantum_computing": {
+            "precision": 0.4722222222222222,
+            "recall": 0.864406779661017,
+            "f1": 0.6107784431137725,
+            "support": 59
+          },
+          "artificial_intelligence": {
+            "precision": 0.6507936507936508,
+            "recall": 0.5774647887323944,
+            "f1": 0.6119402985074627,
+            "support": 213
+          },
+          "software": {
+            "precision": 0.6530612244897959,
+            "recall": 0.6060606060606061,
+            "f1": 0.6286836935166994,
+            "support": 264
+          },
+          "hardware": {
+            "precision": 0.73992673992674,
+            "recall": 0.8112449799196787,
+            "f1": 0.7739463601532567,
+            "support": 249
+          },
+          "scientific_method": {
+            "precision": 0.49222797927461137,
+            "recall": 0.5053191489361702,
+            "f1": 0.49868766404199477,
+            "support": 188
+          },
+          "history_of_science": {
+            "precision": 0.2097902097902098,
+            "recall": 0.36585365853658536,
+            "f1": 0.26666666666666666,
+            "support": 82
+          },
+          "scientific_research": {
+            "precision": 0.5390946502057613,
+            "recall": 0.5981735159817352,
+            "f1": 0.5670995670995671,
+            "support": 219
+          },
+          "novels": {
+            "precision": 0.76,
+            "recall": 0.7723577235772358,
+            "f1": 0.7661290322580645,
+            "support": 246
+          },
+          "science_books": {
+            "precision": 0.6530612244897959,
+            "recall": 0.6374501992031872,
+            "f1": 0.6451612903225806,
+            "support": 251
+          },
+          "poetry": {
+            "precision": 0.7430830039525692,
+            "recall": 0.752,
+            "f1": 0.7475149105367793,
+            "support": 250
+          },
+          "authors": {
+            "precision": 0.6541353383458647,
+            "recall": 0.710204081632653,
+            "f1": 0.6810176125244618,
+            "support": 245
+          },
+          "football": {
+            "precision": 0.7925311203319502,
+            "recall": 0.8059071729957806,
+            "f1": 0.799163179916318,
+            "support": 237
+          },
+          "basketball": {
+            "precision": 0.8146551724137931,
+            "recall": 0.7974683544303798,
+            "f1": 0.8059701492537313,
+            "support": 237
+          },
+          "olympics": {
+            "precision": 0.7463414634146341,
+            "recall": 0.8225806451612904,
+            "f1": 0.782608695652174,
+            "support": 186
+          },
+          "ottoman_history": {
+            "precision": 0.7905982905982906,
+            "recall": 0.7581967213114754,
+            "f1": 0.7740585774058577,
+            "support": 244
+          },
+          "world_wars": {
+            "precision": 0.7509578544061303,
+            "recall": 0.8132780082987552,
+            "f1": 0.7808764940239044,
+            "support": 241
+          },
+          "ancient_history": {
+            "precision": 0.6377551020408163,
+            "recall": 0.6613756613756614,
+            "f1": 0.6493506493506493,
+            "support": 189
+          }
+        }
+      },
+      "subtopics_given_correct_general": {
+        "n": 5128,
+        "micro_f1": 0.7897606505868219,
+        "macro_f1": 0.7842417994200808,
+        "macro_f1_supported": 0.7842417994200808,
+        "labels_supported": 28,
+        "weighted_f1": 0.7887745961233636,
+        "samples_f1": 0.796899375975039,
+        "hamming_loss": 0.015844383775351013,
+        "subset_accuracy": 0.733619344773791,
+        "precision_at_1": 0.8061622464898596,
+        "recall_at_3": 0.9733814352574103,
+        "per_label": {
+          "quantum_mechanics": {
+            "precision": 0.7051282051282052,
+            "recall": 0.717391304347826,
+            "f1": 0.7112068965517241,
+            "support": 230
+          },
+          "relativity": {
+            "precision": 0.678082191780822,
+            "recall": 0.717391304347826,
+            "f1": 0.6971830985915493,
+            "support": 138
+          },
+          "astrophysics": {
+            "precision": 0.722488038277512,
+            "recall": 0.6508620689655172,
+            "f1": 0.6848072562358276,
+            "support": 232
+          },
+          "classical_mechanics": {
+            "precision": 0.7853403141361257,
+            "recall": 0.6696428571428571,
+            "f1": 0.7228915662650602,
+            "support": 224
+          },
+          "genetics": {
+            "precision": 0.7769230769230769,
+            "recall": 0.7509293680297398,
+            "f1": 0.7637051039697542,
+            "support": 269
+          },
+          "evolution": {
+            "precision": 0.8228571428571428,
+            "recall": 0.6050420168067226,
+            "f1": 0.6973365617433414,
+            "support": 238
+          },
+          "cell_biology": {
+            "precision": 0.7614678899082569,
+            "recall": 0.7443946188340808,
+            "f1": 0.7528344671201814,
+            "support": 223
+          },
+          "ecology": {
+            "precision": 0.8578680203045685,
+            "recall": 0.8164251207729468,
+            "f1": 0.8366336633663366,
+            "support": 207
+          },
+          "organic_chemistry": {
+            "precision": 0.6611570247933884,
+            "recall": 0.7476635514018691,
+            "f1": 0.7017543859649122,
+            "support": 214
+          },
+          "chemical_reactions": {
+            "precision": 0.8235294117647058,
+            "recall": 0.7459016393442623,
+            "f1": 0.7827956989247312,
+            "support": 244
+          },
+          "periodic_table": {
+            "precision": 0.7932960893854749,
+            "recall": 0.8987341772151899,
+            "f1": 0.8427299703264095,
+            "support": 158
+          },
+          "quantum_computing": {
+            "precision": 0.6891891891891891,
+            "recall": 0.9622641509433962,
+            "f1": 0.8031496062992126,
+            "support": 53
+          },
+          "artificial_intelligence": {
+            "precision": 0.831081081081081,
+            "recall": 0.7151162790697675,
+            "f1": 0.76875,
+            "support": 172
+          },
+          "software": {
+            "precision": 0.7511737089201878,
+            "recall": 0.6722689075630253,
+            "f1": 0.7095343680709535,
+            "support": 238
+          },
+          "hardware": {
+            "precision": 0.8015873015873016,
+            "recall": 0.8595744680851064,
+            "f1": 0.8295687885010267,
+            "support": 235
+          },
+          "scientific_method": {
+            "precision": 0.7037037037037037,
+            "recall": 0.7364341085271318,
+            "f1": 0.7196969696969697,
+            "support": 129
+          },
+          "history_of_science": {
+            "precision": 0.4838709677419355,
+            "recall": 0.7142857142857143,
+            "f1": 0.5769230769230769,
+            "support": 42
+          },
+          "scientific_research": {
+            "precision": 0.8733333333333333,
+            "recall": 0.8562091503267973,
+            "f1": 0.8646864686468647,
+            "support": 153
+          },
+          "novels": {
+            "precision": 0.8260869565217391,
+            "recall": 0.8407079646017699,
+            "f1": 0.8333333333333334,
+            "support": 226
+          },
+          "science_books": {
+            "precision": 0.8247422680412371,
+            "recall": 0.8648648648648649,
+            "f1": 0.8443271767810027,
+            "support": 185
+          },
+          "poetry": {
+            "precision": 0.8545454545454545,
+            "recall": 0.8623853211009175,
+            "f1": 0.8584474885844748,
+            "support": 218
+          },
+          "authors": {
+            "precision": 0.8365384615384616,
+            "recall": 0.8285714285714286,
+            "f1": 0.8325358851674641,
+            "support": 210
+          },
+          "football": {
+            "precision": 0.8642533936651584,
+            "recall": 0.8925233644859814,
+            "f1": 0.8781609195402299,
+            "support": 214
+          },
+          "basketball": {
+            "precision": 0.8590909090909091,
+            "recall": 0.8709677419354839,
+            "f1": 0.8649885583524027,
+            "support": 217
+          },
+          "olympics": {
+            "precision": 0.8181818181818182,
+            "recall": 0.8742857142857143,
+            "f1": 0.8453038674033149,
+            "support": 175
+          },
+          "ottoman_history": {
+            "precision": 0.8604651162790697,
+            "recall": 0.8295964125560538,
+            "f1": 0.8447488584474886,
+            "support": 223
+          },
+          "world_wars": {
+            "precision": 0.8448275862068966,
+            "recall": 0.9333333333333333,
+            "f1": 0.8868778280542986,
+            "support": 210
+          },
+          "ancient_history": {
+            "precision": 0.7911392405063291,
+            "recall": 0.8169934640522876,
+            "f1": 0.8038585209003215,
+            "support": 153
+          }
+        }
+      },
+      "deployed_gate": {
+        "n": 6053,
+        "uncertain_rate": 0.0568,
+        "uncertain_by_ood_score": 0.0013,
+        "uncertain_by_low_confidence": 0.0557,
+        "uncertain_by_language": 0.0013,
+        "accuracy_all": 0.8472,
+        "accuracy_answered": 0.8772,
+        "accuracy_uncertain": 0.3488
+      }
+    },
+    "wiki_errors": [
+      {
+        "text": "As its name implies, this concept applies the notions of meta- and modeling in software engineering and systems engineering.",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.984
+      },
+      {
+        "text": "Common examples of such policy preferences are arguments that pristine ecosystems are preferable to human altered ones, that native species are preferable to nonnative species, and that higher biodiversity is preferable to lower biodiversity.",
+        "true": "science",
+        "pred": "biology",
+        "confidence": 0.98
+      },
+      {
+        "text": "Force control can be used as an alternative to the usual motion control, but is usually used in a complementary way, in the form of hybrid control concepts.",
+        "true": "technology",
+        "pred": "physics",
+        "confidence": 0.979
+      },
+      {
+        "text": "Science in the ancient world encompasses the earliest history of science from the protoscience of prehistory and ancient history through to late antiquity.",
+        "true": "history",
+        "pred": "science",
+        "confidence": 0.977
+      },
+      {
+        "text": "The rest is traces of other elements such as lithium and the hydrogen isotope deuterium.",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.976
+      },
+      {
+        "text": "It is dated to the Old Babylonian Empire. It is preserved in Penn Museum on tablet CBS13856.",
+        "true": "books",
+        "pred": "history",
+        "confidence": 0.974
+      },
+      {
+        "text": "The term itself is borrowed from the notion of \"frost line\" in soil science, which describes the maximum depth from the surface that groundwater can freeze.",
+        "true": "physics",
+        "pred": "biology",
+        "confidence": 0.972
+      },
+      {
+        "text": "The process of validating the integrity of a computing device such as a server needed for trusted computing",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.969
+      },
+      {
+        "text": "Force control is the control of the force with which a machine or the manipulator of a robot acts on an object or its environment.",
+        "true": "technology",
+        "pred": "physics",
+        "confidence": 0.968
+      },
+      {
+        "text": "It is based on Crawford's research into the development and labor behind artificial intelligence, as well as AI's impact on the world.",
+        "true": "books",
+        "pred": "technology",
+        "confidence": 0.967
+      },
+      {
+        "text": "Because of his activism, he was expelled from the Chinese Communist Party in January 1987.",
+        "true": "physics",
+        "pred": "books",
+        "confidence": 0.966
+      },
+      {
+        "text": "A similar idea was proposed by Elmar Altvater in an article in PROKLA in 1987, translated into English as \"Ecological and Economic Modalities of Time and Space\" and published in Capitalism Nature Socialism in 1990.",
+        "true": "physics",
+        "pred": "biology",
+        "confidence": 0.966
+      },
+      {
+        "text": "Gene finding is one of the first and most important steps in understanding the genome of a species once it has been sequenced.",
+        "true": "technology",
+        "pred": "biology",
+        "confidence": 0.965
+      },
+      {
+        "text": "In 1907 the Office was reconstituted as the Galton Eugenics Laboratory as part of UCL and under the direction of Karl Pearson the Professor of Applied Mathematics.",
+        "true": "biology",
+        "pred": "science",
+        "confidence": 0.965
+      },
+      {
+        "text": "A meme acts as a unit for carrying cultural ideas, symbols, or practices, that can be transmitted from one mind to another through writing, speech, gestures, rituals, or other imitable phenomena with a mimicked theme.",
+        "true": "science",
+        "pred": "books",
+        "confidence": 0.965
+      },
+      {
+        "text": "Members of the order, known as rhinogrades or snouters, are characterized by a nose-like feature called a \"nasorium\", which evolved to fulfill a wide variety of functions in different species.",
+        "true": "science",
+        "pred": "biology",
+        "confidence": 0.964
+      },
+      {
+        "text": "Mutation testing involves modifying a program in small ways. Each mutated version is called a mutant and tests detect and reject mutants by causing the behaviour of the original version to differ from the mutant.",
+        "true": "technology",
+        "pred": "biology",
+        "confidence": 0.964
+      },
+      {
+        "text": "The value of this deflection had been predicted by Albert Einstein in a 1911 paper; however, this initial prediction turned out not to be correct because it was based on an incomplete theory of general relativity.",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.964
+      },
+      {
+        "text": "Non-helical or \"side-by-side\" models of DNA were proposed in the 1970s to address what appeared at the time to be problems with the topology of circular DNA chromosomes during replication (subsequently resolved via the discovery of enzymes that modify DNA topology).",
+        "true": "science",
+        "pred": "biology",
+        "confidence": 0.963
+      },
+      {
+        "text": "While in high school, he and a friend created and sold a word processor written in pure machine code for the Swedish eight-bit computer ABC 80, and a 3D Tetris-like game called Frac.",
+        "true": "physics",
+        "pred": "technology",
+        "confidence": 0.963
+      },
+      {
+        "text": "These membranes are located inside the chloroplasts of plants and algae, and in the cytoplasmic membrane of photosynthetic bacteria.",
+        "true": "chemistry",
+        "pred": "biology",
+        "confidence": 0.963
+      },
+      {
+        "text": "Orthogonal array testing is a systematic and statistically-driven black-box testing technique employed in the field of software testing.",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.962
+      },
+      {
+        "text": "Animals with this sense include some arthropods, molluscs, and vertebrates (fish, amphibians, reptiles, birds, and mammals).",
+        "true": "physics",
+        "pred": "biology",
+        "confidence": 0.962
+      },
+      {
+        "text": "This includes protein-coding genes as well as RNA genes, but may also include prediction of other functional elements such as regulatory regions.",
+        "true": "technology",
+        "pred": "biology",
+        "confidence": 0.962
+      },
+      {
+        "text": "The compatibility mechanism contributes also to the success of pregnancy by helping the placenta to form, and may play a role in mate selection.",
+        "true": "books",
+        "pred": "biology",
+        "confidence": 0.961
+      },
+      {
+        "text": "This period was referred to as The Long Watch by Irish Mariners.",
+        "true": "history",
+        "pred": "sports",
+        "confidence": 0.961
+      },
+      {
+        "text": "interpretations of quantum mechanics: mainly concerning issues with how to formulate an adequate response to the measurement problem and understand what the theory says about reality.",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.961
+      },
+      {
+        "text": "The Eddington experiment was an observational test of general relativity, organised by the British astronomers Frank Watson Dyson and Arthur Stanley Eddington in 1919.",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.961
+      },
+      {
+        "text": "A trapped-ion quantum computer is one proposed approach to a large-scale quantum computer.",
+        "true": "physics",
+        "pred": "technology",
+        "confidence": 0.96
+      },
+      {
+        "text": "Newton\u2013Euler equations express the dynamics of a rigid body. Euler has been credited with contributing to the rise of Newtonian mechanics especially in topics other than gravity.",
+        "true": "books",
+        "pred": "physics",
+        "confidence": 0.958
+      },
+      {
+        "text": "In this way CELAR developed a solution that competes directly with Ubuntu Juju (software), Openstack Heat and Amazon Web Services.",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.958
+      },
+      {
+        "text": "In addition to the variety of verified DNA structures, there have been a range of proposed DNA models that have either been disproven, or lack evidence.",
+        "true": "science",
+        "pred": "biology",
+        "confidence": 0.958
+      },
+      {
+        "text": "Iron exists in a range of oxidation states from -2 to 7; however, on Earth it is predominantly in its 2 or 3 redox state and is a primary redox-active metal on Earth.",
+        "true": "biology",
+        "pred": "chemistry",
+        "confidence": 0.958
+      },
+      {
+        "text": "In the episode, Bart befriends Rainier Wolfcastle's daughter, Greta. While Greta falls in love with him, Bart only accompanies her because she owns a lot of entertaining things.",
+        "true": "sports",
+        "pred": "books",
+        "confidence": 0.957
+      },
+      {
+        "text": "This method is particularly valuable in scenarios where the number of inputs to a system is substantial enough to make exhaustive testing impractical.",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.957
+      },
+      {
+        "text": "The integrated field that studies the combination of sensors, actuators and algorithms is called guidance, navigation and control (GNC).",
+        "true": "physics",
+        "pred": "technology",
+        "confidence": 0.957
+      },
+      {
+        "text": "The Truce was revived by United Nations Resolution 48/11 of 25 October 1993, as well by the United Nations Millennium Declaration relating to the world peace and security.",
+        "true": "sports",
+        "pred": "history",
+        "confidence": 0.957
+      },
+      {
+        "text": "A meme is an idea, behavior, or style that spreads by means of imitation from person to person within a culture and often carries symbolic meaning representing a particular phenomenon or theme.",
+        "true": "science",
+        "pred": "books",
+        "confidence": 0.957
+      },
+      {
+        "text": "Euler both developed the techniques of analysis and applied them to numerous problems in mechanics,",
+        "true": "books",
+        "pred": "physics",
+        "confidence": 0.955
+      },
+      {
+        "text": "The origin of most DIBs remains unknown, with common suggestions being polycyclic aromatic hydrocarbons and other large carbon-bearing molecules.",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.955
+      }
+    ],
+    "se_general": {
+      "general": {
+        "n": 10087,
+        "accuracy": 0.7728759789828492,
+        "macro_precision": 0.7542400325256464,
+        "macro_recall": 0.7505520577596002,
+        "macro_f1": 0.7464038361861952,
+        "weighted_precision": 0.76863183431435,
+        "weighted_recall": 0.7728759789828492,
+        "weighted_f1": 0.7653887486874125,
+        "log_loss": 0.7550798344762334,
+        "brier": 0.33982984454981324,
+        "ece": 0.0727653502261919,
+        "per_class": {
+          "physics": {
+            "precision": 0.6357179096905125,
+            "recall": 0.8353333333333334,
+            "f1": 0.7219821377124748,
+            "support": 1500
+          },
+          "biology": {
+            "precision": 0.8638667632150615,
+            "recall": 0.7953333333333333,
+            "f1": 0.8281846581048247,
+            "support": 1500
+          },
+          "chemistry": {
+            "precision": 0.8360309641097818,
+            "recall": 0.792,
+            "f1": 0.813420061622732,
+            "support": 1500
+          },
+          "technology": {
+            "precision": 0.8164281269446173,
+            "recall": 0.8746666666666667,
+            "f1": 0.84454457676215,
+            "support": 1500
+          },
+          "science": {
+            "precision": 0.43830570902394106,
+            "recall": 0.2537313432835821,
+            "f1": 0.3214044564483457,
+            "support": 938
+          },
+          "books": {
+            "precision": 0.7016460905349794,
+            "recall": 0.8042452830188679,
+            "f1": 0.7494505494505495,
+            "support": 848
+          },
+          "sports": {
+            "precision": 0.916289592760181,
+            "recall": 0.9239543726235742,
+            "f1": 0.9201060204468005,
+            "support": 1315
+          },
+          "history": {
+            "precision": 0.825635103926097,
+            "recall": 0.7251521298174443,
+            "f1": 0.7721382289416847,
+            "support": 986
+          }
+        },
+        "confusion_matrix": [
+          [
+            1253,
+            20,
+            56,
+            64,
+            68,
+            20,
+            8,
+            11
+          ],
+          [
+            37,
+            1193,
+            109,
+            62,
+            56,
+            22,
+            10,
+            11
+          ],
+          [
+            179,
+            69,
+            1188,
+            29,
+            20,
+            4,
+            4,
+            7
+          ],
+          [
+            73,
+            29,
+            7,
+            1312,
+            44,
+            15,
+            19,
+            1
+          ],
+          [
+            402,
+            19,
+            34,
+            84,
+            238,
+            115,
+            6,
+            40
+          ],
+          [
+            5,
+            15,
+            5,
+            9,
+            40,
+            682,
+            21,
+            71
+          ],
+          [
+            15,
+            17,
+            10,
+            33,
+            6,
+            9,
+            1215,
+            10
+          ],
+          [
+            7,
+            19,
+            12,
+            14,
+            71,
+            105,
+            43,
+            715
+          ]
+        ],
+        "labels": [
+          "physics",
+          "biology",
+          "chemistry",
+          "technology",
+          "science",
+          "books",
+          "sports",
+          "history"
+        ]
+      },
+      "deployed_gate": {
+        "n": 10087,
+        "uncertain_rate": 0.1032,
+        "uncertain_by_ood_score": 0.0482,
+        "uncertain_by_low_confidence": 0.0704,
+        "uncertain_by_language": 0.0022,
+        "accuracy_all": 0.7729,
+        "accuracy_answered": 0.8152,
+        "accuracy_uncertain": 0.4054
+      }
+    },
+    "se_general_without_hsm": {
+      "n": 9149,
+      "accuracy": 0.8261012132473494,
+      "macro_f1_present_classes": 0.8360901837349964,
+      "classes": [
+        "physics",
+        "biology",
+        "chemistry",
+        "technology",
+        "books",
+        "sports",
+        "history"
+      ]
+    },
+    "se_general_errors": [
+      {
+        "text": "Can all elements be found in our body?",
+        "true": "biology",
+        "pred": "chemistry",
+        "confidence": 0.985
+      },
+      {
+        "text": "What does the surface of Mercury look like?",
+        "true": "physics",
+        "pred": "chemistry",
+        "confidence": 0.983
+      },
+      {
+        "text": "How would the Strikers re-emerge if there were so few competent people left in the world?",
+        "true": "books",
+        "pred": "sports",
+        "confidence": 0.982
+      },
+      {
+        "text": "What was the need for Lorentz transformation in pre-relativity period?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.982
+      },
+      {
+        "text": "Is T7 promotor leaky in DH5 alpha?",
+        "true": "biology",
+        "pred": "technology",
+        "confidence": 0.982
+      },
+      {
+        "text": "What is the Grishneshwar Temple Drop as mentioned in Brown's \"Origin\"?",
+        "true": "books",
+        "pred": "history",
+        "confidence": 0.981
+      },
+      {
+        "text": "What are the origins of sizing a squad in modern foot drill?",
+        "true": "history",
+        "pred": "sports",
+        "confidence": 0.981
+      },
+      {
+        "text": "What did Einstein contribute to Special Relativity that hadn't already been done by Lorentz in 1904 and Poincar\u00e9 in 1905?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.981
+      },
+      {
+        "text": "How did Eratosthenes determine that Alexandria and Syene were on the same meridian?",
+        "true": "science",
+        "pred": "history",
+        "confidence": 0.981
+      },
+      {
+        "text": "How Einstein got the first idea for special relativity?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.981
+      },
+      {
+        "text": "Wavelengths of the visible spectrum",
+        "true": "chemistry",
+        "pred": "physics",
+        "confidence": 0.98
+      },
+      {
+        "text": "Was a regular heptagon ever constructed by ancient Greeks?",
+        "true": "science",
+        "pred": "history",
+        "confidence": 0.979
+      },
+      {
+        "text": "Did Einstein want to reduce general relativity to elementary mathematics?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.978
+      },
+      {
+        "text": "What is the language spoken in Babylon?",
+        "true": "books",
+        "pred": "history",
+        "confidence": 0.978
+      },
+      {
+        "text": "Why not get the force out at third?",
+        "true": "sports",
+        "pred": "physics",
+        "confidence": 0.978
+      },
+      {
+        "text": "Is it true Einstein doubted relativity near the end of his life?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.978
+      },
+      {
+        "text": "How did Einstein know tensors would be needed in the EFEs?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.976
+      },
+      {
+        "text": "Inscriptions on a 16th century 3-dimensional permutahedron sundial?",
+        "true": "science",
+        "pred": "history",
+        "confidence": 0.976
+      },
+      {
+        "text": "Does a mechanical system repeats itself?",
+        "true": "technology",
+        "pred": "physics",
+        "confidence": 0.976
+      },
+      {
+        "text": "What is the first effect demonstrating the importance (or existence) of quantum coherence?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.976
+      },
+      {
+        "text": "How was stellar parallax tested by Tycho Brahe?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.976
+      },
+      {
+        "text": "How large should the replay buffer be?",
+        "true": "technology",
+        "pred": "sports",
+        "confidence": 0.975
+      },
+      {
+        "text": "How can I tell if I'm running properly",
+        "true": "sports",
+        "pred": "technology",
+        "confidence": 0.975
+      },
+      {
+        "text": "What exactly happened at the end of The Dumb Waiter?",
+        "true": "books",
+        "pred": "sports",
+        "confidence": 0.975
+      },
+      {
+        "text": "What are the constraints when growing an artificial brain?",
+        "true": "biology",
+        "pred": "technology",
+        "confidence": 0.974
+      },
+      {
+        "text": "What did Einstein learn in his university E&M courses?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.974
+      },
+      {
+        "text": "Why does the former nurse create with metal?",
+        "true": "books",
+        "pred": "chemistry",
+        "confidence": 0.974
+      },
+      {
+        "text": "Why is the square of the wavefunction a probability density?",
+        "true": "chemistry",
+        "pred": "physics",
+        "confidence": 0.974
+      },
+      {
+        "text": "What is the correct timeline of events for the boycott of the Olympic Games 1980 in Moscow",
+        "true": "history",
+        "pred": "sports",
+        "confidence": 0.973
+      },
+      {
+        "text": "How did Einstein arrive at his field equations without the Bianchi identities or variational formulation?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.973
+      },
+      {
+        "text": "How developed is the Gnommish language?",
+        "true": "books",
+        "pred": "history",
+        "confidence": 0.973
+      },
+      {
+        "text": "Origin of the term \"operator spectrum\" and its relation to spectrum in physics",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.973
+      },
+      {
+        "text": "Does learning increase the number of neurons in the brain?",
+        "true": "biology",
+        "pred": "technology",
+        "confidence": 0.973
+      },
+      {
+        "text": "How is the mol highway used in this problem?",
+        "true": "chemistry",
+        "pred": "physics",
+        "confidence": 0.973
+      },
+      {
+        "text": "Why is time represented on the vertical axis in space-time diagrams?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.973
+      },
+      {
+        "text": "What technologies were used before JavaScript?",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.973
+      },
+      {
+        "text": "Historic misidentification of transuranium elements?",
+        "true": "science",
+        "pred": "chemistry",
+        "confidence": 0.973
+      },
+      {
+        "text": "Hindsight Experience Replay with multiple goals",
+        "true": "technology",
+        "pred": "sports",
+        "confidence": 0.972
+      },
+      {
+        "text": "When was the first command-line interface developed?",
+        "true": "science",
+        "pred": "technology",
+        "confidence": 0.972
+      },
+      {
+        "text": "What is the origin of the use of \"g\" for a Riemannian metric?",
+        "true": "science",
+        "pred": "physics",
+        "confidence": 0.972
+      }
+    ],
+    "se_subtopic": {
+      "general": {
+        "n": 1642,
+        "accuracy": 0.8708891595615104,
+        "macro_precision": 0.8458200500607989,
+        "macro_recall": 0.866301629580682,
+        "macro_f1": 0.8490322327727178,
+        "weighted_precision": 0.8776667362647621,
+        "weighted_recall": 0.8708891595615104,
+        "weighted_f1": 0.8706773566926526,
+        "log_loss": 0.43255297314428914,
+        "brier": 0.19053361544226363,
+        "ece": 0.02081264237777464,
+        "per_class": {
+          "physics": {
+            "precision": 0.7980456026058632,
+            "recall": 0.8718861209964412,
+            "f1": 0.8333333333333334,
+            "support": 281
+          },
+          "biology": {
+            "precision": 0.9383886255924171,
+            "recall": 0.908256880733945,
+            "f1": 0.9230769230769231,
+            "support": 218
+          },
+          "chemistry": {
+            "precision": 0.9224806201550387,
+            "recall": 0.8847583643122676,
+            "f1": 0.9032258064516129,
+            "support": 269
+          },
+          "technology": {
+            "precision": 0.8688524590163934,
+            "recall": 0.9380530973451328,
+            "f1": 0.902127659574468,
+            "support": 226
+          },
+          "science": {
+            "precision": 0.8345864661654135,
+            "recall": 0.6166666666666667,
+            "f1": 0.7092651757188498,
+            "support": 180
+          },
+          "books": {
+            "precision": 0.5454545454545454,
+            "recall": 0.8571428571428571,
+            "f1": 0.6666666666666666,
+            "support": 49
+          },
+          "sports": {
+            "precision": 0.9156626506024096,
+            "recall": 0.9681528662420382,
+            "f1": 0.9411764705882353,
+            "support": 157
+          },
+          "history": {
+            "precision": 0.943089430894309,
+            "recall": 0.8854961832061069,
+            "f1": 0.9133858267716536,
+            "support": 262
+          }
+        },
+        "confusion_matrix": [
+          [
+            245,
+            6,
+            9,
+            2,
+            5,
+            3,
+            9,
+            2
+          ],
+          [
+            3,
+            198,
+            9,
+            0,
+            2,
+            3,
+            1,
+            2
+          ],
+          [
+            23,
+            1,
+            238,
+            3,
+            2,
+            2,
+            0,
+            0
+          ],
+          [
+            11,
+            1,
+            1,
+            212,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            22,
+            4,
+            0,
+            23,
+            111,
+            14,
+            1,
+            5
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            42,
+            0,
+            5
+          ],
+          [
+            1,
+            0,
+            1,
+            3,
+            0,
+            0,
+            152,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            12,
+            12,
+            3,
+            232
+          ]
+        ],
+        "labels": [
+          "physics",
+          "biology",
+          "chemistry",
+          "technology",
+          "science",
+          "books",
+          "sports",
+          "history"
+        ]
+      },
+      "subtopics": {
+        "n": 1642,
+        "micro_f1": 0.7010838562464347,
+        "macro_f1": 0.6260832129027596,
+        "macro_f1_supported": 0.7012131984510909,
+        "labels_supported": 25,
+        "weighted_f1": 0.7049730713578304,
+        "samples_f1": 0.7074705643524156,
+        "hamming_loss": 0.022794501479032538,
+        "subset_accuracy": 0.6467722289890377,
+        "precision_at_1": 0.7210718635809987,
+        "recall_at_3": 0.8995127892813642,
+        "per_label": {
+          "quantum_mechanics": {
+            "precision": 0.6091954022988506,
+            "recall": 0.8548387096774194,
+            "f1": 0.7114093959731543,
+            "support": 62
+          },
+          "relativity": {
+            "precision": 0.7631578947368421,
+            "recall": 0.6304347826086957,
+            "f1": 0.6904761904761905,
+            "support": 92
+          },
+          "astrophysics": {
+            "precision": 0.46153846153846156,
+            "recall": 0.8076923076923077,
+            "f1": 0.5874125874125874,
+            "support": 52
+          },
+          "classical_mechanics": {
+            "precision": 0.7540983606557377,
+            "recall": 0.4946236559139785,
+            "f1": 0.5974025974025974,
+            "support": 93
+          },
+          "genetics": {
+            "precision": 0.6545454545454545,
+            "recall": 0.72,
+            "f1": 0.6857142857142857,
+            "support": 50
+          },
+          "evolution": {
+            "precision": 0.7796610169491526,
+            "recall": 0.5822784810126582,
+            "f1": 0.6666666666666666,
+            "support": 79
+          },
+          "cell_biology": {
+            "precision": 0.8108108108108109,
+            "recall": 0.6382978723404256,
+            "f1": 0.7142857142857143,
+            "support": 47
+          },
+          "ecology": {
+            "precision": 0.7121212121212122,
+            "recall": 0.734375,
+            "f1": 0.7230769230769231,
+            "support": 64
+          },
+          "organic_chemistry": {
+            "precision": 0.7261904761904762,
+            "recall": 0.6224489795918368,
+            "f1": 0.6703296703296703,
+            "support": 98
+          },
+          "chemical_reactions": {
+            "precision": 0.7313432835820896,
+            "recall": 0.5051546391752577,
+            "f1": 0.5975609756097561,
+            "support": 97
+          },
+          "periodic_table": {
+            "precision": 0.7674418604651163,
+            "recall": 0.7122302158273381,
+            "f1": 0.7388059701492538,
+            "support": 139
+          },
+          "quantum_computing": {
+            "precision": 0.8085106382978723,
+            "recall": 0.7755102040816326,
+            "f1": 0.7916666666666666,
+            "support": 49
+          },
+          "artificial_intelligence": {
+            "precision": 0.6428571428571429,
+            "recall": 0.782608695652174,
+            "f1": 0.7058823529411765,
+            "support": 46
+          },
+          "software": {
+            "precision": 0.7954545454545454,
+            "recall": 0.7954545454545454,
+            "f1": 0.7954545454545454,
+            "support": 44
+          },
+          "hardware": {
+            "precision": 0.8113207547169812,
+            "recall": 0.9885057471264368,
+            "f1": 0.8911917098445595,
+            "support": 87
+          },
+          "scientific_method": {
+            "precision": 0.803030303030303,
+            "recall": 0.6625,
+            "f1": 0.726027397260274,
+            "support": 80
+          },
+          "history_of_science": {
+            "precision": 0.37209302325581395,
+            "recall": 0.2318840579710145,
+            "f1": 0.2857142857142857,
+            "support": 69
+          },
+          "scientific_research": {
+            "precision": 0.65,
+            "recall": 0.5098039215686274,
+            "f1": 0.5714285714285714,
+            "support": 51
+          },
+          "novels": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "science_books": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "poetry": {
+            "precision": 0.7692307692307693,
+            "recall": 0.6122448979591837,
+            "f1": 0.6818181818181818,
+            "support": 49
+          },
+          "authors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "football": {
+            "precision": 0.625,
+            "recall": 0.9,
+            "f1": 0.7377049180327869,
+            "support": 50
+          },
+          "basketball": {
+            "precision": 0.8448275862068966,
+            "recall": 0.875,
+            "f1": 0.8596491228070176,
+            "support": 56
+          },
+          "olympics": {
+            "precision": 0.9069767441860465,
+            "recall": 0.7358490566037735,
+            "f1": 0.8125,
+            "support": 53
+          },
+          "ottoman_history": {
+            "precision": 0.5409836065573771,
+            "recall": 0.7333333333333333,
+            "f1": 0.6226415094339622,
+            "support": 45
+          },
+          "world_wars": {
+            "precision": 0.9175257731958762,
+            "recall": 0.8811881188118812,
+            "f1": 0.898989898989899,
+            "support": 101
+          },
+          "ancient_history": {
+            "precision": 0.8130841121495327,
+            "recall": 0.725,
+            "f1": 0.7665198237885462,
+            "support": 120
+          }
+        }
+      },
+      "subtopics_given_correct_general": {
+        "n": 1430,
+        "micro_f1": 0.8043193717277487,
+        "macro_f1": 0.7137336214087427,
+        "macro_f1_supported": 0.7993816559777919,
+        "labels_supported": 25,
+        "weighted_f1": 0.805893318678705,
+        "samples_f1": 0.8123543123543122,
+        "hamming_loss": 0.014935064935064935,
+        "subset_accuracy": 0.7426573426573426,
+        "precision_at_1": 0.8244755244755245,
+        "recall_at_3": 0.9804195804195804,
+        "per_label": {
+          "quantum_mechanics": {
+            "precision": 0.803030303030303,
+            "recall": 0.9137931034482759,
+            "f1": 0.8548387096774194,
+            "support": 58
+          },
+          "relativity": {
+            "precision": 0.8787878787878788,
+            "recall": 0.6744186046511628,
+            "f1": 0.7631578947368421,
+            "support": 86
+          },
+          "astrophysics": {
+            "precision": 0.5915492957746479,
+            "recall": 0.9545454545454546,
+            "f1": 0.7304347826086957,
+            "support": 44
+          },
+          "classical_mechanics": {
+            "precision": 0.92,
+            "recall": 0.6301369863013698,
+            "f1": 0.7479674796747967,
+            "support": 73
+          },
+          "genetics": {
+            "precision": 0.6666666666666666,
+            "recall": 0.782608695652174,
+            "f1": 0.72,
+            "support": 46
+          },
+          "evolution": {
+            "precision": 0.8518518518518519,
+            "recall": 0.6216216216216216,
+            "f1": 0.71875,
+            "support": 74
+          },
+          "cell_biology": {
+            "precision": 0.9090909090909091,
+            "recall": 0.6976744186046512,
+            "f1": 0.7894736842105263,
+            "support": 43
+          },
+          "ecology": {
+            "precision": 0.746031746031746,
+            "recall": 0.8545454545454545,
+            "f1": 0.7966101694915254,
+            "support": 55
+          },
+          "organic_chemistry": {
+            "precision": 0.7530864197530864,
+            "recall": 0.648936170212766,
+            "f1": 0.6971428571428572,
+            "support": 94
+          },
+          "chemical_reactions": {
+            "precision": 0.8032786885245902,
+            "recall": 0.5444444444444444,
+            "f1": 0.6490066225165563,
+            "support": 90
+          },
+          "periodic_table": {
+            "precision": 0.8461538461538461,
+            "recall": 0.853448275862069,
+            "f1": 0.8497854077253219,
+            "support": 116
+          },
+          "quantum_computing": {
+            "precision": 0.9047619047619048,
+            "recall": 0.95,
+            "f1": 0.926829268292683,
+            "support": 40
+          },
+          "artificial_intelligence": {
+            "precision": 0.8571428571428571,
+            "recall": 0.8372093023255814,
+            "f1": 0.8470588235294118,
+            "support": 43
+          },
+          "software": {
+            "precision": 0.9459459459459459,
+            "recall": 0.813953488372093,
+            "f1": 0.875,
+            "support": 43
+          },
+          "hardware": {
+            "precision": 0.8775510204081632,
+            "recall": 1.0,
+            "f1": 0.9347826086956522,
+            "support": 86
+          },
+          "scientific_method": {
+            "precision": 0.8412698412698413,
+            "recall": 0.828125,
+            "f1": 0.8346456692913385,
+            "support": 64
+          },
+          "history_of_science": {
+            "precision": 0.5517241379310345,
+            "recall": 0.5714285714285714,
+            "f1": 0.5614035087719298,
+            "support": 28
+          },
+          "scientific_research": {
+            "precision": 0.7878787878787878,
+            "recall": 0.8125,
+            "f1": 0.8,
+            "support": 32
+          },
+          "novels": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "science_books": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "poetry": {
+            "precision": 1.0,
+            "recall": 0.7142857142857143,
+            "f1": 0.8333333333333334,
+            "support": 42
+          },
+          "authors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "football": {
+            "precision": 0.7377049180327869,
+            "recall": 0.9574468085106383,
+            "f1": 0.8333333333333334,
+            "support": 47
+          },
+          "basketball": {
+            "precision": 0.875,
+            "recall": 0.875,
+            "f1": 0.875,
+            "support": 56
+          },
+          "olympics": {
+            "precision": 0.975,
+            "recall": 0.7647058823529411,
+            "f1": 0.8571428571428571,
+            "support": 51
+          },
+          "ottoman_history": {
+            "precision": 0.5689655172413793,
+            "recall": 0.7857142857142857,
+            "f1": 0.66,
+            "support": 42
+          },
+          "world_wars": {
+            "precision": 0.9270833333333334,
+            "recall": 0.9368421052631579,
+            "f1": 0.9319371727748691,
+            "support": 95
+          },
+          "ancient_history": {
+            "precision": 0.9157894736842105,
+            "recall": 0.8787878787878788,
+            "f1": 0.8969072164948454,
+            "support": 99
+          }
+        }
+      },
+      "deployed_gate": {
+        "n": 1642,
+        "uncertain_rate": 0.0639,
+        "uncertain_by_ood_score": 0.0323,
+        "uncertain_by_low_confidence": 0.0408,
+        "uncertain_by_language": 0.0006,
+        "accuracy_all": 0.8709,
+        "accuracy_answered": 0.9031,
+        "accuracy_uncertain": 0.4
+      }
+    },
+    "offtopic": {
+      "se_sites": {
+        "auroc": 0.9033382819470606,
+        "aupr_ood": 0.8303877286620723,
+        "fpr_at_95_tpr": 0.4891666666666667,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "in_domain_reference": "se_general",
+        "deployed_gate": {
+          "n": 6000,
+          "uncertain_rate": 0.5695,
+          "uncertain_by_ood_score": 0.5035,
+          "uncertain_by_low_confidence": 0.2858,
+          "uncertain_by_language": 0.0073
+        }
+      },
+      "wiki_categories": {
+        "auroc": 0.917566679516126,
+        "aupr_ood": 0.5333351506110513,
+        "fpr_at_95_tpr": 0.4237037037037037,
+        "n_in": 6053,
+        "n_ood": 675,
+        "in_domain_reference": "wiki",
+        "deployed_gate": {
+          "n": 675,
+          "uncertain_rate": 0.2741,
+          "uncertain_by_ood_score": 0.0148,
+          "uncertain_by_low_confidence": 0.2667,
+          "uncertain_by_language": 0.0
+        }
+      }
+    },
+    "calibration": {
+      "wiki": [
+        {
+          "bin": "0.2-0.3",
+          "n": 28,
+          "confidence": 0.271291341790266,
+          "accuracy": 0.17857142857142858
+        },
+        {
+          "bin": "0.3-0.4",
+          "n": 92,
+          "confidence": 0.3542278442384604,
+          "accuracy": 0.2391304347826087
+        },
+        {
+          "bin": "0.4-0.5",
+          "n": 217,
+          "confidence": 0.45514028960413305,
+          "accuracy": 0.4055299539170507
+        },
+        {
+          "bin": "0.5-0.6",
+          "n": 278,
+          "confidence": 0.5491658080522844,
+          "accuracy": 0.5071942446043165
+        },
+        {
+          "bin": "0.6-0.7",
+          "n": 281,
+          "confidence": 0.6544204422826807,
+          "accuracy": 0.5160142348754448
+        },
+        {
+          "bin": "0.7-0.8",
+          "n": 399,
+          "confidence": 0.7541239676494562,
+          "accuracy": 0.6541353383458647
+        },
+        {
+          "bin": "0.8-0.9",
+          "n": 824,
+          "confidence": 0.8586124449607735,
+          "accuracy": 0.808252427184466
+        },
+        {
+          "bin": "0.9-1.0",
+          "n": 3934,
+          "confidence": 0.9507955170369782,
+          "accuracy": 0.9659379766141332
+        }
+      ],
+      "se_general": [
+        {
+          "bin": "0.2-0.3",
+          "n": 30,
+          "confidence": 0.2715032175891725,
+          "accuracy": 0.2
+        },
+        {
+          "bin": "0.3-0.4",
+          "n": 224,
+          "confidence": 0.35745800508631553,
+          "accuracy": 0.3080357142857143
+        },
+        {
+          "bin": "0.4-0.5",
+          "n": 456,
+          "confidence": 0.45411504323339613,
+          "accuracy": 0.36622807017543857
+        },
+        {
+          "bin": "0.5-0.6",
+          "n": 606,
+          "confidence": 0.5489739314647485,
+          "accuracy": 0.45874587458745875
+        },
+        {
+          "bin": "0.6-0.7",
+          "n": 581,
+          "confidence": 0.649692045528324,
+          "accuracy": 0.5060240963855421
+        },
+        {
+          "bin": "0.7-0.8",
+          "n": 781,
+          "confidence": 0.7545626393971777,
+          "accuracy": 0.6107554417413572
+        },
+        {
+          "bin": "0.8-0.9",
+          "n": 1405,
+          "confidence": 0.857986219519645,
+          "accuracy": 0.7046263345195729
+        },
+        {
+          "bin": "0.9-1.0",
+          "n": 6004,
+          "confidence": 0.9543235505723299,
+          "accuracy": 0.9185542971352432
+        }
+      ]
+    },
+    "analysis": {
+      "wiki_accuracy_by_words": {
+        "16-25": {
+          "n": 2642,
+          "rate": 0.8354
+        },
+        "1-15": {
+          "n": 972,
+          "rate": 0.8436
+        },
+        ">40": {
+          "n": 538,
+          "rate": 0.8569
+        },
+        "26-40": {
+          "n": 1901,
+          "rate": 0.8627
+        }
+      },
+      "wiki_accuracy_by_label_count": {
+        "1 subtopic(s)": {
+          "n": 5736,
+          "rate": 0.8434
+        },
+        "2 subtopic(s)": {
+          "n": 305,
+          "rate": 0.9115
+        },
+        "3 subtopic(s)": {
+          "n": 12,
+          "rate": 1.0
+        }
+      },
+      "wiki_confusion_pairs": [
+        {
+          "true": "biology",
+          "pred": "chemistry",
+          "count": 47,
+          "share_of_true_class": 0.0484
+        },
+        {
+          "true": "physics",
+          "pred": "chemistry",
+          "count": 47,
+          "share_of_true_class": 0.0497
+        },
+        {
+          "true": "biology",
+          "pred": "science",
+          "count": 47,
+          "share_of_true_class": 0.0484
+        },
+        {
+          "true": "physics",
+          "pred": "technology",
+          "count": 45,
+          "share_of_true_class": 0.0476
+        },
+        {
+          "true": "books",
+          "pred": "science",
+          "count": 44,
+          "share_of_true_class": 0.0445
+        },
+        {
+          "true": "science",
+          "pred": "technology",
+          "count": 41,
+          "share_of_true_class": 0.0882
+        },
+        {
+          "true": "history",
+          "pred": "books",
+          "count": 41,
+          "share_of_true_class": 0.0623
+        },
+        {
+          "true": "science",
+          "pred": "books",
+          "count": 40,
+          "share_of_true_class": 0.086
+        },
+        {
+          "true": "books",
+          "pred": "history",
+          "count": 38,
+          "share_of_true_class": 0.0385
+        },
+        {
+          "true": "technology",
+          "pred": "science",
+          "count": 37,
+          "share_of_true_class": 0.0497
+        }
+      ],
+      "se_accuracy_by_words": {
+        "1-7": {
+          "n": 2664,
+          "rate": 0.7384
+        },
+        "8-12": {
+          "n": 4851,
+          "rate": 0.7809
+        },
+        ">12": {
+          "n": 2572,
+          "rate": 0.7935
+        }
+      },
+      "se_accuracy_by_site": {
+        "hsm.stackexchange.com": {
+          "n": 938,
+          "rate": 0.2537
+        },
+        "quantumcomputing.stackexchange.com": {
+          "n": 200,
+          "rate": 0.67
+        },
+        "history.stackexchange.com": {
+          "n": 986,
+          "rate": 0.7252
+        },
+        "physics.stackexchange.com": {
+          "n": 408,
+          "rate": 0.7794
+        },
+        "chemistry.stackexchange.com": {
+          "n": 1500,
+          "rate": 0.792
+        },
+        "biology.stackexchange.com": {
+          "n": 1500,
+          "rate": 0.7953
+        },
+        "literature.stackexchange.com": {
+          "n": 848,
+          "rate": 0.8042
+        },
+        "astronomy.stackexchange.com": {
+          "n": 1092,
+          "rate": 0.8562
+        },
+        "ai.stackexchange.com": {
+          "n": 592,
+          "rate": 0.8953
+        },
+        "softwareengineering.stackexchange.com": {
+          "n": 708,
+          "rate": 0.9153
+        },
+        "sports.stackexchange.com": {
+          "n": 1315,
+          "rate": 0.924
+        }
+      },
+      "se_uncertain_rate_by_site": {
+        "quantumcomputing.stackexchange.com": {
+          "n": 200,
+          "rate": 0.03
+        },
+        "ai.stackexchange.com": {
+          "n": 592,
+          "rate": 0.0591
+        },
+        "sports.stackexchange.com": {
+          "n": 1315,
+          "rate": 0.0616
+        },
+        "chemistry.stackexchange.com": {
+          "n": 1500,
+          "rate": 0.0773
+        },
+        "softwareengineering.stackexchange.com": {
+          "n": 708,
+          "rate": 0.0805
+        },
+        "astronomy.stackexchange.com": {
+          "n": 1092,
+          "rate": 0.0806
+        },
+        "biology.stackexchange.com": {
+          "n": 1500,
+          "rate": 0.106
+        },
+        "literature.stackexchange.com": {
+          "n": 848,
+          "rate": 0.1144
+        },
+        "history.stackexchange.com": {
+          "n": 986,
+          "rate": 0.1288
+        },
+        "physics.stackexchange.com": {
+          "n": 408,
+          "rate": 0.1348
+        },
+        "hsm.stackexchange.com": {
+          "n": 938,
+          "rate": 0.2345
+        }
+      },
+      "se_confusion_pairs": [
+        {
+          "true": "science",
+          "pred": "physics",
+          "count": 402,
+          "share_of_true_class": 0.4286
+        },
+        {
+          "true": "chemistry",
+          "pred": "physics",
+          "count": 179,
+          "share_of_true_class": 0.1193
+        },
+        {
+          "true": "science",
+          "pred": "books",
+          "count": 115,
+          "share_of_true_class": 0.1226
+        },
+        {
+          "true": "biology",
+          "pred": "chemistry",
+          "count": 109,
+          "share_of_true_class": 0.0727
+        },
+        {
+          "true": "history",
+          "pred": "books",
+          "count": 105,
+          "share_of_true_class": 0.1065
+        },
+        {
+          "true": "science",
+          "pred": "technology",
+          "count": 84,
+          "share_of_true_class": 0.0896
+        },
+        {
+          "true": "technology",
+          "pred": "physics",
+          "count": 73,
+          "share_of_true_class": 0.0487
+        },
+        {
+          "true": "history",
+          "pred": "science",
+          "count": 71,
+          "share_of_true_class": 0.072
+        },
+        {
+          "true": "books",
+          "pred": "history",
+          "count": 71,
+          "share_of_true_class": 0.0837
+        },
+        {
+          "true": "chemistry",
+          "pred": "biology",
+          "count": 69,
+          "share_of_true_class": 0.046
+        }
+      ]
+    }
+  },
+  "latency": {
+    "single_ms_median": 19.9,
+    "single_ms_p95": 30.25,
+    "batch_ms_per_text": 5.703,
+    "python_heap_peak_mb_during_batch": 2.1
+  },
+  "acceptance": {
+    "single": [
+      {
+        "id": "quantum_physics",
+        "text": "In quantum entanglement, the wave functions of particles can change together.",
+        "general": "physics",
+        "subtopic": "quantum_mechanics",
+        "pred_general": "physics",
+        "confidence": 0.942,
+        "pred_subtopics": [
+          [
+            "quantum_mechanics",
+            0.847
+          ]
+        ],
+        "status": "ok",
+        "pass": true
+      },
+      {
+        "id": "quantum_technology",
+        "text": "Quantum processors can speed up certain algorithms by using qubits.",
+        "general": "technology",
+        "subtopic": "quantum_computing",
+        "pred_general": "technology",
+        "confidence": 0.966,
+        "pred_subtopics": [
+          [
+            "quantum_computing",
+            0.698
+          ]
+        ],
+        "status": "ok",
+        "pass": true
+      },
+      {
+        "id": "test_a_books",
+        "text": "I read the novel I borrowed from the library; the author's narration was very fluent.",
+        "general": "books",
+        "pred_general": "books",
+        "confidence": 0.935,
+        "pred_subtopics": [
+          [
+            "novels",
+            0.657
+          ]
+        ],
+        "status": "ok",
+        "pass": true
+      },
+      {
+        "id": "test_b_science",
+        "text": "Scientists test their hypotheses using experiments and observation.",
+        "general": "science",
+        "pred_general": "science",
+        "confidence": 0.919,
+        "pred_subtopics": [
+          [
+            "scientific_method",
+            0.576
+          ]
+        ],
+        "status": "ok",
+        "pass": true
+      },
+      {
+        "id": "test_c_biology",
+        "text": "Cells carry DNA and living things diversify through evolution.",
+        "general": "biology",
+        "pred_general": "biology",
+        "confidence": 0.931,
+        "pred_subtopics": [
+          [
+            "evolution",
+            0.47
+          ]
+        ],
+        "status": "ok",
+        "pass": true
+      }
+    ],
+    "ood": [
+      {
+        "id": "pizza",
+        "text": "I'm going to order pizza tonight.",
+        "pred_general": "books",
+        "confidence": 0.53,
+        "status": "uncertain",
+        "reasons": [
+          "far from all training topics (possible out-of-taxonomy input)"
+        ],
+        "ood_score": -12484.2295,
+        "pass": true
+      }
+    ],
+    "conversation": [
+      {
+        "turn": 1,
+        "text": "I read the novel I borrowed from the library; the author's narration was very fluent.",
+        "pred": "books",
+        "theme_label": "Books > Novels",
+        "phrase": "novels",
+        "generals": [
+          "books"
+        ]
+      },
+      {
+        "turn": 2,
+        "text": "Scientists test their hypotheses using experiments and observation.",
+        "pred": "science",
+        "theme_label": "Books + Science",
+        "phrase": "science books",
+        "generals": [
+          "books",
+          "science"
+        ],
+        "expected_phrase": "science books",
+        "pass": true
+      },
+      {
+        "turn": 3,
+        "text": "Cells carry DNA and living things diversify through evolution.",
+        "pred": "biology",
+        "theme_label": "Books + Biology + Science",
+        "phrase": "science books about biology",
+        "generals": [
+          "books",
+          "biology",
+          "science"
+        ],
+        "expected_phrase": "science books about biology",
+        "pass": true
+      }
+    ]
+  }
+}
