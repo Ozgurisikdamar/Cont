@@ -6,7 +6,7 @@ It is filled in as the work proceeds; every item has its own commit.
 
 | # | audit item | action | evidence | state |
 |---|---|---|---|---|
-| 1 | multi-label data, softmax objective | – | – | open |
+| 1 | multi-label data, softmax objective | flat softmax vs one-vs-rest sigmoid vs hierarchical sigmoid on the same encoder, dev data only, fixed rule; softmax kept and the objective renamed "primary subtopic + secondary sibling suggestions" | D-33, `reports/experiments/head_comparison.json` | done; docs wording in H9 |
 | 2 | no untouched final holdout | development scripts and `train.py` no longer read `test`/`ext_test`; new locked data built before any model decision: 374 unseen Wikipedia passages, 2,713 Stack Exchange questions from 2026, CLINC150 test, Tatoeba locked half; `scripts/freeze.py` fingerprints config/artifact/data; `evaluate.py --stage locked` runs once, raw predictions kept | `data/locked/MANIFEST.json`, `scripts/build_locked_sets.py`, `scripts/freeze.py`, `evaluate.py` | data + mechanism done; evaluation after the freeze |
 | 3 | off-topic detection 33–44% | – | – | open |
 | 4 | Science class weak | root cause traced (history-of-science crawl pulled in every field's history; R&D/publishing seeds); Science redefined as the scientific enterprise, taxonomy 1.2.0, corpus relabelled; SE hsm reported with and without | D-32, `reports/relabel_taxonomy_1.2.0.json` | labels done; model retrained in H6 |
