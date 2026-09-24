@@ -290,3 +290,58 @@ def test_language_gate_flags_non_english_text(fake_model):
     p = model.predict("bu aksam arkadaslarimla sinemaya gidecegim")
     assert p.status == "uncertain" and any("English" in r for r in p.reasons)
     assert dataclasses.replace(fake_model, known_words=frozenset()).looks_english("bu aksam sinemaya")
+
+
+def _artifact_with_encoder_dir(fake_model, tmp_path):
+    """An artifact whose encoder/ directory holds two small files, as save_artifact writes it."""
+    out = tmp_path / "model"
+    enc = out / "encoder"
+    enc.mkdir(parents=True)
+    (enc / "config.json").write_text('{"hidden_size": 8}')
+    (enc / "model.safetensors").write_bytes(b"\x00" * 64)
+    save_artifact(fake_model, out, {}, save_encoder=False)
+    meta = json.loads((out / "metadata.json").read_text())
+    meta["encoder"] = "minilm-l6-ft"
+    (out / "metadata.json").write_text(json.dumps(meta))
+    return out, enc
+
+
+def _stub_encoder(monkeypatch):
+    from contextlens.models import artifact
+
+    monkeypatch.setattr(artifact, "SentenceEncoder", lambda *a, **k: FakeEncoder())
+
+
+def test_encoder_manifest_lists_every_file(fake_model, tmp_path, monkeypatch):
+    out, _ = _artifact_with_encoder_dir(fake_model, tmp_path)
+    manifest = json.loads((out / "metadata.json").read_text())["encoder_manifest"]
+    assert [e["path"] for e in manifest] == ["config.json", "model.safetensors"]
+    assert all(len(e["sha256"]) == 64 and e["size"] > 0 for e in manifest)
+    _stub_encoder(monkeypatch)
+    assert load_artifact(out).general_ids  # untouched artifact loads
+
+
+@pytest.mark.parametrize(
+    "tamper, message",
+    [
+        (lambda enc: (enc / "model.safetensors").write_bytes(b"\x01" * 64), "checksum mismatch"),
+        (lambda enc: (enc / "config.json").unlink(), "encoder files missing"),
+        (lambda enc: (enc / "extra.py").write_text("import os"), "unexpected files"),
+    ],
+)
+def test_encoder_files_are_verified(fake_model, tmp_path, monkeypatch, tamper, message):
+    out, enc = _artifact_with_encoder_dir(fake_model, tmp_path)
+    tamper(enc)
+    _stub_encoder(monkeypatch)
+    with pytest.raises(ArtifactError, match=message):
+        load_artifact(out)
+
+
+def test_encoder_directory_without_manifest_is_refused(fake_model, tmp_path, monkeypatch):
+    out, _ = _artifact_with_encoder_dir(fake_model, tmp_path)
+    meta = json.loads((out / "metadata.json").read_text())
+    del meta["encoder_manifest"]
+    (out / "metadata.json").write_text(json.dumps(meta))
+    _stub_encoder(monkeypatch)
+    with pytest.raises(ArtifactError, match="no encoder manifest"):
+        load_artifact(out)

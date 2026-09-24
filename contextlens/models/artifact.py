@@ -8,9 +8,12 @@ Layout of ``models/contextlens-topic/``::
     heads.skops        general head + subtopic heads (skops, not pickle)
     centroids.npy      class centroids for the OOD gate (allow_pickle=False)
     vocabulary.json    word -> IDF, used to pick query keywords
-    encoder/           local copy of the sentence encoder (safetensors)
+    encoder/           local copy of the sentence encoder (safetensors); every
+                       file is listed in metadata.json -> encoder_manifest
+                       (relative path, size, SHA-256)
 
 Loading refuses to continue when a file is missing, a checksum does not match,
+an encoder file is missing, changed or unexpected,
 the skops file contains types outside an explicit allow-list, or the encoder
 does not reproduce the fingerprint recorded at training time (the embedding of
 a fixed probe sentence) - a corrupt, tampered or mismatched artifact never runs
@@ -73,6 +76,38 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
+def encoder_manifest(directory: Path) -> list[dict[str, Any]]:
+    """Relative path, size and SHA-256 of every file below ``directory``, sorted by path."""
+    return [
+        {"path": p.relative_to(directory).as_posix(), "size": p.stat().st_size, "sha256": sha256_file(p)}
+        for p in sorted(directory.rglob("*"))
+        if p.is_file()
+    ]
+
+
+def verify_encoder_files(directory: Path, manifest: Any) -> None:
+    """Raise ArtifactError unless the encoder directory matches ``manifest`` exactly.
+
+    The embedding fingerprint (verify_encoder) proves the encoder is *compatible*;
+    this check proves the files are the ones written at training time - including
+    files the fingerprint cannot see (e.g. tokenizer settings used only for rare
+    inputs, or an unexpected extra module)."""
+    if not isinstance(manifest, list) or not manifest:
+        raise ArtifactError(f"the artifact has no encoder manifest; retrain it.\n{HOW_TO_BUILD}")
+    expected = {str(e["path"]): e for e in manifest}
+    present = {p.relative_to(directory).as_posix(): p for p in directory.rglob("*") if p.is_file()}
+    missing = sorted(set(expected) - set(present))
+    extra = sorted(set(present) - set(expected))
+    if missing:
+        raise ArtifactError(f"encoder files missing: {missing}\n{HOW_TO_BUILD}")
+    if extra:
+        raise ArtifactError(f"unexpected files in {directory}: {extra}; the encoder was modified")
+    for rel, entry in expected.items():
+        path = present[rel]
+        if path.stat().st_size != int(entry["size"]) or sha256_file(path) != entry["sha256"]:
+            raise ArtifactError(f"checksum mismatch for {path}; the encoder is corrupt or was modified")
+
+
 def encoder_probe(encoder: Any) -> list[float]:
     """Embedding of PROBE_TEXT, rounded for storage in metadata.json."""
     return [round(float(x), 6) for x in np.asarray(encoder.encode([PROBE_TEXT]))[0]]
@@ -110,6 +145,8 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
     if save_encoder:
         model.encoder.save(directory / "encoder")
     meta = dict(model.metadata)
+    if (directory / "encoder").is_dir():
+        meta["encoder_manifest"] = encoder_manifest(directory / "encoder")
     meta.update(
         {
             "general_ids": model.general_ids,
@@ -174,6 +211,9 @@ def load_artifact(
         key = meta.get("encoder")
         if key not in ENCODERS:
             raise ArtifactError(f"unknown encoder {key!r} in metadata")
+        encoder_dir = directory / "encoder"
+        if encoder_dir.is_dir():
+            verify_encoder_files(encoder_dir, meta.get("encoder_manifest"))
         try:
             encoder = SentenceEncoder(key, local_path=directory / "encoder")
         except (OSError, ValueError) as exc:  # FileNotFoundError is an OSError

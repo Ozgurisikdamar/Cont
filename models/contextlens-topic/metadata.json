@@ -573,5 +573,62 @@
     "centroids.npy": "bc86e4edb097857912f34981df6306745816c9c1823d4976aebf3948ca6e7012",
     "vocabulary.json": "c781a737b509244d14d3a19debe112456e139f720206e2c401c3f7a035dccf4b"
   },
-  "min_known_word_share": 0.4
+  "min_known_word_share": 0.4,
+  "encoder_manifest": [
+    {
+      "path": "1_Pooling/config.json",
+      "size": 296,
+      "sha256": "a19c83805e1ce4174f3fbfec4ac8d3b8dbae0c958f8fd51b80937eb33e0c5335"
+    },
+    {
+      "path": "README.md",
+      "size": 4016,
+      "sha256": "f6009c6335326b9acae6c02229a7465d14ef7842a5b35c8e61fea9fd636a2ae1"
+    },
+    {
+      "path": "config.json",
+      "size": 688,
+      "sha256": "1ef1420ef09e276f2de06e136db909cc92c368d0690b3cb125e18ec067776c80"
+    },
+    {
+      "path": "config_sentence_transformers.json",
+      "size": 199,
+      "sha256": "dd153ea2252dc17895fd1980a4863f0d79034b159b2ad05d3cab064c43b537c0"
+    },
+    {
+      "path": "model.safetensors",
+      "size": 45437760,
+      "sha256": "d601af04f676de8f15733295e7ddfb098e4a4e1fd9d4057f33519c3533c24bcc"
+    },
+    {
+      "path": "modules.json",
+      "size": 229,
+      "sha256": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460"
+    },
+    {
+      "path": "sentence_bert_config.json",
+      "size": 53,
+      "sha256": "70f4448f31320443fe3557cacea5abf2dcc4915dda8c80646bec9f3bb0aa5a1f"
+    },
+    {
+      "path": "special_tokens_map.json",
+      "size": 695,
+      "sha256": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a"
+    },
+    {
+      "path": "tokenizer.json",
+      "size": 711649,
+      "sha256": "2fc687b11de0bc1b3d8348f92e3b49ef1089a621506c7661fbf3248fcd54947e"
+    },
+    {
+      "path": "tokenizer_config.json",
+      "size": 1434,
+      "sha256": "ad59669ecdedf8699338b169328d56dfab5888c6b3731ca674ad0eb59e5bb67b"
+    },
+    {
+      "path": "vocab.txt",
+      "size": 231508,
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    }
+  ]
 }

@@ -133,13 +133,14 @@ flowchart LR
 
 | file | content |
 |---|---|
-| `metadata.json` | name, version, training time, dataset fingerprint, encoder, head type, thresholds, temperature, validation and test metrics, min_confidence sweep, encoder fingerprint (probe embedding), SHA-256 of the files below |
+| `metadata.json` | name, version, training time, dataset fingerprint, encoder, head type, thresholds, temperature, validation and test metrics, min_confidence sweep, encoder fingerprint (probe embedding), SHA-256 of the files below, `encoder_manifest` (path, size, SHA-256 of every encoder file) |
 | `heads.skops` | head type + heads (skops, loaded with an explicit trusted-type allowlist — no pickle) |
 | `centroids.npy` | 8 × d class centroids for the OOD gate |
 | `vocabulary.json` | word → IDF from the training split (query keyword filter) |
 | `encoder/` | the fine-tuned sentence encoder (float16 safetensors + tokenizer), committed |
 
-`load_artifact` verifies every checksum, re-encodes a probe sentence to check
+`load_artifact` verifies every checksum — including each encoder file against
+`encoder_manifest`, refusing missing, changed or extra files — re-encodes a probe sentence to check
 the encoder (D-18) and refuses to load a modified or mismatched artifact;
 a missing artifact produces an error that says how to build it. The model is
 **never retrained at start-up**.
