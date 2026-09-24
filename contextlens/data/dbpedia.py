@@ -19,7 +19,7 @@ import logging
 import re
 import threading
 import time
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -64,10 +64,12 @@ class SparqlClient:
             self._local.session = session
         return self._local.session
 
-    def select_many(self, template: str, batches: list[list[str]], order_by: str) -> list[list[dict[str, str]]]:
+    def select_many(
+        self, template: str, batches: list[list[str]], order_by: str, term: Callable[[str], str] | None = None
+    ) -> list[list[dict[str, str]]]:
         """Run several batched SELECTs with bounded concurrency; results keep input order."""
         with ThreadPoolExecutor(max_workers=CONCURRENCY) as pool:
-            return list(pool.map(lambda b: self.select_values(template, b, order_by), batches))
+            return list(pool.map(lambda b: self.select_values(template, b, order_by, term), batches))
 
     def select(self, query: str, attempts: int = MAX_ATTEMPTS) -> list[dict[str, str]]:
         cache = self._cache_path(query)
@@ -117,23 +119,27 @@ class SparqlClient:
                 return out
             offset += SPARQL_PAGE
 
-    def select_values(self, template: str, names: list[str], order_by: str) -> list[dict[str, str]]:
-        """Run ``template`` (containing ``{values}``) for a batch of categories.
+    def select_values(
+        self, template: str, names: list[str], order_by: str, term: Callable[[str], str] | None = None
+    ) -> list[dict[str, str]]:
+        """Run ``template`` (containing ``{values}``) for a batch of names.
 
+        ``term`` renders one name as a SPARQL term (default: a category URI).
         When the endpoint keeps failing on a batch (timeouts / HTTP 500 on
         heavy queries) the batch is split in half and each half retried, down
-        to single categories, which then get the full retry budget.
+        to single names, which then get the full retry budget.
         """
-        body = template.format(values=_values(_cat_uri(n) for n in names))
+        render = term or _cat_uri
+        body = template.format(values=" ".join(render(n) for n in names))
         if len(names) == 1:
             return self.select_all(body, order_by)
         try:
             return self.select_all(body, order_by, attempts=SPLIT_AFTER_ATTEMPTS)
         except NetworkError:
             mid = len(names) // 2
-            log.warning("splitting a %d-category SPARQL batch after repeated failures", len(names))
-            return self.select_values(template, names[:mid], order_by) + self.select_values(
-                template, names[mid:], order_by
+            log.warning("splitting a %d-name SPARQL batch after repeated failures", len(names))
+            return self.select_values(template, names[:mid], order_by, term) + self.select_values(
+                template, names[mid:], order_by, term
             )
 
     def _cache_path(self, query: str) -> Path:
@@ -152,8 +158,9 @@ def _cat_uri(name: str) -> str:
     return f"<{CATEGORY_PREFIX}{name}>"
 
 
-def _values(uris: Iterable[str]) -> str:
-    return " ".join(u if u.startswith("<") else f"<{u}>" for u in uris)
+def _literal(text: str) -> str:
+    """An English SPARQL string literal (quotes and backslashes escaped)."""
+    return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"@en'
 
 
 def _batched(items: list[str], size: int) -> Iterable[list[str]]:
@@ -209,3 +216,23 @@ def articles_in(client: SparqlClient, tree: CategoryTree) -> dict[str, int]:
             if depth < result.get(title, 10**6):
                 result[title] = depth
     return result
+
+
+def redirect_aliases(client: SparqlClient, titles: Iterable[str]) -> dict[str, list[str]]:
+    """Map a current article title -> titles that now redirect to it.
+
+    DBpedia reflects a newer Wikipedia than the pinned text dump, so an article
+    renamed after the snapshot is found in the dump under one of its redirect
+    titles (e.g. "Actinoid contraction" was "Actinide contraction").
+    """
+    names = sorted(set(titles))
+    template = (
+        "SELECT DISTINCT ?t ?old WHERE {{ VALUES ?t {{ {values} }} "
+        "?new rdfs:label ?t . ?old dbo:wikiPageRedirects ?new . }}"
+    )
+    out: dict[str, list[str]] = {}
+    for rows in client.select_many(template, list(_batched(names, VALUES_BATCH)), "?t ?old", _literal):
+        for row in rows:
+            if row["old"].startswith(RESOURCE_PREFIX):
+                out.setdefault(row["t"], []).append(article_title(row["old"]))
+    return {t: sorted(set(v)) for t, v in out.items()}

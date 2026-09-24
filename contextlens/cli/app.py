@@ -77,7 +77,9 @@ def render_turn(result: TurnResult, tax_display: Callable[[str], str], print_: C
         print_("\nSaved to the database.")
 
 
-def render_history(session: ConversationSession, tax_display: Callable[[str], str], print_: Callable[[str], None]) -> None:
+def render_history(
+    session: ConversationSession, tax_display: Callable[[str], str], print_: Callable[[str], None]
+) -> None:
     records = session.history()
     if not records:
         print_("No messages in this conversation yet.")
@@ -149,14 +151,17 @@ def main(argv: list[str] | None = None, print_: Callable[[str], None] = print) -
     if args.no_web:
         overrides["web_enabled"] = False
     settings = load_settings(**overrides)
-    setup_logging("DEBUG" if args.debug else settings.log_level,
-                  PATHS.root / "logs" / "contextlens.log" if args.debug else None)
+    setup_logging(
+        "DEBUG" if args.debug else settings.log_level, PATHS.root / "logs" / "contextlens.log" if args.debug else None
+    )
 
     print_("ContextLens - English conversation topic analysis")
     print_("Loading model...")
     t0 = time.perf_counter()
     try:
-        model = load_artifact(settings.model_dir, min_confidence=settings.min_confidence)
+        model = load_artifact(
+            settings.model_dir, min_confidence=settings.min_confidence, max_subtopics=settings.max_subtopics
+        )
     except ArtifactError as exc:
         print_(f"Error: {exc}")
         return 2
@@ -168,17 +173,27 @@ def main(argv: list[str] | None = None, print_: Callable[[str], None] = print) -
     except DatabaseError as exc:
         print_(f"Warning: database unavailable ({exc}); continuing without saving.")
         db = None
-    searcher = WebSearcher(cache=db, enabled=settings.web_enabled, timeout=settings.web_timeout,
-                           retries=settings.web_retries, backoff=settings.web_backoff,
-                           max_results=settings.max_results, cache_ttl_hours=settings.cache_ttl_hours)
-    session = ConversationSession(model, load_taxonomy(), settings, db, searcher,
-                                  load_vocabulary(settings.model_dir))
+    searcher = WebSearcher(
+        cache=db,
+        enabled=settings.web_enabled,
+        timeout=settings.web_timeout,
+        retries=settings.web_retries,
+        backoff=settings.web_backoff,
+        max_results=settings.max_results,
+        cache_ttl_hours=settings.cache_ttl_hours,
+    )
+    session = ConversationSession(model, load_taxonomy(), settings, db, searcher, load_vocabulary(settings.model_dir))
     try:
         if args.once is not None:
             return run_loop(session, [args.once], print_)
         lines = None
         if args.script is not None:
-            lines = [ln.rstrip("\n") for ln in args.script.read_text(encoding="utf-8").splitlines() if ln.strip()]
+            try:
+                raw = args.script.read_text(encoding="utf-8")
+            except (OSError, UnicodeDecodeError) as exc:
+                print_(f"Error: cannot read script file {args.script}: {exc}")
+                return 2
+            lines = [ln for ln in raw.splitlines() if ln.strip()]
         if lines is None:
             print_(HELP)
         return run_loop(session, lines, print_)

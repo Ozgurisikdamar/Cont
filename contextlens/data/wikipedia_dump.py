@@ -13,6 +13,7 @@ import logging
 from collections.abc import Iterable
 from pathlib import Path
 
+import pyarrow as pa
 import pyarrow.compute as pc
 import pyarrow.parquet as pq
 from huggingface_hub import hf_hub_download
@@ -36,28 +37,30 @@ def extract_articles(
     revision: str,
     num_shards: int,
     download_dir: Path,
+    ids: Iterable[str] = (),
     keep_shards: bool = False,
 ) -> dict[str, dict]:
-    """Return ``{title: {"wiki_id", "url", "text"}}`` for every title found."""
-    wanted = sorted(set(titles))
-    wanted_arr = pc.cast(wanted, "string") if wanted else None
+    """Return ``{dump title: {"wiki_id", "url", "text"}}`` for every article whose
+    title is in ``titles`` or whose page id is in ``ids``."""
+    wanted_titles = pa.array(sorted(set(titles)), type=pa.string())
+    wanted_ids = pa.array(sorted(set(ids)), type=pa.string())
     found: dict[str, dict] = {}
     for i in range(num_shards):
         fname = shard_filename(config, i, num_shards)
-        path = Path(
-            hf_hub_download(repo, fname, repo_type="dataset", revision=revision, local_dir=download_dir)
-        )
+        path = Path(hf_hub_download(repo, fname, repo_type="dataset", revision=revision, local_dir=download_dir))
         pf = pq.ParquetFile(path)
         for batch in pf.iter_batches(columns=["id", "url", "title", "text"], batch_size=20000):
-            mask = pc.is_in(batch.column("title"), value_set=wanted_arr)
-            hits = batch.filter(mask)
-            for row in hits.to_pylist():
+            mask = pc.or_(
+                pc.is_in(batch.column("title"), value_set=wanted_titles),
+                pc.is_in(batch.column("id"), value_set=wanted_ids),
+            )
+            for row in batch.filter(mask).to_pylist():
                 found[row["title"]] = {
-                    "wiki_id": row["id"],
+                    "wiki_id": str(row["id"]),
                     "url": row["url"],
                     "text": row["text"][:MAX_STORED_CHARS],
                 }
-        log.info("shard %d/%d: %d/%d titles found so far", i + 1, num_shards, len(found), len(wanted))
+        log.info("shard %d/%d: %d articles found so far", i + 1, num_shards, len(found))
         if not keep_shards:
             path.unlink(missing_ok=True)
     return found

@@ -31,7 +31,7 @@ class FakeEncoder:
         out = np.zeros((len(texts), DIM), dtype=np.float32)
         for i, t in enumerate(texts):
             for tok in TOKEN.findall(t.lower()):
-                h = int(hashlib.md5(tok.encode()).hexdigest(), 16)  # noqa: S324 - not security related
+                h = int(hashlib.md5(tok.encode()).hexdigest(), 16)
                 out[i, h % DIM] += 1.0
             n = np.linalg.norm(out[i])
             if n > 0:
@@ -108,8 +108,13 @@ def fake_model(taxonomy):
 
     cfg = TrainConfig(encoder="fake", general_C=8.0, subtopic_C=8.0, min_confidence=0.2, ood_keep_quantile=0.02)
     model, _ = fit_topic_model(FakeEncoder(), space, children, pack(tr), pack(va), cfg)
-    model.metadata = {"model_name": "contextlens-topic", "model_version": "test", "trained_at": "2026-01-01",
-                      "dataset_version": "tiny", "encoder": "fake"}
+    model.metadata = {
+        "model_name": "contextlens-topic",
+        "model_version": "test",
+        "trained_at": "2026-01-01",
+        "dataset_version": "tiny",
+        "encoder": "fake",
+    }
     return model
 
 

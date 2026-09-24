@@ -29,3 +29,8 @@ def test_keyword_refinement_can_be_disabled():
     q = build_query("quantum computing", "qubits processors", VOCAB, max_keywords=0)
     assert q.primary == q.fallback == "quantum computing"
     assert q.candidates() == ["quantum computing"]
+
+
+def test_concepts_extend_candidates_up_to_a_bound():
+    q = build_query("science books about biology", "", {}, concepts=("biology", "science", "x", "y"))
+    assert q.candidates() == ["science books about biology", "biology", "science", "x"]  # at most 4 queries

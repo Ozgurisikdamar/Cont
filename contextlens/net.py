@@ -23,7 +23,14 @@ RETRYABLE_STATUS = {429, 500, 502, 503, 504}
 
 
 class NetworkError(RuntimeError):
-    """Raised when a request cannot produce a usable JSON response."""
+    """Raised when a request cannot produce a usable JSON response.
+
+    ``status`` is the HTTP status of the last response, when there was one.
+    """
+
+    def __init__(self, message: str, status: int | None = None) -> None:
+        super().__init__(message)
+        self.status = status
 
 
 def make_session() -> requests.Session:
@@ -62,7 +69,7 @@ def get_json(
                     return resp.json()
                 except ValueError as exc:
                     raise NetworkError(f"malformed JSON from {url}") from exc
-            last_error = NetworkError(f"HTTP {resp.status_code} from {url}")
+            last_error = NetworkError(f"HTTP {resp.status_code} from {url}", status=resp.status_code)
             if resp.status_code not in RETRYABLE_STATUS:
                 raise last_error
             log.warning("HTTP %s from %s, attempt %d", resp.status_code, url, attempt + 1)
@@ -72,4 +79,4 @@ def get_json(
                 continue
         if attempt < retries:
             sleep(backoff * (2**attempt))
-    raise NetworkError(f"giving up on {url}: {last_error}")
+    raise NetworkError(f"giving up on {url}: {last_error}", status=getattr(last_error, "status", None))

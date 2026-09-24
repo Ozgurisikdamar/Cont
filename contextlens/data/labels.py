@@ -25,12 +25,11 @@ from dataclasses import dataclass
 from contextlens.data.dbpedia import SparqlClient, articles_in, crawl_categories
 from contextlens.taxonomy import Subtopic, Taxonomy
 
-
 SECONDARY_LABEL_MAX_DEPTH = 1
 
 
 def stable_hash(text: str) -> str:
-    return hashlib.sha1(text.encode("utf-8")).hexdigest()
+    return hashlib.sha1(text.encode("utf-8"), usedforsecurity=False).hexdigest()
 
 
 @dataclass
@@ -49,9 +48,7 @@ def exclusion_patterns(taxonomy: Taxonomy, sub: Subtopic) -> list[re.Pattern[str
     return [re.compile(p) for p in patterns]
 
 
-def crawl_membership(
-    taxonomy: Taxonomy, client: SparqlClient
-) -> tuple[dict[str, dict[str, int]], dict[str, dict]]:
+def crawl_membership(taxonomy: Taxonomy, client: SparqlClient) -> tuple[dict[str, dict[str, int]], dict[str, dict]]:
     """Return ``membership[title][subtopic] = depth`` and per-subtopic crawl stats."""
     membership: dict[str, dict[str, int]] = defaultdict(dict)
     stats: dict[str, dict] = {}
@@ -78,9 +75,7 @@ def crawl_membership(
     return dict(membership), stats
 
 
-def assign_labels(
-    taxonomy: Taxonomy, membership: dict[str, dict[str, int]]
-) -> tuple[list[LabelledArticle], list[str]]:
+def assign_labels(taxonomy: Taxonomy, membership: dict[str, dict[str, int]]) -> tuple[list[LabelledArticle], list[str]]:
     """Apply rules 1-2. Returns (labelled articles, ambiguous titles)."""
     labelled: list[LabelledArticle] = []
     ambiguous: list[str] = []
@@ -97,7 +92,8 @@ def assign_labels(
             continue
         general = winners[0]
         chosen = sorted(
-            s for s, d in subs.items()
+            s
+            for s, d in subs.items()
             if taxonomy.parent_of(s) == general and (d == best or d <= SECONDARY_LABEL_MAX_DEPTH)
         )
         labelled.append(LabelledArticle(title, general, chosen, best))

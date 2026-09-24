@@ -57,13 +57,19 @@ class TwoHead(nn.Module):
 
 
 @torch.no_grad()
-def predict(model: TwoHead, tok, texts: list[str], prefix: str, device: str, max_len: int,
-            batch: int = 128) -> tuple[np.ndarray, np.ndarray]:
+def predict(
+    model: TwoHead, tok, texts: list[str], prefix: str, device: str, max_len: int, batch: int = 128
+) -> tuple[np.ndarray, np.ndarray]:
     model.eval()
     gps, sps = [], []
     for i in range(0, len(texts), batch):
-        enc = tok([prefix + t for t in texts[i:i + batch]], truncation=True, max_length=max_len, padding=True,
-                  return_tensors="pt").to(device)
+        enc = tok(
+            [prefix + t for t in texts[i : i + batch]],
+            truncation=True,
+            max_length=max_len,
+            padding=True,
+            return_tensors="pt",
+        ).to(device)
         g, s = model(enc["input_ids"], enc["attention_mask"])
         gps.append(torch.softmax(g, -1).cpu().numpy())
         sps.append(torch.sigmoid(s).cpu().numpy())
@@ -103,11 +109,18 @@ def main() -> int:
         order = rng.permutation(len(texts))
         t0, running = time.perf_counter(), 0.0
         for bi, i in enumerate(range(0, len(order), args.batch)):
-            idx = order[i:i + args.batch]
-            enc = tok([spec["prefix"] + texts[j] for j in idx], truncation=True, max_length=args.max_len,
-                      padding=True, return_tensors="pt").to(device)
+            idx = order[i : i + args.batch]
+            enc = tok(
+                [spec["prefix"] + texts[j] for j in idx],
+                truncation=True,
+                max_length=args.max_len,
+                padding=True,
+                return_tensors="pt",
+            ).to(device)
             g, s = model(enc["input_ids"], enc["attention_mask"])
-            loss = ce(g, torch.tensor(yg[idx]).to(device)) + bce(s, torch.tensor(ys[idx], dtype=torch.float32).to(device))
+            loss = ce(g, torch.tensor(yg[idx]).to(device)) + bce(
+                s, torch.tensor(ys[idx], dtype=torch.float32).to(device)
+            )
             opt.zero_grad()
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
@@ -118,8 +131,15 @@ def main() -> int:
                 log.info("epoch %d batch %d loss %.4f (%.0fs)", epoch, bi, running / (bi + 1), time.perf_counter() - t0)
         gp, _ = predict(model, tok, data.text["val"], spec["prefix"], device, args.max_len)
         rep = multiclass_report(data.yg["val"], gp, space.general_ids)
-        history.append({"epoch": epoch, "train_loss": round(running / (bi + 1), 4), "val_accuracy": round(rep["accuracy"], 4),
-                        "val_macro_f1": round(rep["macro_f1"], 4), "epoch_seconds": round(time.perf_counter() - t0, 1)})
+        history.append(
+            {
+                "epoch": epoch,
+                "train_loss": round(running / (bi + 1), 4),
+                "val_accuracy": round(rep["accuracy"], 4),
+                "val_macro_f1": round(rep["macro_f1"], 4),
+                "epoch_seconds": round(time.perf_counter() - t0, 1),
+            }
+        )
         log.info("epoch %d: %s", epoch, history[-1])
         if rep["macro_f1"] > best:
             best = rep["macro_f1"]
@@ -127,21 +147,42 @@ def main() -> int:
     assert best_state is not None
     model.load_state_dict(best_state)
     train_seconds = time.perf_counter() - t_start
-    results: dict = {"encoder": args.encoder, "hyperparameters": vars(args), "history": history,
-                     "train_seconds": round(train_seconds, 1), "device": device}
+    results: dict = {
+        "encoder": args.encoder,
+        "hyperparameters": vars(args),
+        "history": history,
+        "train_seconds": round(train_seconds, 1),
+        "device": device,
+    }
     thr_grid = [round(x, 2) for x in np.arange(0.2, 0.71, 0.05)]
     gp_val, sp_val = predict(model, tok, data.text["val"], spec["prefix"], device, args.max_len)
-    sweep = [(multilabel_report(data.ys["val"], decide_subtopics(sp_val, space.parent_col, gp_val.argmax(1), t), sp_val,
-                                space.subtopic_ids)["macro_f1"], t) for t in thr_grid]
+    sweep = [
+        (
+            multilabel_report(
+                data.ys["val"],
+                decide_subtopics(sp_val, space.parent_col, gp_val.argmax(1), t),
+                sp_val,
+                space.subtopic_ids,
+            )["macro_f1"],
+            t,
+        )
+        for t in thr_grid
+    ]
     thr = max(sweep)[1]
     results["subtopic_threshold"] = thr
     for split in ("val", "test", "se_ext_dev", "se_ext_test", "sesub_ext_dev", "sesub_ext_test"):
         gp, sp = predict(model, tok, data.text[split], spec["prefix"], device, args.max_len)
-        row = {"general": {k: round(v, 4) for k, v in multiclass_report(data.yg[split], gp, space.general_ids).items()
-                           if isinstance(v, float)}}
+        row = {
+            "general": {
+                k: round(v, 4)
+                for k, v in multiclass_report(data.yg[split], gp, space.general_ids).items()
+                if isinstance(v, float)
+            }
+        }
         if split in data.ys:
-            ml = multilabel_report(data.ys[split], decide_subtopics(sp, space.parent_col, gp.argmax(1), thr), sp,
-                                   space.subtopic_ids)
+            ml = multilabel_report(
+                data.ys[split], decide_subtopics(sp, space.parent_col, gp.argmax(1), thr), sp, space.subtopic_ids
+            )
             row["subtopics"] = {k: round(v, 4) for k, v in ml.items() if isinstance(v, float)}
         results[split] = row
         log.info("%s: %s", split, row)

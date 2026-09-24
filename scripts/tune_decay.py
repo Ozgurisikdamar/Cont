@@ -7,7 +7,8 @@ real predictions:
   turns; 75% of turns are on-topic, 15% are tangents (another topic) and 10%
   are out-of-taxonomy passages;
 * the tracker sees exactly what the app would see (calibrated general
-  probabilities, weight 0 for uncertain turns).
+  probabilities, weight 0 for uncertain turns); on-topic turns are drawn from
+  all passages of the topic, including ones the model is unsure about.
 
 Metrics per decay value:
   theme_accuracy   top theme topic == segment topic (turns after the first of a segment)
@@ -50,8 +51,18 @@ def predictions(model, texts: list[str]) -> tuple[np.ndarray, np.ndarray]:
     return gp, uncertain
 
 
-def simulate(decay: float, pools: dict[int, np.ndarray], gp: np.ndarray, unc: np.ndarray, ood_gp: np.ndarray,
-             ood_unc: np.ndarray, ids: list[str], min_share: float, seed: int) -> dict:
+def simulate(
+    decay: float,
+    pools: dict[int, np.ndarray],
+    confident_pools: dict[int, np.ndarray],
+    gp: np.ndarray,
+    unc: np.ndarray,
+    ood_gp: np.ndarray,
+    ood_unc: np.ndarray,
+    ids: list[str],
+    min_share: float,
+    seed: int,
+) -> dict:
     rng = np.random.default_rng(seed)
     n_classes = len(pools)
     hits = total = tangent_hits = tangents = 0
@@ -96,13 +107,17 @@ def simulate(decay: float, pools: dict[int, np.ndarray], gp: np.ndarray, unc: np
         tracker = ConversationTracker(decay=decay, min_share=min_share)
         topics = rng.choice(n_classes, size=3, replace=False)
         for t in topics:
-            j = int(rng.choice(pools[int(t)]))
+            j = int(rng.choice(confident_pools[int(t)]))
             tracker.update(dict(zip(ids, gp[j], strict=True)), {}, 1.0)
         active = {x.id for x in tracker.active_topics(tracker.general_scores, min_share, 3)}
         acc_hits += all(ids[int(t)] in active for t in topics)
-    return {"decay": decay, "theme_accuracy": round(hits / total, 4), "switch_lag": round(float(np.mean(lags)), 3),
-            "tangent_robust": round(tangent_hits / max(tangents, 1), 4),
-            "accumulation_3": round(acc_hits / N_CONVERSATIONS, 4)}
+    return {
+        "decay": decay,
+        "theme_accuracy": round(hits / total, 4),
+        "switch_lag": round(float(np.mean(lags)), 3),
+        "tangent_robust": round(tangent_hits / max(tangents, 1), 4),
+        "accumulation_3": round(acc_hits / N_CONVERSATIONS, 4),
+    }
 
 
 def main() -> None:
@@ -115,10 +130,17 @@ def main() -> None:
         part = df[df.split == split]
         gp, unc = predictions(model, [normalize(t) for t in part.text])
         y = space.encode_general(part.general)
-        pools = {c: np.where((y == c) & ~unc)[0] for c in range(len(space.general_ids))}
+        # segment turns: every passage of the topic (uncertain ones get weight 0, as in the app);
+        # the accumulation probe: confident messages only (it tests the decay, not the classifier)
+        pools = {c: np.where(y == c)[0] for c in range(len(space.general_ids))}
+        confident = {c: np.where((y == c) & ~unc)[0] for c in range(len(space.general_ids))}
         ood_gp, ood_unc = predictions(model, [normalize(t) for t in ood[ood.split == split].text])
-        rows = [simulate(d, pools, gp, unc, ood_gp, ood_unc, space.general_ids, settings.theme_min_share,
-                         RANDOM_SEED) for d in DECAYS]
+        rows = [
+            simulate(
+                d, pools, confident, gp, unc, ood_gp, ood_unc, space.general_ids, settings.theme_min_share, RANDOM_SEED
+            )
+            for d in DECAYS
+        ]
         out["results"][split] = rows
         for r in rows:
             print(split, r)

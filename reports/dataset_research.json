@@ -1,0 +1,189 @@
+{
+  "measured": [
+    {
+      "dataset": "AG News",
+      "hub_repo": "fancyzhx/ag_news",
+      "revision": "eb185aade064a813bc0b7f42de02595523103ca4",
+      "file_measured": "data/test-00000-of-00001.parquet",
+      "rows_measured": 7600,
+      "classes": 4,
+      "largest_class_share": 0.25,
+      "smallest_class_share": 0.25,
+      "exact_duplicate_rate": 0.0,
+      "empty_text_rate": 0.0,
+      "median_words": 37.0,
+      "p95_words": 52.0,
+      "general_covered": 2,
+      "subtopics_covered": 0,
+      "coverage": {
+        "general": [
+          "sports",
+          "technology"
+        ],
+        "subtopics": []
+      }
+    },
+    {
+      "dataset": "20 Newsgroups (UCI #113, SetFit mirror)",
+      "hub_repo": "SetFit/20_newsgroups",
+      "revision": "f1b91292074e7cfb69be58b642d583ec262f30ed",
+      "file_measured": "test.jsonl",
+      "rows_measured": 7532,
+      "classes": 20,
+      "largest_class_share": 0.053,
+      "smallest_class_share": 0.0333,
+      "exact_duplicate_rate": 0.0309,
+      "empty_text_rate": 0.0285,
+      "median_words": 82.0,
+      "p95_words": 543.4499999999998,
+      "general_covered": 3,
+      "subtopics_covered": 3,
+      "coverage": {
+        "general": [
+          "technology",
+          "physics",
+          "sports"
+        ],
+        "subtopics": [
+          "hardware",
+          "software",
+          "astrophysics"
+        ]
+      }
+    },
+    {
+      "dataset": "DBpedia-14",
+      "hub_repo": "fancyzhx/dbpedia_14",
+      "revision": "9abd46cf7fc8b4c64290f26993c540b92aa145ac",
+      "file_measured": "dbpedia_14/test-00000-of-00001.parquet",
+      "rows_measured": 70000,
+      "classes": 14,
+      "largest_class_share": 0.0714,
+      "smallest_class_share": 0.0714,
+      "exact_duplicate_rate": 0.0,
+      "empty_text_rate": 0.0,
+      "median_words": 49.0,
+      "p95_words": 83.0,
+      "general_covered": 2,
+      "subtopics_covered": 0,
+      "coverage": {
+        "general": [
+          "sports",
+          "books"
+        ],
+        "subtopics": []
+      }
+    },
+    {
+      "dataset": "DBPedia Classes (Kaggle danofer mirror)",
+      "hub_repo": "DeveloperOats/DBPedia_Classes",
+      "revision": "4d0aa96069f24063697e4df63b95be78d3f7fb7d",
+      "file_measured": "DBPEDIA_val.csv",
+      "rows_measured": 36003,
+      "classes": 219,
+      "largest_class_share": 0.008,
+      "smallest_class_share": 0.0005,
+      "exact_duplicate_rate": 0.0,
+      "empty_text_rate": 0.0,
+      "median_words": 73.0,
+      "p95_words": 290.0,
+      "general_covered": 3,
+      "subtopics_covered": 6,
+      "coverage": {
+        "general": [
+          "sports",
+          "books",
+          "history"
+        ],
+        "subtopics": [
+          "football",
+          "basketball",
+          "olympics",
+          "poetry",
+          "authors",
+          "world_wars"
+        ]
+      }
+    },
+    {
+      "dataset": "News Category / HuffPost (Kaggle rmisra mirror)",
+      "hub_repo": "heegyu/news-category-dataset",
+      "revision": "304a05a55bc6abc0446d8fae0d0771716b6a271a",
+      "file_measured": "data.json",
+      "rows_measured": 209527,
+      "classes": 42,
+      "largest_class_share": 0.1699,
+      "smallest_class_share": 0.0048,
+      "exact_duplicate_rate": 0.0023,
+      "empty_text_rate": 0.0,
+      "median_words": 28.0,
+      "p95_words": 55.0,
+      "general_covered": 3,
+      "subtopics_covered": 0,
+      "coverage": {
+        "general": [
+          "science",
+          "technology",
+          "sports"
+        ],
+        "subtopics": []
+      }
+    }
+  ],
+  "reported": [
+    {
+      "dataset": "Yahoo! Answers Topics",
+      "source": "HF community-datasets/yahoo_answers_topics",
+      "rows": 1460000,
+      "classes": 10,
+      "license": "unknown",
+      "general_covered": 3,
+      "subtopics_covered": 0
+    },
+    {
+      "dataset": "Web of Science WOS-46985",
+      "source": "Mendeley Data 9rw3vkcfy4 (Kowsari et al. 2017)",
+      "rows": 46985,
+      "classes": "7 / 134",
+      "license": "CC BY 4.0",
+      "general_covered": 3,
+      "subtopics_covered": 5
+    },
+    {
+      "dataset": "arXiv metadata",
+      "source": "Kaggle Cornell-University/arxiv",
+      "rows": ">2,000,000",
+      "classes": "~150 (multi-label)",
+      "license": "CC0 (metadata)",
+      "general_covered": 5,
+      "subtopics_covered": 14
+    },
+    {
+      "dataset": "LSHTC (Wikipedia)",
+      "source": "Kaggle competition lshtc",
+      "rows": ">2,000,000",
+      "classes": 325056,
+      "license": "competition terms",
+      "general_covered": "n/a (no raw text: pre-tokenised feature ids)",
+      "subtopics_covered": "n/a"
+    },
+    {
+      "dataset": "Stack Exchange (MTEB clustering + API tags)",
+      "source": "HF mteb/stackexchange-clustering; api.stackexchange.com",
+      "rows": "~75,000 titles (121 sites)",
+      "classes": "site + tags",
+      "license": "CC BY-SA 4.0 (content)",
+      "general_covered": 8,
+      "subtopics_covered": 25
+    },
+    {
+      "dataset": "Wikipedia 20231101.en + category graph (built here)",
+      "source": "HF wikimedia/wikipedia + DBpedia SPARQL",
+      "rows": "6.4M articles",
+      "classes": "any (category graph)",
+      "license": "CC BY-SA 3.0 / GFDL",
+      "general_covered": 8,
+      "subtopics_covered": 28
+    }
+  ]
+}

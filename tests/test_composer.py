@@ -51,3 +51,10 @@ def test_narrowing_without_format(taxonomy):
 
 def test_unrelated_pair(taxonomy):
     assert compose(theme("sports", "technology"), taxonomy).phrase == "sports and technology"
+
+
+def test_concepts_are_the_single_ideas_behind_the_phrase(taxonomy):
+    c = compose(theme("books", "science", "biology"), taxonomy)
+    assert c.concepts == ("biology", "science")  # narrower domain first, the format is not a concept
+    assert compose(theme("sports"), taxonomy).concepts == ()  # nothing simpler than the phrase itself
+    assert compose(theme("history", "physics"), taxonomy).concepts == ("history", "physics")

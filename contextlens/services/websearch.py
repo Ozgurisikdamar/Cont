@@ -16,8 +16,9 @@ import html
 import json
 import logging
 import re
+import time
 from collections.abc import Callable
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from typing import Any, Protocol
 from urllib.parse import quote, urlparse
 
@@ -87,7 +88,7 @@ def parse_wikipedia(payload: Any, limit: int) -> list[SearchResult]:
         url = page.get("fullurl") or (
             f"https://en.wikipedia.org/wiki/{quote(title.replace(' ', '_'))}" if title else ""
         )
-        if not title or not is_safe_url(url, ("wikipedia.org",)):
+        if not title or not isinstance(url, str) or not is_safe_url(url, ("wikipedia.org",)):
             continue
         out.append(
             SearchResult(len(out) + 1, title, clean_snippet(page.get("extract"), MAX_SUMMARY_CHARS), url, "Wikipedia")
@@ -103,7 +104,7 @@ def parse_duckduckgo(payload: Any, limit: int) -> list[SearchResult]:
     out: list[SearchResult] = []
     abstract = clean_snippet(payload.get("AbstractText"), MAX_SUMMARY_CHARS)
     url = payload.get("AbstractURL")
-    if abstract and is_safe_url(url, ("wikipedia.org", "duckduckgo.com")):
+    if abstract and isinstance(url, str) and is_safe_url(url, ("wikipedia.org", "duckduckgo.com")):
         out.append(
             SearchResult(
                 1,
@@ -125,7 +126,7 @@ def parse_duckduckgo(payload: Any, limit: int) -> list[SearchResult]:
             break
         text = clean_snippet(t.get("Text"), MAX_SUMMARY_CHARS)
         link = t.get("FirstURL")
-        if text and is_safe_url(link, ("duckduckgo.com", "wikipedia.org")):
+        if text and isinstance(link, str) and is_safe_url(link, ("duckduckgo.com", "wikipedia.org")):
             title = text.split(" - ")[0][:MAX_TITLE_CHARS]
             out.append(SearchResult(len(out) + 1, title, text, link, "DuckDuckGo"))
     return out
@@ -140,7 +141,13 @@ class WebSearcher:
     backoff: float = 1.0
     max_results: int = 3
     cache_ttl_hours: int = 72
+    # A provider that fails (offline, rate limited, 5xx after retries) is skipped
+    # for this many seconds, so one outage does not add retry delays to every
+    # query of every turn.
+    provider_cooldown_s: float = 300.0
     fetch: Callable[..., Any] = get_json  # injectable for tests
+    clock: Callable[[], float] = time.monotonic  # injectable for tests
+    _down_until: dict[str, float] = field(default_factory=dict, repr=False)
 
     def _providers(self) -> list[tuple[str, Callable[[str], Any], Callable[[Any, int], list[SearchResult]]]]:
         return [
@@ -173,25 +180,31 @@ class WebSearcher:
         if not self.enabled:
             return SearchOutcome(queries[0] if queries else "", "disabled", "")
         errors: list[str] = []
+        answered = False  # at least one provider gave a (possibly empty) valid answer
         last_query = ""
         for query in queries:
             last_query = query
             for name, request, parse in self._providers():
                 cached = self.cache.get_cached(query, name, self.cache_ttl_hours) if self.cache else None
                 if cached is not None:
+                    answered = True
                     results = [SearchResult(**r) for r in json.loads(cached)]
                     if results:
                         return SearchOutcome(query, "cached", name, tuple(results))
                     continue
+                if self.clock() < self._down_until.get(name, 0.0):
+                    continue  # circuit open: provider failed recently
                 try:
                     results = parse(request(query), self.max_results)
                 except NetworkError as exc:
                     log.warning("%s search failed for %r: %s", name, query, exc)
                     errors.append(f"{name}: {exc}")
+                    self._down_until[name] = self.clock() + self.provider_cooldown_s
                     continue
+                answered = True
                 if self.cache:
                     self.cache.put_cached(query, name, json.dumps([asdict(r) for r in results]))
                 if results:
                     return SearchOutcome(query, "ok", name, tuple(results))
-        status = "offline" if errors else "no_results"
+        status = "no_results" if answered or not errors else "offline"
         return SearchOutcome(last_query, status, "", (), "; ".join(errors)[:500])

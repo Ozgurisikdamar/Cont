@@ -15,15 +15,18 @@ from contextlens.preprocessing.text import content_words
 
 DEFAULT_MAX_KEYWORDS = 2
 MIN_KEYWORD_LENGTH = 4
+MAX_QUERIES = 4  # bounded number of provider round-trips per turn
 
 
 @dataclass(frozen=True)
 class SearchQuery:
     primary: str  # theme phrase + keywords (tried first)
     fallback: str  # theme phrase only
+    concepts: tuple[str, ...] = ()  # single concepts behind the theme (last resort)
 
     def candidates(self) -> list[str]:
-        return [q for q in dict.fromkeys([self.primary, self.fallback]) if q]
+        ordered = [self.primary, self.fallback, *self.concepts]
+        return [q for q in dict.fromkeys(ordered) if q][:MAX_QUERIES]
 
 
 def salient_keywords(message: str, vocabulary: dict[str, float], exclude: str, limit: int) -> list[str]:
@@ -44,10 +47,11 @@ def build_query(
     latest_message: str,
     vocabulary: dict[str, float] | None,
     max_keywords: int = DEFAULT_MAX_KEYWORDS,
+    concepts: tuple[str, ...] = (),
 ) -> SearchQuery:
     phrase = " ".join(theme_phrase.split())
     if not phrase:
         return SearchQuery("", "")
     keywords = salient_keywords(latest_message, vocabulary or {}, phrase, max_keywords) if max_keywords > 0 else []
     primary = f"{phrase} {' '.join(keywords)}".strip()
-    return SearchQuery(primary=primary, fallback=phrase)
+    return SearchQuery(primary=primary, fallback=phrase, concepts=tuple(" ".join(c.split()) for c in concepts))

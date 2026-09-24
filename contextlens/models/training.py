@@ -47,7 +47,7 @@ def centroids_of(X: np.ndarray, y: np.ndarray, n_classes: int) -> np.ndarray:
 
 def build_vocabulary(texts: list[str], size: int) -> dict[str, float]:
     """IDF of content words in the training corpus (used for query keywords)."""
-    vec = TfidfVectorizer(stop_words="english", min_df=3, max_features=size, token_pattern=r"(?u)\b[a-z][a-z\-]+\b")
+    vec = TfidfVectorizer(stop_words="english", min_df=3, max_features=size, token_pattern=r"(?u)\b[a-z][a-z\-]+\b")  # noqa: S106
     vec.fit(texts)
     return {w: round(float(idf), 4) for w, idf in zip(vec.get_feature_names_out(), vec.idf_, strict=True)}
 

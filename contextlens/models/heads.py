@@ -76,8 +76,9 @@ class HierarchicalSubtopics:
     C: float = 1.0
     heads: dict[str, MultiLabelHead] = field(default_factory=dict)
 
-    def fit(self, X: np.ndarray, general: np.ndarray, Y: np.ndarray, sub_index: dict[str, int],
-            general_ids: list[str]) -> HierarchicalSubtopics:
+    def fit(
+        self, X: np.ndarray, general: np.ndarray, Y: np.ndarray, sub_index: dict[str, int], general_ids: list[str]
+    ) -> HierarchicalSubtopics:
         for gi, gid in enumerate(general_ids):
             rows = general == gi
             cols = [sub_index[s] for s in self.children[gid]]
@@ -98,8 +99,9 @@ def joint_subtopic_probs(general_probs: np.ndarray, conditional: np.ndarray, par
     return general_probs[:, parent_col] * conditional
 
 
-def decide_subtopics(probs: np.ndarray, parent_col: np.ndarray, general_pred: np.ndarray,
-                     threshold: float) -> np.ndarray:
+def decide_subtopics(
+    probs: np.ndarray, parent_col: np.ndarray, general_pred: np.ndarray, threshold: float
+) -> np.ndarray:
     """Multi-label decision with hierarchy validation.
 
     Only children of the predicted general topic are eligible; the best child is

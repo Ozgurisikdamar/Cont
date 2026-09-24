@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import logging
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -14,14 +15,26 @@ log = logging.getLogger(__name__)
 # Candidate encoders evaluated in docs/EXPERIMENTS.md. Revisions are pinned so
 # results are reproducible; prefixes follow each model card.
 ENCODERS: dict[str, dict[str, str]] = {
-    "minilm-l6": {"repo": "sentence-transformers/all-MiniLM-L6-v2",
-                  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41", "prefix": ""},
-    "bge-small": {"repo": "BAAI/bge-small-en-v1.5",
-                  "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a", "prefix": ""},
-    "e5-small": {"repo": "intfloat/e5-small-v2",
-                 "revision": "ffb93f3bd4047442299a41ebb6fa998a38507c52", "prefix": "query: "},
-    "mpnet-base": {"repo": "sentence-transformers/all-mpnet-base-v2",
-                   "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130", "prefix": ""},
+    "minilm-l6": {
+        "repo": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "prefix": "",
+    },
+    "bge-small": {
+        "repo": "BAAI/bge-small-en-v1.5",
+        "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "prefix": "",
+    },
+    "e5-small": {
+        "repo": "intfloat/e5-small-v2",
+        "revision": "ffb93f3bd4047442299a41ebb6fa998a38507c52",
+        "prefix": "query: ",
+    },
+    "mpnet-base": {
+        "repo": "sentence-transformers/all-mpnet-base-v2",
+        "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+        "prefix": "",
+    },
 }
 
 
@@ -49,11 +62,12 @@ class SentenceEncoder:
 
         spec = ENCODERS[self.key]
         self.prefix = spec["prefix"]
-        source = str(self.local_path) if self.local_path and self.local_path.exists() else spec["repo"]
-        kwargs = {} if source != spec["repo"] else {"revision": spec["revision"]}
-        self.model = SentenceTransformer(source, device=best_device(), **kwargs)
+        if self.local_path is not None and self.local_path.exists():
+            self.model = SentenceTransformer(str(self.local_path), device=best_device())
+        else:  # pinned revision from the Hugging Face Hub (cached after the first download)
+            self.model = SentenceTransformer(spec["repo"], device=best_device(), revision=spec["revision"])
         self.model.max_seq_length = self.max_seq_length
-        self.dim = int(self.model.get_sentence_embedding_dimension())
+        self.dim = int(self.model.get_sentence_embedding_dimension() or 0)
 
     def encode(self, texts: list[str], show_progress: bool = False) -> np.ndarray:
         if not texts:
@@ -72,11 +86,13 @@ class SentenceEncoder:
 
 def cached_encode(encoder: SentenceEncoder, texts: list[str], cache_dir: Path, name: str) -> np.ndarray:
     """Encode ``texts`` once and reuse the result (keyed by encoder + content hash)."""
-    digest = hashlib.sha1("\n".join(texts).encode("utf-8")).hexdigest()[:16]
+    digest = hashlib.sha1("\n".join(texts).encode("utf-8"), usedforsecurity=False).hexdigest()[:16]
     path = cache_dir / encoder.key / f"{name}-{digest}.npy"
     if path.exists():
         return np.load(path)
     path.parent.mkdir(parents=True, exist_ok=True)
+    t0 = time.perf_counter()
     emb = encoder.encode(texts, show_progress=False)
+    log.info("encoded %d texts (%s, %s) in %.0fs", len(texts), encoder.key, name, time.perf_counter() - t0)
     np.save(path, emb)
     return emb

@@ -7,8 +7,8 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
+import matplotlib.pyplot as plt
+import numpy as np
 
 INK = "#1f2933"
 MUTED = "#7b8794"
@@ -33,8 +33,15 @@ def plot_confusion(report: dict, path: Path, title: str) -> None:
     ax.set_yticks(range(len(labels)), labels)
     for i in range(len(labels)):
         for j in range(len(labels)):
-            ax.text(j, i, f"{int(cm[i, j])}", ha="center", va="center", fontsize=8,
-                    color="white" if norm[i, j] > 0.5 else INK)
+            ax.text(
+                j,
+                i,
+                f"{int(cm[i, j])}",
+                ha="center",
+                va="center",
+                fontsize=8,
+                color="white" if norm[i, j] > 0.5 else INK,
+            )
     ax.set_xlabel("predicted")
     ax.set_ylabel("true")
     ax.set_title(f"{title} (row-normalised colour, counts shown)", fontsize=10)

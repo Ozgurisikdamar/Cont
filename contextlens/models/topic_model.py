@@ -63,6 +63,7 @@ class TopicModel:
     min_confidence: float
     encoder: Any  # object with .encode(list[str]) -> np.ndarray
     metadata: dict = field(default_factory=dict)
+    max_subtopics: int = 3  # at most this many subtopics are reported per text
 
     @property
     def sub_index(self) -> dict[str, int]:
@@ -102,7 +103,7 @@ class TopicModel:
         g = int(np.argmax(gp))
         cols = np.where(self.parent_col == g)[0]
         order = cols[np.argsort(-cond[cols])]
-        chosen = [order[0], *[c for c in order[1:] if cond[c] >= self.subtopic_threshold]]
+        chosen = [order[0], *[c for c in order[1:] if cond[c] >= self.subtopic_threshold]][: max(1, self.max_subtopics)]
         reasons = []
         if ood < self.ood_threshold:
             reasons.append("far from all training topics (possible out-of-taxonomy input)")

@@ -26,6 +26,8 @@ from contextlens.taxonomy import Taxonomy
 
 log = logging.getLogger(__name__)
 
+OFFLINE_SESSION = "offline-session"  # session id used when the database could not start one
+
 
 @dataclass
 class TurnResult:
@@ -91,7 +93,7 @@ class ConversationSession:
                 meta.get("test_metrics", {}),
             )
         session_id = self._db_call("session", "start_session", self.model_version_id)
-        return session_id or "offline-session"
+        return session_id or OFFLINE_SESSION
 
     def reset(self) -> None:
         """Start a new conversation context; stored records are kept."""
@@ -132,7 +134,9 @@ class ConversationSession:
         # Uncertain / off-topic turns age the context but add no topic mass.
         self.tracker.update(pred.general_probs, pred.subtopic_probs, weight=0.0 if pred.uncertain else 1.0)
         theme = self.current_theme()
-        query = build_query(theme.phrase, text, self.vocabulary) if theme.phrase else None
+        # An off-topic message keeps the current theme but contributes no keywords to the query.
+        refine = "" if pred.uncertain else text
+        query = build_query(theme.phrase, refine, self.vocabulary, concepts=theme.concepts) if theme.phrase else None
         outcome = None
         if query is not None and self.searcher is not None:
             outcome = self.searcher.search(query.candidates())
@@ -165,7 +169,7 @@ class ConversationSession:
         return compose(theme, self.tax) if not theme.is_empty else EMPTY_THEME
 
     def history(self) -> list[TextRecord]:
-        if self.db is not None:
+        if self.db is not None and self.session_id != OFFLINE_SESSION:
             try:
                 return self.db.session_texts(self.session_id)
             except DatabaseError as exc:

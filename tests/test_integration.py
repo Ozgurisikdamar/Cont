@@ -1,5 +1,6 @@
 """End-to-end chain with a tiny model trained on the fly (fake encoder, no network)."""
 
+import dataclasses
 import json
 
 import numpy as np
@@ -14,8 +15,18 @@ from contextlens.services.websearch import WebSearcher
 
 from .conftest import FakeEncoder
 
-WIKI = {"query": {"pages": [{"index": 1, "title": "Qubit", "extract": "A qubit is a unit.",
-                             "fullurl": "https://en.wikipedia.org/wiki/Qubit"}]}}
+WIKI = {
+    "query": {
+        "pages": [
+            {
+                "index": 1,
+                "title": "Qubit",
+                "extract": "A qubit is a unit.",
+                "fullurl": "https://en.wikipedia.org/wiki/Qubit",
+            }
+        ]
+    }
+}
 
 
 def fake_fetch(fail=False):
@@ -102,8 +113,21 @@ def test_uncertain_turn_does_not_change_theme(fake_model, taxonomy, settings):
     s = session(fake_model, taxonomy, settings)
     s.process("football goal striker league club match")
     before = s.current_theme().generals
-    s.process("zzz yyy xxx www vvv")
+    r = s.process("zzz yyy xxx www vvv qubit")
+    assert r.prediction.uncertain
     assert s.current_theme().generals == before
+    # the theme is still searched, but the off-topic message adds no keywords ("qubit" is in the vocabulary)
+    assert r.query is not None and r.query.primary == r.query.fallback == s.current_theme().phrase
+
+
+def test_database_that_cannot_start_a_session_falls_back_to_local_history(fake_model, taxonomy, settings):
+    db = Database(settings.db_path)
+    db.conn.close()
+    s = session(fake_model, taxonomy, settings, db)
+    assert s.session_id == "offline-session"
+    r = s.process("football goal striker league club match")
+    assert r.prediction.general == "sports" and r.warnings
+    assert [h.general_topic for h in s.history()] == ["sports"]
 
 
 def test_artifact_round_trip_and_integrity(fake_model, tmp_path):
@@ -127,12 +151,14 @@ def test_missing_artifact_explains_how_to_build(tmp_path):
 def test_cli_script_mode(fake_model, tmp_path, monkeypatch):
     out = tmp_path / "model"
     save_artifact(fake_model, out, {"qubit": 5.0}, save_encoder=False)
-    monkeypatch.setattr(cli, "load_artifact", lambda d, min_confidence=None: load_artifact(d, encoder=FakeEncoder()))
+    monkeypatch.setattr(cli, "load_artifact", lambda d, **kw: load_artifact(d, encoder=FakeEncoder(), **kw))
     script = tmp_path / "msgs.txt"
     script.write_text("help\nqubit quantum processor gate algorithm circuit\nhistory\nreset\n!!!\nq\n")
     lines: list[str] = []
-    code = cli.main(["--model-dir", str(out), "--db", str(tmp_path / "c.db"), "--no-web", "--script", str(script)],
-                    print_=lines.append)
+    code = cli.main(
+        ["--model-dir", str(out), "--db", str(tmp_path / "c.db"), "--no-web", "--script", str(script)],
+        print_=lines.append,
+    )
     text = "\n".join(lines)
     assert code == 0
     assert "General topic : Technology" in text
@@ -154,6 +180,7 @@ def test_cli_missing_model_exit_code(tmp_path):
 def test_cli_eof_and_interrupt(fake_model, taxonomy, settings, monkeypatch):
     s = session(fake_model, taxonomy, settings)
     for exc in (EOFError, KeyboardInterrupt):
+
         def raiser(_prompt, exc=exc):
             raise exc
 
@@ -161,3 +188,30 @@ def test_cli_eof_and_interrupt(fake_model, taxonomy, settings, monkeypatch):
         lines: list[str] = []
         assert cli.run_loop(s, None, lines.append) == 0
         assert "oodbye" in lines[-1]
+
+
+def test_cli_unreadable_script_is_an_error_not_a_traceback(fake_model, tmp_path, monkeypatch):
+    model_dir = tmp_path / "model"
+    save_artifact(fake_model, model_dir, {}, save_encoder=False)
+    monkeypatch.setattr(cli, "load_artifact", lambda d, **kw: load_artifact(d, encoder=FakeEncoder(), **kw))
+    out: list[str] = []
+    code = cli.main(
+        [
+            "--model-dir",
+            str(model_dir),
+            "--db",
+            str(tmp_path / "x.db"),
+            "--no-web",
+            "--script",
+            str(tmp_path / "nope.txt"),
+        ],
+        print_=out.append,
+    )
+    assert code == 2 and any("cannot read script file" in line for line in out)
+
+
+def test_reported_subtopics_are_capped(fake_model):
+    loose = dataclasses.replace(fake_model, subtopic_threshold=0.0, max_subtopics=2)  # every sibling passes
+    assert len(loose.predict("particle wave function entanglement spacetime newton star").subtopics) == 2
+    capped = dataclasses.replace(fake_model, subtopic_threshold=0.0, max_subtopics=0)
+    assert len(capped.predict("particle wave function entanglement").subtopics) == 1  # best one is always kept

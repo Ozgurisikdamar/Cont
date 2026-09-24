@@ -71,16 +71,18 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
     if save_encoder:
         model.encoder.save(directory / "encoder")
     meta = dict(model.metadata)
-    meta.update({
-        "general_ids": model.general_ids,
-        "subtopic_ids": model.subtopic_ids,
-        "parent_col": model.parent_col.tolist(),
-        "temperature": model.temperature,
-        "subtopic_threshold": model.subtopic_threshold,
-        "ood_threshold": model.ood_threshold,
-        "min_confidence": model.min_confidence,
-        "checksums": {name: sha256_file(directory / name) for name in CHECKSUMMED_FILES},
-    })
+    meta.update(
+        {
+            "general_ids": model.general_ids,
+            "subtopic_ids": model.subtopic_ids,
+            "parent_col": model.parent_col.tolist(),
+            "temperature": model.temperature,
+            "subtopic_threshold": model.subtopic_threshold,
+            "ood_threshold": model.ood_threshold,
+            "min_confidence": model.min_confidence,
+            "checksums": {name: sha256_file(directory / name) for name in CHECKSUMMED_FILES},
+        }
+    )
     (directory / "metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
 
 
@@ -99,7 +101,9 @@ def _load_heads(path: Path) -> dict[str, Any]:
     return heads
 
 
-def load_artifact(directory: Path, min_confidence: float | None = None, encoder: Any | None = None) -> TopicModel:
+def load_artifact(
+    directory: Path, min_confidence: float | None = None, encoder: Any | None = None, max_subtopics: int = 3
+) -> TopicModel:
     meta_path = directory / "metadata.json"
     if not meta_path.exists():
         raise ArtifactError(f"model artifact not found at {directory}.\n{HOW_TO_BUILD}")
@@ -133,6 +137,7 @@ def load_artifact(directory: Path, min_confidence: float | None = None, encoder:
         min_confidence=float(min_confidence if min_confidence is not None else meta["min_confidence"]),
         encoder=encoder,
         metadata=meta,
+        max_subtopics=max_subtopics,
     )
 
 

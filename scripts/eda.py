@@ -45,9 +45,14 @@ def text_stats(texts: pd.Series) -> dict:
     chars = texts.str.len()
     return {
         "n": int(len(texts)),
-        "words": {"min": int(words.min()), "p5": float(words.quantile(0.05)), "median": float(words.median()),
-                  "mean": round(float(words.mean()), 2), "p95": float(words.quantile(0.95)),
-                  "max": int(words.max())},
+        "words": {
+            "min": int(words.min()),
+            "p5": float(words.quantile(0.05)),
+            "median": float(words.median()),
+            "mean": round(float(words.mean()), 2),
+            "p95": float(words.quantile(0.95)),
+            "max": int(words.max()),
+        },
         "chars": {"median": float(chars.median()), "mean": round(float(chars.mean()), 1), "max": int(chars.max())},
         "anomalies": {k: int(texts.str.contains(p).sum()) for k, p in PATTERNS.items()},
         "empty": int((texts.str.strip() == "").sum()),
@@ -73,8 +78,9 @@ def near_duplicates(train: list[str], other: list[str]) -> dict:
         "max_cosine": round(float(sims.max()), 4),
         "p99_cosine": round(float(np.quantile(sims, 0.99)), 4),
         f"count_cosine_ge_{NEAR_DUP_COSINE}": int((sims >= NEAR_DUP_COSINE).sum()),
-        "closest_pairs": [{"text": other[i], "nearest_train": train[idx[i, 0]], "cosine": round(float(sims[i]), 4)}
-                          for i in worst],
+        "closest_pairs": [
+            {"text": other[i], "nearest_train": train[idx[i, 0]], "cosine": round(float(sims[i]), 4)} for i in worst
+        ],
     }
 
 
@@ -107,15 +113,25 @@ def main() -> None:
     vec = TfidfVectorizer(min_df=1).fit(df[df.split == "train"].text)
     report["vocabulary_size_train"] = len(vec.vocabulary_)
     report["top_tokens_by_general"] = {g: top_tokens(df[df.general == g].text) for g in tax.general_ids}
-    report["ood"] = {"passages": int(len(ood)), "by_split": ood.split.value_counts().to_dict(),
-                     "by_category": ood.category.value_counts().to_dict(), "text": text_stats(ood.text)}
+    report["ood"] = {
+        "passages": int(len(ood)),
+        "by_split": ood.split.value_counts().to_dict(),
+        "by_category": ood.category.value_counts().to_dict(),
+        "text": text_stats(ood.text),
+    }
     report["stackexchange_general"] = {
-        "rows": int(len(seg)), "ood_rows": int(seg.is_ood.sum()),
+        "rows": int(len(seg)),
+        "ood_rows": int(seg.is_ood.sum()),
         "by_general": seg[~seg.is_ood].general.value_counts().to_dict(),
-        "by_split": seg.split.value_counts().to_dict(), "text": text_stats(seg.text)}
+        "by_split": seg.split.value_counts().to_dict(),
+        "text": text_stats(seg.text),
+    }
     report["stackexchange_subtopic"] = {
-        "rows": int(len(ses)), "by_general": ses.general.value_counts().to_dict(),
-        "by_subtopic": ses.subtopics.explode().value_counts().to_dict(), "text": text_stats(ses.text)}
+        "rows": int(len(ses)),
+        "by_general": ses.general.value_counts().to_dict(),
+        "by_subtopic": ses.subtopics.explode().value_counts().to_dict(),
+        "text": text_stats(ses.text),
+    }
 
     # ---- leakage checks
     by_split = {s: set(df[df.split == s].wiki_id) for s in ("train", "val", "test")}
@@ -132,8 +148,9 @@ def main() -> None:
     acc = json.loads((PATHS.root / "tests" / "acceptance_cases.json").read_text(encoding="utf-8"))
     probe_texts = [c["text"].lower() for c in acc["single"] + acc["ood"]]
     corpus_lower = df.text.str.lower()
-    leakage["acceptance_sentences_in_corpus"] = int(sum(corpus_lower.str.contains(re.escape(p)).any()
-                                                        for p in probe_texts))
+    leakage["acceptance_sentences_in_corpus"] = int(
+        sum(corpus_lower.str.contains(re.escape(p)).any() for p in probe_texts)
+    )
     tr = df[df.split == "train"].text.tolist()
     leakage["near_duplicates_test_vs_train"] = near_duplicates(tr, df[df.split == "test"].text.tolist())
     leakage["near_duplicates_val_vs_train"] = near_duplicates(tr, df[df.split == "val"].text.tolist())
@@ -141,8 +158,9 @@ def main() -> None:
 
     FIG.mkdir(parents=True, exist_ok=True)
     plot_bars(counts.to_dict(), FIG / "eda_general_distribution.png", "Passages per general topic", "passages")
-    plot_bars(sub_counts.to_dict(), FIG / "eda_subtopic_distribution.png", "Passages per subtopic (multi-label)",
-              "passages")
+    plot_bars(
+        sub_counts.to_dict(), FIG / "eda_subtopic_distribution.png", "Passages per subtopic (multi-label)", "passages"
+    )
     import matplotlib.pyplot as plt
 
     fig, ax = plt.subplots(figsize=(7, 4))
@@ -157,8 +175,22 @@ def main() -> None:
     plt.close(fig)
     out = PATHS.reports / "eda.json"
     out.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
-    print(json.dumps({k: report[k] for k in ("shape", "articles", "split_passages", "general_imbalance_ratio",
-                                              "subtopic_imbalance_ratio", "labels_per_passage")}, default=str))
+    print(
+        json.dumps(
+            {
+                k: report[k]
+                for k in (
+                    "shape",
+                    "articles",
+                    "split_passages",
+                    "general_imbalance_ratio",
+                    "subtopic_imbalance_ratio",
+                    "labels_per_passage",
+                )
+            },
+            default=str,
+        )
+    )
     print(json.dumps({k: v for k, v in leakage.items() if not isinstance(v, dict)}))
     print("near dup test:", {k: v for k, v in leakage["near_duplicates_test_vs_train"].items() if k != "closest_pairs"})
 

@@ -14,9 +14,18 @@ def db(tmp_path):
 
 
 def add_text(db, sid, turn=1, content="hello"):
-    return db.add_text(sid, turn, content, general_topic="physics", general_confidence=0.9,
-                       subtopics=[{"id": "relativity", "probability": 0.8}], general_probs={"physics": 0.9},
-                       uncertain=False, status="ok", model_version_id=None)
+    return db.add_text(
+        sid,
+        turn,
+        content,
+        general_topic="physics",
+        general_confidence=0.9,
+        subtopics=[{"id": "relativity", "probability": 0.8}],
+        general_probs={"physics": 0.9},
+        uncertain=False,
+        status="ok",
+        model_version_id=None,
+    )
 
 
 def test_schema_and_pragmas(db):
@@ -34,9 +43,21 @@ def test_round_trip(db):
     sid = db.start_session(mv)
     tid = add_text(db, sid)
     topic = db.add_conversation_topic(sid, tid, "Physics", "physics", {"physics": 1.0}, {}, "physics")
-    n = db.add_search_results(sid, topic, "physics", "wikipedia",
-                              [{"rank": 1, "title": "Physics", "summary": "s", "url": "https://en.wikipedia.org/wiki/Physics",
-                                "source": "Wikipedia"}])
+    n = db.add_search_results(
+        sid,
+        topic,
+        "physics",
+        "wikipedia",
+        [
+            {
+                "rank": 1,
+                "title": "Physics",
+                "summary": "s",
+                "url": "https://en.wikipedia.org/wiki/Physics",
+                "source": "Wikipedia",
+            }
+        ],
+    )
     assert n == 1
     rows = db.session_texts(sid)
     assert rows[0].general_topic == "physics" and rows[0].subtopics[0]["id"] == "relativity"

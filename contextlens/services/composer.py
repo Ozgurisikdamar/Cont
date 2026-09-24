@@ -33,6 +33,10 @@ class ComposedTheme:
     phrase: str  # natural-language theme, used for the search query
     generals: tuple[str, ...]
     subtopics: tuple[str, ...]
+    # Single concepts behind the phrase, most specific first (e.g. "biology",
+    # "science" for "science books about biology"). Used as last-resort search
+    # queries when a provider cannot answer the composed phrase.
+    concepts: tuple[str, ...] = ()
 
 
 EMPTY_THEME = ComposedTheme(label="(no theme yet)", phrase="", generals=(), subtopics=())
@@ -50,7 +54,30 @@ def _specific_phrase(tax: Taxonomy, theme: Theme, gid: str) -> str:
     return tax.subtopic(sub.id).phrase if sub else tax.general(gid).phrase
 
 
+def _concepts(theme: Theme, tax: Taxonomy, active: list[str], narrow: str | None, phrase: str) -> tuple[str, ...]:
+    """Focus-subtopic phrases, then domain phrases (the narrower domain first); formats are not concepts."""
+    ordered = sorted(active, key=lambda g: g != narrow)
+    out = [_specific_phrase(tax, theme, g) for g in ordered if tax.general(g).role != "format"]
+    return tuple(c for c in dict.fromkeys(out) if c != phrase)
+
+
 def compose(theme: Theme, tax: Taxonomy) -> ComposedTheme:
+    composed = _compose(theme, tax)
+    if not composed.generals:
+        return composed
+    active = list(composed.generals)
+    domains = [g for g in active if tax.general(g).role == "domain"]
+    narrow = next((d for d in domains if tax.general(d).broader in domains), None)
+    return ComposedTheme(
+        composed.label,
+        composed.phrase,
+        composed.generals,
+        composed.subtopics,
+        _concepts(theme, tax, active, narrow, composed.phrase),
+    )
+
+
+def _compose(theme: Theme, tax: Taxonomy) -> ComposedTheme:
     if theme.is_empty:
         return EMPTY_THEME
     tpl = tax.raw["composition"]

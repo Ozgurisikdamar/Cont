@@ -94,8 +94,11 @@ def main(argv: list[str] | None = None) -> int:
         "encoder": cfg.encoder,
         "encoder_repo": ENCODERS[cfg.encoder]["repo"],
         "encoder_revision": ENCODERS[cfg.encoder]["revision"],
-        "hyperparameters": {"general_C": cfg.general_C, "subtopic_C": cfg.subtopic_C,
-                            "ood_keep_quantile": cfg.ood_keep_quantile},
+        "hyperparameters": {
+            "general_C": cfg.general_C,
+            "subtopic_C": cfg.subtopic_C,
+            "ood_keep_quantile": cfg.ood_keep_quantile,
+        },
         "preprocessing": "contextlens.preprocessing.text.normalize (NFKC, HTML/URL/mention removal, no lower-casing)",
         "train_seconds": round(train_seconds, 1),
         "val_metrics": {k: val_report["general"][k] for k in ("accuracy", "macro_f1", "weighted_f1", "ece")}

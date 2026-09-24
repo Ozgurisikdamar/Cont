@@ -33,9 +33,7 @@ def _cache_file(cache_dir: Path, site: str, tag: str | None) -> Path:
     return cache_dir / f"{site}__{tag or 'ALL'}.json"
 
 
-def fetch_tagged_questions(
-    api_base: str, site: str, tag: str | None, cache_dir: Path
-) -> list[dict]:
+def fetch_tagged_questions(api_base: str, site: str, tag: str | None, cache_dir: Path) -> list[dict]:
     """Return the top-voted questions for ``site``/``tag`` (cached)."""
     cache_dir.mkdir(parents=True, exist_ok=True)
     cache = _cache_file(cache_dir, site, tag)
@@ -128,11 +126,14 @@ def load_cluster_titles(jsonl_paths: list[Path], site_map: dict[str, str], ood_s
                     else:
                         continue
                     text = html.unescape(text).strip()
-                    rows.setdefault((site, text), {
-                        "source": "mteb_stackexchange_clustering",
-                        "site": site.replace(".txt", ""),
-                        "text": text,
-                        "general": general,
-                        "is_ood": general is None,
-                    })
+                    rows.setdefault(
+                        (site, text),
+                        {
+                            "source": "mteb_stackexchange_clustering",
+                            "site": site.replace(".txt", ""),
+                            "text": text,
+                            "general": general,
+                            "is_ood": general is None,
+                        },
+                    )
     return sorted(rows.values(), key=lambda r: (r["site"], r["text"]))

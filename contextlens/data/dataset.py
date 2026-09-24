@@ -3,13 +3,12 @@
 from __future__ import annotations
 
 import json
+import logging
 from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-
-import logging
 
 from contextlens.config import PATHS
 from contextlens.preprocessing.text import normalize
@@ -46,7 +45,7 @@ class LabelSpace:
         index = self.sub_index
         Y = np.zeros((len(values), len(self.subtopic_ids)), dtype=int)
         for i, subs in enumerate(values):
-            for s in (subs.split("|") if isinstance(subs, str) else subs):
+            for s in subs.split("|") if isinstance(subs, str) else subs:
                 if s:
                     Y[i, index[s]] = 1
         return Y

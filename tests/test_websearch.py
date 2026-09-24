@@ -15,15 +15,26 @@ from contextlens.services.websearch import (
 WIKI_OK = {
     "query": {
         "pages": [
-            {"index": 2, "title": "Qubit", "extract": "A qubit is a <b>unit</b>.", "fullurl": "https://en.wikipedia.org/wiki/Qubit"},
-            {"index": 1, "title": "Quantum computing", "extract": "Quantum computing uses qubits.",
-             "fullurl": "https://en.wikipedia.org/wiki/Quantum_computing"},
+            {
+                "index": 2,
+                "title": "Qubit",
+                "extract": "A qubit is a <b>unit</b>.",
+                "fullurl": "https://en.wikipedia.org/wiki/Qubit",
+            },
+            {
+                "index": 1,
+                "title": "Quantum computing",
+                "extract": "Quantum computing uses qubits.",
+                "fullurl": "https://en.wikipedia.org/wiki/Quantum_computing",
+            },
             {"index": 3, "title": "Evil", "extract": "x", "fullurl": "javascript:alert(1)"},
         ]
     }
 }
 DDG_OK = {
-    "Heading": "Qubit", "AbstractText": "In quantum computing, a qubit is...", "AbstractURL": "https://en.wikipedia.org/wiki/Qubit",
+    "Heading": "Qubit",
+    "AbstractText": "In quantum computing, a qubit is...",
+    "AbstractURL": "https://en.wikipedia.org/wiki/Qubit",
     "AbstractSource": "Wikipedia",
     "RelatedTopics": [
         {"Text": "Quantum gate - a basic circuit", "FirstURL": "https://duckduckgo.com/Quantum_gate"},
@@ -166,3 +177,15 @@ def test_get_json_does_not_retry_404_and_rejects_bad_json():
         get_json("https://x", session=FakeSession([FakeResponse(404)]), sleep=lambda _s: None)
     with pytest.raises(NetworkError, match="malformed"):
         get_json("https://x", session=FakeSession([FakeResponse(200, b"<html>")]), sleep=lambda _s: None)
+
+
+def test_failed_provider_is_skipped_until_its_cooldown_ends():
+    fetch, calls = fetch_factory(wiki={"query": {"pages": []}}, ddg={}, fail=("wikipedia",))
+    now = [0.0]
+    ws = WebSearcher(fetch=fetch, provider_cooldown_s=300, clock=lambda: now[0])
+    out = ws.search(["a", "b", "c"])
+    assert calls == ["wikipedia", "duckduckgo", "duckduckgo", "duckduckgo"]  # wikipedia tried once
+    assert out.status == "no_results"  # duckduckgo answered (empty): not "offline"
+    now[0] = 301.0
+    ws.search(["d"])
+    assert calls[-2:] == ["wikipedia", "duckduckgo"]  # circuit closed again after the cooldown

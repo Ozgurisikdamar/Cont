@@ -94,6 +94,13 @@ class DataConfig:
     wiki_config: str = "20231101.en"
     wiki_revision: str = "b04c8d1ceb2f5cd4588862100d08de323dccfbaa"
     wiki_num_shards: int = 41
+    # Second pinned snapshot, different parser: some articles are missing from
+    # 20231101.en (e.g. "Gold", "Spacetime") but present here. Used only for
+    # titles the first snapshot does not have (docs/DATASET_CARD.md).
+    legacy_wiki_repo: str = "legacy-datasets/wikipedia"
+    legacy_wiki_config: str = "data/20220301.en"
+    legacy_wiki_revision: str = "97a0b052c326b45fb68593a14972d9eed884cd17"
+    legacy_wiki_num_shards: int = 41
     # External Stack Exchange titles (MTEB StackExchangeClustering), pinned.
     se_cluster_repo: str = "mteb/stackexchange-clustering"
     se_cluster_revision: str = "9006e0189d5dfd6b10255843bbdac6bd1676a3bf"

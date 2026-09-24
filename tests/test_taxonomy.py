@@ -9,7 +9,11 @@ def test_shape(taxonomy):
     assert len(taxonomy.general_ids) == 8
     assert len(taxonomy.subtopic_ids) == 28
     assert set(taxonomy.children_of("physics")) == {
-        "quantum_mechanics", "relativity", "astrophysics", "classical_mechanics"}
+        "quantum_mechanics",
+        "relativity",
+        "astrophysics",
+        "classical_mechanics",
+    }
     assert taxonomy.parent_of("quantum_computing") == "technology"
 
 

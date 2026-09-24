@@ -35,6 +35,23 @@ def _dev_or_test(key: str) -> str:
     return "ext_dev" if int(stable_hash(key), 16) % 2 == 0 else "ext_test"
 
 
+# Deterministic caps keep the external set balanced across topics and cheap to
+# embed with several encoders (the MTEB files hold ~84k titles).
+EXT_CAP_PER_TOPIC = 1500
+EXT_CAP_OOD = 6000
+
+
+def cap_external(rows: list[dict]) -> list[dict]:
+    groups: dict[tuple[str, str], list[dict]] = {}
+    for r in rows:
+        groups.setdefault((r["split"], r["general"] or "__ood__"), []).append(r)
+    kept: list[dict] = []
+    for (_split, topic), members in sorted(groups.items()):
+        cap = EXT_CAP_OOD if topic == "__ood__" else EXT_CAP_PER_TOPIC
+        kept += sorted(members, key=lambda r: stable_hash(r["site"] + r["text"]))[:cap]
+    return sorted(kept, key=lambda r: (r["site"], r["text"]))
+
+
 def build_stackexchange() -> dict:
     tax = load_taxonomy()
     out_dir = PATHS.data_external
@@ -63,6 +80,7 @@ def build_stackexchange() -> dict:
     gen_rows = load_cluster_titles(files, site_cfg["in_taxonomy"], site_cfg["ood"])
     for r in gen_rows:
         r["split"] = _dev_or_test(f"{r['site']}:{r['text']}")
+    gen_rows = cap_external(gen_rows)
     with open(out_dir / "se_general_eval.jsonl", "w", encoding="utf-8") as fh:
         for r in gen_rows:
             fh.write(json.dumps(r, ensure_ascii=False) + "\n")
@@ -70,6 +88,7 @@ def build_stackexchange() -> dict:
         "se_subtopic_questions": len(sub_rows),
         "se_subtopic_missing_pairs": missing,
         "se_general_titles": len(gen_rows),
+        "se_general_caps": {"per_topic_per_split": EXT_CAP_PER_TOPIC, "ood_per_split": EXT_CAP_OOD},
         "se_general_ood_titles": sum(r["is_ood"] for r in gen_rows),
     }
     (PATHS.data_manifest / "external_stats.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")

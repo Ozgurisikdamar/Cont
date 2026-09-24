@@ -1,0 +1,968 @@
+{
+  "shape": [
+    43260,
+    9
+  ],
+  "columns": {
+    "passage_id": "object",
+    "wiki_id": "int64",
+    "title": "object",
+    "general": "object",
+    "subtopics": "object",
+    "depth": "int64",
+    "split": "object",
+    "text_source": "object",
+    "text": "object"
+  },
+  "nulls": {
+    "passage_id": 0,
+    "wiki_id": 0,
+    "title": 0,
+    "general": 0,
+    "subtopics": 0,
+    "depth": 0,
+    "split": 0,
+    "text_source": 0,
+    "text": 0
+  },
+  "articles": 11154,
+  "passages_per_article": {
+    "count": 11154.0,
+    "mean": 3.878,
+    "std": 0.489,
+    "min": 1.0,
+    "25%": 4.0,
+    "50%": 4.0,
+    "75%": 4.0,
+    "max": 4.0
+  },
+  "split_passages": {
+    "train": 30266,
+    "val": 6515,
+    "test": 6479
+  },
+  "split_articles": {
+    "test": 1671,
+    "train": 7810,
+    "val": 1673
+  },
+  "general_distribution": {
+    "biology": {
+      "test": 967,
+      "train": 4507,
+      "val": 961
+    },
+    "books": {
+      "test": 984,
+      "train": 4561,
+      "val": 989
+    },
+    "chemistry": {
+      "test": 630,
+      "train": 2912,
+      "val": 643
+    },
+    "history": {
+      "test": 715,
+      "train": 3290,
+      "val": 702
+    },
+    "physics": {
+      "test": 961,
+      "train": 4518,
+      "val": 975
+    },
+    "science": {
+      "test": 681,
+      "train": 3229,
+      "val": 688
+    },
+    "sports": {
+      "test": 705,
+      "train": 3296,
+      "val": 716
+    },
+    "technology": {
+      "test": 836,
+      "train": 3953,
+      "val": 841
+    }
+  },
+  "general_imbalance_ratio": 1.561,
+  "subtopic_distribution": {
+    "scientific_research": 2051,
+    "evolution": 1837,
+    "genetics": 1812,
+    "quantum_mechanics": 1782,
+    "astrophysics": 1780,
+    "classical_mechanics": 1774,
+    "chemical_reactions": 1726,
+    "ecology": 1724,
+    "relativity": 1713,
+    "cell_biology": 1694,
+    "organic_chemistry": 1682,
+    "hardware": 1666,
+    "software": 1654,
+    "scientific_method": 1652,
+    "history_of_science": 1651,
+    "poetry": 1647,
+    "novels": 1641,
+    "authors": 1634,
+    "science_books": 1630,
+    "football": 1626,
+    "olympics": 1611,
+    "ancient_history": 1599,
+    "world_wars": 1593,
+    "ottoman_history": 1561,
+    "basketball": 1556,
+    "artificial_intelligence": 1440,
+    "periodic_table": 1145,
+    "quantum_computing": 1077
+  },
+  "subtopic_imbalance_ratio": 1.904,
+  "labels_per_passage": {
+    "1": 40613,
+    "2": 2596,
+    "3": 51
+  },
+  "depth_distribution": {
+    "0": 17942,
+    "1": 23406,
+    "2": 1912
+  },
+  "text": {
+    "n": 43260,
+    "words": {
+      "min": 12,
+      "p5": 13.0,
+      "median": 23.0,
+      "mean": 25.51,
+      "p95": 47.0,
+      "max": 60
+    },
+    "chars": {
+      "median": 148.0,
+      "mean": 162.7,
+      "max": 553
+    },
+    "anomalies": {
+      "html_tag": 9,
+      "url": 7,
+      "mention": 0,
+      "hashtag": 24,
+      "emoji": 1,
+      "mojibake": 0,
+      "replacement_char": 0,
+      "non_ascii": 4902,
+      "latex": 16
+    },
+    "empty": 0,
+    "exact_duplicates": 0
+  },
+  "text_by_general": {
+    "physics": {
+      "min": 12,
+      "p5": 13.0,
+      "median": 24.0,
+      "mean": 26.05,
+      "p95": 48.0,
+      "max": 60
+    },
+    "biology": {
+      "min": 12,
+      "p5": 13.0,
+      "median": 23.0,
+      "mean": 25.14,
+      "p95": 46.0,
+      "max": 60
+    },
+    "chemistry": {
+      "min": 12,
+      "p5": 13.0,
+      "median": 21.0,
+      "mean": 23.23,
+      "p95": 42.0,
+      "max": 60
+    },
+    "technology": {
+      "min": 12,
+      "p5": 13.0,
+      "median": 23.0,
+      "mean": 25.16,
+      "p95": 47.0,
+      "max": 60
+    },
+    "science": {
+      "min": 12,
+      "p5": 13.0,
+      "median": 24.0,
+      "mean": 26.78,
+      "p95": 50.0,
+      "max": 60
+    },
+    "books": {
+      "min": 12,
+      "p5": 13.0,
+      "median": 23.0,
+      "mean": 25.23,
+      "p95": 47.0,
+      "max": 60
+    },
+    "sports": {
+      "min": 12,
+      "p5": 13.0,
+      "median": 23.0,
+      "mean": 25.33,
+      "p95": 47.0,
+      "max": 60
+    },
+    "history": {
+      "min": 12,
+      "p5": 13.0,
+      "median": 25.0,
+      "mean": 27.09,
+      "p95": 51.0,
+      "max": 60
+    }
+  },
+  "vocabulary_size_train": 46904,
+  "top_tokens_by_general": {
+    "physics": [
+      [
+        "quantum",
+        900
+      ],
+      [
+        "physics",
+        565
+      ],
+      [
+        "theory",
+        547
+      ],
+      [
+        "mechanics",
+        520
+      ],
+      [
+        "field",
+        500
+      ],
+      [
+        "time",
+        479
+      ],
+      [
+        "space",
+        464
+      ],
+      [
+        "energy",
+        456
+      ],
+      [
+        "relativity",
+        440
+      ],
+      [
+        "used",
+        376
+      ],
+      [
+        "mass",
+        361
+      ],
+      [
+        "general",
+        332
+      ],
+      [
+        "light",
+        306
+      ],
+      [
+        "motion",
+        302
+      ],
+      [
+        "equations",
+        297
+      ]
+    ],
+    "biology": [
+      [
+        "cell",
+        827
+      ],
+      [
+        "species",
+        710
+      ],
+      [
+        "cells",
+        688
+      ],
+      [
+        "genetic",
+        419
+      ],
+      [
+        "gene",
+        418
+      ],
+      [
+        "evolutionary",
+        382
+      ],
+      [
+        "used",
+        361
+      ],
+      [
+        "dna",
+        352
+      ],
+      [
+        "evolution",
+        351
+      ],
+      [
+        "organisms",
+        307
+      ],
+      [
+        "genes",
+        291
+      ],
+      [
+        "biology",
+        287
+      ],
+      [
+        "process",
+        269
+      ],
+      [
+        "protein",
+        263
+      ],
+      [
+        "different",
+        263
+      ]
+    ],
+    "chemistry": [
+      [
+        "reaction",
+        991
+      ],
+      [
+        "chemical",
+        666
+      ],
+      [
+        "group",
+        444
+      ],
+      [
+        "organic",
+        441
+      ],
+      [
+        "chemistry",
+        403
+      ],
+      [
+        "carbon",
+        391
+      ],
+      [
+        "used",
+        349
+      ],
+      [
+        "compounds",
+        310
+      ],
+      [
+        "acid",
+        301
+      ],
+      [
+        "element",
+        300
+      ],
+      [
+        "reactions",
+        265
+      ],
+      [
+        "form",
+        229
+      ],
+      [
+        "metal",
+        225
+      ],
+      [
+        "elements",
+        220
+      ],
+      [
+        "known",
+        209
+      ]
+    ],
+    "technology": [
+      [
+        "quantum",
+        1130
+      ],
+      [
+        "software",
+        784
+      ],
+      [
+        "computer",
+        705
+      ],
+      [
+        "used",
+        549
+      ],
+      [
+        "data",
+        546
+      ],
+      [
+        "learning",
+        425
+      ],
+      [
+        "systems",
+        421
+      ],
+      [
+        "machine",
+        325
+      ],
+      [
+        "information",
+        319
+      ],
+      [
+        "computing",
+        295
+      ],
+      [
+        "development",
+        240
+      ],
+      [
+        "set",
+        233
+      ],
+      [
+        "using",
+        230
+      ],
+      [
+        "testing",
+        226
+      ],
+      [
+        "state",
+        226
+      ]
+    ],
+    "science": [
+      [
+        "research",
+        753
+      ],
+      [
+        "science",
+        711
+      ],
+      [
+        "scientific",
+        577
+      ],
+      [
+        "used",
+        336
+      ],
+      [
+        "history",
+        288
+      ],
+      [
+        "data",
+        264
+      ],
+      [
+        "study",
+        240
+      ],
+      [
+        "philosophy",
+        218
+      ],
+      [
+        "knowledge",
+        197
+      ],
+      [
+        "known",
+        188
+      ],
+      [
+        "open",
+        187
+      ],
+      [
+        "theory",
+        186
+      ],
+      [
+        "time",
+        172
+      ],
+      [
+        "design",
+        168
+      ],
+      [
+        "academic",
+        165
+      ]
+    ],
+    "books": [
+      [
+        "book",
+        1234
+      ],
+      [
+        "published",
+        775
+      ],
+      [
+        "novel",
+        736
+      ],
+      [
+        "poetry",
+        464
+      ],
+      [
+        "written",
+        443
+      ],
+      [
+        "science",
+        435
+      ],
+      [
+        "poem",
+        339
+      ],
+      [
+        "author",
+        337
+      ],
+      [
+        "born",
+        311
+      ],
+      [
+        "writer",
+        309
+      ],
+      [
+        "known",
+        299
+      ],
+      [
+        "new",
+        292
+      ],
+      [
+        "books",
+        289
+      ],
+      [
+        "american",
+        287
+      ],
+      [
+        "series",
+        267
+      ]
+    ],
+    "sports": [
+      [
+        "football",
+        907
+      ],
+      [
+        "basketball",
+        785
+      ],
+      [
+        "olympic",
+        654
+      ],
+      [
+        "team",
+        519
+      ],
+      [
+        "player",
+        473
+      ],
+      [
+        "association",
+        456
+      ],
+      [
+        "games",
+        432
+      ],
+      [
+        "players",
+        402
+      ],
+      [
+        "world",
+        366
+      ],
+      [
+        "sports",
+        363
+      ],
+      [
+        "ball",
+        339
+      ],
+      [
+        "national",
+        318
+      ],
+      [
+        "game",
+        314
+      ],
+      [
+        "international",
+        293
+      ],
+      [
+        "league",
+        293
+      ]
+    ],
+    "history": [
+      [
+        "war",
+        815
+      ],
+      [
+        "ottoman",
+        814
+      ],
+      [
+        "empire",
+        580
+      ],
+      [
+        "world",
+        500
+      ],
+      [
+        "ancient",
+        352
+      ],
+      [
+        "th",
+        273
+      ],
+      [
+        "history",
+        251
+      ],
+      [
+        "german",
+        249
+      ],
+      [
+        "century",
+        249
+      ],
+      [
+        "known",
+        248
+      ],
+      [
+        "ii",
+        228
+      ],
+      [
+        "germany",
+        222
+      ],
+      [
+        "greek",
+        202
+      ],
+      [
+        "used",
+        195
+      ],
+      [
+        "military",
+        195
+      ]
+    ]
+  },
+  "ood": {
+    "passages": 1223,
+    "by_split": {
+      "val": 652,
+      "test": 571
+    },
+    "by_category": {
+      "Dog_breeds": 118,
+      "Personal_finance": 117,
+      "Cooking_techniques": 116,
+      "Beer_styles": 116,
+      "Painting": 114,
+      "Cuisine": 112,
+      "Dance": 112,
+      "Fashion": 110,
+      "Music_genres": 104,
+      "Gardening": 103,
+      "Tourism": 101
+    },
+    "text": {
+      "n": 1223,
+      "words": {
+        "min": 12,
+        "p5": 13.0,
+        "median": 24.0,
+        "mean": 26.13,
+        "p95": 48.0,
+        "max": 60
+      },
+      "chars": {
+        "median": 147.0,
+        "mean": 161.7,
+        "max": 467
+      },
+      "anomalies": {
+        "html_tag": 0,
+        "url": 1,
+        "mention": 1,
+        "hashtag": 0,
+        "emoji": 0,
+        "mojibake": 0,
+        "replacement_char": 0,
+        "non_ascii": 116,
+        "latex": 0
+      },
+      "empty": 0,
+      "exact_duplicates": 0
+    }
+  },
+  "stackexchange_general": {
+    "rows": 32211,
+    "ood_rows": 12000,
+    "by_general": {
+      "technology": 3000,
+      "physics": 3000,
+      "biology": 3000,
+      "chemistry": 3000,
+      "sports": 2576,
+      "history": 1959,
+      "science": 1889,
+      "books": 1787
+    },
+    "by_split": {
+      "ext_dev": 16124,
+      "ext_test": 16087
+    },
+    "text": {
+      "n": 32211,
+      "words": {
+        "min": 5,
+        "p5": 5.0,
+        "median": 10.0,
+        "mean": 10.24,
+        "p95": 17.0,
+        "max": 32
+      },
+      "chars": {
+        "median": 56.0,
+        "mean": 59.8,
+        "max": 150
+      },
+      "anomalies": {
+        "html_tag": 0,
+        "url": 0,
+        "mention": 0,
+        "hashtag": 6,
+        "emoji": 1,
+        "mojibake": 0,
+        "replacement_char": 0,
+        "non_ascii": 436,
+        "latex": 176
+      },
+      "empty": 0,
+      "exact_duplicates": 0
+    }
+  },
+  "stackexchange_subtopic": {
+    "rows": 3272,
+    "by_general": {
+      "physics": 564,
+      "history": 553,
+      "chemistry": 542,
+      "technology": 494,
+      "biology": 386,
+      "science": 335,
+      "sports": 298,
+      "books": 100
+    },
+    "by_subtopic": {
+      "periodic_table": 265,
+      "ancient_history": 257,
+      "world_wars": 209,
+      "organic_chemistry": 201,
+      "chemical_reactions": 198,
+      "classical_mechanics": 195,
+      "hardware": 194,
+      "relativity": 192,
+      "scientific_method": 137,
+      "history_of_science": 135,
+      "evolution": 126,
+      "quantum_mechanics": 114,
+      "football": 102,
+      "genetics": 102,
+      "basketball": 101,
+      "cell_biology": 100,
+      "scientific_research": 100,
+      "ecology": 100,
+      "artificial_intelligence": 100,
+      "poetry": 100,
+      "ottoman_history": 100,
+      "software": 100,
+      "quantum_computing": 100,
+      "astrophysics": 100,
+      "olympics": 100
+    },
+    "text": {
+      "n": 3272,
+      "words": {
+        "min": 2,
+        "p5": 5.0,
+        "median": 10.0,
+        "mean": 10.29,
+        "p95": 18.0,
+        "max": 30
+      },
+      "chars": {
+        "median": 59.0,
+        "mean": 61.8,
+        "max": 150
+      },
+      "anomalies": {
+        "html_tag": 0,
+        "url": 0,
+        "mention": 0,
+        "hashtag": 1,
+        "emoji": 1,
+        "mojibake": 0,
+        "replacement_char": 0,
+        "non_ascii": 62,
+        "latex": 24
+      },
+      "empty": 0,
+      "exact_duplicates": 0
+    }
+  },
+  "leakage": {
+    "article_overlap_train_val": 0,
+    "article_overlap_train_test": 0,
+    "article_overlap_val_test": 0,
+    "exact_text_overlap_train_test": 0,
+    "exact_text_overlap_train_val": 0,
+    "ood_titles_in_corpus": 0,
+    "se_titles_in_corpus": 0,
+    "acceptance_sentences_in_corpus": 0,
+    "near_duplicates_test_vs_train": {
+      "n": 6479,
+      "max_cosine": 0.869,
+      "p99_cosine": 0.5768,
+      "count_cosine_ge_0.9": 0,
+      "closest_pairs": [
+        {
+          "text": "Ab\u00edeta (Ancient Greek: \u1f08\u03b2\u03af\u03b7\u03c4\u03b1) was an ancient city mentioned by Ptolemy. It was located between the Middle Danube and the Tisza River, in what was considered the territory of Metanasian Iazyges.",
+          "nearest_train": "Bormanum (Ancient Greek: \u0392\u03cc\u03c1\u03bc\u03b1\u03bd\u03bf\u03bd) was an ancient city mentioned by Ptolemy. It was located between the Middle Danube and the Tisza River, in what was considered the territory of the Iazyges Metanast\u00e6.",
+          "cosine": 0.869
+        },
+        {
+          "text": "When World War I was declared in 1914, it had a negative effect on association football; in some countries competitions were suspended and players signed up to fight, resulting in the deaths of many players.",
+          "nearest_train": "When World War II was declared in 1939, it had a negative effect on association football; competitions were suspended and players signed up to fight, resulting in the deaths of many players.",
+          "cosine": 0.8652
+        },
+        {
+          "text": "A practitioner of the discipline is a Thracologist. Thracology investigates the range of ancient Thracian culture (language, literature, history, religion, art, economics and ethics) from 1000 BC up to the end of Roman rule in the 4th\u20137th centuries AD.",
+          "nearest_train": "A practitioner of the discipline is a Dacologist. Dacology investigates the range of ancient Dacian culture (language, literature, history, religion, art, economics, and ethics) from c. 1000 BC up to the end of Roman rule in the 4th-7th centuries.",
+          "cosine": 0.8549
+        },
+        {
+          "text": "It first aired on the Fox network in the United States on May 16, 2004.",
+          "nearest_train": "It first aired on the Fox network in the United States on May 13, 2001.",
+          "cosine": 0.853
+        },
+        {
+          "text": "When, the set of all such locations is called a one-dimensional space.",
+          "nearest_train": "When n = 8, the set of all such locations is called 8-dimensional space.",
+          "cosine": 0.8488
+        }
+      ]
+    },
+    "near_duplicates_val_vs_train": {
+      "n": 6515,
+      "max_cosine": 0.8841,
+      "p99_cosine": 0.623,
+      "count_cosine_ge_0.9": 0,
+      "closest_pairs": [
+        {
+          "text": "Starting 1431 B.C., the line refers to the rule of Th\u1eeba V\u00e2n Lang and his successors, when the seat of government was centered at Ph\u00fa Th\u1ecd.",
+          "nearest_train": "Starting 1912 B.C., the line refers to the rule of Vi\u00ean Lang and his successors, when the seat of government was centered at Ph\u00fa Th\u1ecd.",
+          "cosine": 0.8841
+        },
+        {
+          "text": "Ununennium and Uue are the temporary systematic IUPAC name and symbol respectively, which are used until the element is discovered, confirmed, and a permanent name is decided upon.",
+          "nearest_train": "Unbinilium and Ubn are the temporary systematic IUPAC name and symbol, which are used until the element is discovered, confirmed, and a permanent name is decided upon.",
+          "cosine": 0.8802
+        },
+        {
+          "text": "The series of all H\u00f9ng kings following Th\u1eeba V\u00e2n Lang took that same regnal name of H\u00f9ng V\u1ef9 V\u01b0\u01a1ng to rule over V\u0103n Lang until approximately 1332 B.C.",
+          "nearest_train": "The series of all H\u00f9ng kings following B\u1eedu Lang took that same regnal name of H\u00f9ng Di\u1ec7p V\u01b0\u01a1ng to rule over V\u0103n Lang until approximately 1913 B.C.",
+          "cosine": 0.8716
+        },
+        {
+          "text": "Nitrogen is the chemical element with the symbol N and atomic number 7.",
+          "nearest_train": "Oxygen is the chemical element with the symbol O and atomic number 8.",
+          "cosine": 0.8663
+        },
+        {
+          "text": "This is a list of the Estonia men's national basketball team results from 2020 to present.",
+          "nearest_train": "This is a list of the Germany men's national basketball team results from 2020 to present.",
+          "cosine": 0.864
+        }
+      ]
+    }
+  }
+}

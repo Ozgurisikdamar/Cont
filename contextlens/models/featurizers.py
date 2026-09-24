@@ -11,15 +11,28 @@ CHAR_MAX_FEATURES = 300_000
 
 def tfidf_word(stop_words: str | None = None) -> TfidfVectorizer:
     return TfidfVectorizer(
-        ngram_range=(1, 2), min_df=2, max_df=0.9, sublinear_tf=True, strip_accents="unicode",
-        lowercase=True, stop_words=stop_words, max_features=TFIDF_MAX_FEATURES, dtype=float,
+        ngram_range=(1, 2),
+        min_df=2,
+        max_df=0.9,
+        sublinear_tf=True,
+        strip_accents="unicode",
+        lowercase=True,
+        stop_words=stop_words,
+        max_features=TFIDF_MAX_FEATURES,
+        dtype=float,
     )
 
 
 def tfidf_word_char() -> FeatureUnion:
     char = TfidfVectorizer(
-        analyzer="char_wb", ngram_range=(3, 5), min_df=3, sublinear_tf=True, strip_accents="unicode",
-        lowercase=True, max_features=CHAR_MAX_FEATURES, dtype=float,
+        analyzer="char_wb",
+        ngram_range=(3, 5),
+        min_df=3,
+        sublinear_tf=True,
+        strip_accents="unicode",
+        lowercase=True,
+        max_features=CHAR_MAX_FEATURES,
+        dtype=float,
     )
     return FeatureUnion([("word", tfidf_word()), ("char", char)])
 

@@ -365,14 +365,19 @@ def section_ood(data: Data, feats: list[str]) -> dict:
         row: dict = {}
         for sname, fn in scorers.items():
             row[sname] = {}
-            ind_val = fn(X["val"])
-            thr = float(np.quantile(ind_val, 0.05))  # keep 95% of in-distribution validation passages
-            row[sname]["threshold_at_95_val"] = round(thr, 4)
+            # Two calibration choices for the threshold (keep 95% of in-distribution texts):
+            # Wikipedia validation passages vs. real user questions (Stack Exchange ext_dev).
+            thresholds = {
+                "wiki_val": float(np.quantile(fn(X["val"]), 0.05)),
+                "se_ext_dev": float(np.quantile(fn(X["se_ext_dev"]), 0.05)),
+            }
+            row[sname]["thresholds_at_95"] = {k: round(v, 4) for k, v in thresholds.items()}
             for pname, (ind, ood) in pairs.items():
                 a, b = fn(X[ind]), fn(X[ood])
                 rep = ood_report(a, b)
-                rep["id_kept_at_thr"] = round(float(np.mean(a >= thr)), 4)
-                rep["ood_flagged_at_thr"] = round(float(np.mean(b < thr)), 4)
+                for tname, thr in thresholds.items():
+                    rep[f"id_kept@{tname}"] = round(float(np.mean(a >= thr)), 4)
+                    rep[f"ood_flagged@{tname}"] = round(float(np.mean(b < thr)), 4)
                 row[sname][pname] = {k: round(v, 4) if isinstance(v, float) else v for k, v in rep.items()}
             log.info("ood %s %s: %s", feat, sname, {p: row[sname][p]["auroc"] for p in pairs})
         results[feat] = row
