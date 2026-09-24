@@ -226,7 +226,8 @@ confident errors and latency. Summary of the final run:
 ```bash
 pytest -q              # offline suite: unit + integration + CLI + data integrity (fake encoder, seconds)
 pytest -q -m model     # the trained model: acceptance sentences, OOD, conversation, edge cases
-pytest -q -m network   # live Wikipedia / DuckDuckGo
+pytest -q -m network        # resilience: clean status whatever the providers do
+pytest -q -m network_live   # live smoke: fails unless a provider returns a valid result
 ruff check . && ruff format --check . && mypy contextlens project.py train.py evaluate.py
 ```
 

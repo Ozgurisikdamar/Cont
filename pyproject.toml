@@ -37,8 +37,9 @@ exclude = ["^scripts/", "^tests/"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-ra -m \"not network\""
+addopts = "-ra -m \"not network and not network_live\""
 markers = [
-    "network: test needs internet access (deselect with -m 'not network')",
+    "network: resilience against the real internet - passes on a clean offline/no_results state",
+    "network_live: live search smoke - fails unless a provider returns a valid result (run before releases)",
     "model: test needs the trained model artifact",
 ]
