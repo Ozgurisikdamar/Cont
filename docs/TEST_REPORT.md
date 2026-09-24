@@ -18,7 +18,7 @@ the frozen v1.1.0 artifact.
 | live search smoke | `pytest -q -m network_live --junitxml=…` | **2 passed** (a real provider returned a valid HTTPS result) |
 | lint / format | `ruff check .` · `ruff format --check .` | all checks passed · 82 files formatted |
 | types | `mypy contextlens project.py train.py evaluate.py` | no issues in 41 source files |
-| CI steps | `bash scripts/ci.sh` | run 1 (while the benchmark rerun used all 4 cores): ruff, format, mypy and 194 offline tests passed; model job 35 passed, **1 failed** — `test_single_message_latency_on_cpu`, median 0.51 s against the 0.5 s bound. Rerun on an idle machine: see below |
+| CI steps | `bash scripts/ci.sh` | run 1 (while the benchmark rerun used all 4 cores): ruff, format, mypy and 194 offline tests passed; model job 35 passed, **1 failed** — `test_single_message_latency_on_cpu`, median 0.51 s against the 0.5 s bound. run 2 on the idle machine: **all checks passed** — ruff, format, mypy, 194 offline tests, 36 model tests (`reports/tests/ci_sh_idle.log`). The 0.5 s bound was not changed |
 
 Total: **230 passed, 0 failed.** The GitHub Actions workflow runs the steps of
 `scripts/ci.sh`; it cannot start on this account (billing, D-35), so the local

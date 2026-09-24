@@ -1,0 +1,47 @@
+All checks passed!
+82 files already formatted
+Success: no issues found in 41 source files
+........................................................................ [ 37%]
+........................................................................ [ 74%]
+..................................................                       [100%]
+=============================== warnings summary ===============================
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+  /home/user/Cont/.venv/lib/python3.11/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+  /home/user/Cont/.venv/lib/python3.11/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+    parse = parser.parseString(pattern)
+
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+  /home/user/Cont/.venv/lib/python3.11/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+    parser.resetCache()
+
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+  /home/user/Cont/.venv/lib/python3.11/site-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+    ParserElement.enablePackrat()
+
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+  /home/user/Cont/evaluate.py:296: RuntimeWarning: Mean of empty slice.
+    "non_english_rejected": round(float((~ok[other]).mean()), 4),
+
+tests/test_train_script.py::test_evaluate_and_decay_scripts_run
+  /home/user/Cont/.venv/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+    ret = ret.dtype.type(ret / rcount)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+194 passed, 36 deselected, 16 warnings in 180.54s (0:03:00)
+....................................                                     [100%]
+36 passed, 194 deselected in 5.61s
+ci: all checks passed
+ci2 rc=0

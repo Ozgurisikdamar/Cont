@@ -2,7 +2,7 @@
 
 An audit of v1.0.0 listed methodological and implementation gaps. This file
 records, per item, what was found, what was done and where the evidence is.
-It is filled in as the work proceeds; every item has its own commit.
+Every item has its own commit. **Status: complete (v1.1.0).** Residual weaknesses are listed in KNOWN_ISSUES.md.
 
 | # | audit item | action | evidence | state |
 |---|---|---|---|---|
