@@ -100,7 +100,8 @@ p.subtopics       # (SubtopicScore(id="quantum_computing", probability=P(sub | g
 p.general_probs   # {"physics": ..., ...} — sums to 1
 p.subtopic_probs  # joint P(sub) = P(general) · P(sub | general), all 28 subtopics
 p.ood_score       # max cosine similarity to the training-topic centroids
-p.reasons         # why it is uncertain, e.g. ("low confidence (35%)",)
+p.reasons         # why it is uncertain, e.g. ("low confidence (35%)",) or the language gate
+model.looks_english(text)                  # language gate: >= 40% known English words (texts of >= 3 words)
 model.predict_many(texts)                  # batched
 model.predict_proba(normalised_texts)      # (P(general), P(sub | general), ood) as arrays
 ```
@@ -158,6 +159,12 @@ session.history(); session.reset(); session.close(); db.close()
 | `python train.py` | `configs/model.json`, processed data | `models/contextlens-topic/` |
 | `python scripts/tune_decay.py` | artifact, processed data | `reports/experiments/decay.json` |
 | `python evaluate.py` | artifact, all held-out data | `reports/evaluation.json`, `reports/figures/*` |
+| `python scripts/finetune_transformer.py --encoder minilm-l6 --export DIR` | as above | + fine-tuned encoder (float16) in `DIR` |
+| `python scripts/relabel_corpus.py` | cached crawl, `configs/taxonomy.json` | relabelled manifest/passages (splits kept), `reports/relabel.json` |
+| `python scripts/report_tables.py` | `reports/experiments/*.json` | `reports/tables.md`, `reports/experiment_log.md` |
+| `python scripts/hardware_info.py` | – | `reports/hardware.json` |
+| `python scripts/fp16_storage_check.py` | fine-tuned encoder | `reports/fp16_storage.json` |
+| `python scripts/test_table.py` | `reports/tests/*.xml` | `reports/tests/results.md` |
 
 ## 5. Database schema (`contextlens.db`, `PRAGMA user_version = 1`)
 
@@ -187,7 +194,9 @@ ORDER BY t.turn;
 
 * `configs/taxonomy.json` — see [TAXONOMY.md](TAXONOMY.md).
 * `configs/model.json` — training configuration chosen by the benchmark
-  (encoder key, regularisation `C` of the heads, OOD quantile, minimum confidence).
+  (encoder key, `head_type` — `flat_softmax` or `hierarchical` —, regularisation `C`,
+  OOD calibration set and quantile, minimum confidence `"auto"` + grid and coverage,
+  `min_known_word_share` of the language gate, vocabulary size).
 * `data/processed/passages.parquet` — `passage_id, wiki_id, title, general,
   subtopics ("a|b"), depth, split, text_source, text`.
 * `data/processed/ood_passages.parquet` — `passage_id, wiki_id, title, category, split, text`.

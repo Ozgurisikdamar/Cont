@@ -12,7 +12,7 @@ that were actually run and passed are marked PASS.
 |---|---|---|
 | offline + trained model | `pytest -q -m "not network" --junitxml=…` | **161 passed**, 0 failed |
 | network | `pytest -q -m network --junitxml=…` | **1 passed**, 0 failed |
-| lint / format | `ruff check .` · `ruff format --check .` | all checks passed · 70 files formatted |
+| lint / format | `ruff check .` · `ruff format --check .` | all checks passed · 71 files formatted |
 | types | `mypy contextlens project.py train.py evaluate.py` | no issues in 39 source files |
 
 Total: **162 passed, 0 failed.** Environment: 4 vCPU Intel Xeon 2.8 GHz,

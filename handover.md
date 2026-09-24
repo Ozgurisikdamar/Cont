@@ -62,3 +62,21 @@ python scripts/report_tables.py    # regenerate reports/tables.md
   records when the DB session could not start; `max_subtopics` was unused; the
   database stored unbounded message text; an unreadable `--script` raised a
   traceback; OOD test seed `Automobiles` was empty.
+
+### 2026-09-24 (later) — final model, evaluation, delivery
+- Selected fine-tuned MiniLM (owner: "pick MiniLM and move on"); flat 28-way
+  softmax head won E-7; OOD threshold and confidence floor chosen on ext_dev.
+- The quantum-entanglement acceptance sentence failed (Technology 0.61): the
+  seed `Quantum_information_science` labelled entanglement articles as
+  Technology. Taxonomy 1.1 + `scripts/relabel_corpus.py` (splits kept), MiniLM
+  fine-tuned again (30.5 min). Now Physics 0.95.
+- Added the language gate (a Turkish sentence was answered with a topic).
+- Decay tuning probe measured classifier errors (ceiling = accuracy³); fixed to
+  use confidently correct messages; grid now decay × theme share.
+- Encoder safety: probe-embedding fingerprint, no Hub fallback for local
+  encoders, embedding cache keyed by encoder identity.
+- Lessons: write run metadata only after the expensive export (a
+  `PosixPath` in `json.dump` cost a 35-minute run); measure latency on an idle
+  machine; a CLI default must not silently override an artifact value.
+- Open: the superseded v1.0 artifact (45 MB) is still in git history; removing
+  it needs a force push — owner's decision.

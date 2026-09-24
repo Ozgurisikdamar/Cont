@@ -96,7 +96,7 @@ sequenceDiagram
 
 ## 3. Model
 
-Production configuration (`configs/model.json`, decisions D-22…D-25): encoder
+Production configuration (`configs/model.json`, decisions D-22…D-25, D-29): encoder
 **all-MiniLM-L6-v2 fine-tuned** on the training split, head type
 **`flat_softmax`**.
 
@@ -106,8 +106,9 @@ flowchart LR
     e --> s["softmax over 28 subtopics<br/>LR logits / T"]
     s --> pg["P(general) = Σ P(children)"]
     s --> pc["P(sub | general) = share in parent"]
-    e --> o["max cosine to the 8<br/>training centroids"] --> od{"ood ≥ τ_ood<br/>and conf ≥ min_conf?"}
+    e --> o["max cosine to the 8<br/>training centroids"] --> od{"ood ≥ τ_ood<br/>and conf ≥ min_conf<br/>and ≥ 40% known words?"}
     pg --> od
+    n --> lg["share of known English words<br/>(vocabulary + stop words)"] --> od
     pc --> dec["best child of predicted general +<br/>siblings ≥ τ_sub (max 3)"]
     od -->|yes| ok["status ok"]
     od -->|no| unc["status uncertain"]
@@ -123,6 +124,9 @@ flowchart LR
   split (NLL of the general topic).
 * **Thresholds:** subtopic τ_sub on Wikipedia val; OOD τ_ood keeps 95% of
   Stack Exchange ext_dev questions; min_conf by the coverage rule (D-25).
+* **Language gate (D-29):** a text of at least 3 words of which fewer than
+  40% are known English words (training vocabulary + stop words) is answered
+  *uncertain* — the model covers English only.
   All values are stored in the artifact metadata.
 
 ### Artifact (`models/contextlens-topic/`)

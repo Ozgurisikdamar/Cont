@@ -105,11 +105,48 @@ Card: [docs/DATASET_CARD.md](docs/DATASET_CARD.md).
 
 ## 5. Model
 
-⟪MODEL⟫
+| part | what |
+|---|---|
+| encoder | **all-MiniLM-L6-v2, fine-tuned** 3 epochs on the training split (general + subtopic heads during fine-tuning), exported without its heads, float16 on disk |
+| head | one multinomial logistic regression (C = 8, class-weighted) over the **28 subtopics**; P(general) = sum of its subtopics; temperature T = 1.431 |
+| subtopics | best subtopic of the predicted general topic + siblings with P(sub \| general) ≥ 0.40, at most 3 |
+| "uncertain" | cosine to the nearest class centroid < 0.705, **or** confidence < 0.50, **or** fewer than 40% known English words |
+| conversation | exponentially decayed topic scores (decay 0.7 per message, topics below 20% of the total are dropped), composed into one theme by the taxonomy's rules |
+
+Held-out results (`reports/evaluation.json`, never used for a choice):
+
+| set | accuracy | macro-F1 | weighted-F1 | ECE |
+|---|---:|---:|---:|---:|
+| Wikipedia test (6,427 passages) | 0.835 | 0.834 | 0.835 | 0.031 |
+| Stack Exchange questions (10,087) | 0.775 | 0.756 | 0.773 | 0.067 |
+
+Subtopics: macro-F1 0.647 on Wikipedia, 0.701 on questions (25 labels);
+the right subtopic is in the top 3 for 86% of Wikipedia passages.
 
 ## 6. Why this model
 
-⟪WHY⟫
+Eleven models were compared on the same splits (`reports/tables.md`); the
+choice was made on Wikipedia validation **and** real Stack Exchange questions
+(ext_dev), never on test data. General-topic macro-F1:
+
+| model | Wikipedia val | questions (ext_dev) | ms / text | MB |
+|---|---:|---:|---:|---:|
+| TF-IDF + logistic regression | 0.793 | 0.595 | 1.6 | 11 |
+| TF-IDF + complement naive Bayes | 0.803 | 0.643 | 1.8 | 18 |
+| zero-shot NLI (bart-large-mnli) | 0.623 | 0.511 | 2,556 | – |
+| MiniLM (frozen) + LR | 0.813 | 0.679 | 14.9 | 91 |
+| e5-small (frozen) + LR | 0.823 | 0.743 | 27.1 | 133 |
+| mpnet-base (frozen) + LR | 0.836 | 0.737 | 66.7 | 438 |
+| **MiniLM fine-tuned** | **0.843** | **0.752** | **13.0** | **91** |
+
+* Lexical models score well on encyclopedia text but lose 15–20 points on
+  real questions — they memorise vocabulary.
+* Among frozen encoders the largest is best on Wikipedia but not on questions.
+* Fine-tuning the smallest encoder beats all of them on both sets and is the
+  fastest (numbers from labels v1.0; after the label fix of D-27 it reaches
+  0.840 / 0.756).
+* A single softmax over the 28 subtopics beat a hierarchical head and
+  independent sigmoids for every embedding encoder (E-7, D-23).
 
 The full comparison: [docs/MODEL_REPORT.md](docs/MODEL_REPORT.md) · every experiment:
 [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md) · failure modes:
@@ -128,7 +165,7 @@ pip install -r requirements.txt                 # runtime + training
 pip install -r requirements-dev.txt             # + pytest, ruff, mypy
 ```
 
-The trained model (`models/contextlens-topic/`, ⟪SIZE⟫) is part of the
+The trained model (`models/contextlens-topic/`, 45 MB: float16 encoder + heads + metadata) is part of the
 repository, so the application runs right after installation — nothing is
 downloaded or trained at start-up.
 
@@ -160,7 +197,7 @@ python scripts/tune_decay.py             # conversation decay → reports/experi
 the benchmark's choice. The data build needs network access; everything it
 fetches is cached under `data/raw/`, and the label manifest and passages are
 committed (`data/manifest/`, `data/processed/`), so training alone runs offline.
-Timings on the reference machine (4 vCPU, no GPU): ⟪TIMINGS⟫.
+Timings on the reference machine (4 vCPU, no GPU): corpus build ~20 min (network), benchmark about an hour, fine-tuning 30.5 min, `train.py` 3.6 min (`evaluate.py` was not timed separately).
 
 ## 10. Evaluation
 
@@ -169,7 +206,20 @@ python evaluate.py                # all held-out sets → reports/evaluation.jso
 python scripts/report_tables.py   # benchmark JSON → reports/tables.md
 ```
 
-⟪EVAL⟫
+`evaluate.py` reports general-topic accuracy / macro-F1 / weighted-F1 /
+ECE, per-class reports, confusion matrices, subtopic metrics (macro/micro/
+samples F1, Hamming loss, subset accuracy, P@1, R@3), the uncertain gate on
+in-domain and off-topic text, breakdowns by source and length, the most
+confident errors and latency. Summary of the final run:
+
+| measure | Wikipedia test | Stack Exchange ext_test |
+|---|---:|---:|
+| general macro-F1 | 0.834 | 0.756 |
+| subtopic macro-F1 | 0.647 | 0.701 |
+| answered "uncertain" | 6.8% | 9.2% |
+| accuracy of the answered ones | 0.868 | 0.812 |
+| off-topic texts flagged uncertain | 33.3% (675 passages) | 43.6% (6,000 questions) |
+| median latency per message | 19.9 ms (p95 28.3 ms) | |
 
 ## 11. Tests
 
@@ -180,7 +230,7 @@ pytest -q -m network   # live Wikipedia / DuckDuckGo
 ruff check . && ruff format --check . && mypy contextlens project.py train.py evaluate.py
 ```
 
-⟪TESTS⟫ Full record: [docs/TEST_REPORT.md](docs/TEST_REPORT.md).
+Last full run: **162 passed, 0 failed** (161 offline + model, 1 network); ruff and mypy clean. Full record: [docs/TEST_REPORT.md](docs/TEST_REPORT.md).
 
 ## 12. Console commands
 
@@ -213,7 +263,54 @@ everything typed, in plain text; delete it to erase history
 
 ## 14. Example output
 
-⟪EXAMPLE⟫
+The three test sentences of the brief, one after another (`python project.py`,
+web search on; the Wikipedia summaries are shortened here):
+
+```
+> I read the novel I borrowed from the library; the author's narration was very fluent.
+
+[Text analysis]
+General topic : Books
+Confidence    : 92.4%
+Subtopics     :
+  - Novels (56.0%)
+
+[Conversation]
+Theme         : Books > Novels
+In words      : novels
+Search query  : "novels narration novel"
+
+[Web results]
+1. Verse novel (Wikipedia) …
+2. Shirley (novel) (Wikipedia) …
+
+> Scientists test their hypotheses using experiments and observation.
+
+General topic : Science        Confidence : 92.0%     Subtopics : Scientific Method (66.3%)
+Theme         : Science + Books
+In words      : science books
+Search query  : "science books hypotheses observation"
+
+> Cells carry DNA and living things diversify through evolution.
+
+General topic : Biology        Confidence : 93.8%     Subtopics : Evolution (45.5%)
+Theme         : Biology + Science + Books
+In words      : science books about biology
+Search query  : "science books about biology cells evolution"
+1. Cell (biology) (Wikipedia) …   2. Evolution (Wikipedia) …
+
+> I'm going to order pizza tonight.
+
+General topic : Books
+Confidence    : 77.2%
+Subtopics     :
+  - Novels (94.0%)
+Note          : uncertain - far from all training topics (possible out-of-taxonomy input).
+                This message was not added to the conversation theme.
+```
+
+(The second and third turns are condensed here; the application prints them in
+the same block layout as the first.)
 
 ## 15. Project layout
 
@@ -247,7 +344,17 @@ Project management: [CLAUDE.md](CLAUDE.md) (quick reference),
 
 ## 16. Known limitations
 
-⟪LIMITS⟫
+* **Science** (research, method, history of science) is the weakest class:
+  F1 0.661 on Wikipedia and 0.369 on questions — its texts are about other fields.
+* Trained on encyclopedia passages: short, conversational messages are harder
+  (questions ≤ 7 words: accuracy 0.737).
+* Off-topic detection is partial: at the chosen operating point only a third
+  (Wikipedia) to a half (questions) of off-topic texts are answered "uncertain".
+* English only; other languages are answered "uncertain" when fewer than 40% of
+  their words are known English words.
+* Labels are distant supervision (manual audit: 4.2% wrong, 6.2% weak).
+* Web search depends on free public endpoints that may rate-limit (the app
+  falls back and keeps working without results).
 
 All issues with measurements and workarounds: [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
 
