@@ -515,3 +515,30 @@ v1.0 tracker on the same simulated conversations: theme accuracy 0.767 → 0.729
 switch lag 1.34 → 1.92 turns, tangent robustness 0.460 → 0.874, false switch
 rate 0.488 → 0.104, stale theme after 10 uncertain turns 1.00 → 0.00,
 premature expiry 0.00, 3-topic accumulation 0.80 → 0.80.
+
+## D-36 · Locked final holdout: built before any decision, evaluated after a freeze — twice, disclosed
+**Decision.** The v1.0 `test` / `ext_test` splits were computed during
+development and are no longer blind; they are reported as *legacy (seen)*.
+The final numbers come from data no development script reads
+(`scripts/build_locked_sets.py`, `data/locked/MANIFEST.json`): 374 Wikipedia
+passages from articles in no corpus version, 2,713 Stack Exchange questions
+created 2026-01-01..2026-09-20 (15 already known were dropped), the CLINC150
+test utterances and the locked half of the Tatoeba set. `train.py` and every
+tuning script read only `train` / `val` / `ext_dev`; `scripts/freeze.py`
+records the SHA-256 of the model config, taxonomy, runtime config, training
+passages, locked manifest and artifact metadata; `evaluate.py --stage locked`
+refuses to run if any of them changed and refuses a silent second run.
+
+**Run 1 had a data bug, and there is a run 2.** Run 1
+(`reports/locked/results_run1_partition_bug.json`, raw predictions kept) showed
+a general Stack Exchange view with only 472 questions and no Technology or
+Science site. Cause: `build_locked_sets.py` stored an exclusive `set` field and
+moved every general-view question that a subtopic (site, tag) query also
+returned into the subtopic view — for the Technology and Science sites that
+was all of them. The fix is mechanical and changes no question, no label rule
+and nothing in the model: independent view flags (`assign_views`), the general
+view labelled by site exactly like the v1 general set; re-derived offline from
+the saved file (`--repair`, no network). The configuration was re-frozen (only
+the locked manifest changed) and the locked evaluation run a second time with
+the reason recorded in the results. Both runs are committed; the model was not
+changed between them, so no decision could use the locked numbers.

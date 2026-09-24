@@ -275,7 +275,8 @@ def load_stage(stage: str) -> dict[str, dict]:
     return {
         "locked": {
             "wiki": wiki_locked.assign(subtopics=_labels(wiki_locked)),
-            "se_general": se_locked[se_locked.set == "general"],
+            # general view labelled by site (build_locked_sets.assign_views, D-36)
+            "se_general": se_locked[se_locked.in_general].assign(general=lambda d: d.site_general),
             "se_subtopic": se_locked[(se_locked.subtopics != "") & ~se_locked.is_ood],
             "chat": clinc[clinc.split == "locked"],
             "language": lang[lang.split == "locked"],

@@ -24,6 +24,7 @@ Output: data/locked/wiki_locked.jsonl, data/locked/se_locked.jsonl and
 data/locked/MANIFEST.json (sizes + SHA-256 of every locked file).
 
     python scripts/build_locked_sets.py
+    python scripts/build_locked_sets.py --repair   # re-derive view flags only (no network)
 """
 
 from __future__ import annotations
@@ -151,6 +152,30 @@ def se_titles(site: str, tag: str | None, session) -> list[dict]:
     ]  # fmt: skip
 
 
+def assign_views(rows: list[dict], site_cfg: dict) -> list[dict]:
+    """Mark which evaluation view each question belongs to (independent flags).
+
+    * general view (``in_general``): every question from a site of the general
+      set, labelled by the site (``site_general``; None = off-topic site) - the
+      same rule as the v1 general set;
+    * subtopic view: every in-taxonomy question with at least one subtopic,
+      labelled by its (site, tag) pairs (``general`` + ``subtopics``).
+
+    Run 1 of the locked evaluation used an exclusive ``set`` field instead: a
+    general-set question also returned by a subtopic query was moved to the
+    subtopic view, which emptied the general view of every Technology and Science
+    site (decisions.md D-36). ``--repair`` re-derives the flags from the saved
+    file without any network request.
+    """
+    site_general = {f.split(".")[0]: g for f, g in site_cfg["in_taxonomy"].items()}
+    ood_sites = {f.split(".")[0] for f in site_cfg["ood"]}
+    for r in rows:
+        r.pop("set", None)
+        r["in_general"] = r["site"] in site_general or r["site"] in ood_sites
+        r["site_general"] = site_general.get(r["site"])
+    return rows
+
+
 def build_se(tax) -> list[dict]:
     known = set()
     for name in ("se_subtopic_eval.jsonl",):
@@ -165,7 +190,6 @@ def build_se(tax) -> list[dict]:
         for q in se_titles(site, None, session):
             rows[(site, q["question_id"])] = {
                 **q,
-                "set": "general",
                 "general": general,
                 "subtopics": [],
                 "is_ood": False,
@@ -173,16 +197,13 @@ def build_se(tax) -> list[dict]:
     for fname in site_cfg["ood"]:
         site = fname.split(".")[0]
         for q in se_titles(site, None, session):
-            rows[(site, q["question_id"])] = {**q, "set": "general", "general": None, "subtopics": [], "is_ood": True}
+            rows[(site, q["question_id"])] = {**q, "general": None, "subtopics": [], "is_ood": True}
     for g in tax.generals:
         for sub in g.subtopics:
             for site, tag in sub.stackexchange:
                 for q in se_titles(site, tag, session):
                     key = (site, q["question_id"])
-                    row = rows.setdefault(
-                        key, {**q, "set": "subtopic", "general": g.id, "subtopics": [], "is_ood": False}
-                    )
-                    row["set"] = "subtopic" if row["set"] == "subtopic" or row["general"] == g.id else row["set"]
+                    row = rows.setdefault(key, {**q, "general": g.id, "subtopics": [], "is_ood": False})
                     if row["general"] == g.id and sub.id not in row["subtopics"]:
                         row["subtopics"].append(sub.id)
     # every other matching (site, tag) pair of the same general topic
@@ -193,7 +214,7 @@ def build_se(tax) -> list[dict]:
             for site, tag in sub.stackexchange:
                 if site == row["site"] and (tag is None or tag in row["tags"]) and sub.id not in row["subtopics"]:
                     row["subtopics"].append(sub.id)
-    out = [r for k, r in rows.items() if k not in known]
+    out = assign_views([r for k, r in rows.items() if k not in known], site_cfg)
     log.info("se_locked: %d questions (%d dropped as already known)", len(out), len(rows) - len(out))
     return sorted(out, key=lambda r: (r["site"], r["question_id"]))
 
@@ -202,11 +223,19 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def read_jsonl(path: Path) -> list[dict]:
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+
+
 def main() -> int:
     setup_logging("INFO")
     tax = load_taxonomy()
     OUT.mkdir(parents=True, exist_ok=True)
-    files = {"wiki_locked.jsonl": build_wiki(tax), "se_locked.jsonl": build_se(tax)}
+    if "--repair" in sys.argv:  # re-derive the view flags of the saved files, no network
+        se = assign_views(read_jsonl(OUT / "se_locked.jsonl"), tax.raw["stackexchange_general_sites"])
+        files = {"wiki_locked.jsonl": read_jsonl(OUT / "wiki_locked.jsonl"), "se_locked.jsonl": se}
+    else:
+        files = {"wiki_locked.jsonl": build_wiki(tax), "se_locked.jsonl": build_se(tax)}
     for name, rows in files.items():
         with (OUT / name).open("w", encoding="utf-8") as fh:
             for r in rows:

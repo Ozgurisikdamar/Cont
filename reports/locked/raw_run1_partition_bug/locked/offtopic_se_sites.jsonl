@@ -1,0 +1,1029 @@
+{"text": "Where can I obtain Grimbergen?", "gold": null, "pred": "books", "confidence": 0.7306, "ood_score": -6359.82324, "uncertain": true}
+{"text": "What factors should a useful BAC calculator include for beer, wine and spirits?", "gold": null, "pred": "technology", "confidence": 0.9341, "ood_score": -4241.17822, "uncertain": false}
+{"text": "Help a newbie with fixing a bike!", "gold": null, "pred": "technology", "confidence": 0.4937, "ood_score": -12235.04688, "uncertain": true}
+{"text": "How do I replace or repair these v-brake posts?", "gold": null, "pred": "physics", "confidence": 0.5487, "ood_score": -6612.17578, "uncertain": true}
+{"text": "Tips for biking in snowy weather", "gold": null, "pred": "sports", "confidence": 0.8767, "ood_score": -8276.05859, "uncertain": true}
+{"text": "Are there objective limitations for when to bike in winter conditions?", "gold": null, "pred": "sports", "confidence": 0.5898, "ood_score": -4134.9668, "uncertain": false}
+{"text": "Fine adjustment of V-brakes", "gold": null, "pred": "physics", "confidence": 0.9242, "ood_score": -2926.75195, "uncertain": false}
+{"text": "Why are many frames designed to expect an offset seatpost?", "gold": null, "pred": "technology", "confidence": 0.4341, "ood_score": -2430.646, "uncertain": true}
+{"text": "Tired of flat tyres", "gold": null, "pred": "sports", "confidence": 0.9649, "ood_score": -4151.57031, "uncertain": false}
+{"text": "Inches and centimeters on inner-tube sizing", "gold": null, "pred": "biology", "confidence": 0.3816, "ood_score": -7737.57324, "uncertain": true}
+{"text": "How does increasing battery capacity at the same voltage increase an e-bike’s electrical range?", "gold": null, "pred": "technology", "confidence": 0.9144, "ood_score": -1510.61414, "uncertain": false}
+{"text": "What is causing chain to drop to lower cogs while backpedaling?", "gold": null, "pred": "biology", "confidence": 0.3463, "ood_score": -1650.1311, "uncertain": true}
+{"text": "Replace Missing Floor Pump Head - 'Maxxis Air Elite'", "gold": null, "pred": "sports", "confidence": 0.9399, "ood_score": -2996.94434, "uncertain": false}
+{"text": "Electronic Shimano Alfine SG-S7051-8: Converted to manual shifting?", "gold": null, "pred": "technology", "confidence": 0.902, "ood_score": -1049.33667, "uncertain": false}
+{"text": "(Physics related - sort of) Violent pedal kickback event vs hard pedalling during a sprint. Which one is the most stressful on the freewhub?", "gold": null, "pred": "sports", "confidence": 0.9185, "ood_score": -830.93964, "uncertain": false}
+{"text": "42t cassettes and RD capacity", "gold": null, "pred": "technology", "confidence": 0.4205, "ood_score": -2773.32959, "uncertain": true}
+{"text": "Paraffin wax flakes off", "gold": null, "pred": "chemistry", "confidence": 0.2938, "ood_score": -14565.89062, "uncertain": true}
+{"text": "How to strengthen Magicshine 1700 Evo front light mount?", "gold": null, "pred": "technology", "confidence": 0.4779, "ood_score": -4299.14453, "uncertain": true}
+{"text": "Looking for folding bike stem without rise angle", "gold": null, "pred": "physics", "confidence": 0.5456, "ood_score": -5468.91699, "uncertain": true}
+{"text": "Correct new chain sizing", "gold": null, "pred": "technology", "confidence": 0.2421, "ood_score": -6768.92236, "uncertain": true}
+{"text": "I cannot remove the through axle on my Trek Madone", "gold": null, "pred": "physics", "confidence": 0.9797, "ood_score": -6984.9292, "uncertain": true}
+{"text": "What are these \"unusual\" cable outer caps for?", "gold": null, "pred": "technology", "confidence": 0.9198, "ood_score": -4337.9248, "uncertain": false}
+{"text": "What is the best way to estimate rider power in a BLDC-based smart trainer using a VESC controller?", "gold": null, "pred": "technology", "confidence": 0.9353, "ood_score": -2167.37549, "uncertain": false}
+{"text": "Do you bleed brakes after experiencing fade?", "gold": null, "pred": "sports", "confidence": 0.323, "ood_score": -8447.84473, "uncertain": true}
+{"text": "Does this carbon fork need to be replaced?", "gold": null, "pred": "chemistry", "confidence": 0.9671, "ood_score": -1605.05005, "uncertain": false}
+{"text": "Tire Pressure Calculator and Hybrids", "gold": null, "pred": "technology", "confidence": 0.4472, "ood_score": -6502.35498, "uncertain": true}
+{"text": "How can I raise the handlebars on this bike?", "gold": null, "pred": "sports", "confidence": 0.4671, "ood_score": -5070.26074, "uncertain": true}
+{"text": "Is there any good budget hack in lieu of a bike repair stand?", "gold": null, "pred": "technology", "confidence": 0.8132, "ood_score": -3437.0874, "uncertain": false}
+{"text": "What brand of BMX bike is this?", "gold": null, "pred": "sports", "confidence": 0.9572, "ood_score": -2357.32983, "uncertain": false}
+{"text": "Poor shifting after new chain", "gold": null, "pred": "physics", "confidence": 0.4845, "ood_score": -2865.40405, "uncertain": true}
+{"text": "What is the better option for heavier riders, a 32mm at lowest recommended pressure (or even below) or a 35mm at max pressure?", "gold": null, "pred": "sports", "confidence": 0.8256, "ood_score": -4670.40283, "uncertain": true}
+{"text": "Mixing spoke diameters?", "gold": null, "pred": "physics", "confidence": 0.8266, "ood_score": -3663.97461, "uncertain": false}
+{"text": "Freewheel hub repair", "gold": null, "pred": "physics", "confidence": 0.8795, "ood_score": -3665.91772, "uncertain": false}
+{"text": "Parent push bike where the pedals move WITH the wheels", "gold": null, "pred": "sports", "confidence": 0.5517, "ood_score": -2541.99097, "uncertain": false}
+{"text": "Chain skipping on the same cog, cannot find source", "gold": null, "pred": "chemistry", "confidence": 0.3915, "ood_score": -2797.08008, "uncertain": true}
+{"text": "dropped chain-carbon fiber BB area damage", "gold": null, "pred": "chemistry", "confidence": 0.9383, "ood_score": -524.72156, "uncertain": false}
+{"text": "Wheel doesn't center in fork", "gold": null, "pred": "physics", "confidence": 0.8582, "ood_score": -6512.05371, "uncertain": true}
+{"text": "Should I Re-Tension this Wheel?", "gold": null, "pred": "physics", "confidence": 0.9095, "ood_score": -6373.09473, "uncertain": true}
+{"text": "I picked up a bike frame. No branding, no paint, no parts. Any idea what bike this is?? Serial number LI08G00346. Pics attached", "gold": null, "pred": "sports", "confidence": 0.8246, "ood_score": -6763.8291, "uncertain": true}
+{"text": "How to disassemble a CatEye Viz450 rear light for repair?", "gold": null, "pred": "physics", "confidence": 0.7021, "ood_score": -4594.32324, "uncertain": true}
+{"text": "Is the change from tubulars to clinchers (incl. tubeless) the reason for the plague of flats on Paris-Roubaix?", "gold": null, "pred": "books", "confidence": 0.3929, "ood_score": -1109.21069, "uncertain": true}
+{"text": "Suspension in kiddie Balance Bike", "gold": null, "pred": "sports", "confidence": 0.8501, "ood_score": -4202.18018, "uncertain": false}
+{"text": "What is the purpose of the third cable output on this shimano shifter", "gold": null, "pred": "technology", "confidence": 0.6292, "ood_score": -2562.99463, "uncertain": false}
+{"text": "Crank Arm Misalignment to Seat Tube", "gold": null, "pred": "physics", "confidence": 0.8938, "ood_score": -2844.17188, "uncertain": false}
+{"text": "Cheap repair stands for heavy recumbent trikes?", "gold": null, "pred": "sports", "confidence": 0.9358, "ood_score": -1539.17493, "uncertain": false}
+{"text": "Expander plug for carbon 1\" steerer", "gold": null, "pred": "technology", "confidence": 0.8052, "ood_score": -4510.16895, "uncertain": false}
+{"text": "What shimano free hub is compatible with FH-505 hub 10sp", "gold": null, "pred": "technology", "confidence": 0.6031, "ood_score": -1172.66357, "uncertain": false}
+{"text": "68mm bottom bracket in a 73mm shell?", "gold": null, "pred": "sports", "confidence": 0.4397, "ood_score": -2600.52002, "uncertain": true}
+{"text": "Why does a 20\" bicycle air chamber have diameter 400mm?", "gold": null, "pred": "physics", "confidence": 0.6369, "ood_score": -3454.22461, "uncertain": false}
+{"text": "Rear deraileur adjustment to stop clicking / chain coming off", "gold": null, "pred": "physics", "confidence": 0.6727, "ood_score": -2780.95996, "uncertain": false}
+{"text": "Trouble with current Shimano SLX Hollowtech II preload", "gold": null, "pred": "technology", "confidence": 0.9276, "ood_score": -1076.54651, "uncertain": false}
+{"text": "Rear hub can be separated into left and right part, can it be fixed?", "gold": null, "pred": "physics", "confidence": 0.9354, "ood_score": -679.7027, "uncertain": false}
+{"text": "Tandem frame mod: How to make rear triangle stronger?", "gold": null, "pred": "physics", "confidence": 0.8751, "ood_score": -1420.49585, "uncertain": false}
+{"text": "Is a new Shimano SM-UG51 plate supposed to be slightly bent?", "gold": null, "pred": "physics", "confidence": 0.6781, "ood_score": -2510.98926, "uncertain": false}
+{"text": "What do I need to do avoid the chain breaking", "gold": null, "pred": "chemistry", "confidence": 0.7205, "ood_score": -2922.18262, "uncertain": false}
+{"text": "Beyond the standard traffic regulations", "gold": null, "pred": "technology", "confidence": 0.4427, "ood_score": -3179.67212, "uncertain": true}
+{"text": "Shifter lever not pushing", "gold": null, "pred": "physics", "confidence": 0.8805, "ood_score": -4351.39111, "uncertain": false}
+{"text": "What makes a tire \"tube-type\"?", "gold": null, "pred": "physics", "confidence": 0.7442, "ood_score": -8310.74805, "uncertain": true}
+{"text": "Where can I find the notch on a TA Alízé chainring", "gold": null, "pred": "sports", "confidence": 0.7597, "ood_score": -3820.23535, "uncertain": false}
+{"text": "Is there a difference between 5/16\"-24 flange nuts for a bicycle vs for a car?", "gold": null, "pred": "physics", "confidence": 0.9312, "ood_score": -4877.82129, "uncertain": true}
+{"text": "Why does my bike chain slip only when I change gears uphill?", "gold": null, "pred": "physics", "confidence": 0.9773, "ood_score": -3788.5957, "uncertain": false}
+{"text": "2x11 rear derailleur and cassette (sensah empire) with 3x10 front derailleur", "gold": null, "pred": "physics", "confidence": 0.3382, "ood_score": -1903.99976, "uncertain": true}
+{"text": "Tips for safely transporting bike(velo) with another bike", "gold": null, "pred": "sports", "confidence": 0.4412, "ood_score": -9710.74902, "uncertain": true}
+{"text": "Why, how, and how often to grease a bicycle chain?", "gold": null, "pred": "physics", "confidence": 0.7562, "ood_score": -9499.82617, "uncertain": true}
+{"text": "Rad Wagon 4, loss of power after rear wheel removal", "gold": null, "pred": "physics", "confidence": 0.9284, "ood_score": -3557.16797, "uncertain": false}
+{"text": "What length tubeless valves for a Stumpy?", "gold": null, "pred": "biology", "confidence": 0.4983, "ood_score": -5320.96875, "uncertain": true}
+{"text": "Compensating for wrong spoke lengths with nipple washers on one side only", "gold": null, "pred": "history", "confidence": 0.2832, "ood_score": -3793.51855, "uncertain": true}
+{"text": "What is causing my caliper rim brake to stick?", "gold": null, "pred": "physics", "confidence": 0.895, "ood_score": -4066.80176, "uncertain": false}
+{"text": "buying a bike locker want to figure out what the best option is", "gold": null, "pred": "sports", "confidence": 0.9445, "ood_score": -4674.97461, "uncertain": true}
+{"text": "Is this scratch in my bottom bracket shell significant, or purely cosmetic?", "gold": null, "pred": "sports", "confidence": 0.9196, "ood_score": -5053.33789, "uncertain": true}
+{"text": "Optimal eye protection for city riders", "gold": null, "pred": "sports", "confidence": 0.7609, "ood_score": -5761.4209, "uncertain": true}
+{"text": "Crown race seat completely missing on vintage Bianchi BMX fork", "gold": null, "pred": "sports", "confidence": 0.9526, "ood_score": -1008.43475, "uncertain": false}
+{"text": "Is there any practical advantage to non re-usable quick links?", "gold": null, "pred": "technology", "confidence": 0.9761, "ood_score": -1487.48853, "uncertain": false}
+{"text": "Should the bottom of a chromoly steerer tube be closed from water if it's open initially, to prevent rust?", "gold": null, "pred": "biology", "confidence": 0.4439, "ood_score": -3055.04663, "uncertain": true}
+{"text": "Cycling in the heat around Phoenix (40C days), what am I still missing?", "gold": null, "pred": "sports", "confidence": 0.8659, "ood_score": -5928.36475, "uncertain": true}
+{"text": "What are these cracks at the base of my tyre's treads?", "gold": null, "pred": "sports", "confidence": 0.5239, "ood_score": -6627.97949, "uncertain": true}
+{"text": "Options for bags for road bikes", "gold": null, "pred": "technology", "confidence": 0.4006, "ood_score": -8081.46143, "uncertain": true}
+{"text": "Why did the Norm for Road Bike Tires Become Wider only Recently?", "gold": null, "pred": "physics", "confidence": 0.6144, "ood_score": -5170.31299, "uncertain": true}
+{"text": "Should I repack or replace this freewheel?", "gold": null, "pred": "physics", "confidence": 0.4851, "ood_score": -7744.29688, "uncertain": true}
+{"text": "How does light beam pattern affect visibility when riding at night?", "gold": null, "pred": "physics", "confidence": 0.9375, "ood_score": -1974.02283, "uncertain": false}
+{"text": "cracks on brake calipers ports", "gold": null, "pred": "physics", "confidence": 0.9404, "ood_score": -3184.10767, "uncertain": false}
+{"text": "Is my chain on the 1x12 drivetrain of the correct length?", "gold": null, "pred": "physics", "confidence": 0.5815, "ood_score": -2887.09229, "uncertain": false}
+{"text": "Safety measures when riding through the woods in the dark", "gold": null, "pred": "science", "confidence": 0.5487, "ood_score": -8065.79736, "uncertain": true}
+{"text": "does a reciprocating drive have any advantage over the conventional circular motion crankset and will it ever be practical?", "gold": null, "pred": "physics", "confidence": 0.8547, "ood_score": -866.69458, "uncertain": false}
+{"text": "Replacement Dropouts for Raleigh Bristol XXL 2022 with Shimano Nexus 5e Hub", "gold": null, "pred": "technology", "confidence": 0.9431, "ood_score": -733.39838, "uncertain": false}
+{"text": "how to stiffen booney hat brim against wind?", "gold": null, "pred": "books", "confidence": 0.2527, "ood_score": -7943.60938, "uncertain": true}
+{"text": "How is the shape of the lower derailler pulley important?", "gold": null, "pred": "physics", "confidence": 0.7743, "ood_score": -2746.01685, "uncertain": false}
+{"text": "How can I estimate a fair bicycle repair price when there is no local price guide?", "gold": null, "pred": "technology", "confidence": 0.4771, "ood_score": -9236.78223, "uncertain": true}
+{"text": "Swapping a cotter pin crank for a square taper bottom bracket", "gold": null, "pred": "physics", "confidence": 0.4906, "ood_score": -2395.37646, "uncertain": true}
+{"text": "Did old silver Shimano Ultegra derailleur have a lacquer finish?", "gold": null, "pred": "sports", "confidence": 0.46, "ood_score": -2722.1687, "uncertain": true}
+{"text": "Frame inserts blocking seat post", "gold": null, "pred": "sports", "confidence": 0.4759, "ood_score": -4994.6084, "uncertain": true}
+{"text": "Saddle Tilting Under Weight", "gold": null, "pred": "physics", "confidence": 0.4963, "ood_score": -3914.69775, "uncertain": true}
+{"text": "How effective are bicycle helmets according to the peer-reviewed scientific literature?", "gold": null, "pred": "sports", "confidence": 0.3978, "ood_score": -5437.5874, "uncertain": true}
+{"text": "Are nuts inside left pedal inner cap also reverse threaded?", "gold": null, "pred": "sports", "confidence": 0.6768, "ood_score": -5037.59766, "uncertain": true}
+{"text": "What is the purpose of all these bolts on my front fender?", "gold": null, "pred": "sports", "confidence": 0.7795, "ood_score": -5728.21387, "uncertain": true}
+{"text": "Which kinds of metal are suitable for bike frames, and which are not, and why?", "gold": null, "pred": "chemistry", "confidence": 0.4632, "ood_score": -2706.17383, "uncertain": true}
+{"text": "How are torque ratings determined by the manufacturer?", "gold": null, "pred": "physics", "confidence": 0.9685, "ood_score": -2207.81982, "uncertain": false}
+{"text": "What is the duration of average power measurement according to EU legislation for e-bikes?", "gold": null, "pred": "physics", "confidence": 0.429, "ood_score": -3076.36206, "uncertain": true}
+{"text": "Why are disc brakes seen as better than rim brakes?", "gold": null, "pred": "sports", "confidence": 0.8789, "ood_score": -3292.56616, "uncertain": false}
+{"text": "What were the typical gear ratios used in bicycle racing before TdF in 1937 allowed derailleurs?", "gold": null, "pred": "sports", "confidence": 0.8353, "ood_score": -2215.86328, "uncertain": false}
+{"text": "Does friction necessarily imply the erosion of a material?", "gold": null, "pred": "physics", "confidence": 0.9719, "ood_score": -1140.01648, "uncertain": false}
+{"text": "Is rim tape fundamentally necessary, or merely advisable?", "gold": null, "pred": "sports", "confidence": 0.9565, "ood_score": -2419.99756, "uncertain": false}
+{"text": "Mr Coffee slow, can I use less water then add hot water?", "gold": null, "pred": "chemistry", "confidence": 0.8871, "ood_score": -5251.64355, "uncertain": true}
+{"text": "Are the tubes that carry coffee, in the KRUPS EA81 machine, made of plastic or metal?", "gold": null, "pred": "physics", "confidence": 0.37, "ood_score": -5877.27539, "uncertain": true}
+{"text": "Experimenting with Colombia paraiso Striped Bourbon", "gold": null, "pred": "chemistry", "confidence": 0.5322, "ood_score": -3051.95215, "uncertain": false}
+{"text": "Request Advice on Stick Blender Mayonnaise", "gold": null, "pred": "chemistry", "confidence": 0.5131, "ood_score": -7118.90625, "uncertain": true}
+{"text": "Frozen whole chicken left in esky with ice water", "gold": null, "pred": "technology", "confidence": 0.5927, "ood_score": -6740.29834, "uncertain": true}
+{"text": "Is 30 year old honey ok to eat?", "gold": null, "pred": "biology", "confidence": 0.4816, "ood_score": -6596.8125, "uncertain": true}
+{"text": "How to make a pancake with more structure/more spongy & less fluffy/cakey(fall apart) texture?", "gold": null, "pred": "chemistry", "confidence": 0.532, "ood_score": -5149.09766, "uncertain": true}
+{"text": "How to avoid smokiness when cooking crispy tofu?", "gold": null, "pred": "chemistry", "confidence": 0.5896, "ood_score": -4546.31055, "uncertain": false}
+{"text": "What is \"creamer\"?", "gold": null, "pred": "history", "confidence": 0.5654, "ood_score": -12019.79883, "uncertain": true}
+{"text": "New KitchenAId mixer making clacking noise", "gold": null, "pred": "physics", "confidence": 0.6085, "ood_score": -8503.43555, "uncertain": true}
+{"text": "Achieving Maillard reaction when cooking with wrapped aluminum foil", "gold": null, "pred": "chemistry", "confidence": 0.9305, "ood_score": -1085.39282, "uncertain": false}
+{"text": "Is it optimal to bake cookies on parchment paper or silicone baking mats?", "gold": null, "pred": "science", "confidence": 0.2461, "ood_score": -7870.14014, "uncertain": true}
+{"text": "What is the purpose of glutinous rice flour in this kimchi paste? Can I leave it out or substitute?", "gold": null, "pred": "chemistry", "confidence": 0.8458, "ood_score": -2128.18555, "uncertain": false}
+{"text": "Why is my pressure cooker cooking my rice unevenly?", "gold": null, "pred": "chemistry", "confidence": 0.3562, "ood_score": -11198.47168, "uncertain": true}
+{"text": "Can agar substitute for gelatin in namelaka pastry cream?", "gold": null, "pred": "chemistry", "confidence": 0.9398, "ood_score": -1083.43726, "uncertain": false}
+{"text": "Why does bacon fat transition in transluscence in distinct segments?", "gold": null, "pred": "chemistry", "confidence": 0.6988, "ood_score": -979.72253, "uncertain": false}
+{"text": "What is Broth in an American recipe?", "gold": null, "pred": "chemistry", "confidence": 0.9316, "ood_score": -1225.21533, "uncertain": false}
+{"text": "Lentils and Beans Not Fully Cooking in Slow Cooker", "gold": null, "pred": "history", "confidence": 0.3365, "ood_score": -8812.49219, "uncertain": true}
+{"text": "What ingredients can I use to water down a homemade Cumberland sauce?", "gold": null, "pred": "chemistry", "confidence": 0.6288, "ood_score": -3347.08936, "uncertain": false}
+{"text": "What's the difference between gluten free and regular tamale mix , and would it make a difference on how my masa turns out", "gold": null, "pred": "chemistry", "confidence": 0.9001, "ood_score": -2999.41016, "uncertain": false}
+{"text": "If I pack a lunch at 9am and eat it at noon, isn't it in the danger zone for three hours? How is it safe?", "gold": null, "pred": "biology", "confidence": 0.6316, "ood_score": -6163.92041, "uncertain": true}
+{"text": "Is the orange stuff on my cast iron, iron? Is it toxic?", "gold": null, "pred": "chemistry", "confidence": 0.9559, "ood_score": -1706.4364, "uncertain": false}
+{"text": "Is an 8cm3in coconut edible?", "gold": null, "pred": "chemistry", "confidence": 0.5771, "ood_score": -4158.06445, "uncertain": false}
+{"text": "Under what conditions is raw flour dangerous?", "gold": null, "pred": "chemistry", "confidence": 0.7342, "ood_score": -2721.80127, "uncertain": false}
+{"text": "Induction Stove How to stop high pitch painful ringing during use?", "gold": null, "pred": "sports", "confidence": 0.4962, "ood_score": -5129.85742, "uncertain": true}
+{"text": "Improve cake with coconut flour", "gold": null, "pred": "history", "confidence": 0.4454, "ood_score": -6510.84814, "uncertain": true}
+{"text": "Do I have to worry about botulism in my refrigerator jam?", "gold": null, "pred": "biology", "confidence": 0.8105, "ood_score": -3582.73633, "uncertain": false}
+{"text": "What causes the expansion of ground barley coffee?", "gold": null, "pred": "biology", "confidence": 0.7695, "ood_score": -4201.85938, "uncertain": false}
+{"text": "Sushi Rice Imperfection", "gold": null, "pred": "history", "confidence": 0.521, "ood_score": -9364.89258, "uncertain": true}
+{"text": "How to wash produce to remove pathogens (including fecal-contamination)", "gold": null, "pred": "biology", "confidence": 0.8858, "ood_score": -801.1875, "uncertain": false}
+{"text": "Is wax digestible?", "gold": null, "pred": "chemistry", "confidence": 0.899, "ood_score": -2235.82715, "uncertain": false}
+{"text": "Understanding the 'dime' test for a kitchenaid mixer", "gold": null, "pred": "technology", "confidence": 0.5934, "ood_score": -11664.90332, "uncertain": true}
+{"text": "Why's this French chef tilting his sauce pan on a flaming gas stove? Isn't this dangerous?", "gold": null, "pred": "chemistry", "confidence": 0.2141, "ood_score": -5679.58594, "uncertain": true}
+{"text": "Storing/saving bound soups", "gold": null, "pred": "technology", "confidence": 0.9597, "ood_score": -2695.86816, "uncertain": false}
+{"text": "Milk well crumbed", "gold": null, "pred": "history", "confidence": 0.6842, "ood_score": -13528.36035, "uncertain": true}
+{"text": "How do you get the crunchy top on a lemon drizzle cake?", "gold": null, "pred": "books", "confidence": 0.2993, "ood_score": -10884.05957, "uncertain": true}
+{"text": "How safe is rice horchata?", "gold": null, "pred": "biology", "confidence": 0.5404, "ood_score": -6736.25342, "uncertain": true}
+{"text": "Does too much heat when pressure cooking change anything?", "gold": null, "pred": "chemistry", "confidence": 0.8753, "ood_score": -3526.5332, "uncertain": false}
+{"text": "Adding half oil and half water in a pre-mix cake", "gold": null, "pred": "chemistry", "confidence": 0.8951, "ood_score": -2662.68872, "uncertain": false}
+{"text": "How much difference in flavour is there between different strains of Basmati rice?", "gold": null, "pred": "chemistry", "confidence": 0.3975, "ood_score": -2716.65894, "uncertain": true}
+{"text": "How to reduce moisture and improve the texture of fresh pork sausage filling?", "gold": null, "pred": "chemistry", "confidence": 0.3551, "ood_score": -5034.17969, "uncertain": true}
+{"text": "Strange precipitation in molten butter", "gold": null, "pred": "chemistry", "confidence": 0.9508, "ood_score": -1129.50159, "uncertain": false}
+{"text": "Unopened brie \"best if used by\" date of three weeks ago", "gold": null, "pred": "chemistry", "confidence": 0.6291, "ood_score": -7546.72363, "uncertain": true}
+{"text": "I would like to find icing decorating tips that screw onto 16 oz squeeze bottles for creams on waffle bar. Can you help?", "gold": null, "pred": "chemistry", "confidence": 0.5312, "ood_score": -6978.05176, "uncertain": true}
+{"text": "Why is it better to reduce, then rehydrate a sauce?", "gold": null, "pred": "chemistry", "confidence": 0.811, "ood_score": -2292.54346, "uncertain": false}
+{"text": "Why did my last pot roast taste so much better?", "gold": null, "pred": "chemistry", "confidence": 0.5287, "ood_score": -8945.43164, "uncertain": true}
+{"text": "Does heating extra virgin olive oil really destroy its polyphenols?", "gold": null, "pred": "chemistry", "confidence": 0.9074, "ood_score": -1001.78619, "uncertain": false}
+{"text": "Plastic water glass is sticky after it was put in the dishwasher,", "gold": null, "pred": "chemistry", "confidence": 0.911, "ood_score": -4286.65527, "uncertain": false}
+{"text": "How to make Coronation Chicken \"Food safe\"?", "gold": null, "pred": "sports", "confidence": 0.3692, "ood_score": -10486.32227, "uncertain": true}
+{"text": "Canning pints of beef stew.My propane ran out 10 mins before end", "gold": null, "pred": "sports", "confidence": 0.4226, "ood_score": -6614.58398, "uncertain": true}
+{"text": "How do I test sauerkraut for pathogens?", "gold": null, "pred": "biology", "confidence": 0.7883, "ood_score": -4098.29102, "uncertain": false}
+{"text": "Managing bones in frozen anchovy", "gold": null, "pred": "biology", "confidence": 0.9311, "ood_score": -1377.91064, "uncertain": false}
+{"text": "Why does my bread dough have a grainy texture?", "gold": null, "pred": "physics", "confidence": 0.2972, "ood_score": -7087.00146, "uncertain": true}
+{"text": "Fried Tofu with Silk Tofu?", "gold": null, "pred": "history", "confidence": 0.4632, "ood_score": -4476.24805, "uncertain": true}
+{"text": "How can I bake large loaves of wholewheat bread without burning the crust?", "gold": null, "pred": "history", "confidence": 0.4327, "ood_score": -8526.99805, "uncertain": true}
+{"text": "For dinner rolls, is there any purpose to mixing egg into the dry ingredients before adding the wet ingredients?", "gold": null, "pred": "chemistry", "confidence": 0.927, "ood_score": -2649.78149, "uncertain": false}
+{"text": "Is it safe to freeze leftover chicken that was originally refrigerated vacuum sealed?", "gold": null, "pred": "science", "confidence": 0.4341, "ood_score": -7593.02783, "uncertain": true}
+{"text": "is checking for coagulation time in a microwave an good way to check if milk has gone bad?", "gold": null, "pred": "biology", "confidence": 0.5238, "ood_score": -2426.57324, "uncertain": false}
+{"text": "Should I store this cheese at room temperature?", "gold": null, "pred": "chemistry", "confidence": 0.7835, "ood_score": -5553.0874, "uncertain": true}
+{"text": "My quick breads (made in a bread machine) don't rise much", "gold": null, "pred": "sports", "confidence": 0.3057, "ood_score": -13665.21387, "uncertain": true}
+{"text": "Sugar Replacement Bulking Agent for Non-Sweet Hard Candies", "gold": null, "pred": "chemistry", "confidence": 0.7922, "ood_score": -2131.81885, "uncertain": false}
+{"text": "Juicy breast in chicken curry", "gold": null, "pred": "history", "confidence": 0.259, "ood_score": -6415.45215, "uncertain": true}
+{"text": "Concerns for small piece of plastic toothpick broken and fell into the hole of the tray holder", "gold": null, "pred": "science", "confidence": 0.3651, "ood_score": -6541.60449, "uncertain": true}
+{"text": "How to reduce the sweetness of a sauce?", "gold": null, "pred": "chemistry", "confidence": 0.8647, "ood_score": -3360.36523, "uncertain": false}
+{"text": "With discoloration and blackness that can't be scrubbed off, is this pan safe to use?", "gold": null, "pred": "chemistry", "confidence": 0.6502, "ood_score": -5254.79688, "uncertain": true}
+{"text": "What is whey when making homemade yogurt?", "gold": null, "pred": "chemistry", "confidence": 0.8947, "ood_score": -2739.13574, "uncertain": false}
+{"text": "Cooking time for restaurant style Spanish rice", "gold": null, "pred": "history", "confidence": 0.5401, "ood_score": -4791.19482, "uncertain": true}
+{"text": "Frying oil smelling stale", "gold": null, "pred": "chemistry", "confidence": 0.7728, "ood_score": -3406.5791, "uncertain": false}
+{"text": "Is milk preserved longer by placing an opened, but re-capped, milk carton/jug in a second sealed layer, all inside a fridge?", "gold": null, "pred": "biology", "confidence": 0.7536, "ood_score": -1929.46021, "uncertain": false}
+{"text": "I have a recipe that is calling for 12 basil leaves but I have ground basil instead", "gold": null, "pred": "biology", "confidence": 0.6463, "ood_score": -7772.84326, "uncertain": true}
+{"text": "Is an expired, unopened feta in brine still good?", "gold": null, "pred": "chemistry", "confidence": 0.9442, "ood_score": -3218.09082, "uncertain": false}
+{"text": "Making spicy ghost pepper ice pops — how do I calibrate the heat and keep it evenly distributed?", "gold": null, "pred": "science", "confidence": 0.3092, "ood_score": -5928.37061, "uncertain": true}
+{"text": "Hybrid wood gas pizza oven does starting with gas and finishing with wood actually work well, or is it a gimmick?", "gold": null, "pred": "chemistry", "confidence": 0.6483, "ood_score": -2908.66431, "uncertain": false}
+{"text": "Rock Hard Marmalade", "gold": null, "pred": "books", "confidence": 0.6223, "ood_score": -2864.48926, "uncertain": false}
+{"text": "Why I can't I produce home made whipped cream by adding milk and butter", "gold": null, "pred": "chemistry", "confidence": 0.5037, "ood_score": -6118.49023, "uncertain": true}
+{"text": "What is celery salt?", "gold": null, "pred": "chemistry", "confidence": 0.8876, "ood_score": -1602.01196, "uncertain": false}
+{"text": "Why doesn't watermelon heat well?", "gold": null, "pred": "chemistry", "confidence": 0.8902, "ood_score": -2564.70312, "uncertain": false}
+{"text": "Any device for making hard-boiled eggs conveniently?", "gold": null, "pred": "chemistry", "confidence": 0.5003, "ood_score": -3459.396, "uncertain": false}
+{"text": "Is using Gray 4 month old discard ok?", "gold": null, "pred": "biology", "confidence": 0.5057, "ood_score": -14923.16797, "uncertain": true}
+{"text": "Egg in cheese recipe", "gold": null, "pred": "chemistry", "confidence": 0.87, "ood_score": -3079.29297, "uncertain": false}
+{"text": "Recreating Pesto Sauce that I had in Bangkok", "gold": null, "pred": "books", "confidence": 0.5123, "ood_score": -5734.45215, "uncertain": true}
+{"text": "How does heat affect soy sauce storage?", "gold": null, "pred": "chemistry", "confidence": 0.8674, "ood_score": -2577.35107, "uncertain": false}
+{"text": "How does breadcrumb-to-meat ratio affect binding and moisture retention in slow-cooked meatballs?", "gold": null, "pred": "biology", "confidence": 0.5194, "ood_score": -1709.34387, "uncertain": false}
+{"text": "Does Indian cashew/onion paste have a name", "gold": null, "pred": "chemistry", "confidence": 0.5742, "ood_score": -1546.88745, "uncertain": false}
+{"text": "Should shellfish shells and heads be blended when making a stock or sauce?", "gold": null, "pred": "chemistry", "confidence": 0.5442, "ood_score": -4249.97559, "uncertain": false}
+{"text": "Debating induction cookware vs adapter plates", "gold": null, "pred": "science", "confidence": 0.3941, "ood_score": -6598.08691, "uncertain": true}
+{"text": "Warming up glass jars for preserves when using induction stove", "gold": null, "pred": "chemistry", "confidence": 0.8452, "ood_score": -2559.92822, "uncertain": false}
+{"text": "My muffin recipe says \" 1 c. cereal, ground.\" Do I measure before or after grinding?", "gold": null, "pred": "chemistry", "confidence": 0.7753, "ood_score": -13168.17383, "uncertain": true}
+{"text": "After just one day, why did my water spinach darken and shrivel?", "gold": null, "pred": "chemistry", "confidence": 0.4007, "ood_score": -2932.84473, "uncertain": true}
+{"text": "What's this brown discoloration in the middle of the inside of my lid?", "gold": null, "pred": "chemistry", "confidence": 0.9545, "ood_score": -1311.19214, "uncertain": false}
+{"text": "What are these tiny white dots on my frozen shrimp?", "gold": null, "pred": "biology", "confidence": 0.5855, "ood_score": -6281.68896, "uncertain": true}
+{"text": "Herbal meat sauce?", "gold": null, "pred": "chemistry", "confidence": 0.5465, "ood_score": -3236.90137, "uncertain": false}
+{"text": "Is it safe to prepare infused oils for longer term storage, if heated sufficiently?", "gold": null, "pred": "chemistry", "confidence": 0.8195, "ood_score": -2732.54688, "uncertain": false}
+{"text": "How can you restore damp spices and are they safe to use?", "gold": null, "pred": "chemistry", "confidence": 0.6622, "ood_score": -4582.98828, "uncertain": true}
+{"text": "Which sugar for Crema Catalana", "gold": null, "pred": "chemistry", "confidence": 0.5373, "ood_score": -3023.04346, "uncertain": false}
+{"text": "Canning Muscadine jelly. Not getting the quantity expected. Why?", "gold": null, "pred": "chemistry", "confidence": 0.9267, "ood_score": -2928.50317, "uncertain": false}
+{"text": "Difference(s) between supermarket brand and other brands of white sugar", "gold": null, "pred": "chemistry", "confidence": 0.9475, "ood_score": -2141.53613, "uncertain": false}
+{"text": "How can I safely fix a cracked teapot lid?", "gold": null, "pred": "chemistry", "confidence": 0.6338, "ood_score": -8428.13574, "uncertain": true}
+{"text": "How to develop the MOST gluten possible?", "gold": null, "pred": "biology", "confidence": 0.4632, "ood_score": -2301.66992, "uncertain": true}
+{"text": "What are the desirable thermal properties of a frying pan, and why?", "gold": null, "pred": "chemistry", "confidence": 0.7308, "ood_score": -5014.38867, "uncertain": true}
+{"text": "Egg substitute for egg-based dishes", "gold": null, "pred": "chemistry", "confidence": 0.6252, "ood_score": -2857.76343, "uncertain": false}
+{"text": "What does \"low-acid food\" mean for water-bath vs pressure canning?", "gold": null, "pred": "chemistry", "confidence": 0.8512, "ood_score": -1913.04309, "uncertain": false}
+{"text": "How does water affect the outcome of a gluten free pie crust recipe?", "gold": null, "pred": "chemistry", "confidence": 0.642, "ood_score": -4336.18652, "uncertain": false}
+{"text": "What type of tiled ceiling is this?", "gold": null, "pred": "sports", "confidence": 0.5296, "ood_score": -9549.75586, "uncertain": true}
+{"text": "What could be wrong with this light fixture?", "gold": null, "pred": "physics", "confidence": 0.8152, "ood_score": -8412.75391, "uncertain": true}
+{"text": "Undersink weeping leak - what is this fitting and how do I fix it?", "gold": null, "pred": "physics", "confidence": 0.4782, "ood_score": -4976.79541, "uncertain": true}
+{"text": "Bathtub leaks when draining full tub but not while showering", "gold": null, "pred": "biology", "confidence": 0.2956, "ood_score": -6814.84668, "uncertain": true}
+{"text": "Can I use tinned/stranded ground wire on a ground screw?", "gold": null, "pred": "physics", "confidence": 0.4972, "ood_score": -3529.31055, "uncertain": true}
+{"text": "Mig Welding a Nut to a Sched 40 Galvanized Pipe", "gold": null, "pred": "physics", "confidence": 0.3827, "ood_score": -1656.6958, "uncertain": true}
+{"text": "Can I pigtail 14/2 wire off 8/3 gauge to run 3 receptacles?", "gold": null, "pred": "technology", "confidence": 0.5255, "ood_score": -3976.75146, "uncertain": false}
+{"text": "Feeding two lights in opposite directions of switch", "gold": null, "pred": "technology", "confidence": 0.4143, "ood_score": -5480.64648, "uncertain": true}
+{"text": "Should I wrap or replace a damaged lamp cord?", "gold": null, "pred": "technology", "confidence": 0.2185, "ood_score": -11532.81055, "uncertain": true}
+{"text": "Can this cracked seam in my wooden entry door be fixed?", "gold": null, "pred": "physics", "confidence": 0.6827, "ood_score": -9789.33203, "uncertain": true}
+{"text": "What's going on with my plumbing and the loops here?", "gold": null, "pred": "technology", "confidence": 0.5149, "ood_score": -9274.57617, "uncertain": true}
+{"text": "Should I separate the attics over my home and carport to save energy?", "gold": null, "pred": "biology", "confidence": 0.8055, "ood_score": -10874.56836, "uncertain": true}
+{"text": "How can I identify the manufacturer and model/date of this electrical panel?", "gold": null, "pred": "technology", "confidence": 0.7035, "ood_score": -4588.23682, "uncertain": true}
+{"text": "What is this kind of nest on my garage door, and can I do something about it in the future?", "gold": null, "pred": "biology", "confidence": 0.6893, "ood_score": -3506.97803, "uncertain": false}
+{"text": "Can I use a 2.5 kW emergency backup generator to run a 3 kW heat pump?", "gold": null, "pred": "technology", "confidence": 0.4348, "ood_score": -6534.06445, "uncertain": true}
+{"text": "Improve flat roof drainage", "gold": null, "pred": "biology", "confidence": 0.4359, "ood_score": -4536.28516, "uncertain": true}
+{"text": "Basement tv mounting", "gold": null, "pred": "sports", "confidence": 0.8068, "ood_score": -6863.73633, "uncertain": true}
+{"text": "Recommended repair method for separated conduit at service entrance? USA", "gold": null, "pred": "technology", "confidence": 0.7793, "ood_score": -3669.66797, "uncertain": false}
+{"text": "Mounting vent hood to uneven cabinet bottom", "gold": null, "pred": "physics", "confidence": 0.1838, "ood_score": -8880.00391, "uncertain": true}
+{"text": "How do I continue the vapor barrier if drywall is covering it when repairing wall?", "gold": null, "pred": "chemistry", "confidence": 0.418, "ood_score": -2843.54297, "uncertain": true}
+{"text": "How can I apply joint compound to a corner with a small cove?", "gold": null, "pred": "chemistry", "confidence": 0.9612, "ood_score": -1029.20935, "uncertain": false}
+{"text": "What are these steel bits on the underside of an 8\" concrete condo slab?", "gold": null, "pred": "sports", "confidence": 0.5456, "ood_score": -5654.15625, "uncertain": true}
+{"text": "How should a sagging open-web truss be repaired?", "gold": null, "pred": "technology", "confidence": 0.4137, "ood_score": -3953.20312, "uncertain": true}
+{"text": "Why is there mortar missing in a block foundation wall right behind my water heater?", "gold": null, "pred": "biology", "confidence": 0.3781, "ood_score": -5334.15918, "uncertain": true}
+{"text": "How should I patch drywall around a new subpanel?", "gold": null, "pred": "physics", "confidence": 0.4134, "ood_score": -4471.45117, "uncertain": true}
+{"text": "How to deal with uneven wall/floor when installing a cabinet?", "gold": null, "pred": "biology", "confidence": 0.3894, "ood_score": -8010.51074, "uncertain": true}
+{"text": "Is this small closet wall load-bearing?", "gold": null, "pred": "physics", "confidence": 0.7589, "ood_score": -4425.42773, "uncertain": false}
+{"text": "How can I prevent wooden drawer slides from creating wood dust?", "gold": null, "pred": "biology", "confidence": 0.6706, "ood_score": -8757.91211, "uncertain": true}
+{"text": "Is a big jackhammer right for busting concrete-filled planter?", "gold": null, "pred": "science", "confidence": 0.3202, "ood_score": -7913.31055, "uncertain": true}
+{"text": "How to fish ethernet through 1 ft run, instead of stapled coax?", "gold": null, "pred": "technology", "confidence": 0.9549, "ood_score": -2044.5697, "uncertain": false}
+{"text": "How can I remove the handle from my faucet?", "gold": null, "pred": "physics", "confidence": 0.7982, "ood_score": -10035.45898, "uncertain": true}
+{"text": "How can I improve this drywall patch?", "gold": null, "pred": "biology", "confidence": 0.3478, "ood_score": -7479.39941, "uncertain": true}
+{"text": "Should I still torque wire terminals to specification if it appears to damage the wire?", "gold": null, "pred": "physics", "confidence": 0.4413, "ood_score": -2866.86865, "uncertain": true}
+{"text": "Does \"marine grade plywood\" go by other names?", "gold": null, "pred": "biology", "confidence": 0.6117, "ood_score": -3438.58936, "uncertain": false}
+{"text": "Removing a jet-tub's pump?", "gold": null, "pred": "science", "confidence": 0.3224, "ood_score": -5664.39258, "uncertain": true}
+{"text": "Right way to connect two rigid ducts an inch apart?", "gold": null, "pred": "physics", "confidence": 0.8966, "ood_score": -2450.55322, "uncertain": false}
+{"text": "Based on my water profile, what filtration media would I use to treat water?", "gold": null, "pred": "biology", "confidence": 0.5551, "ood_score": -3035.80225, "uncertain": false}
+{"text": "Why is my breaker tripping after changing an outlet?", "gold": null, "pred": "physics", "confidence": 0.4917, "ood_score": -3700.0752, "uncertain": true}
+{"text": "How to frame a wall that makes a corner with a knee wall in front of an exterior wall?", "gold": null, "pred": "sports", "confidence": 0.4474, "ood_score": -4735.86523, "uncertain": true}
+{"text": "Is this thick gasket in my tub supposed to be there?", "gold": null, "pred": "chemistry", "confidence": 0.9413, "ood_score": -2221.42603, "uncertain": false}
+{"text": "Removing a mirrored medicine cabinet", "gold": null, "pred": "science", "confidence": 0.395, "ood_score": -10169.93555, "uncertain": true}
+{"text": "Can drains in separate rooms share a p-trap?", "gold": null, "pred": "biology", "confidence": 0.82, "ood_score": -2311.51489, "uncertain": false}
+{"text": "Are there code issues with this bathroom wiring?", "gold": null, "pred": "technology", "confidence": 0.8657, "ood_score": -5332.38428, "uncertain": true}
+{"text": "Old house on shallow well with inadequate water pressure", "gold": null, "pred": "history", "confidence": 0.4282, "ood_score": -6274.86133, "uncertain": true}
+{"text": "How can I patch this hole in my ceiling drywall?", "gold": null, "pred": "physics", "confidence": 0.5707, "ood_score": -7373.09863, "uncertain": true}
+{"text": "Messed up outdoor handrail install, can it be salvaged in any way?", "gold": null, "pred": "sports", "confidence": 0.4178, "ood_score": -5711.771, "uncertain": true}
+{"text": "How to remove a mirror stuck to a door with sticky pads?", "gold": null, "pred": "physics", "confidence": 0.7751, "ood_score": -9431.6709, "uncertain": true}
+{"text": "Can it cause problems to put mineral wool insulation sized for 2x6 walls in a 2x4 wall?", "gold": null, "pred": "chemistry", "confidence": 0.4496, "ood_score": -6516.57227, "uncertain": true}
+{"text": "When Electrical Device Manufacturer's written and verbal instructions differ, which instructions should be followed?", "gold": null, "pred": "technology", "confidence": 0.9737, "ood_score": -2056.72656, "uncertain": false}
+{"text": "How to rank my 30 extension cords to get rid of poorer half?", "gold": null, "pred": "technology", "confidence": 0.9713, "ood_score": -3358.74121, "uncertain": false}
+{"text": "How can I easily get an approximate measurement of soil bearing strength without buying equipment or hiring contractors?", "gold": null, "pred": "biology", "confidence": 0.5953, "ood_score": -5116.59619, "uncertain": true}
+{"text": "Is it ok to relabel a main panel breaker?", "gold": null, "pred": "technology", "confidence": 0.6212, "ood_score": -4593.90039, "uncertain": true}
+{"text": "How to remove iron security bar on windows", "gold": null, "pred": "technology", "confidence": 0.9559, "ood_score": -3588.31299, "uncertain": false}
+{"text": "How to install ceiling fan box within coffered ceiling \"beam\" intersection", "gold": null, "pred": "physics", "confidence": 0.4199, "ood_score": -3734.06641, "uncertain": true}
+{"text": "Should I be concerned with structural integrity of this composite balcony support beam?", "gold": null, "pred": "physics", "confidence": 0.8271, "ood_score": -4000.94824, "uncertain": false}
+{"text": "Can I level a cracked, uneven portion of my driveway?", "gold": null, "pred": "technology", "confidence": 0.6254, "ood_score": -14153.16602, "uncertain": true}
+{"text": "Is it a problem if drywall is left exposed for several weeks before painting?", "gold": null, "pred": "science", "confidence": 0.3941, "ood_score": -10258.5166, "uncertain": true}
+{"text": "How do I get water off fascia where two valleys converge without gutters?", "gold": null, "pred": "biology", "confidence": 0.9053, "ood_score": -1682.50549, "uncertain": false}
+{"text": "Can I use wedge anchors for mounting a ceiling box on a precast concrete ceiling?", "gold": null, "pred": "physics", "confidence": 0.4071, "ood_score": -8271.00488, "uncertain": true}
+{"text": "Ladder access to tall, narrow windows", "gold": null, "pred": "technology", "confidence": 0.6272, "ood_score": -4703.62744, "uncertain": true}
+{"text": "What does this adjustment screw do on this Pella hinge?", "gold": null, "pred": "physics", "confidence": 0.6426, "ood_score": -4797.71777, "uncertain": true}
+{"text": "Tightened shower diverter too much and caused a dent, is this still safe to use?", "gold": null, "pred": "history", "confidence": 0.4658, "ood_score": -7433.20605, "uncertain": true}
+{"text": "Need advice on new foundation tolerances", "gold": null, "pred": "biology", "confidence": 0.9521, "ood_score": -7046.68799, "uncertain": true}
+{"text": "Gap on side of panel in wood door", "gold": null, "pred": "physics", "confidence": 0.4097, "ood_score": -8861.14062, "uncertain": true}
+{"text": "How to fix intermittent connection on an outdoor Molex connector?", "gold": null, "pred": "technology", "confidence": 0.944, "ood_score": -3078.08667, "uncertain": false}
+{"text": "Cracks in top plate after electrician drilled a hole", "gold": null, "pred": "physics", "confidence": 0.6636, "ood_score": -1655.71179, "uncertain": false}
+{"text": "Is it normal for the two handles of a faucet to rotate an opposite directions?", "gold": null, "pred": "physics", "confidence": 0.9748, "ood_score": -4436.125, "uncertain": false}
+{"text": "How can I replace this board behind my vertical garage door track?", "gold": null, "pred": "technology", "confidence": 0.3689, "ood_score": -4421.85791, "uncertain": true}
+{"text": "What is the best way to reinforce base of greenhouse", "gold": null, "pred": "biology", "confidence": 0.987, "ood_score": -1403.22571, "uncertain": false}
+{"text": "How to fix bent, kinked metal pole?", "gold": null, "pred": "physics", "confidence": 0.9144, "ood_score": -4818.09961, "uncertain": true}
+{"text": "Does indoor cable that has been overheated and wet need to be replaced?", "gold": null, "pred": "technology", "confidence": 0.7087, "ood_score": -6344.42773, "uncertain": true}
+{"text": "Installing new light fixture in place of old - wiring doesn't make sense", "gold": null, "pred": "science", "confidence": 0.3164, "ood_score": -6820.16064, "uncertain": true}
+{"text": "Can the grey underside of metal roofing handle the elements?", "gold": null, "pred": "chemistry", "confidence": 0.8944, "ood_score": -1914.27051, "uncertain": false}
+{"text": "Are push-fit connections reliable inside a finished wall?", "gold": null, "pred": "physics", "confidence": 0.5723, "ood_score": -2168.95703, "uncertain": false}
+{"text": "Why does my vinyl siding peel away like this?", "gold": null, "pred": "biology", "confidence": 0.5692, "ood_score": -7092.10254, "uncertain": true}
+{"text": "Why are my LED bulbs flickering after 1 year, and how do I fix it?", "gold": null, "pred": "technology", "confidence": 0.4879, "ood_score": -4245.52832, "uncertain": true}
+{"text": "Is there a downside to getting return air from the basement instead of upstairs?", "gold": null, "pred": "biology", "confidence": 0.4441, "ood_score": -14268.49023, "uncertain": true}
+{"text": "How to remove adhesive on drywall", "gold": null, "pred": "biology", "confidence": 0.6981, "ood_score": -8610.16406, "uncertain": true}
+{"text": "Water in hot tub is reading 5.2 V", "gold": null, "pred": "chemistry", "confidence": 0.8872, "ood_score": -3066.07666, "uncertain": false}
+{"text": "Is this a burn mark or UV damage on external outlet box?", "gold": null, "pred": "chemistry", "confidence": 0.3134, "ood_score": -5464.32129, "uncertain": true}
+{"text": "Is a NEMA 14-50 outlet an acceptable generator inlet?", "gold": null, "pred": "technology", "confidence": 0.7068, "ood_score": -4581.71875, "uncertain": false}
+{"text": "Extension Cord Getting Hot When Running My Air Conditioner", "gold": null, "pred": "technology", "confidence": 0.6254, "ood_score": -7287.74512, "uncertain": true}
+{"text": "Where does the water that drains from a home air conditioner come from?", "gold": null, "pred": "biology", "confidence": 0.5999, "ood_score": -6597.67236, "uncertain": true}
+{"text": "Concrete pavers from different pallets have slightly different color", "gold": null, "pred": "biology", "confidence": 0.2565, "ood_score": -4125.4375, "uncertain": true}
+{"text": "Do I really need to remove grout before caulking bathtub with silicone?", "gold": null, "pred": "physics", "confidence": 0.4154, "ood_score": -11459.24316, "uncertain": true}
+{"text": "Does a GFCI/AFCI breaker need to cool off after tripping?", "gold": null, "pred": "sports", "confidence": 0.6047, "ood_score": -2577.82153, "uncertain": false}
+{"text": "How to cut and seal a fascia beam", "gold": null, "pred": "biology", "confidence": 0.4591, "ood_score": -6132.92285, "uncertain": true}
+{"text": "Help connecting vintage medicine lighted cabinet with built in outlet", "gold": null, "pred": "technology", "confidence": 0.304, "ood_score": -5668.75586, "uncertain": true}
+{"text": "Is it expected that there is a sewer smell from drain pipe when there's no trap installed?", "gold": null, "pred": "biology", "confidence": 0.5973, "ood_score": -7311.91211, "uncertain": true}
+{"text": "Can subfloor be attached to floor joists from underneath?", "gold": null, "pred": "physics", "confidence": 0.617, "ood_score": -3766.82812, "uncertain": false}
+{"text": "Charger solution for 2 EVs with limited 90A service", "gold": null, "pred": "technology", "confidence": 0.8647, "ood_score": -2578.76953, "uncertain": false}
+{"text": "How is running Ethernet to an energy monitor in the panel okay?", "gold": null, "pred": "technology", "confidence": 0.9732, "ood_score": -991.63306, "uncertain": false}
+{"text": "Can I use tandem breakers to free up space for a generator interlock in my panel?", "gold": null, "pred": "physics", "confidence": 0.7107, "ood_score": -2707.77417, "uncertain": false}
+{"text": "Is my building 2-phase or 3-phase?", "gold": null, "pred": "physics", "confidence": 0.4251, "ood_score": -2233.65283, "uncertain": true}
+{"text": "How to ensure that a water pipe above the frost line (which isn't used in the winter) doesn't burst?", "gold": null, "pred": "physics", "confidence": 0.4694, "ood_score": -5285.7666, "uncertain": true}
+{"text": "Water main shutoff valve rust", "gold": null, "pred": "chemistry", "confidence": 0.2973, "ood_score": -5195.0835, "uncertain": true}
+{"text": "NEC 408.41 - Is Doubling-up wires allowed for Neutral busbar and/or Ground busbar? Why/not?", "gold": null, "pred": "technology", "confidence": 0.8507, "ood_score": -1454.83411, "uncertain": false}
+{"text": "Canopy roof is pulling away from the house--how to replace it and properly attach it?", "gold": null, "pred": "sports", "confidence": 0.306, "ood_score": -6646.92969, "uncertain": true}
+{"text": "How can I repair this damaged jamb?", "gold": null, "pred": "chemistry", "confidence": 0.3351, "ood_score": -8317.66797, "uncertain": true}
+{"text": "How can I remove a drain trap nut which is stuck with putty or caulk?", "gold": null, "pred": "sports", "confidence": 0.3988, "ood_score": -8862.92773, "uncertain": true}
+{"text": "Frontal v. scapular lateral raises", "gold": null, "pred": "biology", "confidence": 0.4733, "ood_score": -1339.82312, "uncertain": true}
+{"text": "finding HR zones", "gold": null, "pred": "biology", "confidence": 0.6573, "ood_score": -6953.83936, "uncertain": true}
+{"text": "How far out can estimated basal metabolic rate and exercise expenditure be?", "gold": null, "pred": "biology", "confidence": 0.9387, "ood_score": -1120.33496, "uncertain": false}
+{"text": "What is a good interval workout for a HS freshman?", "gold": null, "pred": "sports", "confidence": 0.9712, "ood_score": -1955.60815, "uncertain": false}
+{"text": "Can you review my current plan?", "gold": null, "pred": "science", "confidence": 0.8658, "ood_score": -5670.06445, "uncertain": true}
+{"text": "When should you do warm-up sets?", "gold": null, "pred": "sports", "confidence": 0.7943, "ood_score": -9560.87598, "uncertain": true}
+{"text": "Mitigating health risks relate to fat through cardio-induced caloric balance", "gold": null, "pred": "biology", "confidence": 0.7518, "ood_score": -1953.26697, "uncertain": false}
+{"text": "Protein for muscle growth", "gold": null, "pred": "biology", "confidence": 0.8884, "ood_score": -1122.33777, "uncertain": false}
+{"text": "Are adjustable dumbbells similar to non-adjustable lifting weights?", "gold": null, "pred": "sports", "confidence": 0.8469, "ood_score": -2450.0271, "uncertain": false}
+{"text": "Rehab Program Review", "gold": null, "pred": "biology", "confidence": 0.333, "ood_score": -4671.01758, "uncertain": true}
+{"text": "best prep for Grand Canyon backpacking", "gold": null, "pred": "sports", "confidence": 0.9309, "ood_score": -10902.41406, "uncertain": true}
+{"text": "Lying tricep extension ROM", "gold": null, "pred": "technology", "confidence": 0.5513, "ood_score": -6348.14648, "uncertain": true}
+{"text": "Seeking Advice, muscle gain while losing weight", "gold": null, "pred": "biology", "confidence": 0.7442, "ood_score": -3399.60986, "uncertain": false}
+{"text": "How do I objectively measure whether my squat form is improving week to week?", "gold": null, "pred": "sports", "confidence": 0.7588, "ood_score": -3990.51367, "uncertain": false}
+{"text": "Rating of my split", "gold": null, "pred": "sports", "confidence": 0.3778, "ood_score": -6211.2627, "uncertain": true}
+{"text": "I'm currently injured. Can I break 18 minutes for a 5K during cross country?", "gold": null, "pred": "sports", "confidence": 0.9715, "ood_score": -902.35547, "uncertain": false}
+{"text": "Can a skinny person becomes muscular?", "gold": null, "pred": "biology", "confidence": 0.507, "ood_score": -5533.9541, "uncertain": true}
+{"text": "Anyone else train way better when someone else is \"counting\" on you?", "gold": null, "pred": "technology", "confidence": 0.7943, "ood_score": -8119.96289, "uncertain": true}
+{"text": "When calculating heart rate zones for an activity, should we use the max heart rate for the same activity, or the max from all activities?", "gold": null, "pred": "science", "confidence": 0.546, "ood_score": -5034.33887, "uncertain": true}
+{"text": "Maximising training for MTB riding with an exercise bike", "gold": null, "pred": "sports", "confidence": 0.5567, "ood_score": -2536.42603, "uncertain": false}
+{"text": "Can you review my workout program?", "gold": null, "pred": "sports", "confidence": 0.4723, "ood_score": -7708.45361, "uncertain": true}
+{"text": "Single arm Bicep Curls & Hammer Curls - avoiding back strain while doing Train to Failure", "gold": null, "pred": "sports", "confidence": 0.9067, "ood_score": -2123.03979, "uncertain": false}
+{"text": "Tier 2 exercises in GZCLP workout routine", "gold": null, "pred": "sports", "confidence": 0.949, "ood_score": -2397.59033, "uncertain": false}
+{"text": "Myth or Truth? : Heavier dumbells make a woman muscular, lighter weights with more repetition make her leaner", "gold": null, "pred": "sports", "confidence": 0.7663, "ood_score": -1156.34033, "uncertain": false}
+{"text": "I am finding Starting Strength too intense. What to do?", "gold": null, "pred": "sports", "confidence": 0.5274, "ood_score": -4397.36133, "uncertain": false}
+{"text": "Squats for aching lower back", "gold": null, "pred": "sports", "confidence": 0.9469, "ood_score": -2653.09033, "uncertain": false}
+{"text": "Canvas boxing bag pros and cons?", "gold": null, "pred": "sports", "confidence": 0.9183, "ood_score": -2568.94482, "uncertain": false}
+{"text": "Effect of Weight on 5k Running Pace - Does it Matter if it is Muscle or Fat?", "gold": null, "pred": "sports", "confidence": 0.7062, "ood_score": -2380.27124, "uncertain": false}
+{"text": "On this machine is the bar scored as 20 pounds?", "gold": null, "pred": "sports", "confidence": 0.9788, "ood_score": -749.49945, "uncertain": false}
+{"text": "Mobility training and Neuromuscolar training books to read", "gold": null, "pred": "books", "confidence": 0.5402, "ood_score": -2259.57812, "uncertain": false}
+{"text": "Is there a \"normalized speed\" or similar multi-dimension score in running?", "gold": null, "pred": "technology", "confidence": 0.6656, "ood_score": -1862.77979, "uncertain": false}
+{"text": "How to optimize daily running and dumbbell training for a weight loss plateau under constrained home dietary conditions?", "gold": null, "pred": "sports", "confidence": 0.7621, "ood_score": -1856.27014, "uncertain": false}
+{"text": "Is it harmful to one's health to skip breakfast?", "gold": null, "pred": "biology", "confidence": 0.5753, "ood_score": -6370.05176, "uncertain": true}
+{"text": "Does running reduce strength gains from weightlifting?", "gold": null, "pred": "sports", "confidence": 0.9241, "ood_score": -1790.823, "uncertain": false}
+{"text": "How to use a Garmin watch for an interval run?", "gold": null, "pred": "technology", "confidence": 0.3827, "ood_score": -6873.91992, "uncertain": true}
+{"text": "Vegan Wide Toebox Lifting Shoes", "gold": null, "pred": "sports", "confidence": 0.9498, "ood_score": -2441.93164, "uncertain": false}
+{"text": "Preparing to move a 9 foot house plant", "gold": null, "pred": "biology", "confidence": 0.9784, "ood_score": -2814.93311, "uncertain": false}
+{"text": "Help, I think I doomed my ash tree", "gold": null, "pred": "books", "confidence": 0.7652, "ood_score": -8596.2168, "uncertain": true}
+{"text": "Growing Large Onions in a container", "gold": null, "pred": "biology", "confidence": 0.738, "ood_score": -6234.22754, "uncertain": true}
+{"text": "Where are my prarie blazing stars, liatris pycnostachya? Why are they not thriving?", "gold": null, "pred": "books", "confidence": 0.6314, "ood_score": -4325.52832, "uncertain": false}
+{"text": "Grow light bulbs in bathroom to grow tillandsia?", "gold": null, "pred": "biology", "confidence": 0.9622, "ood_score": -4453.52197, "uncertain": false}
+{"text": "Why do people remove leaves that fall from trees?", "gold": null, "pred": "biology", "confidence": 0.9736, "ood_score": -2295.42578, "uncertain": false}
+{"text": "Coconut tree hollow at the base", "gold": null, "pred": "sports", "confidence": 0.7502, "ood_score": -6655.35156, "uncertain": true}
+{"text": "What is this large leaf multi-colored houseplant?", "gold": null, "pred": "chemistry", "confidence": 0.4802, "ood_score": -2523.29346, "uncertain": true}
+{"text": "How much of a root system does a trellised plant need?", "gold": null, "pred": "biology", "confidence": 0.9752, "ood_score": -1742.48438, "uncertain": false}
+{"text": "When is best time to transplant an indoor raised Rose of Sharon Plant?", "gold": null, "pred": "biology", "confidence": 0.9577, "ood_score": -3860.17529, "uncertain": false}
+{"text": "What happened to this palm tree?", "gold": null, "pred": "biology", "confidence": 0.4342, "ood_score": -5731.87891, "uncertain": true}
+{"text": "What are these white patches on my lawn?", "gold": null, "pred": "biology", "confidence": 0.8246, "ood_score": -4316.64062, "uncertain": false}
+{"text": "How to help an avocado plant recover from.cold shock", "gold": null, "pred": "biology", "confidence": 0.8686, "ood_score": -4709.80664, "uncertain": true}
+{"text": "Ficus Elastica How to trim it is too tall!", "gold": null, "pred": "biology", "confidence": 0.7436, "ood_score": -4669.20215, "uncertain": true}
+{"text": "Night Blooming Jasmine Care", "gold": null, "pred": "books", "confidence": 0.9372, "ood_score": -1342.04626, "uncertain": false}
+{"text": "How to cut this lemon bush to become a tree?", "gold": null, "pred": "biology", "confidence": 0.362, "ood_score": -12596.71875, "uncertain": true}
+{"text": "Recommend a tobacco strain?", "gold": null, "pred": "chemistry", "confidence": 0.3303, "ood_score": -6999.23535, "uncertain": true}
+{"text": "pruning a dual trunk apple tree", "gold": null, "pred": "biology", "confidence": 0.4329, "ood_score": -4902.99512, "uncertain": true}
+{"text": "Younger Burr oak has a bent leader", "gold": null, "pred": "books", "confidence": 0.4258, "ood_score": -2033.12097, "uncertain": true}
+{"text": "Raised cedar planter box, liner or not", "gold": null, "pred": "biology", "confidence": 0.6136, "ood_score": -7592.19336, "uncertain": true}
+{"text": "Parts of my lawn have turned yellow", "gold": null, "pred": "biology", "confidence": 0.911, "ood_score": -4377.07861, "uncertain": false}
+{"text": "What are the best low-maintenance landscaping options for a backyard in Las Vegas?", "gold": null, "pred": "biology", "confidence": 0.792, "ood_score": -8375.68945, "uncertain": true}
+{"text": "Very tall bamboo, all leaves on shoots turned and removed, except the top of shoots", "gold": null, "pred": "biology", "confidence": 0.8872, "ood_score": -2013.71423, "uncertain": false}
+{"text": "is it OK to use Halts (pendimethalin) in garden beds?", "gold": null, "pred": "science", "confidence": 0.2346, "ood_score": -7376.44922, "uncertain": true}
+{"text": "Frost/cold tolerance of Calendula officinalis as seedlings?", "gold": null, "pred": "biology", "confidence": 0.9415, "ood_score": -1139.93567, "uncertain": false}
+{"text": "Avocado leaves drying up and falling off", "gold": null, "pred": "biology", "confidence": 0.8511, "ood_score": -3309.28491, "uncertain": false}
+{"text": "Protecting peonies from late freeze", "gold": null, "pred": "biology", "confidence": 0.6298, "ood_score": -4186.15283, "uncertain": false}
+{"text": "amdro in soil for veg garden", "gold": null, "pred": "biology", "confidence": 0.5451, "ood_score": -1793.22205, "uncertain": false}
+{"text": "I have thornless red raspberries in 2 large planters. 1 sets full berries, the other only partial berries that crumble-why?", "gold": null, "pred": "biology", "confidence": 0.7438, "ood_score": -6862.40039, "uncertain": true}
+{"text": "Many Pups Living in Aloe Container", "gold": null, "pred": "biology", "confidence": 0.8285, "ood_score": -2356.25586, "uncertain": false}
+{"text": "Salt build up overnight on indoor Jade plant", "gold": null, "pred": "biology", "confidence": 0.8114, "ood_score": -2668.84302, "uncertain": false}
+{"text": "My sad looking gardenia is infested, can I cut way back", "gold": null, "pred": "biology", "confidence": 0.768, "ood_score": -7698.54395, "uncertain": true}
+{"text": "How to calculate rose fertilizer from area to plant", "gold": null, "pred": "biology", "confidence": 0.9516, "ood_score": -6056.45215, "uncertain": true}
+{"text": "Flower with leaves turning partially brown/yellow", "gold": null, "pred": "biology", "confidence": 0.8394, "ood_score": -2327.11816, "uncertain": false}
+{"text": "I applied nemetodes 2 weeks ago. Now each morning I find many leather jackets on the path and patio", "gold": null, "pred": "chemistry", "confidence": 0.4559, "ood_score": -4959.8501, "uncertain": true}
+{"text": "How can I render my dog's waste safe for use in the garden?", "gold": null, "pred": "biology", "confidence": 0.5974, "ood_score": -8899.09473, "uncertain": true}
+{"text": "What are my non-chemical options for controlling the tick population?", "gold": null, "pred": "biology", "confidence": 0.7098, "ood_score": -1479.54248, "uncertain": false}
+{"text": "What chemical tick control solutions have the least impact on overall ecology?", "gold": null, "pred": "biology", "confidence": 0.9605, "ood_score": -224.64627, "uncertain": false}
+{"text": "Did I root this japanese sweet potato upside down?", "gold": null, "pred": "chemistry", "confidence": 0.8131, "ood_score": -5181.77588, "uncertain": true}
+{"text": "Monstera Some yellow brown spots, and increasing light yellow spots", "gold": null, "pred": "biology", "confidence": 0.9254, "ood_score": -1700.85913, "uncertain": false}
+{"text": "Should I separate the keiki from the mother plant, particularly if the mother seems to be suffering?", "gold": null, "pred": "biology", "confidence": 0.969, "ood_score": -4347.4209, "uncertain": false}
+{"text": "My live oak is dying and has several bare branches. Why?", "gold": null, "pred": "biology", "confidence": 0.9838, "ood_score": -4350.13525, "uncertain": false}
+{"text": "Trying to fix brown spots in lawn from using vinegar to kill dandelions", "gold": null, "pred": "biology", "confidence": 0.708, "ood_score": -1322.85254, "uncertain": false}
+{"text": "Is my hedge/plant dying?", "gold": null, "pred": "biology", "confidence": 0.9738, "ood_score": -2234.03809, "uncertain": false}
+{"text": "Unhealthy camellia with browning leaves", "gold": null, "pred": "biology", "confidence": 0.6552, "ood_score": -2398.4209, "uncertain": false}
+{"text": "Do topical treatments applied during flowering stage enter the fruit (chilli)", "gold": null, "pred": "biology", "confidence": 0.9464, "ood_score": -1505.33887, "uncertain": false}
+{"text": "What's causing the dark blotches on my camellia?", "gold": null, "pred": "books", "confidence": 0.6456, "ood_score": -5799.5752, "uncertain": true}
+{"text": "How should I handle my nectarine tree?", "gold": null, "pred": "biology", "confidence": 0.9699, "ood_score": -5431.67188, "uncertain": true}
+{"text": "What is this possibly edible plant?", "gold": null, "pred": "biology", "confidence": 0.7654, "ood_score": -2812.4939, "uncertain": false}
+{"text": "My backyard grass is not growing", "gold": null, "pred": "biology", "confidence": 0.915, "ood_score": -5257.82324, "uncertain": true}
+{"text": "Potted peonies damaged by nearby construction last year - how to help them recover?", "gold": null, "pred": "history", "confidence": 0.8602, "ood_score": -4474.28125, "uncertain": false}
+{"text": "What is causing the yellow discoloration with this hosta plant", "gold": null, "pred": "biology", "confidence": 0.9087, "ood_score": -619.46954, "uncertain": false}
+{"text": "Can I save my nectarine tree fruits?", "gold": null, "pred": "biology", "confidence": 0.9294, "ood_score": -5565.88184, "uncertain": true}
+{"text": "Which trees are self-pollinating", "gold": null, "pred": "biology", "confidence": 0.9541, "ood_score": -956.73145, "uncertain": false}
+{"text": "Is this tree dead", "gold": null, "pred": "biology", "confidence": 0.6828, "ood_score": -12584.61328, "uncertain": true}
+{"text": "Reusing & refreshing container garden soil by adding Miracle Gro All Purpose Plant Food?", "gold": null, "pred": "biology", "confidence": 0.9742, "ood_score": -1407.00732, "uncertain": false}
+{"text": "What is this small citrus plant?", "gold": null, "pred": "biology", "confidence": 0.8809, "ood_score": -3133.34521, "uncertain": false}
+{"text": "Can you root cuttings with flowers on stems?", "gold": null, "pred": "biology", "confidence": 0.8753, "ood_score": -4930.61621, "uncertain": true}
+{"text": "Can I help this tree?", "gold": null, "pred": "biology", "confidence": 0.7832, "ood_score": -11586.60352, "uncertain": true}
+{"text": "Random Patio Design Using Mixed Slabs Size Creates Inconsistent Spacing & Gaps", "gold": null, "pred": "biology", "confidence": 0.422, "ood_score": -4006.11597, "uncertain": true}
+{"text": "Is the Worx leaf mulcher the easiest way to chop up a LOT of oak leaves?", "gold": null, "pred": "biology", "confidence": 0.9785, "ood_score": -3100.81372, "uncertain": false}
+{"text": "What is wrong with my geranium plant?", "gold": null, "pred": "biology", "confidence": 0.8588, "ood_score": -4062.76709, "uncertain": false}
+{"text": "Why is my plant losing so many leaves?", "gold": null, "pred": "biology", "confidence": 0.9612, "ood_score": -1916.06201, "uncertain": false}
+{"text": "Barhi Date Palm not growing", "gold": null, "pred": "history", "confidence": 0.62, "ood_score": -5424.32666, "uncertain": true}
+{"text": "Why is my Physialis peruviana (Cape gooseberry) dropping flower (-body) soon after pollination?", "gold": null, "pred": "biology", "confidence": 0.92, "ood_score": -1049.99536, "uncertain": false}
+{"text": "How to save this peace lily?", "gold": null, "pred": "biology", "confidence": 0.8377, "ood_score": -7306.38477, "uncertain": true}
+{"text": "Yellow leaves with green spots on apple tree", "gold": null, "pred": "biology", "confidence": 0.8918, "ood_score": -2121.59033, "uncertain": false}
+{"text": "Dead main trunk with new shoots at the bottom: Cut the trunk?", "gold": null, "pred": "sports", "confidence": 0.9423, "ood_score": -1682.11646, "uncertain": false}
+{"text": "What kind of fence is best for keeping small animals out of a backyard?", "gold": null, "pred": "biology", "confidence": 0.7517, "ood_score": -4470.13477, "uncertain": false}
+{"text": "What's wrong with my jasmin?", "gold": null, "pred": "books", "confidence": 0.5533, "ood_score": -9602.49805, "uncertain": true}
+{"text": "Do dandelions help or inhibit the growth of white clover?", "gold": null, "pred": "biology", "confidence": 0.9312, "ood_score": -1986.63916, "uncertain": false}
+{"text": "Irrigation use numbers on the app are confusing", "gold": null, "pred": "technology", "confidence": 0.5385, "ood_score": -4424.00879, "uncertain": false}
+{"text": "At what age is it optimal to repot plants?", "gold": null, "pred": "biology", "confidence": 0.9842, "ood_score": -1632.02051, "uncertain": false}
+{"text": "“Why are my basil leaves transparent?”", "gold": null, "pred": "science", "confidence": 0.5466, "ood_score": -5373.27881, "uncertain": true}
+{"text": "Early blight is affecting my tomatoes - how long after lesions appear should I scrap the whole plant instead of trimming leaves?", "gold": null, "pred": "biology", "confidence": 0.9497, "ood_score": -1837.29736, "uncertain": false}
+{"text": "Is this sun/heat damage?", "gold": null, "pred": "physics", "confidence": 0.6802, "ood_score": -2729.97559, "uncertain": false}
+{"text": "Huge raccoon in my backyard", "gold": null, "pred": "biology", "confidence": 0.5163, "ood_score": -4390.66797, "uncertain": false}
+{"text": "Should the deadwood of this pine tree be trimmed?", "gold": null, "pred": "biology", "confidence": 0.9312, "ood_score": -7238.18701, "uncertain": true}
+{"text": "Help with filling spaces on rockery with low ground cover in the north west of england", "gold": null, "pred": "sports", "confidence": 0.9395, "ood_score": -4961.30273, "uncertain": true}
+{"text": "Watering the garden in Mediterranean summer - what's the best time and why, scientifically speaking?", "gold": null, "pred": "science", "confidence": 0.5333, "ood_score": -4815.22021, "uncertain": true}
+{"text": "Orange tree planted in clay soil/sandstone", "gold": null, "pred": "biology", "confidence": 0.8236, "ood_score": -2661.34375, "uncertain": false}
+{"text": "Asteraceae identification?", "gold": null, "pred": "biology", "confidence": 0.8955, "ood_score": -1135.45215, "uncertain": false}
+{"text": "Why is my lawn not germinating?", "gold": null, "pred": "biology", "confidence": 0.9152, "ood_score": -2185.36816, "uncertain": false}
+{"text": "Why are my horsetail plants dying?", "gold": null, "pred": "biology", "confidence": 0.9707, "ood_score": -1215.49878, "uncertain": false}
+{"text": "Conifer growth time to 15ft: bareroot vs. potted vs. ball&burlap", "gold": null, "pred": "sports", "confidence": 0.9421, "ood_score": -1487.37585, "uncertain": false}
+{"text": "50 year old tree, unknown type - should I raise/add dirt around trunk?", "gold": null, "pred": "biology", "confidence": 0.9552, "ood_score": -7103.92871, "uncertain": true}
+{"text": "What might be phytophthora has killed a lot of our trees among ten years. Will a treatment with phosphites be enough?", "gold": null, "pred": "biology", "confidence": 0.8864, "ood_score": -701.62598, "uncertain": false}
+{"text": "Rose of Sharon issues", "gold": null, "pred": "books", "confidence": 0.9158, "ood_score": -1667.81445, "uncertain": false}
+{"text": "Is this shrub dead or dying?", "gold": null, "pred": "biology", "confidence": 0.8927, "ood_score": -11061.49707, "uncertain": true}
+{"text": "Silver maple sawdust", "gold": null, "pred": "chemistry", "confidence": 0.9551, "ood_score": -6301.48242, "uncertain": true}
+{"text": "To what use can I put the bark from my acer griseum?", "gold": null, "pred": "chemistry", "confidence": 0.6331, "ood_score": -3817.56055, "uncertain": false}
+{"text": "What happened to those trees?", "gold": null, "pred": "biology", "confidence": 0.508, "ood_score": -4284.03467, "uncertain": false}
+{"text": "What weed(?) is this with round lobed leaves?", "gold": null, "pred": "biology", "confidence": 0.8853, "ood_score": -2267.41919, "uncertain": false}
+{"text": "Help- avocado plant looks like it’s dying", "gold": null, "pred": "biology", "confidence": 0.5213, "ood_score": -5558.55957, "uncertain": true}
+{"text": "I need to reduce the height of this bush", "gold": null, "pred": "biology", "confidence": 0.6673, "ood_score": -10116.60645, "uncertain": true}
+{"text": "What is this nut bearing tree in Southern Ontario?", "gold": null, "pred": "sports", "confidence": 0.4168, "ood_score": -6962.83154, "uncertain": true}
+{"text": "When do crabgrass seeds mature?", "gold": null, "pred": "biology", "confidence": 0.9575, "ood_score": -611.25, "uncertain": false}
+{"text": "Blueberry in pot. What to do in winter?", "gold": null, "pred": "chemistry", "confidence": 0.3486, "ood_score": -4770.74609, "uncertain": true}
+{"text": "Insect Identification - Similar shape to ladybug but silver", "gold": null, "pred": "biology", "confidence": 0.758, "ood_score": -1698.89917, "uncertain": false}
+{"text": "What is best practice for maintaining a healthy lawn", "gold": null, "pred": "biology", "confidence": 0.8845, "ood_score": -3736.50513, "uncertain": false}
+{"text": "Is it reasonable to see myself being able to afford an 8,000-10,000 car at 18?", "gold": null, "pred": "science", "confidence": 0.4355, "ood_score": -11231.17383, "uncertain": true}
+{"text": "How should we calculate taxes on the sale of gifted gold coins?", "gold": null, "pred": "sports", "confidence": 0.7439, "ood_score": -6990.8623, "uncertain": true}
+{"text": "How can one donate to a state and have that be federally deductible?", "gold": null, "pred": "science", "confidence": 0.6453, "ood_score": -9401.3457, "uncertain": true}
+{"text": "Nonresident alien with U.S.-source §988 gain: ECI, FDAP, or not taxable?", "gold": null, "pred": "science", "confidence": 0.7918, "ood_score": -6178.67773, "uncertain": true}
+{"text": "Stock disappeared from Google Finance", "gold": null, "pred": "technology", "confidence": 0.9314, "ood_score": -5991.70215, "uncertain": true}
+{"text": "Is someone asking me, online, to write an invitation letter for their visa application, a scam?", "gold": null, "pred": "science", "confidence": 0.3601, "ood_score": -5043.57031, "uncertain": true}
+{"text": "I am told by Delhi airport that my friend from London is struck with a DD worth of 80000 and is to be released by paying cost of wire transfer?", "gold": null, "pred": "sports", "confidence": 0.4325, "ood_score": -3705.38818, "uncertain": true}
+{"text": "Entering and departing countries with valuable jewelry", "gold": null, "pred": "history", "confidence": 0.7454, "ood_score": -3136.39062, "uncertain": false}
+{"text": "In considering asset allocation, should one take into account the buy-low/sell-high principle?", "gold": null, "pred": "sports", "confidence": 0.3426, "ood_score": -3886.9021, "uncertain": true}
+{"text": "Buy-and-hold investors: how do you track gains excluding DRIP? Any CSV/Python workaround?", "gold": null, "pred": "technology", "confidence": 0.6137, "ood_score": -2575.82275, "uncertain": false}
+{"text": "How do capital loss carryovers from previous years affect ACA (Marketplace) and Medicaid eligibility?", "gold": null, "pred": "technology", "confidence": 0.4369, "ood_score": -3805.34082, "uncertain": true}
+{"text": "How do deposit-secured loans make any sense?", "gold": null, "pred": "science", "confidence": 0.2593, "ood_score": -5513.6709, "uncertain": true}
+{"text": "If stopped working midyear, should I still check 'still work at ' when filing tax?", "gold": null, "pred": "technology", "confidence": 0.9205, "ood_score": -6455.10254, "uncertain": true}
+{"text": "Any potential issue with filing US tax with TurboTax but NOT agreeing to share data?", "gold": null, "pred": "technology", "confidence": 0.9179, "ood_score": -1815.35132, "uncertain": false}
+{"text": "Can I write off my YouTube startup costs as my company expenses?", "gold": null, "pred": "technology", "confidence": 0.9541, "ood_score": -2247.15015, "uncertain": false}
+{"text": "How to reduce tax impact after selling a huge amount of stock", "gold": null, "pred": "science", "confidence": 0.3977, "ood_score": -7705.44678, "uncertain": true}
+{"text": "Can you withdraw Roth contributions tax- and penalty-free from a 403(b), like from a Roth IRA?", "gold": null, "pred": "science", "confidence": 0.5509, "ood_score": -7965.83057, "uncertain": true}
+{"text": "Unauthorized Withdrawal After Sharing Bank Details: Questions on Risk and Prevention", "gold": null, "pred": "science", "confidence": 0.4289, "ood_score": -4364.86719, "uncertain": true}
+{"text": "How should I split my monthly income between savings, expenses, and investments?", "gold": null, "pred": "science", "confidence": 0.8388, "ood_score": -9261.00195, "uncertain": true}
+{"text": "How to handle solo 401k contribution limits across two self-employment entities?", "gold": null, "pred": "technology", "confidence": 0.5608, "ood_score": -6492.84277, "uncertain": true}
+{"text": "Claiming standard deduction when in the country for half a year", "gold": null, "pred": "science", "confidence": 0.7049, "ood_score": -3009.3623, "uncertain": false}
+{"text": "What role does the impact of inflation have on retirement planning?", "gold": null, "pred": "science", "confidence": 0.313, "ood_score": -3719.15381, "uncertain": true}
+{"text": "Why do people invest in a preferred stock when the sales terms are not profitable?", "gold": null, "pred": "technology", "confidence": 0.5921, "ood_score": -4009.86963, "uncertain": false}
+{"text": "Can I recover this money?", "gold": null, "pred": "sports", "confidence": 0.5457, "ood_score": -15796.33008, "uncertain": true}
+{"text": "How do I account for Buying Groups spending on my taxes?", "gold": null, "pred": "science", "confidence": 0.3612, "ood_score": -6662.87109, "uncertain": true}
+{"text": "Should my mother in law get a reverse mortgage for income and fund a Roth IRA?", "gold": null, "pred": "sports", "confidence": 0.4246, "ood_score": -16085.78223, "uncertain": true}
+{"text": "If there is no enforcement on the law of one price, how will it hold?", "gold": null, "pred": "sports", "confidence": 0.4536, "ood_score": -6626.58105, "uncertain": true}
+{"text": "Does it make sense to reduce 401(k) contributions if future employer has a better match?", "gold": null, "pred": "science", "confidence": 0.3836, "ood_score": -5628.41455, "uncertain": true}
+{"text": "Is a dealer offering a rebate for financing a car a red flag?", "gold": null, "pred": "sports", "confidence": 0.4361, "ood_score": -10367.62598, "uncertain": true}
+{"text": "Why would an HSA company mandate a third party linking service for reimburements?", "gold": null, "pred": "science", "confidence": 0.7556, "ood_score": -3286.83838, "uncertain": false}
+{"text": "How can I transfer money from Wise account to bank account without fee?", "gold": null, "pred": "technology", "confidence": 0.869, "ood_score": -5015.40869, "uncertain": true}
+{"text": "Can the 3k tax deduction limit on stock losses be exceeded if the losses originated from non-qualified stock options?", "gold": null, "pred": "technology", "confidence": 0.5271, "ood_score": -4871.99805, "uncertain": true}
+{"text": "Purge and Archive Transactions prior to a specific date", "gold": null, "pred": "technology", "confidence": 0.9409, "ood_score": -2491.65869, "uncertain": false}
+{"text": "Income tax: How are pre-tax funds deducted from earnings?", "gold": null, "pred": "technology", "confidence": 0.6018, "ood_score": -5585.87207, "uncertain": true}
+{"text": "Can company choose not to pay for my \"retirement\" account even though I worked all of 2025?", "gold": null, "pred": "science", "confidence": 0.3858, "ood_score": -5490.00977, "uncertain": true}
+{"text": "Should I lower my post-tax or pre-tax contributions to my 401k?", "gold": null, "pred": "science", "confidence": 0.3824, "ood_score": -7958.93604, "uncertain": true}
+{"text": "Can an IRA custodian refuse to allow partial withdrawals?", "gold": null, "pred": "history", "confidence": 0.4026, "ood_score": -6127.82373, "uncertain": true}
+{"text": "In 2025 tax return, should I use numbers from the original or amended 2024 return if 2024 amendmend is not accepted yet?", "gold": null, "pred": "science", "confidence": 0.9265, "ood_score": -5032.13037, "uncertain": true}
+{"text": "Does the water heater tax rebate include the cost of removing the old system?", "gold": null, "pred": "science", "confidence": 0.3726, "ood_score": -6134.29102, "uncertain": true}
+{"text": "How can I accurately calculate compound interest without using Excel?", "gold": null, "pred": "science", "confidence": 0.4575, "ood_score": -4924.31152, "uncertain": true}
+{"text": "Can a resting limit order be matched only by a market order, or also by an opposite side limit order?", "gold": null, "pred": "physics", "confidence": 0.46, "ood_score": -2960.48877, "uncertain": true}
+{"text": "Is there a Federal tax credit for providing financial assistance to a special needs family member?", "gold": null, "pred": "science", "confidence": 0.2809, "ood_score": -5577.54785, "uncertain": true}
+{"text": "How is the composite rate for Series I bonds applied?", "gold": null, "pred": "chemistry", "confidence": 0.9312, "ood_score": -658.10876, "uncertain": false}
+{"text": "Can a stock be “overvalued” on its own but still be the rational best choice for a portfolio?", "gold": null, "pred": "technology", "confidence": 0.4077, "ood_score": -5465.81543, "uncertain": true}
+{"text": "Where can I find a daily exchange rate from EUR to USD that the IRS accepts?", "gold": null, "pred": "history", "confidence": 0.4147, "ood_score": -4357.79492, "uncertain": true}
+{"text": "Is there a Federal tax credit for providing financial assistance to a family member?", "gold": null, "pred": "biology", "confidence": 0.2327, "ood_score": -6007.75195, "uncertain": true}
+{"text": "What should I verify on my W4 if I'm claiming 0 but still underwitholding?", "gold": null, "pred": "technology", "confidence": 0.8777, "ood_score": -6918.08301, "uncertain": true}
+{"text": "Can a UK citizen spouse pay off my existing HELOC?", "gold": null, "pred": "sports", "confidence": 0.6901, "ood_score": -9829.33789, "uncertain": true}
+{"text": "ETF tracks named index, brand owner changes meaning of that name, how is the conflict resolved?", "gold": null, "pred": "technology", "confidence": 0.9184, "ood_score": -1750.65979, "uncertain": false}
+{"text": "Does an EU ISIN lookup/standard exist that explains brokers decisions in protecting inexperienced customers?", "gold": null, "pred": "technology", "confidence": 0.6973, "ood_score": -1498.10327, "uncertain": false}
+{"text": "Rule of 55 with a 401(k) plan with mixed Roth and 401k contributions", "gold": null, "pred": "sports", "confidence": 0.8263, "ood_score": -6515.46777, "uncertain": true}
+{"text": "How to figure the basis for this redemption?", "gold": null, "pred": "books", "confidence": 0.6934, "ood_score": -9636.70703, "uncertain": true}
+{"text": "Does donating shares to charity reduce my Adjusted Net Income?", "gold": null, "pred": "science", "confidence": 0.5578, "ood_score": -4167.47363, "uncertain": false}
+{"text": "Is There A Limit For After Tax 401K Contributions?", "gold": null, "pred": "biology", "confidence": 0.3565, "ood_score": -11230.30469, "uncertain": true}
+{"text": "How can I sell old shares?", "gold": null, "pred": "sports", "confidence": 0.4405, "ood_score": -10103.95898, "uncertain": true}
+{"text": "Accidental dividend overpayment received - do I have to return it?", "gold": null, "pred": "science", "confidence": 0.3145, "ood_score": -12378.69922, "uncertain": true}
+{"text": "How can I privately insure against bank going bankrupt?", "gold": null, "pred": "sports", "confidence": 0.4008, "ood_score": -9135.75586, "uncertain": true}
+{"text": "Are UK pension overpayments recoverable where the pension scheme itself calculated and confirmed the amount?", "gold": null, "pred": "sports", "confidence": 0.8297, "ood_score": -3232.69824, "uncertain": false}
+{"text": "How to count transactions for time period in GNU Cash", "gold": null, "pred": "technology", "confidence": 0.8037, "ood_score": -6310.51855, "uncertain": true}
+{"text": "Backdoor Roth IRA Conversion Taxes", "gold": null, "pred": "chemistry", "confidence": 0.2894, "ood_score": -9016.23633, "uncertain": true}
+{"text": "Is this charge from \"Gain Surge\" on a credit card legitimate?", "gold": null, "pred": "technology", "confidence": 0.815, "ood_score": -3957.48511, "uncertain": false}
+{"text": "Maxing Out 457(b) Alongside Employer Employee 401(k)", "gold": null, "pred": "sports", "confidence": 0.6294, "ood_score": -4149.95654, "uncertain": false}
+{"text": "How to recover proceeds from foreclosure sale after uncashed check was lost", "gold": null, "pred": "science", "confidence": 0.2983, "ood_score": -9589.47266, "uncertain": true}
+{"text": "When selling an investment for tax-loss harvesting does the holding period matter for the investment that lost value?", "gold": null, "pred": "science", "confidence": 0.6106, "ood_score": -7680.01953, "uncertain": true}
+{"text": "Where can you *actually* sell silver near its price?", "gold": null, "pred": "chemistry", "confidence": 0.4679, "ood_score": -12997.11035, "uncertain": true}
+{"text": "What sensible/viable alternative investment strategies are there?", "gold": null, "pred": "science", "confidence": 0.2939, "ood_score": -6257.7041, "uncertain": true}
+{"text": "What is the problem with the following IRR calculation using XIRR formula in Google Sheet", "gold": null, "pred": "technology", "confidence": 0.5357, "ood_score": -2514.06885, "uncertain": false}
+{"text": "Funds appear to make information for investors deliberately difficult to access. Do they? If so, why?", "gold": null, "pred": "science", "confidence": 0.6344, "ood_score": -3343.22559, "uncertain": false}
+{"text": "Selling a stock and then selling a put and the wash rule", "gold": null, "pred": "sports", "confidence": 0.9164, "ood_score": -4307.43799, "uncertain": false}
+{"text": "Financial implications of paying off the equity on my parents property", "gold": null, "pred": "biology", "confidence": 0.4418, "ood_score": -10703.70801, "uncertain": true}
+{"text": "Does subscribing to an IPO via multiple brokers increase the chance of receiving shares?", "gold": null, "pred": "technology", "confidence": 0.4358, "ood_score": -2923.11279, "uncertain": true}
+{"text": "Why can only US residents participate in some IPOs?", "gold": null, "pred": "technology", "confidence": 0.611, "ood_score": -2482.95654, "uncertain": false}
+{"text": "Settlement date for IPO in 2026", "gold": null, "pred": "science", "confidence": 0.5624, "ood_score": -4376.56201, "uncertain": false}
+{"text": "Since brokers make money by trading, why restrict on IPO trading?", "gold": null, "pred": "technology", "confidence": 0.6456, "ood_score": -2483.39697, "uncertain": false}
+{"text": "How can I do a wire transfer from Fidelity to Sofi?", "gold": null, "pred": "technology", "confidence": 0.9434, "ood_score": -2122.87012, "uncertain": false}
+{"text": "IPO stocks: does selling covered calls trigger the flipping rule?", "gold": null, "pred": "sports", "confidence": 0.9011, "ood_score": -1675.62708, "uncertain": false}
+{"text": "How does a business get money from investors?", "gold": null, "pred": "technology", "confidence": 0.4173, "ood_score": -5979.91064, "uncertain": true}
+{"text": "I own the land that a house was built on. What happens to the land if I can't pay the mortgage on the house that was built?", "gold": null, "pred": "biology", "confidence": 0.5629, "ood_score": -7333.12451, "uncertain": true}
+{"text": "Allocation of mortgage interest deduction between joint homeowners", "gold": null, "pred": "biology", "confidence": 0.324, "ood_score": -4971.73291, "uncertain": true}
+{"text": "How to react to debt collection claim when the delay in payment is the creditor's fault?", "gold": null, "pred": "technology", "confidence": 0.3783, "ood_score": -6703.35254, "uncertain": true}
+{"text": "How can an international postgraduate dental student secure private US student loans without a US cosigner?", "gold": null, "pred": "science", "confidence": 0.3023, "ood_score": -4773.13477, "uncertain": true}
+{"text": "Refund for paying taxes on Social Security in foreign country", "gold": null, "pred": "history", "confidence": 0.5683, "ood_score": -5007.36914, "uncertain": true}
+{"text": "Scam involving withdrawing cash", "gold": null, "pred": "technology", "confidence": 0.4278, "ood_score": -6993.49023, "uncertain": true}
+{"text": "Why would scammer transfer me to a restricted phone number?", "gold": null, "pred": "technology", "confidence": 0.7838, "ood_score": -6256.75586, "uncertain": true}
+{"text": "Why can't I see an obvious compounding effect in accumulating vs distributing ETFs?", "gold": null, "pred": "technology", "confidence": 0.4235, "ood_score": -3058.18994, "uncertain": true}
+{"text": "How do I use a credit card without paying any interest?", "gold": null, "pred": "technology", "confidence": 0.6677, "ood_score": -6078.24121, "uncertain": true}
+{"text": "If a check is stolen, should the bank account be closed?", "gold": null, "pred": "sports", "confidence": 0.2958, "ood_score": -7756.7041, "uncertain": true}
+{"text": "How can I transfer an car loan and title into my daughter's name?", "gold": null, "pred": "history", "confidence": 0.3121, "ood_score": -12363.24121, "uncertain": true}
+{"text": "Earned 900 on the side, do I need to tell HMRC or does the 1,000 trading allowance cover me?", "gold": null, "pred": "sports", "confidence": 0.9196, "ood_score": -5630.42725, "uncertain": true}
+{"text": "Is there any downside to using tax-deferred account with the intent of terminating before maturity?", "gold": null, "pred": "technology", "confidence": 0.8946, "ood_score": -2986.91797, "uncertain": false}
+{"text": "How to handle unavailable information for Tax Return", "gold": null, "pred": "technology", "confidence": 0.6287, "ood_score": -8588.48145, "uncertain": true}
+{"text": "Why would a private investment fund set a “target maximum investment” per investor?", "gold": null, "pred": "sports", "confidence": 0.4791, "ood_score": -3933.54956, "uncertain": true}
+{"text": "How should I structure a monthly budget when my expenses vary significantly from month to month?", "gold": null, "pred": "science", "confidence": 0.6606, "ood_score": -5071.47656, "uncertain": true}
+{"text": "Will I be taxed if I bet at least 1 on a prediction market app?", "gold": null, "pred": "technology", "confidence": 0.4532, "ood_score": -4530.50439, "uncertain": true}
+{"text": "Do US credit card issuers take a loss on international transactions when offering no foreign transaction fees and no markup on the currency exchange?", "gold": null, "pred": "technology", "confidence": 0.7861, "ood_score": -2949.84814, "uncertain": false}
+{"text": "How can I completely remove GnuCash from my computer?", "gold": null, "pred": "technology", "confidence": 0.9439, "ood_score": -2659.5105, "uncertain": false}
+{"text": "Traditional IRA/401k to HSA Transfer", "gold": null, "pred": "history", "confidence": 0.2995, "ood_score": -5724.00098, "uncertain": true}
+{"text": "How to invest long-term when moving countries frequently?", "gold": null, "pred": "science", "confidence": 0.3133, "ood_score": -3431.2832, "uncertain": true}
+{"text": "Why would I ever not use instant wire transfer?", "gold": null, "pred": "technology", "confidence": 0.9646, "ood_score": -2026.34656, "uncertain": false}
+{"text": "How should an annual insurance payment be recorded in a monthly budget?", "gold": null, "pred": "science", "confidence": 0.7847, "ood_score": -3410.03271, "uncertain": false}
+{"text": "Why does Hugh Laurie have a unique American accent?", "gold": null, "pred": "books", "confidence": 0.96, "ood_score": -968.35107, "uncertain": false}
+{"text": "When was the Cambodian version of Krai Thong released, where Sinn Sisamouth and Ros Sereysothea sing?", "gold": null, "pred": "books", "confidence": 0.9295, "ood_score": -769.19891, "uncertain": false}
+{"text": "Which of The Witcher Franchise shows are based on the books?", "gold": null, "pred": "books", "confidence": 0.9296, "ood_score": -942.99768, "uncertain": false}
+{"text": "Did \"Johnny and the Honey-Hunters from Nepal\" exist?", "gold": null, "pred": "books", "confidence": 0.7786, "ood_score": -2703.36597, "uncertain": false}
+{"text": "Film (comedy) about a philosophy professor who \"sells himself into slavery\"", "gold": null, "pred": "books", "confidence": 0.7825, "ood_score": -842.40607, "uncertain": false}
+{"text": "Animated episode about a new classmate who does everything perfectly", "gold": null, "pred": "books", "confidence": 0.752, "ood_score": -766.84174, "uncertain": false}
+{"text": "Scene in old 1970's detective/police show with very early depiction of a laser-sighted rifle", "gold": null, "pred": "books", "confidence": 0.9345, "ood_score": -1437.80103, "uncertain": false}
+{"text": "East Asian action/thriller film (2015–2025) with a bridge chase scene involving an assassin and a dog", "gold": null, "pred": "books", "confidence": 0.9576, "ood_score": -484.23877, "uncertain": false}
+{"text": "Chinese drama where a man finds out his wife is cheating on him with a younger guy and leaves her after \"erasing\" his identity", "gold": null, "pred": "books", "confidence": 0.9724, "ood_score": -303.56631, "uncertain": false}
+{"text": "Which torture methods were used on Sam Lowry?", "gold": null, "pred": "sports", "confidence": 0.8941, "ood_score": -1705.14905, "uncertain": false}
+{"text": "Western movie with a violent, tyrant father who beats his sons and a conflict between two ranches", "gold": null, "pred": "books", "confidence": 0.974, "ood_score": -381.11676, "uncertain": false}
+{"text": "What is this computer in Gung Ho (1986)?", "gold": null, "pred": "technology", "confidence": 0.9686, "ood_score": -1178.94531, "uncertain": false}
+{"text": "Where were the Vietnam scenes filmed in Forrest Gump?", "gold": null, "pred": "history", "confidence": 0.613, "ood_score": -2548.90381, "uncertain": false}
+{"text": "In Charade (1963), why are the rare stamps shown with incorrect face values?", "gold": null, "pred": "science", "confidence": 0.3222, "ood_score": -7760.97949, "uncertain": true}
+{"text": "Soldiers on a mission die one by one; the lone survivor describes the army arriving to \"pick up one survivor\" in a voiceover", "gold": null, "pred": "books", "confidence": 0.9174, "ood_score": -347.99738, "uncertain": false}
+{"text": "Why second prize is specifically a set of steak knives?", "gold": null, "pred": "history", "confidence": 0.382, "ood_score": -5722.29102, "uncertain": true}
+{"text": "Identify two actors from Knight Rider pilot", "gold": null, "pred": "books", "confidence": 0.9658, "ood_score": -2529.50977, "uncertain": false}
+{"text": "How much of a true story is Cool Runnings?", "gold": null, "pred": "books", "confidence": 0.8931, "ood_score": -682.57843, "uncertain": false}
+{"text": "For how long was the Charlie Townsend actor's identity a mystery to the real-world audience?", "gold": null, "pred": "books", "confidence": 0.9549, "ood_score": -690.29395, "uncertain": false}
+{"text": "How were the studio portions of \"Fetch! With Ruff Ruffman\" filmed?", "gold": null, "pred": "books", "confidence": 0.5371, "ood_score": -3546.61987, "uncertain": false}
+{"text": "Is the song David Carradine performs in Project Eliminator an original work?", "gold": null, "pred": "books", "confidence": 0.4659, "ood_score": -1575.77393, "uncertain": true}
+{"text": "1970s US TV show with casual narration linking random topics in a meandering style", "gold": null, "pred": "books", "confidence": 0.4167, "ood_score": -939.51355, "uncertain": true}
+{"text": "90's sitcom episode where a guy remembers (and then forgets) calling a girl \"Lefty\"", "gold": null, "pred": "books", "confidence": 0.9075, "ood_score": -845.41443, "uncertain": false}
+{"text": "Identify TV movie - woman dresses as a man to prove discrimination in job hiring", "gold": null, "pred": "books", "confidence": 0.9273, "ood_score": -1736.86597, "uncertain": false}
+{"text": "At the very end of \"Diary of a Chambermaid,\" what does Joseph shout?", "gold": null, "pred": "books", "confidence": 0.8887, "ood_score": -363.53033, "uncertain": false}
+{"text": "Trying to identify a movie with a sailing ship that can't find a charted island?", "gold": null, "pred": "books", "confidence": 0.9881, "ood_score": -1981.76453, "uncertain": false}
+{"text": "What is the cassette tape format used in the movie Dangerous Love?", "gold": null, "pred": "books", "confidence": 0.9507, "ood_score": -1543.75452, "uncertain": false}
+{"text": "Strange anime with supernatural elements about a boy moving to a town and meeting a weird girl?", "gold": null, "pred": "books", "confidence": 0.9888, "ood_score": -624.45618, "uncertain": false}
+{"text": "Why does Inspector Gadget say \"exfundi iv duff vin vloof ib\"?", "gold": null, "pred": "books", "confidence": 0.5792, "ood_score": -4654.5415, "uncertain": true}
+{"text": "Shouldn't this gambler have won this roll?", "gold": null, "pred": "sports", "confidence": 0.9135, "ood_score": -4024.9646, "uncertain": false}
+{"text": "Is a willingness to smoke a consideration when casting an actor?", "gold": null, "pred": "books", "confidence": 0.751, "ood_score": -7394.06006, "uncertain": true}
+{"text": "80s–2000s movie—club bar scene where a couple signs a contract to hook up and they set the dos and don'ts", "gold": null, "pred": "books", "confidence": 0.4724, "ood_score": -665.71124, "uncertain": true}
+{"text": "Aladdin (1992): Why are Jafar’s wishes undone at the end?", "gold": null, "pred": "books", "confidence": 0.9348, "ood_score": -407.52789, "uncertain": false}
+{"text": "TV preacher who identified the antichrist", "gold": null, "pred": "books", "confidence": 0.8902, "ood_score": -1213.07642, "uncertain": false}
+{"text": "What did Stack snatch here?", "gold": null, "pred": "technology", "confidence": 0.5856, "ood_score": -6300.72656, "uncertain": true}
+{"text": "What is the title of this movie? (Song \"Il Faut Toujours Un Perdant\" by the famous singer Julio Iglesias)", "gold": null, "pred": "books", "confidence": 0.878, "ood_score": -743.93256, "uncertain": false}
+{"text": "What's Jonathan Auf Der Heide's nationality?", "gold": null, "pred": "books", "confidence": 0.7103, "ood_score": -1071.99976, "uncertain": true}
+{"text": "Identifying cartoon with dog protagonists", "gold": null, "pred": "books", "confidence": 0.981, "ood_score": -1858.16626, "uncertain": false}
+{"text": "WWII movie where besieged French soldier imagines he is eating bread and cheese", "gold": null, "pred": "books", "confidence": 0.9399, "ood_score": -526.87445, "uncertain": false}
+{"text": "Movie drama about a girl forced to study medicine who makes X-ray art", "gold": null, "pred": "books", "confidence": 0.954, "ood_score": -1128.65454, "uncertain": false}
+{"text": "TV movie where a woman kills her unseen stalker with a golf club, only to be revealed as a delusion she was enacting on herself", "gold": null, "pred": "books", "confidence": 0.9518, "ood_score": -522.56665, "uncertain": false}
+{"text": "In \"Raiders of the Lost Ark\", who are the eponymous \"Raiders\"?", "gold": null, "pred": "books", "confidence": 0.9589, "ood_score": -862.11304, "uncertain": false}
+{"text": "Why does Topher brag about “all reds” before the hand ends?", "gold": null, "pred": "sports", "confidence": 0.7771, "ood_score": -2107.56934, "uncertain": false}
+{"text": "Skinemax movie from the late 80s/early 90s about a male teacher home schooling two young women", "gold": null, "pred": "books", "confidence": 0.8994, "ood_score": -1566.58789, "uncertain": false}
+{"text": "Movie or TV episode where the villain electrocutes victims through the phone?", "gold": null, "pred": "books", "confidence": 0.9548, "ood_score": -2076.80103, "uncertain": false}
+{"text": "What did Rusty whisper to Saul?", "gold": null, "pred": "books", "confidence": 0.8887, "ood_score": -1062.13135, "uncertain": false}
+{"text": "How did the letter in Poirot's (and Agatha Christie's) \"Veiled Lady\" end up in the Chinese box?", "gold": null, "pred": "books", "confidence": 0.8982, "ood_score": -833.43121, "uncertain": false}
+{"text": "Why does this crew member take a photo of Kate Winslet's face and hands during a break in filming?", "gold": null, "pred": "sports", "confidence": 0.813, "ood_score": -1678.13037, "uncertain": false}
+{"text": "Why do Wint and Kidd kill all the smugglers in Diamonds Are Forever?", "gold": null, "pred": "books", "confidence": 0.9257, "ood_score": -4192.89111, "uncertain": false}
+{"text": "How did Tom Bishop convince stranger(s) to let him inside a random apartment, stand on the balcony, and wave to Nathan Muir in Spy Game?", "gold": null, "pred": "books", "confidence": 0.9655, "ood_score": -1041.31055, "uncertain": false}
+{"text": "What did Eddie Redmayne throw at the French lorry driver? Why did driver catch whatever object that Eddie Redmayne threw?", "gold": null, "pred": "history", "confidence": 0.7222, "ood_score": -2732.9187, "uncertain": false}
+{"text": "In broad daylight, in the outdoors, why turn on the flashlight attached to the M4 carbine?", "gold": null, "pred": "science", "confidence": 0.4886, "ood_score": -7999.91748, "uncertain": true}
+{"text": "Why is the German sailor in The Sea Wolves trying to scuttle his ship by using spilled oil?", "gold": null, "pred": "history", "confidence": 0.5769, "ood_score": -1623.22144, "uncertain": false}
+{"text": "What is the unit crest of Dr. Gilbert in \"Nuremberg\"?", "gold": null, "pred": "history", "confidence": 0.9257, "ood_score": -647.44421, "uncertain": false}
+{"text": "After the mercenaries shot up the United Nations's warplane until it was trailing smoke, why did the UN not deploy more warplanes, or peacekeepers?", "gold": null, "pred": "history", "confidence": 0.943, "ood_score": -876.62262, "uncertain": false}
+{"text": "Why didn't Bourne try to emergency stop the train, to stop the sniper on the train from fleeing?", "gold": null, "pred": "books", "confidence": 0.9125, "ood_score": -1980.93237, "uncertain": false}
+{"text": "After being \"killed\" by the CIA, why did the CCTV cameras rotate?", "gold": null, "pred": "history", "confidence": 0.8587, "ood_score": -1375.5061, "uncertain": false}
+{"text": "Why does James Bond take at least 7 hits before fighting back in Tomorrow Never Dies?", "gold": null, "pred": "books", "confidence": 0.9547, "ood_score": -2089.35669, "uncertain": false}
+{"text": "How does Danny assume Rusty’s agreement without a verbal reply?", "gold": null, "pred": "sports", "confidence": 0.929, "ood_score": -2643.39551, "uncertain": false}
+{"text": "Why does Jennifer/Mary Sue decide to stay at the end of Pleasantville?", "gold": null, "pred": "books", "confidence": 0.9758, "ood_score": -740.52234, "uncertain": false}
+{"text": "Why is only the Sergeant issued a pistol, in addition to his rifle?", "gold": null, "pred": "history", "confidence": 0.9565, "ood_score": -2289.93091, "uncertain": false}
+{"text": "Horror comedy movie in which a dumb guy pretends to be a vampire hunter to impress a girl he likes", "gold": null, "pred": "books", "confidence": 0.9838, "ood_score": -665.81464, "uncertain": false}
+{"text": "Magnet in Young Female Passenger's Belongings Disrupts Plane's Compass", "gold": null, "pred": "books", "confidence": 0.69, "ood_score": -4140.61035, "uncertain": false}
+{"text": "UK police drama where a serial killer unwittingly reveals his victims' bodies by stopping to urinate", "gold": null, "pred": "books", "confidence": 0.9799, "ood_score": -619.77661, "uncertain": false}
+{"text": "Was the Elaine-looking Mannequin from \"the Pie\" made as a custom prop or did they find one that looked like the character?", "gold": null, "pred": "books", "confidence": 0.8762, "ood_score": -4198.84375, "uncertain": false}
+{"text": "Dystopian movie with a surveillance state with drones", "gold": null, "pred": "books", "confidence": 0.6784, "ood_score": -1472.58203, "uncertain": false}
+{"text": "Why did Littlefinger do this?", "gold": null, "pred": "books", "confidence": 0.8559, "ood_score": -2685.78223, "uncertain": false}
+{"text": "Why did the villain in Disclosure Day do this?", "gold": null, "pred": "books", "confidence": 0.9771, "ood_score": -3682.15796, "uncertain": false}
+{"text": "What Dracula movie is shown on a poster in the 1989 TV movie Il maestro del terrore?", "gold": null, "pred": "books", "confidence": 0.8843, "ood_score": -1133.42188, "uncertain": false}
+{"text": "How did Lex Luthor know Kryptonite was Superman's weakness in \"Superman\" (2025)?", "gold": null, "pred": "books", "confidence": 0.7682, "ood_score": -3423.93652, "uncertain": false}
+{"text": "Why did Noah Vosen lie to Nicky Parsons, that backup was arriving approximately in an hour?", "gold": null, "pred": "sports", "confidence": 0.9876, "ood_score": -767.76929, "uncertain": false}
+{"text": "Looking for a (probably)kids' TV episode/movie about a mysterious neighbor, two schoolgirls, and a plot twist involving their identities", "gold": null, "pred": "books", "confidence": 0.9857, "ood_score": -559.34241, "uncertain": false}
+{"text": "Construction workers build time second by second", "gold": null, "pred": "sports", "confidence": 0.2337, "ood_score": -7816.72021, "uncertain": true}
+{"text": "Comedy film about a honeymooning couple in a camper. She collects rocks. A later scene has them jettisoning the rocks to get up a hill", "gold": null, "pred": "books", "confidence": 0.9585, "ood_score": -764.80695, "uncertain": false}
+{"text": "In Hero (2002), why was it required to use red ink?", "gold": null, "pred": "technology", "confidence": 0.7102, "ood_score": -7191.02441, "uncertain": true}
+{"text": "How does sailing west honor Odysseus' men in The Odyssey?", "gold": null, "pred": "books", "confidence": 0.9399, "ood_score": -365.83051, "uncertain": false}
+{"text": "How is it legal for National Geographic to produce the \"Airport Security\" series, and how did they get permission to record inside airports?", "gold": null, "pred": "books", "confidence": 0.5565, "ood_score": -2890.84888, "uncertain": false}
+{"text": "How does the old servant know it is Odysseus when she washes his feet?", "gold": null, "pred": "books", "confidence": 0.8506, "ood_score": -1079.87463, "uncertain": false}
+{"text": "Horror movie (series?) with a story involving a refrigerator repair man and another involving a newlywed couple who buy a painting", "gold": null, "pred": "books", "confidence": 0.9737, "ood_score": -741.63477, "uncertain": false}
+{"text": "Within the MCU, what is Peter Parker’s source of income?", "gold": null, "pred": "sports", "confidence": 0.4527, "ood_score": -1892.9093, "uncertain": true}
+{"text": "Movie quote about the world’s best bottled water", "gold": null, "pred": "books", "confidence": 0.8805, "ood_score": -1791.14575, "uncertain": false}
+{"text": "Gated community/\"Stepford Wives\"-like", "gold": null, "pred": "books", "confidence": 0.9467, "ood_score": -2022.60327, "uncertain": false}
+{"text": "Anthology show episode where a guy sleeps with his two roommates and ends up dead", "gold": null, "pred": "books", "confidence": 0.9605, "ood_score": -357.05072, "uncertain": false}
+{"text": "Film in which a blonde character attempts a cartwheel and hits a man in the face", "gold": null, "pred": "books", "confidence": 0.9072, "ood_score": -408.71619, "uncertain": false}
+{"text": "What is the in-universe significance of the golden spine on Agamemnon's helmet in The Odyssey?", "gold": null, "pred": "books", "confidence": 0.9229, "ood_score": -1229.39124, "uncertain": false}
+{"text": "How did Jason Bourne get Noah Vosen’s cell phone number?", "gold": null, "pred": "books", "confidence": 0.6961, "ood_score": -1668.40637, "uncertain": false}
+{"text": "1880s-set TV show scene where a teen girl is forced to bind her breasts to pass as a boy", "gold": null, "pred": "books", "confidence": 0.9489, "ood_score": -551.56372, "uncertain": false}
+{"text": "Which 2010 movie has a practical shadow theater flashback scene?", "gold": null, "pred": "books", "confidence": 0.9495, "ood_score": -1516.3042, "uncertain": false}
+{"text": "What are the original photos behind Hal Jordan's Harry Potter cast and Pope Benedict XVI pictures in Lanterns?", "gold": null, "pred": "books", "confidence": 0.6896, "ood_score": -2640.6333, "uncertain": false}
+{"text": "Bank holdup in a time loop?", "gold": null, "pred": "technology", "confidence": 0.4722, "ood_score": -12061.88281, "uncertain": true}
+{"text": "1970s/80s mystery show, woman takes the place of murdered newlywed", "gold": null, "pred": "books", "confidence": 0.9808, "ood_score": -338.88269, "uncertain": false}
+{"text": "Cinematic origin of the \"pillar of light into clouds\" trope", "gold": null, "pred": "books", "confidence": 0.9592, "ood_score": -809.85767, "uncertain": false}
+{"text": "Which video game characters are shown in the Gran Turismo (2023) movie intro?", "gold": null, "pred": "books", "confidence": 0.5114, "ood_score": -1379.55347, "uncertain": false}
+{"text": "Film where protaganist must spend millions of dollars to inherit 30 million", "gold": null, "pred": "books", "confidence": 0.9288, "ood_score": -1020.1073, "uncertain": false}
+{"text": "How many 00 agents are there?", "gold": null, "pred": "technology", "confidence": 0.7119, "ood_score": -4158.99707, "uncertain": false}
+{"text": "Who are these unidentified Looney Tunes characters on the monitors in Coyote vs. Acme?", "gold": null, "pred": "books", "confidence": 0.9254, "ood_score": -2703.15869, "uncertain": false}
+{"text": "Short horror film set in a quarry/pit where two kids are dangerously playing; one of them eventually dies, like in quicksand", "gold": null, "pred": "books", "confidence": 0.9806, "ood_score": -606.07178, "uncertain": false}
+{"text": "Movie where old lady threatens to push children into a mechanical hole in her wall filled with spinning blades", "gold": null, "pred": "books", "confidence": 0.9686, "ood_score": -937.51428, "uncertain": false}
+{"text": "What's the relevance of color inversion for the sandscreen technique used in Dune?", "gold": null, "pred": "physics", "confidence": 0.3296, "ood_score": -6893.71484, "uncertain": true}
+{"text": "Where exactly does Jeepers Creepers 3 fit into the timeline established by the first two films?", "gold": null, "pred": "books", "confidence": 0.5775, "ood_score": -2667.69531, "uncertain": false}
+{"text": "What does the letter signify at the end of the meter?", "gold": null, "pred": "science", "confidence": 0.3435, "ood_score": -8249.03223, "uncertain": true}
+{"text": "Should we *count* the circled tremolo in order to respect exactly the number of repetitions?", "gold": null, "pred": "books", "confidence": 0.7376, "ood_score": -2525.47534, "uncertain": false}
+{"text": "Unknown notation - level horizontal dashes on note stem", "gold": null, "pred": "technology", "confidence": 0.456, "ood_score": -4825.23145, "uncertain": true}
+{"text": "How important is posture/position when playing guitar?", "gold": null, "pred": "sports", "confidence": 0.6924, "ood_score": -7494.38379, "uncertain": true}
+{"text": "New to electric guitar, something sounds funky (and not in a good way) - any help would be appreciated!", "gold": null, "pred": "books", "confidence": 0.7324, "ood_score": -3584.5564, "uncertain": false}
+{"text": "What is the absolute lowest musical note in the musical spectrum?", "gold": null, "pred": "books", "confidence": 0.9638, "ood_score": -1808.05408, "uncertain": false}
+{"text": "D.C. al fine and repeats in the same bar for ABABA", "gold": null, "pred": "sports", "confidence": 0.5128, "ood_score": -1414.44458, "uncertain": false}
+{"text": "What is the descending pattern in Händel's Passacaglia called?", "gold": null, "pred": "books", "confidence": 0.9671, "ood_score": -777.56915, "uncertain": false}
+{"text": "Is there notation to draw attention to specific notes in a score?", "gold": null, "pred": "sports", "confidence": 0.6245, "ood_score": -1952.3042, "uncertain": false}
+{"text": "What does this \"psf\" mean (p with a backslash) in m. 5 of Bach Partita 1 Sarabande BWV 825", "gold": null, "pred": "books", "confidence": 0.9283, "ood_score": -1208.43652, "uncertain": false}
+{"text": "Is there a tactile equivalent of fretboard markers for partially-sighted guitarists?", "gold": null, "pred": "technology", "confidence": 0.5054, "ood_score": -6096.27051, "uncertain": true}
+{"text": "Is this use of a \"dot\" to extend a note common to the late 18th century?", "gold": null, "pred": "books", "confidence": 0.8992, "ood_score": -2769.70361, "uncertain": false}
+{"text": "Is there a musical term for notes that are sharps or flats?", "gold": null, "pred": "books", "confidence": 0.9862, "ood_score": -1690.30127, "uncertain": false}
+{"text": "Stand banners affecting band sound?", "gold": null, "pred": "books", "confidence": 0.3623, "ood_score": -6745.86523, "uncertain": true}
+{"text": "I have a D#3-D6 range... what do I do?", "gold": null, "pred": "technology", "confidence": 0.3007, "ood_score": -10638.40137, "uncertain": true}
+{"text": "Can a mordent fall before the beat?", "gold": null, "pred": "sports", "confidence": 0.6798, "ood_score": -1870.98218, "uncertain": false}
+{"text": "Determining the note value of a triplet with unequal note values in it", "gold": null, "pred": "technology", "confidence": 0.4032, "ood_score": -8161.71875, "uncertain": true}
+{"text": "Should I write this sonority as a dominant 7th or as an augmented 6th?", "gold": null, "pred": "books", "confidence": 0.8075, "ood_score": -5316.89355, "uncertain": true}
+{"text": "Explain relative mode in LilyPond", "gold": null, "pred": "technology", "confidence": 0.6939, "ood_score": -4873.16748, "uncertain": true}
+{"text": "Left hand trills toward the end of Bach's BWV 825 Sarabande", "gold": null, "pred": "books", "confidence": 0.888, "ood_score": -530.60553, "uncertain": false}
+{"text": "Do French horns in a wind band share parts?", "gold": null, "pred": "books", "confidence": 0.8692, "ood_score": -3452.94482, "uncertain": false}
+{"text": "Possible typo in Bach Flute Partita in A minor", "gold": null, "pred": "books", "confidence": 0.9892, "ood_score": -1594.4884, "uncertain": false}
+{"text": "What does this grace note/trill notation mean?", "gold": null, "pred": "books", "confidence": 0.8211, "ood_score": -7200.36328, "uncertain": true}
+{"text": "How to handle out-of-range note (A1) for bassoon?", "gold": null, "pred": "physics", "confidence": 0.5098, "ood_score": -9214.37891, "uncertain": true}
+{"text": "Is Lilypond secure?", "gold": null, "pred": "technology", "confidence": 0.6733, "ood_score": -3568.99976, "uncertain": false}
+{"text": "What the advantages of using \\context in lilypond?", "gold": null, "pred": "technology", "confidence": 0.7091, "ood_score": -8393.54395, "uncertain": true}
+{"text": "What's the best explanation that E# is not the same as F?", "gold": null, "pred": "technology", "confidence": 0.7234, "ood_score": -4292.63818, "uncertain": false}
+{"text": "Holding notes and purpose of the arc", "gold": null, "pred": "books", "confidence": 0.7707, "ood_score": -2235.76514, "uncertain": false}
+{"text": "Tonality in Chopin Nocturne Op. 15 No. 2, Middle Section", "gold": null, "pred": "books", "confidence": 0.9552, "ood_score": -451.10373, "uncertain": false}
+{"text": "Lilypond: How to put a short “smile” slur under repeated staccato dots on one note? (for abbreviated portato)", "gold": null, "pred": "books", "confidence": 0.8786, "ood_score": -1983.17993, "uncertain": false}
+{"text": "Ambiguous notation in Pine Apple Rag", "gold": null, "pred": "books", "confidence": 0.3734, "ood_score": -8224.44336, "uncertain": true}
+{"text": "Help with note beaming!", "gold": null, "pred": "books", "confidence": 0.3992, "ood_score": -8300.99609, "uncertain": true}
+{"text": "What is the purpose of using capos on instrumental tracks?", "gold": null, "pred": "books", "confidence": 0.9227, "ood_score": -4653.30371, "uncertain": true}
+{"text": "Possible engraver's error in the score of \"Bram Stoker's Dracula\"?", "gold": null, "pred": "books", "confidence": 0.9413, "ood_score": -778.0426, "uncertain": false}
+{"text": "Why do many Japanese pop songs use complex chord progressions compared to Western pop?", "gold": null, "pred": "books", "confidence": 0.9536, "ood_score": -750.54089, "uncertain": false}
+{"text": "Tenuto AND a tie?", "gold": null, "pred": "sports", "confidence": 0.9158, "ood_score": -1008.78491, "uncertain": true}
+{"text": "Historically Informed Performance: Tenuto on long sustained notes", "gold": null, "pred": "books", "confidence": 0.85, "ood_score": -613.84473, "uncertain": false}
+{"text": "Should I cross my fingers while playing staccato scales on the piano?", "gold": null, "pred": "books", "confidence": 0.8006, "ood_score": -4136.43115, "uncertain": false}
+{"text": "Is there a single \"appropriate\" use of a DS al Coda system?", "gold": null, "pred": "technology", "confidence": 0.845, "ood_score": -2146.59009, "uncertain": false}
+{"text": "LilyPond: Unusually nested repeats", "gold": null, "pred": "biology", "confidence": 0.6855, "ood_score": -2847.9082, "uncertain": false}
+{"text": "Different staves of the same measure have different time signatures", "gold": null, "pred": "physics", "confidence": 0.7953, "ood_score": -1536.34937, "uncertain": false}
+{"text": "Why does Loge's motive appear at the end of Act 2 of Götterdämmerung?", "gold": null, "pred": "books", "confidence": 0.7432, "ood_score": -931.51685, "uncertain": false}
+{"text": "Instruments based on oscillating liquids?", "gold": null, "pred": "chemistry", "confidence": 0.7483, "ood_score": -1639.74048, "uncertain": false}
+{"text": "Half-note appoggiatura connected to dotted half note?", "gold": null, "pred": "books", "confidence": 0.9668, "ood_score": -1982.42578, "uncertain": false}
+{"text": "Lilypond measure count label customization: below the staff, parentheses, normal font weight", "gold": null, "pred": "technology", "confidence": 0.8287, "ood_score": -4345.84326, "uncertain": false}
+{"text": "Whisper tones tend to break rules of flute acoustics. Why?", "gold": null, "pred": "books", "confidence": 0.7854, "ood_score": -2714.04932, "uncertain": false}
+{"text": "Acoustically speaking, are Norse \"hunting horns\" going to sound similar to Jewish shofars?", "gold": null, "pred": "books", "confidence": 0.7432, "ood_score": -760.57208, "uncertain": false}
+{"text": "Courtesy time and key signatures in first ending", "gold": null, "pred": "books", "confidence": 0.9263, "ood_score": -1424.27502, "uncertain": false}
+{"text": "Why does the first exercise in The Study of Counterpoint call the notes E and F a fifth?", "gold": null, "pred": "books", "confidence": 0.5371, "ood_score": -2208.72827, "uncertain": false}
+{"text": "Do I Need Ear Protection During Classical Music Concerts", "gold": null, "pred": "books", "confidence": 0.3089, "ood_score": -8923.65332, "uncertain": true}
+{"text": "Scarlatti Sonata in D Minor K. 9 Measure 42 a misprint in Urtext?", "gold": null, "pred": "books", "confidence": 0.9443, "ood_score": -665.4071, "uncertain": false}
+{"text": "Does prior ear training and lead guitar experience provide an advantage when starting violin?", "gold": null, "pred": "books", "confidence": 0.4518, "ood_score": -3900.34766, "uncertain": true}
+{"text": "What role does vibrato have in the orchestra?", "gold": null, "pred": "books", "confidence": 0.8886, "ood_score": -1142.54419, "uncertain": false}
+{"text": "Which tuning system did Mozart assume when composing his recitatives?", "gold": null, "pred": "books", "confidence": 0.9797, "ood_score": -962.63177, "uncertain": false}
+{"text": "Syncopated rhythm notation problem", "gold": null, "pred": "books", "confidence": 0.9832, "ood_score": -899.75049, "uncertain": false}
+{"text": "Is there a pedal damper for snare drum?", "gold": null, "pred": "physics", "confidence": 0.9259, "ood_score": -6661.21875, "uncertain": true}
+{"text": "The word for different sounds made by different instruments", "gold": null, "pred": "books", "confidence": 0.829, "ood_score": -4466.97705, "uncertain": false}
+{"text": "Writing the Blues - what key signature to use?", "gold": null, "pred": "technology", "confidence": 0.9302, "ood_score": -2413.92871, "uncertain": false}
+{"text": "Guidelines for notating legato", "gold": null, "pred": "sports", "confidence": 0.706, "ood_score": -8892.7832, "uncertain": true}
+{"text": "How to interpret accidentals in a score without measures?", "gold": null, "pred": "sports", "confidence": 0.7544, "ood_score": -5798.99658, "uncertain": true}
+{"text": "Taffanel and Gaubert 24Studies Etude 2 - accidentals on mordents?", "gold": null, "pred": "books", "confidence": 0.7947, "ood_score": -670.08606, "uncertain": false}
+{"text": "How to examine intervals in jazz?", "gold": null, "pred": "books", "confidence": 0.7698, "ood_score": -4425.56445, "uncertain": false}
+{"text": "Is there a terminology to describe the number of perfect fifths in the intervals?", "gold": null, "pred": "technology", "confidence": 0.2764, "ood_score": -10457.8252, "uncertain": true}
+{"text": "How to notate phrase lengths without notes", "gold": null, "pred": "books", "confidence": 0.965, "ood_score": -4488.22656, "uncertain": false}
+{"text": "Is this interval consonant or dissonant?", "gold": null, "pred": "books", "confidence": 0.8673, "ood_score": -3622.29492, "uncertain": false}
+{"text": "How easy/safe is it to lower the nut on a classical guitar?", "gold": null, "pred": "physics", "confidence": 0.5582, "ood_score": -6122.7168, "uncertain": true}
+{"text": "Musical doggerel?", "gold": null, "pred": "books", "confidence": 0.8917, "ood_score": -1744.93152, "uncertain": false}
+{"text": "In this overlapping arpeggio, in what order should the notes be struck?", "gold": null, "pred": "books", "confidence": 0.7961, "ood_score": -1419.81665, "uncertain": false}
+{"text": "How should I count staccato quarter notes in a piano sheet?", "gold": null, "pred": "books", "confidence": 0.91, "ood_score": -2986.45947, "uncertain": false}
+{"text": "What's the difference between these two accents?", "gold": null, "pred": "books", "confidence": 0.6454, "ood_score": -5673.39062, "uncertain": true}
+{"text": "In the opening of Scheherazade, why is clarinet 2 above clarinet 1?", "gold": null, "pred": "books", "confidence": 0.8787, "ood_score": -708.9292, "uncertain": false}
+{"text": "V-ii dim progression in ex. 49 (Tchaikovsky's Guide to the Practical Study of Harmony)", "gold": null, "pred": "books", "confidence": 0.8364, "ood_score": -600.53931, "uncertain": false}
+{"text": "Two legato slurs on one note in Beyer's Op. 101 book", "gold": null, "pred": "books", "confidence": 0.9311, "ood_score": -512.72516, "uncertain": false}
+{"text": "Subdivide beams between measures in LilyPond", "gold": null, "pred": "biology", "confidence": 0.4237, "ood_score": -2404.07666, "uncertain": true}
+{"text": "How to play trills like these?", "gold": null, "pred": "books", "confidence": 0.3534, "ood_score": -5187.10791, "uncertain": true}
+{"text": "D Tuning for Guitar and Transposing Standard Notation", "gold": null, "pred": "books", "confidence": 0.589, "ood_score": -4068.18604, "uncertain": false}
+{"text": "Sharp Nine or Flat Ten?", "gold": null, "pred": "books", "confidence": 0.7706, "ood_score": -4289.42383, "uncertain": false}
+{"text": "Does an accidental in a turn or mordent apply to the full measure?", "gold": null, "pred": "books", "confidence": 0.4892, "ood_score": -4548.7793, "uncertain": true}
+{"text": "What is the interpretation of this symbol from Praetorius's Terpsichore Musarum Aoniarum?", "gold": null, "pred": "books", "confidence": 0.5274, "ood_score": -1013.63092, "uncertain": false}
+{"text": "Drums clefs: two vertical lines vs tall rectangle", "gold": null, "pred": "sports", "confidence": 0.8441, "ood_score": -4613.2876, "uncertain": true}
+{"text": "Melody falling below horn line", "gold": null, "pred": "books", "confidence": 0.9659, "ood_score": -757.17834, "uncertain": false}
+{"text": "Is it harmful to take piano lessons on an acoustic piano while practicing only on a digital keyboard at home?", "gold": null, "pred": "technology", "confidence": 0.8176, "ood_score": -4927.13184, "uncertain": true}
+{"text": "What does \"sim.\" imply for the last note in this passage?", "gold": null, "pred": "books", "confidence": 0.5244, "ood_score": -6769.39941, "uncertain": true}
+{"text": "What does \"sempre molto pedale\" mean?", "gold": null, "pred": "books", "confidence": 0.5305, "ood_score": -13361.80469, "uncertain": true}
+{"text": "Why swap notes between identical chords?", "gold": null, "pred": "books", "confidence": 0.9666, "ood_score": -1669.25146, "uncertain": false}
+{"text": "Why are there English and German styles of recorder?", "gold": null, "pred": "books", "confidence": 0.6579, "ood_score": -3293.24316, "uncertain": false}
+{"text": "Why is it recommended to play the same piano note with different fingers?", "gold": null, "pred": "books", "confidence": 0.8792, "ood_score": -5902.17334, "uncertain": true}
+{"text": "Are \"clarion\" and \"clarino\" range the same?", "gold": null, "pred": "technology", "confidence": 0.4913, "ood_score": -2445.052, "uncertain": true}
+{"text": "Understanding Pickup selector position 4 - Ibanez guitar with two Humbuckers", "gold": null, "pred": "sports", "confidence": 0.8573, "ood_score": -2730.92163, "uncertain": false}
+{"text": "Do advanced pianists usually play legato unless a specific articulation like staccato is marked?", "gold": null, "pred": "books", "confidence": 0.8258, "ood_score": -1897.94409, "uncertain": false}
+{"text": "How to align bar lines across the page?", "gold": null, "pred": "technology", "confidence": 0.5241, "ood_score": -10290.68359, "uncertain": true}
+{"text": "What's the best notation for this rhythm? Is there a correct way to write it?", "gold": null, "pred": "books", "confidence": 0.9864, "ood_score": -653.94507, "uncertain": false}
+{"text": "How should I strum triplets technically on guitar in jazz lines?", "gold": null, "pred": "sports", "confidence": 0.8988, "ood_score": -2493.33887, "uncertain": false}
+{"text": "Why did Bb become the 'industry standard' for trumpets?", "gold": null, "pred": "sports", "confidence": 0.3662, "ood_score": -6710.20898, "uncertain": true}
+{"text": "Does a drum groove determine the notation values in a ballad song?", "gold": null, "pred": "books", "confidence": 0.9815, "ood_score": -983.65216, "uncertain": false}
+{"text": "How do I position my hand for 8-5-5--0 on a classical guitar?", "gold": null, "pred": "books", "confidence": 0.3889, "ood_score": -8420.94043, "uncertain": true}
+{"text": "Why are repeats not represented in sheet music?", "gold": null, "pred": "books", "confidence": 0.8513, "ood_score": -3409.96606, "uncertain": false}
+{"text": "Why do I hear this as a suspension, when it’s clearly not?", "gold": null, "pred": "sports", "confidence": 0.8912, "ood_score": -4010.42773, "uncertain": false}
+{"text": "Could vocal pitch be corrected in recordings before Auto-Tune?", "gold": null, "pred": "books", "confidence": 0.9143, "ood_score": -1899.70447, "uncertain": false}
+{"text": "Will playing an electric organ with \"incomplete\" pedalboard do more harm than good for a beginner?", "gold": null, "pred": "sports", "confidence": 0.6949, "ood_score": -5737.90479, "uncertain": true}
+{"text": "How to train young teen to fess up and man up", "gold": null, "pred": "technology", "confidence": 0.7051, "ood_score": -7523.64648, "uncertain": true}
+{"text": "How do I deal with poor screen discipline and lack of structure when it comes to responsibilies?", "gold": null, "pred": "technology", "confidence": 0.7775, "ood_score": -3417.92871, "uncertain": false}
+{"text": "Teaching school aged children how to handle conflict at school", "gold": null, "pred": "science", "confidence": 0.2797, "ood_score": -5503.43359, "uncertain": true}
+{"text": "My 5 year old son doesn't like our new home", "gold": null, "pred": "biology", "confidence": 0.3852, "ood_score": -9837.91406, "uncertain": true}
+{"text": "Can I temporarily keep my 2 year old daughter from going with her mother?", "gold": null, "pred": "technology", "confidence": 0.3169, "ood_score": -14710.74805, "uncertain": true}
+{"text": "11yr old admitted that he poops his pants because he doesn't want to miss anything on TV or pause a video game. He also doesn't think it's gross. Help", "gold": null, "pred": "books", "confidence": 0.706, "ood_score": -3078.27979, "uncertain": false}
+{"text": "Giving prizes for not being late to school", "gold": null, "pred": "science", "confidence": 0.7643, "ood_score": -6824.97754, "uncertain": true}
+{"text": "Autistic 15year old son, stimming and social anxiety", "gold": null, "pred": "books", "confidence": 0.6778, "ood_score": -3469.64038, "uncertain": false}
+{"text": "When playing games against my kids such as sports cards, etc. I always have a very hard time knowing how to go about playing", "gold": null, "pred": "sports", "confidence": 0.9413, "ood_score": -824.57452, "uncertain": false}
+{"text": "7-year-old struggling with German in Germany, limited family language support, how can we help effectively?", "gold": null, "pred": "history", "confidence": 0.8018, "ood_score": -6200.0918, "uncertain": true}
+{"text": "Is this normal behavior for child and grandparent", "gold": null, "pred": "biology", "confidence": 0.9165, "ood_score": -1841.31689, "uncertain": false}
+{"text": "My youngest's new appearance is triggering, based on the reputation of the eldest", "gold": null, "pred": "books", "confidence": 0.962, "ood_score": -701.99225, "uncertain": false}
+{"text": "Are there any issues with trading responsibilities for privileges?", "gold": null, "pred": "technology", "confidence": 0.7106, "ood_score": -4774.1709, "uncertain": true}
+{"text": "Is there a way to get alerts when my daughter receives calls from numbers not saved in her contacts?", "gold": null, "pred": "technology", "confidence": 0.9204, "ood_score": -3504.82227, "uncertain": false}
+{"text": "Is it considered abuse when a parent demands that a young child give him a hug?", "gold": null, "pred": "science", "confidence": 0.4989, "ood_score": -9833.05273, "uncertain": true}
+{"text": "2.5 year old son gets anxious and scratches ears then head and face once scared", "gold": null, "pred": "books", "confidence": 0.8481, "ood_score": -4531.2207, "uncertain": false}
+{"text": "Is there a recommended method of introducing letter sounds to a four year old?", "gold": null, "pred": "books", "confidence": 0.8365, "ood_score": -10344.03125, "uncertain": true}
+{"text": "How do I move forward with my overbearing mom?", "gold": null, "pred": "books", "confidence": 0.689, "ood_score": -11435.98047, "uncertain": true}
+{"text": "How to talk to 10 yo about argument between me and wife", "gold": null, "pred": "books", "confidence": 0.4707, "ood_score": -14478.47461, "uncertain": true}
+{"text": "Why does my step mom get mad at me for every little thing i do?", "gold": null, "pred": "books", "confidence": 0.5983, "ood_score": -8998.28906, "uncertain": true}
+{"text": "Can it make sense to pay a child to learn a skill?", "gold": null, "pred": "technology", "confidence": 0.857, "ood_score": -2659.1626, "uncertain": false}
+{"text": "Word lists: Dolch 20095 and Fry 200 - used up to which grades in USA schools?", "gold": null, "pred": "science", "confidence": 0.3664, "ood_score": -3815.74829, "uncertain": true}
+{"text": "What do about my son who is best friends with a largely unsupervised bad boy?", "gold": null, "pred": "books", "confidence": 0.9963, "ood_score": -5598.29199, "uncertain": true}
+{"text": "How do you play with your young kids? Why not play correctly?", "gold": null, "pred": "sports", "confidence": 0.8366, "ood_score": -2799.34326, "uncertain": false}
+{"text": "How close are me and my cousin athletically?", "gold": null, "pred": "sports", "confidence": 0.9783, "ood_score": -1801.12561, "uncertain": false}
+{"text": "What age do boys finally learn to aim in toilet?", "gold": null, "pred": "sports", "confidence": 0.3841, "ood_score": -7130.30811, "uncertain": true}
+{"text": "Would I be overreacting if I banned my daughter from reading Alex Rider comics online?", "gold": null, "pred": "books", "confidence": 0.9403, "ood_score": -4966.63818, "uncertain": true}
+{"text": "Chaos inside my home due to mobile phones", "gold": null, "pred": "science", "confidence": 0.3359, "ood_score": -4634.76855, "uncertain": true}
+{"text": "11 year old asked random people for money to buy fish for his new aquarium - how to teach him that this is not ok?", "gold": null, "pred": "books", "confidence": 0.3921, "ood_score": -4820.44092, "uncertain": true}
+{"text": "My son is in a kindergarten with much younger kids - what are my options?", "gold": null, "pred": "biology", "confidence": 0.4327, "ood_score": -12660.46484, "uncertain": true}
+{"text": "How do I know when babies can go over bed guards?", "gold": null, "pred": "sports", "confidence": 0.8867, "ood_score": -6599.96289, "uncertain": true}
+{"text": "How do I tell my mom and dad that I like a boy?", "gold": null, "pred": "books", "confidence": 0.9117, "ood_score": -15934.61523, "uncertain": true}
+{"text": "How do you explain your strong desire to have the baby sleep with you to your wife?", "gold": null, "pred": "biology", "confidence": 0.6781, "ood_score": -7086.66504, "uncertain": true}
+{"text": "Are dogs used for drug-screening drug-addicts themselves?", "gold": null, "pred": "science", "confidence": 0.7463, "ood_score": -5846.91992, "uncertain": true}
+{"text": "Cats Mating Leads to Death", "gold": null, "pred": "biology", "confidence": 0.9313, "ood_score": -1258.71875, "uncertain": false}
+{"text": "Cats Disturbing Our Sleep", "gold": null, "pred": "biology", "confidence": 0.3285, "ood_score": -4774.70264, "uncertain": true}
+{"text": "How do multi-person households reliably track whether a pet has already been fed or walked?", "gold": null, "pred": "technology", "confidence": 0.3903, "ood_score": -3049.7168, "uncertain": true}
+{"text": "When should we introduce a new sugar glider when one of the pair may be dying soon?", "gold": null, "pred": "biology", "confidence": 0.8987, "ood_score": -5059.18604, "uncertain": true}
+{"text": "New rescued dog was ok being alone, but today he wasn't: How to proceed to keep him independent?", "gold": null, "pred": "books", "confidence": 0.5106, "ood_score": -2676.64624, "uncertain": false}
+{"text": "First aid for neglected fish pond", "gold": null, "pred": "biology", "confidence": 0.7219, "ood_score": -3151.80762, "uncertain": false}
+{"text": "Educating a 9 month kitten", "gold": null, "pred": "science", "confidence": 0.4163, "ood_score": -7696.48633, "uncertain": true}
+{"text": "How to prevent a dog from eating stones?", "gold": null, "pred": "biology", "confidence": 0.7057, "ood_score": -5376.01758, "uncertain": true}
+{"text": "How can I be confident that I have removed all ticks from my dog?", "gold": null, "pred": "biology", "confidence": 0.7708, "ood_score": -7056.38086, "uncertain": true}
+{"text": "Keep cats indoors when we are away?", "gold": null, "pred": "biology", "confidence": 0.5235, "ood_score": -7225.54492, "uncertain": true}
+{"text": "How can I protect stray cats I’ve bonded with from stray dogs attacking them?", "gold": null, "pred": "science", "confidence": 0.3916, "ood_score": -7410.07031, "uncertain": true}
+{"text": "Cat I've been feeding, need advices and discussion on how to find a good solution for him", "gold": null, "pred": "biology", "confidence": 0.5697, "ood_score": -7003.55176, "uncertain": true}
+{"text": "Pet food kitchen clones?", "gold": null, "pred": "biology", "confidence": 0.9211, "ood_score": -1945.73389, "uncertain": false}
+{"text": "What aquarium plants are safe with convict fish?", "gold": null, "pred": "biology", "confidence": 0.9331, "ood_score": -3074.1228, "uncertain": false}
+{"text": "Dog shoes for summer heat?", "gold": null, "pred": "sports", "confidence": 0.7765, "ood_score": -7829.36035, "uncertain": true}
+{"text": "I've neglect my cat for 9 years. She's always throwing up", "gold": null, "pred": "books", "confidence": 0.8816, "ood_score": -5953.7002, "uncertain": true}
+{"text": "Male neutered cat attacking female cats", "gold": null, "pred": "science", "confidence": 0.5323, "ood_score": -4138.31152, "uncertain": false}
+{"text": "What should I be looking out for when getting a small breed puppy?", "gold": null, "pred": "biology", "confidence": 0.7537, "ood_score": -7508.70117, "uncertain": true}
+{"text": "Having a cat around a newborn", "gold": null, "pred": "biology", "confidence": 0.5106, "ood_score": -5597.74902, "uncertain": true}
+{"text": "Leaving my cats alone for 5-6hrs", "gold": null, "pred": "science", "confidence": 0.4636, "ood_score": -12690.20508, "uncertain": true}
+{"text": "Introducing 2 pairs of cats gone wrong since october", "gold": null, "pred": "biology", "confidence": 0.5515, "ood_score": -8631.62305, "uncertain": true}
+{"text": "Can you give Hill's Urgent Care a/d to a cat with kidney issues?", "gold": null, "pred": "sports", "confidence": 0.2779, "ood_score": -9519.87988, "uncertain": true}
+{"text": "How can I make two three month old kittens comfortable in their new home?", "gold": null, "pred": "biology", "confidence": 0.4337, "ood_score": -11228.80859, "uncertain": true}
+{"text": "What Size Crate for Two Large Cats in Hold", "gold": null, "pred": "history", "confidence": 0.4117, "ood_score": -10223.90625, "uncertain": true}
+{"text": "Excessive Water Drinking – Heat or Renal Warning Sign?", "gold": null, "pred": "biology", "confidence": 0.6805, "ood_score": -5073.04932, "uncertain": true}
+{"text": "Stop cat from pooping inside flower pots", "gold": null, "pred": "biology", "confidence": 0.7476, "ood_score": -5149.57422, "uncertain": true}
+{"text": "I might have given my cat a double dose of enrofloxacin - what are the dangers?", "gold": null, "pred": "chemistry", "confidence": 0.4559, "ood_score": -1922.65479, "uncertain": true}
+{"text": "Our over-excited and fearful dog has erratic behaviours when meeting people and dogs", "gold": null, "pred": "biology", "confidence": 0.8089, "ood_score": -1735.98511, "uncertain": false}
+{"text": "How can I best get poop off my shorthair cat’s butt?", "gold": null, "pred": "biology", "confidence": 0.8316, "ood_score": -9421.49512, "uncertain": true}
+{"text": "How can I teach my cats to avoid me if I am about to impact them?", "gold": null, "pred": "biology", "confidence": 0.8405, "ood_score": -5992.46973, "uncertain": true}
+{"text": "Photomed Canon SX730 Camera", "gold": null, "pred": "technology", "confidence": 0.6716, "ood_score": -4128.23633, "uncertain": false}
+{"text": "How do I remove sticker residue on rear end of 70-200mm Canon camera lens?", "gold": null, "pred": "chemistry", "confidence": 0.3712, "ood_score": -8469.87109, "uncertain": true}
+{"text": "In asymmetrical balance, is equal visual weight required — and what happens if it isn’t?", "gold": null, "pred": "biology", "confidence": 0.8046, "ood_score": -2735.52832, "uncertain": false}
+{"text": "Why is image A considered more balanced than image B, even though the vertical line in A is more off-center?", "gold": null, "pred": "physics", "confidence": 0.7989, "ood_score": -2619.7854, "uncertain": false}
+{"text": "Why is the center dominant in visual weight, yet large objects near the center need smaller objects at the edges to balance?", "gold": null, "pred": "physics", "confidence": 0.4476, "ood_score": -1955.48425, "uncertain": true}
+{"text": "Is there a male-female 1/4\" screw extender with a lanyard loop?", "gold": null, "pred": "sports", "confidence": 0.6726, "ood_score": -6538.82666, "uncertain": true}
+{"text": "Can I trigger my OEM flash with just a Godox X5 transmitter?", "gold": null, "pred": "technology", "confidence": 0.9422, "ood_score": -1500.2113, "uncertain": false}
+{"text": "How does a 48 megapixel camera make sense for mobile displays which have displays a lot less than 48 megapixels?", "gold": null, "pred": "technology", "confidence": 0.9518, "ood_score": -1443.28491, "uncertain": false}
+{"text": "Image Issue: Dark Bleeding at the Four Corners with new lens", "gold": null, "pred": "books", "confidence": 0.9609, "ood_score": -4454.23242, "uncertain": false}
+{"text": "Recover severely underexposed camera film", "gold": null, "pred": "physics", "confidence": 0.5115, "ood_score": -5841.08594, "uncertain": true}
+{"text": "Film camera always shows \"1\" or \"S\" shot remaining", "gold": null, "pred": "sports", "confidence": 0.9021, "ood_score": -2388.01514, "uncertain": false}
+{"text": "Could you use a 600m Copal lens for a 6x17 camera?", "gold": null, "pred": "physics", "confidence": 0.3812, "ood_score": -5498.00098, "uncertain": true}
+{"text": "Uncurl 35mm color negative film", "gold": null, "pred": "chemistry", "confidence": 0.7991, "ood_score": -4040.47217, "uncertain": false}
+{"text": "Changing the date of a photo taken on a digital camera", "gold": null, "pred": "technology", "confidence": 0.4608, "ood_score": -9227.91895, "uncertain": true}
+{"text": "Best type of 35mm film to take a photo of a computer screen?", "gold": null, "pred": "technology", "confidence": 0.8028, "ood_score": -2975.94482, "uncertain": false}
+{"text": "How to get a color-accurate display?", "gold": null, "pred": "technology", "confidence": 0.9255, "ood_score": -6437.9209, "uncertain": true}
+{"text": "Is there a simple way to keep Canon ProGraf-300 drivers up to date on MacOS", "gold": null, "pred": "technology", "confidence": 0.9469, "ood_score": -1866.14246, "uncertain": false}
+{"text": "How can I identify a ring on a hand from a number of old non digital photos. Any attempt to magnify the photo ends in blurr", "gold": null, "pred": "chemistry", "confidence": 0.4407, "ood_score": -7385.73779, "uncertain": true}
+{"text": "Is there any way to get photoshop to stop centering when fitting to paper size?", "gold": null, "pred": "technology", "confidence": 0.7231, "ood_score": -9040.77832, "uncertain": true}
+{"text": "Stop Motion Studio desktop and Nikon camera compatibility", "gold": null, "pred": "technology", "confidence": 0.8715, "ood_score": -2543.22974, "uncertain": false}
+{"text": "How can I loosen lens screws?", "gold": null, "pred": "physics", "confidence": 0.7327, "ood_score": -7240.72754, "uncertain": true}
+{"text": "Fuji GX617 won't wind on", "gold": null, "pred": "physics", "confidence": 0.6967, "ood_score": -5366.85059, "uncertain": true}
+{"text": "Cannot attach lens to Camera after Self-Repair", "gold": null, "pred": "technology", "confidence": 0.6684, "ood_score": -6343.37061, "uncertain": true}
+{"text": "How does the Godox Lux Master Pro affect the camera's exposure time?", "gold": null, "pred": "technology", "confidence": 0.859, "ood_score": -2233.50854, "uncertain": false}
+{"text": "I want to print 8x8 & 10x10 prints on my xp-970 can it be done?", "gold": null, "pred": "technology", "confidence": 0.8541, "ood_score": -3227.74121, "uncertain": false}
+{"text": "Did they change the zoom ring between I and II of EF 70-200mm", "gold": null, "pred": "physics", "confidence": 0.5085, "ood_score": -3340.72437, "uncertain": false}
+{"text": "Opening a film camera with film in it in the dark", "gold": null, "pred": "books", "confidence": 0.6882, "ood_score": -7906.37646, "uncertain": true}
+{"text": "Does the use of a CLS filter still makes sense when LED-based street lighting is dominating?", "gold": null, "pred": "technology", "confidence": 0.917, "ood_score": -2263.06958, "uncertain": false}
+{"text": "Nikon D3200: Can't switch to live view mode", "gold": null, "pred": "technology", "confidence": 0.8852, "ood_score": -2709.09302, "uncertain": false}
+{"text": "How to determine the projection distortion of a Sigma 8mm F3.5 EX DG Fisheye lens?", "gold": null, "pred": "physics", "confidence": 0.835, "ood_score": -2700.36108, "uncertain": false}
+{"text": "Film coming up totally blank", "gold": null, "pred": "books", "confidence": 0.9414, "ood_score": -6651.8457, "uncertain": true}
+{"text": "Difference between Exif.Image.DateTimeOriginal and Exif.Photo.DateTimeOriginal", "gold": null, "pred": "physics", "confidence": 0.5894, "ood_score": -7721.41504, "uncertain": true}
+{"text": "HSS problem: Rolling Shutter with Sony A7RV Godox X3S AD200 Pro II", "gold": null, "pred": "technology", "confidence": 0.9163, "ood_score": -2579.8042, "uncertain": false}
+{"text": "How do you Protect your Equipment When Photographing in Humid and or Cold Conditions?", "gold": null, "pred": "science", "confidence": 0.4548, "ood_score": -7964.03906, "uncertain": true}
+{"text": "Rabbit-tail-shaped aberration on series of astrophotos. Where does it come from?", "gold": null, "pred": "physics", "confidence": 0.9726, "ood_score": -491.56509, "uncertain": false}
+{"text": "85mm f1.4 vs 135mm f1.8 how DoF and background blur compares", "gold": null, "pred": "technology", "confidence": 0.5491, "ood_score": -3243.15112, "uncertain": false}
+{"text": "Mising speedlight menu at canon R7 using yn622c-tx", "gold": null, "pred": "technology", "confidence": 0.8729, "ood_score": -2152.46631, "uncertain": false}
+{"text": "is there a free or cheap app that you can point to a spot in the sky and it will tell you the next time the sun/moon/full moon will be in that spot?", "gold": null, "pred": "science", "confidence": 0.449, "ood_score": -3549.05127, "uncertain": true}
+{"text": "Why my 50M image has black-and-white stripe with abnormal edges", "gold": null, "pred": "physics", "confidence": 0.6874, "ood_score": -3661.96729, "uncertain": false}
+{"text": "App for Aligining phone camera for timelapse", "gold": null, "pred": "technology", "confidence": 0.6627, "ood_score": -2281.53174, "uncertain": false}
+{"text": "How can I retrieve the adjustment values for edits that I've made in Google Photos?", "gold": null, "pred": "technology", "confidence": 0.8519, "ood_score": -4505.40625, "uncertain": false}
+{"text": "Why would ISO 40 produces better resolution than 100?", "gold": null, "pred": "technology", "confidence": 0.8739, "ood_score": -3492.39844, "uncertain": false}
+{"text": "My Olympus OMD E-M10 Mark II isn’t producing an image, it’s just a red screen", "gold": null, "pred": "technology", "confidence": 0.758, "ood_score": -3575.4917, "uncertain": false}
+{"text": "Astrophotos with circle in middle", "gold": null, "pred": "physics", "confidence": 0.9745, "ood_score": -844.01434, "uncertain": false}
+{"text": "Will loading film in light ruin the whole roll, or just the frames obviously exposed to light?", "gold": null, "pred": "physics", "confidence": 0.9183, "ood_score": -1819.61792, "uncertain": false}
+{"text": "Stereo vs compound microscope for focus stacking—resolution vs depth tradeoff?", "gold": null, "pred": "biology", "confidence": 0.7267, "ood_score": -1763.38354, "uncertain": false}
+{"text": "Hugin crashes upon launch", "gold": null, "pred": "books", "confidence": 0.4404, "ood_score": -2684.70264, "uncertain": true}
+{"text": "Lens support for 70-300mm (tripod)", "gold": null, "pred": "physics", "confidence": 0.6338, "ood_score": -3700.48779, "uncertain": false}
+{"text": "Nikon D5300 not Auto Focussing with one lens", "gold": null, "pred": "technology", "confidence": 0.816, "ood_score": -4415.10254, "uncertain": false}
+{"text": "Can I use a Godox X5 as a transmitter without buying a Godox iT32?", "gold": null, "pred": "technology", "confidence": 0.955, "ood_score": -1759.82703, "uncertain": false}
+{"text": "How to compare the detail between different focal length", "gold": null, "pred": "physics", "confidence": 0.7135, "ood_score": -4633.27148, "uncertain": true}
+{"text": "Accidentally advanced film while \"L\" was active, now film doesn't advance at all. Canon AE-1", "gold": null, "pred": "books", "confidence": 0.6111, "ood_score": -3928.02368, "uncertain": false}
+{"text": "If my lens adaptor is the same length as a macro extension tube, why doesn't it have the same effect?", "gold": null, "pred": "physics", "confidence": 0.8015, "ood_score": -1920.60986, "uncertain": false}
+{"text": "Why are the edges in the image always unclean and noisy? Is it a CMOS issue or an ISP issue?", "gold": null, "pred": "technology", "confidence": 0.9559, "ood_score": -631.70544, "uncertain": false}
+{"text": "OM Workspace 2.4 removing colour profiles", "gold": null, "pred": "technology", "confidence": 0.9696, "ood_score": -2475.43726, "uncertain": false}
+{"text": "Relationship between acutance and the size of an image", "gold": null, "pred": "physics", "confidence": 0.6202, "ood_score": -2656.12744, "uncertain": false}
+{"text": "Canon EOS 5Ds focusing screen options", "gold": null, "pred": "technology", "confidence": 0.8553, "ood_score": -2148.646, "uncertain": false}
+{"text": "Straightening out bent/bulging transparencies", "gold": null, "pred": "biology", "confidence": 0.4802, "ood_score": -1723.34351, "uncertain": true}
+{"text": "How can I tell what the resolution of this scan is in ppi?", "gold": null, "pred": "technology", "confidence": 0.8387, "ood_score": -3172.76758, "uncertain": false}
+{"text": "What is \"wrong\" with this specific photo?", "gold": null, "pred": "physics", "confidence": 0.3651, "ood_score": -14264.32031, "uncertain": true}
+{"text": "How can photography be used for rural development and improving education in rural areas?", "gold": null, "pred": "science", "confidence": 0.5834, "ood_score": -4361.99951, "uncertain": false}
+{"text": "dark band in the bottom of film photos", "gold": null, "pred": "books", "confidence": 0.5329, "ood_score": -3185.92358, "uncertain": false}
+{"text": "Canon 100D change focusing screen", "gold": null, "pred": "technology", "confidence": 0.6197, "ood_score": -3482.76123, "uncertain": false}
+{"text": "Is this transparency from a short film or a home movie?", "gold": null, "pred": "physics", "confidence": 0.5146, "ood_score": -7830.65137, "uncertain": true}
+{"text": "Mirror/shutter problem with D90?", "gold": null, "pred": "technology", "confidence": 0.6221, "ood_score": -3530.95264, "uncertain": false}
+{"text": "How do I remove a Fotasy EF to NX lens adapter that's stuck to my lens?", "gold": null, "pred": "technology", "confidence": 0.8012, "ood_score": -2337.65234, "uncertain": false}
+{"text": "Why Does B&W Film Fog in Light After Stop Bath but Before Fixing?", "gold": null, "pred": "chemistry", "confidence": 0.4342, "ood_score": -7319.02148, "uncertain": true}
+{"text": "Canon Powershot G5 image interleaving issue", "gold": null, "pred": "technology", "confidence": 0.4522, "ood_score": -3978.32959, "uncertain": true}
+{"text": "Why is my Lumix DMC-GX1 shutter closing instead of opening? Is it a software issue?", "gold": null, "pred": "technology", "confidence": 0.8072, "ood_score": -2563.19482, "uncertain": false}
+{"text": "Hypothesis to explain odd EXIF date/times", "gold": null, "pred": "physics", "confidence": 0.5796, "ood_score": -4629.97656, "uncertain": true}
+{"text": "Focus stacking a long, pretty boulevard not going right. Is it a limitation of the camera itself?", "gold": null, "pred": "technology", "confidence": 0.4116, "ood_score": -2906.76367, "uncertain": true}
+{"text": "Difference between 1x AG (Analog Gain) and 1.42x Analog Gain on the Sony CMOS IMX09A PTC Curve", "gold": null, "pred": "technology", "confidence": 0.8986, "ood_score": -696.06445, "uncertain": false}
+{"text": "Dial Calculator/Guides and Film Era Auto Thyristor Flashes", "gold": null, "pred": "technology", "confidence": 0.6108, "ood_score": -3716.54297, "uncertain": false}
+{"text": "Can you help identify this continuous LED light by its outlines?", "gold": null, "pred": "physics", "confidence": 0.5325, "ood_score": -3626.45459, "uncertain": false}
+{"text": "What is happening to the edge of this lens element?", "gold": null, "pred": "physics", "confidence": 0.8406, "ood_score": -1075.21802, "uncertain": false}
+{"text": "Help identify this large format camera?", "gold": null, "pred": "technology", "confidence": 0.6396, "ood_score": -2861.09229, "uncertain": false}
+{"text": "How to actually measure f-stop?", "gold": null, "pred": "physics", "confidence": 0.9183, "ood_score": -2430.05591, "uncertain": false}
+{"text": "How to merge metadata changes in Lightroom 5?", "gold": null, "pred": "technology", "confidence": 0.943, "ood_score": -3811.30566, "uncertain": false}
+{"text": "Motorsport assignment for a team: What to shoot between sessions?", "gold": null, "pred": "sports", "confidence": 0.9711, "ood_score": -857.30542, "uncertain": false}
+{"text": "Track-side photo locations at Mantorp Park, Sweden", "gold": null, "pred": "sports", "confidence": 0.8104, "ood_score": -2830.4624, "uncertain": false}
+{"text": "How to create a digital contact sheet?", "gold": null, "pred": "technology", "confidence": 0.5644, "ood_score": -5162.28906, "uncertain": true}
+{"text": "What does this Australian road sign mean?", "gold": null, "pred": "history", "confidence": 0.4846, "ood_score": -7985.58789, "uncertain": true}
+{"text": "Risks involved with getting a Canadian ETA and not using it?", "gold": null, "pred": "technology", "confidence": 0.9006, "ood_score": -4836.13086, "uncertain": true}
+{"text": "What does this Uzbekistan street sign depicting dark glasses mean?", "gold": null, "pred": "books", "confidence": 0.636, "ood_score": -5348.86084, "uncertain": true}
+{"text": "Dual Citizen - Remote work while traveling as non-resident citizen", "gold": null, "pred": "technology", "confidence": 0.7039, "ood_score": -5080.66309, "uncertain": true}
+{"text": "How can I determine if an airport allows passengers to exit the transit/departure area after entering?", "gold": null, "pred": "technology", "confidence": 0.832, "ood_score": -3904.82275, "uncertain": false}
+{"text": "Do I have any recourse if the train I'm rebooked on via the AJC agreement doesn't take me to my final destination with no replacement traffic?", "gold": null, "pred": "history", "confidence": 0.3269, "ood_score": -4656.95361, "uncertain": true}
+{"text": "What's up with the constant barrage of Public Safety Alerts in Korea, and is there any way to opt out?", "gold": null, "pred": "technology", "confidence": 0.5126, "ood_score": -2453.04297, "uncertain": false}
+{"text": "Which travel ticket is valid for my planned journeys, but not extra expensive?", "gold": null, "pred": "technology", "confidence": 0.6877, "ood_score": -4260.84668, "uncertain": false}
+{"text": "How can I change my eye color when renewing my US passport?", "gold": null, "pred": "history", "confidence": 0.6505, "ood_score": -11607.2832, "uncertain": true}
+{"text": "Can a German bicycle tourist use a transit visa to directly cross Suriname from French Guiana to Guyana (400km in 7 days)?", "gold": null, "pred": "history", "confidence": 0.6041, "ood_score": -4134.71924, "uncertain": false}
+{"text": "Behavioral protocol when stopped by police while driving in USA", "gold": null, "pred": "technology", "confidence": 0.902, "ood_score": -3436.5459, "uncertain": false}
+{"text": "High Speed Rail in Azerbaijan; Can you bring a bike onto the train?", "gold": null, "pred": "history", "confidence": 0.6587, "ood_score": -3503.50317, "uncertain": false}
+{"text": "Where’s this two-lane road with “Alpine Logic” sign in Shawangunk Ridge, Ulster County?", "gold": null, "pred": "sports", "confidence": 0.9113, "ood_score": -3401.48096, "uncertain": false}
+{"text": "Dual passports (UK/HK) holder entering & leaving the US", "gold": null, "pred": "history", "confidence": 0.7848, "ood_score": -6573.45117, "uncertain": true}
+{"text": "Using personal toll tag in a rental car in Australia", "gold": null, "pred": "technology", "confidence": 0.5863, "ood_score": -7376.50684, "uncertain": true}
+{"text": "How to decipher if a fee will be charged for \"fully refundable\" fares based on official fare rules?", "gold": null, "pred": "sports", "confidence": 0.4778, "ood_score": -2925.07471, "uncertain": true}
+{"text": "What should we do if we need to transit three times in Canada?", "gold": null, "pred": "sports", "confidence": 0.3784, "ood_score": -10438.29883, "uncertain": true}
+{"text": "Do I need an ETA or similar for the Philippines?", "gold": null, "pred": "history", "confidence": 0.4311, "ood_score": -16578.82422, "uncertain": true}
+{"text": "Why are Air China passengers required to close blinds in Russian airspace?", "gold": null, "pred": "history", "confidence": 0.7039, "ood_score": -4586.10498, "uncertain": true}
+{"text": "Is it allowed to bring lunch items on board Eurostar to the UK?", "gold": null, "pred": "sports", "confidence": 0.9317, "ood_score": -2144.81494, "uncertain": false}
+{"text": "Can you buy Namma Metro (Bengaluru) QR code tickets without an Indian phone number?", "gold": null, "pred": "technology", "confidence": 0.7413, "ood_score": -3665.43042, "uncertain": false}
+{"text": "Are US passport holders required to keep passports on their person, when in Canada?", "gold": null, "pred": "sports", "confidence": 0.492, "ood_score": -7514.62646, "uncertain": true}
+{"text": "Recognising a valid government website", "gold": null, "pred": "technology", "confidence": 0.7455, "ood_score": -1235.78955, "uncertain": false}
+{"text": "Can we run out of PNR codes?", "gold": null, "pred": "technology", "confidence": 0.973, "ood_score": -983.22034, "uncertain": false}
+{"text": "Can I skip the 2nd leg of my flight, without immigration issues?", "gold": null, "pred": "sports", "confidence": 0.5066, "ood_score": -4167.37598, "uncertain": false}
+{"text": "What lake, mountain, picnic table is Korean actress looking at, in Canadian Rockies?", "gold": null, "pred": "sports", "confidence": 0.7185, "ood_score": -1407.19824, "uncertain": false}
+{"text": "Risk of traveling from Croatia to Cuba given flight cancellations and embargo-related issues?", "gold": null, "pred": "history", "confidence": 0.8684, "ood_score": -4245.71729, "uncertain": false}
+{"text": "Visiting the US after overstaying as a minor", "gold": null, "pred": "history", "confidence": 0.432, "ood_score": -6412.31494, "uncertain": true}
+{"text": "Are you expected to signal when moving out to pass a parked car in the US?", "gold": null, "pred": "technology", "confidence": 0.522, "ood_score": -5766.83789, "uncertain": true}
+{"text": "Any unsafe cities or areas in Cambodia for tourists now", "gold": null, "pred": "history", "confidence": 0.8105, "ood_score": -3785.62915, "uncertain": false}
+{"text": "T-Mobile (US) Roaming in Australia", "gold": null, "pred": "technology", "confidence": 0.9418, "ood_score": -2814.34961, "uncertain": false}
+{"text": "Can you sleep overnight in a camper in Walmart parking lots?", "gold": null, "pred": "sports", "confidence": 0.763, "ood_score": -12185.39355, "uncertain": true}
+{"text": "Moving during Schengen visa application—which address to state?", "gold": null, "pred": "history", "confidence": 0.534, "ood_score": -4224.02295, "uncertain": false}
+{"text": "What are my options for buying NJ Transit tickets online or at EWR airport if I don't have a US phone number?", "gold": null, "pred": "sports", "confidence": 0.429, "ood_score": -7969.05518, "uncertain": true}
+{"text": "What is the process for transiting from LAX terminal 4 to the International terminal?", "gold": null, "pred": "sports", "confidence": 0.4926, "ood_score": -6101.80078, "uncertain": true}
+{"text": "For which flights does the recent China Compulsory Certification (CCC) rule apply? Does it apply to all flights, only some airports or only domestic?", "gold": null, "pred": "history", "confidence": 0.2908, "ood_score": -3128.28711, "uncertain": true}
+{"text": "Why do many hotels tuck sheets and duvets so tightly, and is there a standard way to adjust them without remaking the bed?", "gold": null, "pred": "science", "confidence": 0.421, "ood_score": -9890.38281, "uncertain": true}
+{"text": "Narita Skyliner, buy tickets in advance?", "gold": null, "pred": "sports", "confidence": 0.6646, "ood_score": -4383.96484, "uncertain": false}
+{"text": "ESTA application question number 3?", "gold": null, "pred": "technology", "confidence": 0.4387, "ood_score": -9265.4082, "uncertain": true}
+{"text": "Getting accurate estimates of TSA line lengths?", "gold": null, "pred": "sports", "confidence": 0.5159, "ood_score": -5949.68311, "uncertain": true}
+{"text": "Local travel info related to NBJ (Dr. António Agostinho Neto International Airport)?", "gold": null, "pred": "sports", "confidence": 0.6754, "ood_score": -2751.75977, "uncertain": false}
+{"text": "What is reservation in anticipation of demand?", "gold": null, "pred": "history", "confidence": 0.5943, "ood_score": -4048.79541, "uncertain": false}
+{"text": "Can I leave the airport during a long layover at Addis Ababa airport?", "gold": null, "pred": "sports", "confidence": 0.5558, "ood_score": -5412.81299, "uncertain": true}
+{"text": "Bus ticket purchase option in the Asturias", "gold": null, "pred": "history", "confidence": 0.9737, "ood_score": -3341.67456, "uncertain": false}
+{"text": "In which capital cities is it possible to view a foreign country from the city itself?", "gold": null, "pred": "history", "confidence": 0.7385, "ood_score": -2362.93677, "uncertain": false}
+{"text": "Are the new Talgo trains on the Copenhagen-Hamburg route any faster than the old ones in terms of actual travel time?", "gold": null, "pred": "history", "confidence": 0.5992, "ood_score": -3382.16357, "uncertain": false}
+{"text": "Can UK/EU dual nationals enter the UK legally with an EU passport via Ireland?", "gold": null, "pred": "history", "confidence": 0.5047, "ood_score": -4364.48242, "uncertain": false}
+{"text": "Right to reroute under EC261", "gold": null, "pred": "technology", "confidence": 0.6662, "ood_score": -4413.76758, "uncertain": false}
+{"text": "What is a USCIS \"Full immigration inspection\" upon return from a 181 day trip, exactly?", "gold": null, "pred": "sports", "confidence": 0.4483, "ood_score": -8548.48828, "uncertain": true}
+{"text": "How important is passport expiration date on Flight Booking if not expiring soon?", "gold": null, "pred": "sports", "confidence": 0.6023, "ood_score": -7238.70312, "uncertain": true}
+{"text": "Can I be compensated for a de-facto class downgrade on a train journey in the EU?", "gold": null, "pred": "technology", "confidence": 0.7804, "ood_score": -3083.88477, "uncertain": false}
+{"text": "Pay as you go cap not applied in London - How to find more info and ask refund", "gold": null, "pred": "sports", "confidence": 0.7548, "ood_score": -7135.93457, "uncertain": true}
+{"text": "Non-US-citizen travelling to the US but returning home from Canada", "gold": null, "pred": "history", "confidence": 0.3861, "ood_score": -9846.84961, "uncertain": true}
+{"text": "How is \"proof of onward travel\" verified?", "gold": null, "pred": "history", "confidence": 0.3727, "ood_score": -6303.90918, "uncertain": true}
+{"text": "Is it \"inappropriate\" to take Airport Express, if the airport isn't your true origin or destination?", "gold": null, "pred": "technology", "confidence": 0.7457, "ood_score": -6254.24023, "uncertain": true}
+{"text": "What does the rapid beeping sound mean on Vy bus4you buses?", "gold": null, "pred": "technology", "confidence": 0.9699, "ood_score": -3374.5249, "uncertain": false}
+{"text": "Is it reasonable to accommodate disabled passengers, by letting them sit on a vacant jump seat for a few minutes to wait for the toilet?", "gold": null, "pred": "sports", "confidence": 0.6503, "ood_score": -2316.46875, "uncertain": false}
+{"text": "Flight oxygen mask with eyeglasses", "gold": null, "pred": "chemistry", "confidence": 0.4737, "ood_score": -3588.99072, "uncertain": true}
+{"text": "Can a hotel charge for fees, even if you canceled within the cancellation policy?", "gold": null, "pred": "technology", "confidence": 0.4558, "ood_score": -6786.19336, "uncertain": true}
+{"text": "Am I covered by the EC261? Delay at connecting flight after leaving Europe", "gold": null, "pred": "technology", "confidence": 0.7652, "ood_score": -3262.84277, "uncertain": false}
+{"text": "Someone has taken my cabin luggage at Heathrow and is in Kenya", "gold": null, "pred": "history", "confidence": 0.7131, "ood_score": -10602.84961, "uncertain": true}
+{"text": "Transit through Frankfurt for Indian citizens", "gold": null, "pred": "history", "confidence": 0.7854, "ood_score": -2750.06201, "uncertain": false}
+{"text": "Tui gate staff does not always tear off the boarding pass strip when I board a plane. Is this the normal procedure?", "gold": null, "pred": "sports", "confidence": 0.8295, "ood_score": -2594.10449, "uncertain": false}
+{"text": "What can be done about the expiry date on a passport not being very visible?", "gold": null, "pred": "history", "confidence": 0.8097, "ood_score": -9091.48145, "uncertain": true}
+{"text": "How to fill in the first name and last name for an Arabic name?", "gold": null, "pred": "history", "confidence": 0.9324, "ood_score": -3635.3252, "uncertain": false}
+{"text": "How early can you drop off your luggage at Marseille Provence Airport for an intra-Schengen Lufthansa flight?", "gold": null, "pred": "sports", "confidence": 0.6002, "ood_score": -2458.3042, "uncertain": false}
+{"text": "Lost luggage in Charles de Gaulle airport CDG Roissy", "gold": null, "pred": "history", "confidence": 0.8879, "ood_score": -3087.41235, "uncertain": false}
+{"text": "How do I know if a French-Swiss train journey is a \"Billet Direct\" (and what happens if a connection is missed)", "gold": null, "pred": "technology", "confidence": 0.3555, "ood_score": -4472.04834, "uncertain": true}
+{"text": "Hotel room downgrade: how to calculate compensation?", "gold": null, "pred": "technology", "confidence": 0.7685, "ood_score": -6442.03174, "uncertain": true}
+{"text": "Canadian Heritage", "gold": null, "pred": "sports", "confidence": 0.4684, "ood_score": -5499.95508, "uncertain": true}
+{"text": "Scotland rail stations without car access", "gold": null, "pred": "sports", "confidence": 0.6965, "ood_score": -2350.53027, "uncertain": false}
+{"text": "Should I bring Speedos or Swimming Shorts to China?", "gold": null, "pred": "sports", "confidence": 0.9616, "ood_score": -6335.76855, "uncertain": true}
+{"text": "Does having family in the US make it easier for a Syrian to get a visitor visa?", "gold": null, "pred": "history", "confidence": 0.8293, "ood_score": -4727.23926, "uncertain": true}
+{"text": "Who is responsible for hotel charges if primary cardholder disappears?", "gold": null, "pred": "sports", "confidence": 0.5142, "ood_score": -5061.00537, "uncertain": true}
+{"text": "Early-morning (pre-6 AM) accessible route from Caumartin to Gare du Nord with luggage", "gold": null, "pred": "history", "confidence": 0.8552, "ood_score": -2093.57056, "uncertain": false}
+{"text": "Why would Australian Border Force issue Do Not Board for an outbound flight?", "gold": null, "pred": "history", "confidence": 0.647, "ood_score": -3031.32324, "uncertain": false}
+{"text": "Does Ontario offer a province-wide library card, like British Columbia’s One Card?", "gold": null, "pred": "sports", "confidence": 0.7029, "ood_score": -4393.93164, "uncertain": false}
+{"text": "Seeing Everest from the ground", "gold": null, "pred": "sports", "confidence": 0.578, "ood_score": -4941.05078, "uncertain": true}
+{"text": "Is reliable and reasonably fast Internet only achieved with Starlink dishes in Dili, Timor-Leste?", "gold": null, "pred": "technology", "confidence": 0.8759, "ood_score": -1147.55469, "uncertain": false}
+{"text": "Why would Google Flights show \"Call airline to book\" for a major carrier instead of a website link?", "gold": null, "pred": "technology", "confidence": 0.9262, "ood_score": -2614.31494, "uncertain": false}
+{"text": "How to identify the operating carrier of a codeshare flight without a ticket?", "gold": null, "pred": "technology", "confidence": 0.9188, "ood_score": -3202.43701, "uncertain": false}
+{"text": "What does U/C mean on the map of rail gauges of Africa?", "gold": null, "pred": "history", "confidence": 0.8854, "ood_score": -2606.1543, "uncertain": false}
+{"text": "Canada-Netherlands Dual Citizen Traveling to Slovenia with Canadian Group - Mandatory to use EU Passport?", "gold": null, "pred": "history", "confidence": 0.6154, "ood_score": -5266.36816, "uncertain": true}
+{"text": "Are there any \"local-only\" land border crossings that accept more than two specific nationalities?", "gold": null, "pred": "history", "confidence": 0.735, "ood_score": -1525.93823, "uncertain": false}
+{"text": "How can I know which airports have removed the 100ml liquid rule?", "gold": null, "pred": "history", "confidence": 0.4706, "ood_score": -11259.71289, "uncertain": true}
+{"text": "Lost luggage, 7,000 of receipts, the airline only offered 300", "gold": null, "pred": "history", "confidence": 0.8004, "ood_score": -1785.63745, "uncertain": false}
+{"text": "Ease of getting Taxi/Rideshare at 3:30AM on a Sunday in Adelaide?", "gold": null, "pred": "sports", "confidence": 0.8395, "ood_score": -3662.81885, "uncertain": false}
+{"text": "Large item storage at Hamburg airport", "gold": null, "pred": "history", "confidence": 0.5819, "ood_score": -3338.07983, "uncertain": false}
+{"text": "Driving from Philadelphia to uptown Manhattan on the day of the World Cup Final", "gold": null, "pred": "sports", "confidence": 0.9647, "ood_score": -162.94612, "uncertain": false}
+{"text": "US Green Card holder (Russian citizen): Passport stolen in Spain - How to return to the US without going back to Russia?", "gold": null, "pred": "history", "confidence": 0.7881, "ood_score": -8639.94238, "uncertain": true}
+{"text": "Can I arrive in Indonesia without having done an \"Arrival Card Submission\" in advance?", "gold": null, "pred": "history", "confidence": 0.7465, "ood_score": -8851.95312, "uncertain": true}
+{"text": "I need to cancel a flight, but the airline (Air Asia) says I can't", "gold": null, "pred": "technology", "confidence": 0.2955, "ood_score": -8604.0127, "uncertain": true}
+{"text": "1st flight and rebooked flight got cancelled. What are my rights since it was with separate airlines and airline is diverting blame? Very confused", "gold": null, "pred": "history", "confidence": 0.7687, "ood_score": -4364.09229, "uncertain": false}
+{"text": "Why do many countries require visa applicants to apply from their country of residence?", "gold": null, "pred": "technology", "confidence": 0.4167, "ood_score": -3234.05127, "uncertain": true}
+{"text": "Planning gentle road trips, with refreshing breaks", "gold": null, "pred": "sports", "confidence": 0.4682, "ood_score": -8782.58008, "uncertain": true}
+{"text": "How to book flights if I have a very long name?", "gold": null, "pred": "history", "confidence": 0.5611, "ood_score": -9350.76074, "uncertain": true}
+{"text": "Why does KLM prohibit \"perishable goods\" in both checked baggage and hand baggage?", "gold": null, "pred": "technology", "confidence": 0.4032, "ood_score": -8641.48926, "uncertain": true}
+{"text": "Can a person enter China on a visa free entry if the return flight is booked for after the visa free scheme expires?", "gold": null, "pred": "history", "confidence": 0.7075, "ood_score": -3947.79565, "uncertain": false}
+{"text": "Finding authoritative document requirements for entry into Qatar", "gold": null, "pred": "science", "confidence": 0.3783, "ood_score": -3554.98193, "uncertain": true}
+{"text": "Does \"early boarding\" imply \"you get a space in the overheads\"?", "gold": null, "pred": "physics", "confidence": 0.6259, "ood_score": -4162.55566, "uncertain": false}
+{"text": "Can one dovetail a board that is slightly cupped?", "gold": null, "pred": "sports", "confidence": 0.4025, "ood_score": -4072.74121, "uncertain": true}
+{"text": "Sealing and painting European beech", "gold": null, "pred": "history", "confidence": 0.8178, "ood_score": -3837.87451, "uncertain": false}
+{"text": "Is it Possible to Stop Oxidation of Eastern Red Cedar Color?", "gold": null, "pred": "chemistry", "confidence": 0.8969, "ood_score": -774.87396, "uncertain": false}
+{"text": "Corner Floor to Ceiling Bookcase Design Questions", "gold": null, "pred": "sports", "confidence": 0.5862, "ood_score": -9321.92383, "uncertain": true}
+{"text": "Bolection Moulding and Raised Panels", "gold": null, "pred": "biology", "confidence": 0.2494, "ood_score": -6415.57031, "uncertain": true}
+{"text": "Wooden framed rocking chair Pirelli webbing will not stay in place", "gold": null, "pred": "sports", "confidence": 0.7903, "ood_score": -3408.27637, "uncertain": false}
+{"text": "What is the appropriate anti-seize compound for wood lathe jaw screws", "gold": null, "pred": "chemistry", "confidence": 0.8853, "ood_score": -1256.78101, "uncertain": false}
+{"text": "Cutting medium-size concentric holes with millimeter precision", "gold": null, "pred": "physics", "confidence": 0.8579, "ood_score": -1559.02197, "uncertain": false}
+{"text": "Built-in unit with removable access panels", "gold": null, "pred": "technology", "confidence": 0.9088, "ood_score": -1316.20459, "uncertain": false}
+{"text": "How to support 56\" wide shelves", "gold": null, "pred": "physics", "confidence": 0.7411, "ood_score": -13107.37988, "uncertain": true}
+{"text": "What internal structure is typically used to keep a wide dresser case rigid and drawers aligned long term?", "gold": null, "pred": "physics", "confidence": 0.2889, "ood_score": -4397.07764, "uncertain": true}
+{"text": "Advice: noisy 2nd hand Metabo BAS261 bandsaw", "gold": null, "pred": "science", "confidence": 0.4642, "ood_score": -8854.37793, "uncertain": true}
+{"text": "Broken Chair Stretcher/Rail", "gold": null, "pred": "sports", "confidence": 0.9126, "ood_score": -3863.55029, "uncertain": false}
+{"text": "How can I trim the gap between the butcher block and wall", "gold": null, "pred": "sports", "confidence": 0.4247, "ood_score": -11401.24023, "uncertain": true}
+{"text": "Orientation of timber in tool cart chassis", "gold": null, "pred": "biology", "confidence": 0.4244, "ood_score": -5413.24414, "uncertain": true}
+{"text": "Maintaining a matt water based polyurethane finish on exterior doors", "gold": null, "pred": "chemistry", "confidence": 0.7775, "ood_score": -2170.92212, "uncertain": false}
+{"text": "center holes drilled on wood lathe go off center", "gold": null, "pred": "physics", "confidence": 0.8185, "ood_score": -3208.55542, "uncertain": false}
+{"text": "Joining Desk Stretchers to Leg", "gold": null, "pred": "sports", "confidence": 0.9701, "ood_score": -1182.66443, "uncertain": false}
+{"text": "Need help with Dewalt DWE7492 IN", "gold": null, "pred": "technology", "confidence": 0.7542, "ood_score": -4248.22363, "uncertain": false}
+{"text": "Identifying an Equivalent Router Bit from Old Stock", "gold": null, "pred": "technology", "confidence": 0.973, "ood_score": -604.30487, "uncertain": false}
+{"text": "How to fasten a clevis bracket to underside of wood table?", "gold": null, "pred": "physics", "confidence": 0.7082, "ood_score": -3295.22363, "uncertain": false}
+{"text": "How effective is a self-sharpening blade after, say, two decades of use?", "gold": null, "pred": "physics", "confidence": 0.3677, "ood_score": -3697.38428, "uncertain": true}
+{"text": "Can I apply polyurethane on wood treated with osmo polyx and top oil?", "gold": null, "pred": "chemistry", "confidence": 0.8746, "ood_score": -1537.40881, "uncertain": false}
+{"text": "I applied penetrating oil stain over my lighty sanded polyurethane cabinets", "gold": null, "pred": "chemistry", "confidence": 0.4026, "ood_score": -3262.70874, "uncertain": true}
+{"text": "Help to Identify these Japanese chisels", "gold": null, "pred": "books", "confidence": 0.4316, "ood_score": -5284.44043, "uncertain": true}
+{"text": "I used teak oil on bare oak chair, but too dark. What finish should I have used given the open grain of Oak?", "gold": null, "pred": "chemistry", "confidence": 0.5188, "ood_score": -5102.92773, "uncertain": true}
+{"text": "How do I prevent wood from vibrating in a \"Bladerunner\" saw when cutting a curved contour?", "gold": null, "pred": "physics", "confidence": 0.9838, "ood_score": -2838.83057, "uncertain": false}
+{"text": "Minimum sized stiles/rails and joint types for a 24x80 door with maximum sized glass panel", "gold": null, "pred": "physics", "confidence": 0.777, "ood_score": -2242.229, "uncertain": false}
+{"text": "Clamp to secure 1\" pipe to work bench", "gold": null, "pred": "technology", "confidence": 0.426, "ood_score": -3698.35864, "uncertain": true}
+{"text": "Finishing a wooden flowerpot", "gold": null, "pred": "history", "confidence": 0.4896, "ood_score": -6915.88184, "uncertain": true}
+{"text": "Epoxy chips when router surfacing an epoxy river table", "gold": null, "pred": "technology", "confidence": 0.8366, "ood_score": -2249.11133, "uncertain": false}
+{"text": "fact or myth - be careful first mounting a new carbide tooth sawblade", "gold": null, "pred": "chemistry", "confidence": 0.6991, "ood_score": -3267.84766, "uncertain": false}
+{"text": "Hello I’m refinishing a table I have sanded it down. It is ready except for some spots that will not go away. I do not know how to fix it", "gold": null, "pred": "biology", "confidence": 0.4503, "ood_score": -10167.57227, "uncertain": true}
+{"text": "Why does my Starrett straight edge register flatness differently on the finer-incremented edge?", "gold": null, "pred": "physics", "confidence": 0.856, "ood_score": -2110.40771, "uncertain": false}
+{"text": "Why shouldn't I apply my homemade beeswax-mineral oil 'board butter' straight to a new walnut end grain cutting board?", "gold": null, "pred": "chemistry", "confidence": 0.8737, "ood_score": -2349.19385, "uncertain": false}
+{"text": "Attaching a face plate using a a T slot", "gold": null, "pred": "sports", "confidence": 0.3907, "ood_score": -4347.38965, "uncertain": true}
+{"text": "Can I conclude this wood has reached EMC?", "gold": null, "pred": "sports", "confidence": 0.3613, "ood_score": -7531.95508, "uncertain": true}
+{"text": "How can I install a new drive belt on a Skil 3375 Belt/Disc Sander?", "gold": null, "pred": "technology", "confidence": 0.4939, "ood_score": -4399.25098, "uncertain": true}
+{"text": "Best way to restore an exterior wood front door after sun damage (white/grey, rough texture) — cannot remove door", "gold": null, "pred": "science", "confidence": 0.3552, "ood_score": -8769.73828, "uncertain": true}
+{"text": "Identifying finish on chair", "gold": null, "pred": "books", "confidence": 0.7339, "ood_score": -9011.23438, "uncertain": true}
+{"text": "How can I preserve this porch pew at its current level?", "gold": null, "pred": "science", "confidence": 0.2406, "ood_score": -13156.88281, "uncertain": true}
+{"text": "Blade for BVI \"Saber Jet\" Jig Saw JS-180A", "gold": null, "pred": "physics", "confidence": 0.355, "ood_score": -3971.73657, "uncertain": true}
+{"text": "Best way to adapt Irwin 22 Adjustable Wood Bit for modern drills?", "gold": null, "pred": "sports", "confidence": 0.8956, "ood_score": -3420.09375, "uncertain": false}
