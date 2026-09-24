@@ -4,7 +4,9 @@ Selection protocol (no test-set peeking):
   * hyper-parameters are chosen on the Wikipedia *validation* split;
   * model families are compared on validation AND on ``ext_dev`` (real Stack
     Exchange questions - the style users actually type);
-  * ``test`` and ``ext_test`` are computed for the report only.
+  * ``test`` / ``ext_test`` are NOT read (hardening item 2, decisions.md D-36):
+    they were seen during v1.0 development; the final held-out numbers come
+    from the locked holdout (``evaluate.py --stage locked``) after a freeze.
 
 Sections (run all by default):
   general      featurizer x head grid for the 8 general topics
@@ -166,7 +168,7 @@ def general_candidates(feat: str) -> list[tuple[str, dict, object]]:
 
 def section_general(data: Data, feats: list[str] | None = None) -> dict:
     labels = data.space.general_ids
-    eval_splits = ["val", "test", "se_ext_dev", "se_ext_test"]
+    eval_splits = ["val", "se_ext_dev"]
     results: dict[str, dict] = {}
     majority = DummyClassifier(strategy="most_frequent").fit(np.zeros((len(data.yg["train"]), 1)), data.yg["train"])
     results["majority"] = {
@@ -224,7 +226,7 @@ ENSEMBLE_PAIRS = [("bge-small", "e5-small"), ("bge-small", "mpnet-base"), ("e5-s
 def section_ensemble(data: Data) -> dict:
     """Concatenated embeddings of two encoders + one logistic-regression head."""
     labels = data.space.general_ids
-    eval_splits = ["val", "test", "se_ext_dev", "se_ext_test"]
+    eval_splits = ["val", "se_ext_dev"]
     results: dict[str, dict] = {}
     pairs = list(ENSEMBLE_PAIRS)
     if "minilm-l6-ft" in available_encoders():
@@ -273,7 +275,7 @@ def section_zeroshot(data: Data) -> dict:
         enc = _encoder(key)
         L = enc.encode(label_descriptions(data))
         row = {}
-        for s in ("val", "test", "se_ext_dev", "se_ext_test"):
+        for s in ("val", "se_ext_dev"):
             sims = embed(data, key, s) @ L.T
             row[s] = compact(multiclass_report(data.yg[s], softmax(sims / 0.05, axis=1), labels))
         results[f"{key}|label-similarity"] = row
@@ -288,7 +290,7 @@ def section_hierarchy(data: Data, feats: list[str]) -> dict:
     gids, sids, parent = space.general_ids, space.subtopic_ids, space.parent_col
     sub_idx = space.sub_index
     children = {g: data.tax.children_of(g) for g in gids}
-    eval_splits = ["val", "test", "sesub_ext_dev", "sesub_ext_test"]
+    eval_splits = ["val", "sesub_ext_dev"]
     results: dict[str, dict] = {}
     for feat in feats:
         X, _, _ = features(data, feat, eval_splits)
@@ -344,8 +346,6 @@ def section_hierarchy(data: Data, feats: list[str]) -> dict:
                 }
                 if s == "val":
                     row[s]["subtopics_per_label"] = ml["per_label"]
-                if s == "test":
-                    row["test_subtopics_per_label"] = ml["per_label"]
             results[f"{feat}|{variant}"] = row
             log.info("%s %s thr=%.2f val=%s", feat, variant, best_thr, row["val"])
     dump("hierarchy", results)
@@ -382,7 +382,7 @@ def general_scorers(data: Data, feat: str, X: dict) -> dict:
 
 def section_calibration(data: Data, feats: list[str]) -> dict:
     gids = data.space.general_ids
-    splits = ("val", "test", "se_ext_dev", "se_ext_test")
+    splits = ("val", "se_ext_dev")
     results = {}
     for feat in feats:
         X, _, _ = features(data, feat, list(splits))
@@ -447,9 +447,7 @@ def section_ood(data: Data, feats: list[str]) -> dict:
     results = {}
     pairs = {
         "wiki_val": ("val", "ood_val"),
-        "wiki_test": ("test", "ood_test"),
         "se_ext_dev": ("se_ext_dev", "se_ood_ext_dev"),
-        "se_ext_test": ("se_ext_test", "se_ood_ext_test"),
     }
     for feat in feats:
         splits = sorted({s for p in pairs.values() for s in p})
