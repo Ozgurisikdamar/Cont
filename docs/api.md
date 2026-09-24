@@ -160,7 +160,7 @@ session.history(); session.reset(); session.close(); db.close()
 | `python scripts/tune_decay.py` | artifact, processed data | `reports/experiments/decay.json` |
 | `python evaluate.py` | artifact, all held-out data | `reports/evaluation.json`, `reports/figures/*` |
 | `python scripts/finetune_transformer.py --encoder minilm-l6 --export DIR` | as above | + fine-tuned encoder (float16) in `DIR` |
-| `python scripts/relabel_corpus.py` | cached crawl, `configs/taxonomy.json` | relabelled manifest/passages (splits kept), `reports/relabel.json` |
+| `python scripts/relabel_corpus.py` | cached crawl, `configs/taxonomy.json` | relabelled manifest/passages (splits kept), `reports/relabel_taxonomy_<version>.json` |
 | `python scripts/report_tables.py` | `reports/experiments/*.json` | `reports/tables.md`, `reports/experiment_log.md` |
 | `python scripts/hardware_info.py` | – | `reports/hardware.json` |
 | `python scripts/fp16_storage_check.py` | fine-tuned encoder | `reports/fp16_storage.json` |

@@ -167,7 +167,7 @@ depth ≥ 1, so the minimum-depth rule labelled them Technology.
 
 Taxonomy 1.1.0 removes that seed. `scripts/relabel_corpus.py` re-ran the label
 rules on the cached crawl and applied them to the existing articles, keeping
-each article's split (`reports/relabel.json`):
+each article's split (`reports/relabel_taxonomy_1.1.0.json`; the 1.2.0 relabel is `reports/relabel_taxonomy_1.2.0.json`, decisions.md D-32):
 
 | change | articles |
 |---|---:|

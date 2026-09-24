@@ -1,0 +1,8436 @@
+{
+  "taxonomy_version": "1.2.0",
+  "articles_changed": 883,
+  "articles_removed": 730,
+  "transitions": {
+    "science -> removed": 313,
+    "physics -> removed": 85,
+    "physics -> technology": 1,
+    "sports -> removed": 207,
+    "science -> science": 126,
+    "history -> removed": 125,
+    "science -> physics": 3,
+    "science -> technology": 7,
+    "physics -> biology": 1,
+    "physics -> physics": 5,
+    "science -> history": 5,
+    "science -> biology": 2,
+    "history -> books": 2,
+    "sports -> books": 1
+  },
+  "by_split": {
+    "test": 115,
+    "val": 137,
+    "train": 631
+  },
+  "articles_after": 10358,
+  "passages_after": 40112,
+  "changes": [
+    {
+      "title": "1928 Great Barrier Reef expedition",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "1948 American-Australian Scientific Expedition to Arnhem Land",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "2 1/2-dimensional manufacturing",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "2.5D",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": [
+        "technology",
+        "software"
+      ]
+    },
+    {
+      "title": "2008 Republican Party presidential primaries",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "2009 Latvian meteorite hoax",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "A History of Science, Technology, and Philosophy in the 18th Century",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "A Man of Misconceptions",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "A Philosopher Lecturing on the Orrery",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "ARDI",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Abdel Azim Ashry",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Abel Greenidge",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Abscissa and ordinate",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Absorptive capacity",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Abstract management",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Abu-Mahmud Khujandi",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Academic publishing in China",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Acknowledgment index",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Adolf Ogi",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Aerodynamics Research Institute",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Affinity (taxonomy)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Al-Zarqali",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Al-\u02bbIjliyyah",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Alad\u00e1r Gerevich",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Alberto Juantorena",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Alberto Tomba",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Aleksander Kwa\u015bniewski",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Aleksei Paramonov",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Alexander Hugh McDonald",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Alfred O'Rahilly",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Alfred Russel Wallace centenary",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Alida van den Bos",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Alidade",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Alien Autopsy (1995 film)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Almucantar",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "physics",
+        "astrophysics|classical_mechanics|relativity"
+      ]
+    },
+    {
+      "title": "Altmetric",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Amilcare Rotta",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Anatoly Karpov",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Anatoly Logunov",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Andrei Starovoytov",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Andrew Schlafly",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Andrew Wilson (classical archaeologist)",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Andries van Aarde",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Andriy Slyusarchuk",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Andrzej Duda",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Andr\u00e9 Chastagnol",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Animal testing",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Anita DeFrantz",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Annalisa Marzano",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Anthony Kaldellis",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Antonio Mariscal",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Antonio Spallino",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Antonio dos Reis Carneiro",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Arc measurement",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Arne B. Moll\u00e9n",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Arnold Green (politician)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Arnold Wycombe Gomme",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Art-based research",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Arthur Lynch (politician)",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Arthur Oncken Lovejoy",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Arthur Patschke",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Article processing charge",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Article-level metrics",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Arvid Reuterdahl",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Arvydas Sabonis",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Asnoldo Devonish",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Association of Canadian University Presses",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Association of Learned and Professional Society Publishers",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Association of University Presses",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Association of University Presses of Latin America and the Caribbean",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Astrarium",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Astronomical clock",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Astronomical rings",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Astronomy Centre",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Atomic Energy Commission's Historical Advisory Committee",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Audit study",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Austrian expedition to Brazil",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Author editing",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "AuthorAID",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Autodidacticism",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Avian ecology field methods",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Babylonokia",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Background, foreground, sideground and postground intellectual property",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Backlog (academic journals)",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Backstaff",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ballistic galvanometer",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ban Ki-moon",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Barcelona astrolabe",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bare-fronted Hoodwink",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Basque Museum of the History of Medicine and Science",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Battle of the Beams",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bedford Level experiment",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Benjamin Hedericus",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Berlin Declaration on Open Access to Knowledge in the Sciences and Humanities",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bernstein's problem",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bertrand Piccard",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bethesda Statement on Open Access Publishing",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bettany Hughes",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bhumibol Adulyadej",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bibliothek des Konservatismus",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bill Mallon",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Billy Payne",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Blue Whale Challenge",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Bob Barney",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bogdanov affair",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Bombay Cyclone of 1882",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Bootlegging (business)",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Born-digital",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Botanical expeditions",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Boundary spanning",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Branko Mikuli\u0107",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Brian Jones (aeronaut)",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Brian Tobin (tennis)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "British Society for the History of Science",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bruno Th\u00fcring",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bygrave slide rule",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "technology",
+        "hardware"
+      ]
+    },
+    {
+      "title": "C. H. Douglas",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "CORE (research service)",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": [
+        "technology",
+        "artificial_intelligence"
+      ]
+    },
+    {
+      "title": "Cabinet of curiosities",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cai Qi",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cairn.info",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Calaveras Skull",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Carl Gunnar Engstr\u00f6m",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Carlos Nuzman",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cathy Freeman",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cattle Breeding Centre",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cavallo's multiplier",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Celestial Sphere Woodrow Wilson Memorial",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Celia Schultz",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cello scrotum",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Center for Retrospective Digitization",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Center for Strategic Research (Iran)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Central Research Laboratories",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Centre for History and Philosophy of Science, University of Leeds",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_method"
+      ],
+      "new": [
+        "science",
+        "scientific_method"
+      ]
+    },
+    {
+      "title": "Cesar L\u00fcthi",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Charles Lane Poor",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Charles Redheffer",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Charles Texier",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Chen Jining",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Chen Zhili",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Chief research officer",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Chris de Broglio",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Christopher Cox (British educationist)",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Christopher Smith (classicist)",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Chronosequence",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Citation dynamics",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Citation index",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Climate Change Denial",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Co-production (approach)",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Codimension",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Colin Moynihan, 4th Baron Moynihan",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Collegiate Network",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Community-engaged research",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Complex dimension",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Computer Conservation Society",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Concentration dimension",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Conference proceedings",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Conservapedia",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Conservation and restoration of insect specimens",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Corbett's electrostatic machine",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Corinne Bonnet",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Council of Editors of Learned Journals",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Course reader",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cross-sectional study",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Cross-sequential study",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Crossref",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ctenophthalmus nepalensis",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Customer foresight",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Cyanometer",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cymdeithas Edward Llwyd",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "DPubS",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dark Romanticism",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Data storage tag",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "David Coleman",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dayton Miller",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Deborah Kamen",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "DeepDyve",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Degrees of freedom",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Degrees of freedom (physics and chemistry)",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Deng Pufang",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Design science",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Design science (methodology)",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Design-based research",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Desorptive capacity",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Deutsche Physik",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Diamond open access",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dick Ebersol",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Digital object identifier",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dihydrogen monoxide parody",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Dimension",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dimension (vector space)",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dimension of an algebraic variety",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dimensional metrology",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dimitris Krallis",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dioptra",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Disappearing blonde gene",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Dividing engine",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Document 12-571-3570",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Domingos de Sousa",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Domus Galilaeana",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Donna de Varona",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dra\u017een Petrovi\u0107",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Duplicate publication",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "E. A. Thompson",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Edited volume",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Edmond L\u00e9vy",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Edoardo Mangiarotti",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Eduardo Airaldi Rivarola",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Eduardo Suger",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Edward Arthur Milne",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": [
+        "biology",
+        "evolution"
+      ]
+    },
+    {
+      "title": "Edward Togo Salmon",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Eight-dimensional space",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Electric bath (electrotherapy)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Electric cell-substrate impedance sensing",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Electronic Information for Libraries",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Electrophorus",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Electroscope",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Electrostatic generator",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Elimar Klebs",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Elizabeth Caroline Gray",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Elizabeth Visser",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ellen Preis",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Elton's quadrant",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Embargo (academic publishing)",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Emrys Lloyd",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "EndNote Click",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Enhanced publication",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Enigmarelle",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Environmental velocity",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Eo\u00f6rnis pterovelox gobiensis",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Eric H. Cline",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Erich Honecker",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ernesto Zedillo",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ernst Thommen",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Esther Roth-Shahamorov",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ethics in Progress",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Euclidean plane",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Euler's laws of motion",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": [
+        "physics",
+        "classical_mechanics"
+      ]
+    },
+    {
+      "title": "Evie Dennis",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Exterior dimension",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Extra dimensions",
+      "split": "train",
+      "old": [
+        "physics",
+        "astrophysics|relativity"
+      ],
+      "new": [
+        "physics",
+        "astrophysics"
+      ]
+    },
+    {
+      "title": "F. D. C. Willard",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "F. J. Duarte",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "FC Olt Scornice\u0219ti",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fatal Misconception",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fatu-liva",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Fedden Mission",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fernando Lima Bello",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fernhurst Research Station",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Festschrift",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Field Information Agency, Technical",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Field guide",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Field trip",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Filar micrometer",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "FinVect",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Five-dimensional space",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Flor Isava Fonseca",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Force matching",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Forest Ray Moulton",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fourth dimension in art",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fourth dimension in literature",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Francesco Carotta",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Francis J. Haverfield",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Francisco Alves (water polo)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Franco Frattini",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Frank King (ice hockey)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Frank Kolb",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Franklin bells",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "physics",
+        "astrophysics"
+      ]
+    },
+    {
+      "title": "Franklin's electrostatic machine",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fran\u00e7ois Hinard",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fran\u00e7ois de Loys",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Frascati Manual",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Friedrich Adolph Nobert",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fur-bearing trout",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "F\u00e9lix Sav\u00f3n",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gago Coutinho",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Galina Kulakova",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gary Anderson (sport shooter)",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gary Beckman",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gelfand\u2013Kirillov dimension",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Genpet",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Geoff Henke",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Geologic time scale",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Georg Luck",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Georg Wissowa",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "George Andreadis (sailor)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "George Eden Kirk",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "George Finlay",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "George Forrest (historian)",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "George Willis Botsford",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Georges Raepsaet",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Georges Sagnac",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gerard Heymans",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gerhard Heiberg",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "German National Library of Science and Technology",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gershon Galil",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Giancarlo Brusati",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gianna Angelopoulos-Daskalaki",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Global R&D management",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Global dimension",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Global horizontal sounding technique",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Globe of Matelica",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "history",
+        "ancient_history"
+      ]
+    },
+    {
+      "title": "Goethean science",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gold effect",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_method"
+      ]
+    },
+    {
+      "title": "Golfballia ambusta",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Gou Zhongwen",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Great Moon Hoax",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Grey Literature International Steering Committee",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Grievance studies affair",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Groma (surveying)",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Gromatici",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "history",
+        "ancient_history"
+      ]
+    },
+    {
+      "title": "Grounded theory",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Gualterus Arsenius",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Guy Thompson Griffith",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "G\u00e9rard d'Aboville",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "G\u00fcnther Sabetzki",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Haile Gebrselassie",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Hanji Aoki",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Hans Beck (historian)",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Harald Nordenson",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Harald V",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Harold Madison Wright",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Harry Gordon (journalist)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Harvard Institute for International Development",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Hazel Dodge",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "He Zhenliang",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Health risk assessment",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Heber Doust Curtis",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Heidi Marx",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Heinrich Nissen",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Helen Brownlee",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Henrik Anden\u00e6s",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Henry Francis Pelham",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Herbert Dingle",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Herbert E. Ives",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "HighWire",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Hipparchus",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Hirtz compass",
+      "split": "test",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Historical metrology",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of Science Museum, Oxford",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of Science Society",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of agricultural science",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of astronomy",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of botany",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of business architecture",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of cartography",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of computer science",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of economic thought",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of education",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of electrochemistry",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of engineering",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of forensic photography",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of geodesy",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of glass",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of information theory",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of linguistics",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of logic",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of mathematics",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of medicine",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of narcissism",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of paleontology",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "biology",
+        "evolution"
+      ]
+    },
+    {
+      "title": "History of photography",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of physics",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of political science",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of political thought",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of printing",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of psychiatry",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of psychology",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of psychology (discipline)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of psychopathy",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of science policy",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "history_of_science"
+      ]
+    },
+    {
+      "title": "History of sociology",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of statistics",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of technology",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of telecommunication",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of the metre",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of time in the United States",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of timekeeping devices",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "History of watches",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Hold Ye Front Page",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Honcheonsigye",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Horst Dassler",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Huemul Project",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Hugh Last",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Hugo Dingler",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Hulunber Grassland Ecosystem Observation and Research Station",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Humboldtian science",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Hwang Woo-suk",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Hype in science",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "ICanHazPDF",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "IFIS Publishing",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "IMRAD",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "INASP",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "IT History Society",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Implementation research",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Incompatibility thesis",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Indian Institute of Islamic Studies",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Indicator (statistics)",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "InfoQ",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Inger K. Frith",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Insect collecting",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Institute for the History of Science of the Polish Academy of Sciences",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Institute for the Study of the Jewish Question",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "history",
+        "world_wars"
+      ]
+    },
+    {
+      "title": "Interdimensional",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Intermediated research",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "International Academy of Wood Science",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "International Academy of the History of Science",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "International Association of Scientific, Technical, and Medical Publishers",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "International Commission on the History of Geological Sciences",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "International Commission on the History of Mathematics",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "International Committee of History of Science",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "International Coronelli Society for the Study of Globes",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Isabel Ruffell",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Isadore Nabi",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Islam Karimov",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Isoperimetric dimension",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ivan Patzaichin",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ivar Heikel",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "J-Gate",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "J. C. Stobart",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "JAMA Surgery",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "JSTOR",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jaakko Suolahti",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jack Poole",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jacques Blanc",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jacques Chirac",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jacques Rogge",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jakob Larsen (historian)",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "James MacKaye",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "James Worrall",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jane Mass\u00e9glia",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jane Schaberg",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jasdev Singh",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jean Drapeau",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jean, Grand Duke of Luxembourg",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jean-Claude Killy",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jean-Marie Le Roux",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jean-Pierre Vernant",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jermain G. Porter",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jerzy Kolendo",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": [
+        "books",
+        "authors"
+      ]
+    },
+    {
+      "title": "Jerzy Kukuczka",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jesse Owens",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jill Harries",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Johann Michael Ekling",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Johannes Hevelius",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Johannes Rau",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Johannes Stark",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "John Akii-Bua",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "John Alexander Smith",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "John Brown (Australian politician)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "John William Heslop-Harrison",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "John Williams",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jona Lendering",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jonathan Janson (sailor)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Jordi Pujol",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Josef Neckermann",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Joseph Larmor",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Joseph Tainter",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Josiah Ober",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Journal Citation Reports",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Journal for Geoclimatic Studies",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Jovan I. Dereti\u0107",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Juan Antonio Samaranch",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "J\u00e9r\u00f4me Carcopino",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kaplan\u2013Yorke conjecture",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Katarina Witt",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kathleen Mary Tyrer Atkinson",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Keith Mills",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kenan Evren",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kenneth Kitchen",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kim Dae-jung",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kipchoge Keino",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Klaus Zimmermann",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kleine Schriften",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Knowledge translation",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kodaira dimension",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Koninklijke Hollandsche Maatschappij der Wetenschappen",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Konstantin Andrianov",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Konstantinos Stephanopoulos",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kostas Karamanlis",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Kristina Sessa",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Krull dimension",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "K\u00e1roly K\u00e1rp\u00e1ti",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "K\u00e9ba Mbaye",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "LGDJ",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lala Bulhomal Lahori",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lamine Diack",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Land lab",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Large electrostatic generator (Teylers)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Large extra dimensions",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": [
+        "physics",
+        "astrophysics|quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Lead author",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lee Hee-beom",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lee Hsien Loong",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lee Kun-hee",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Legal history",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Legrand G. Capers",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Leyden jar",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Library publishing",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Life on Display (book)",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lincoln and Darwin",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lisbon Astronomical Observatory",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Literature review",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Liu Jingmin",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Liu Qi (politician, born 1942)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lokomotiv-Versuchsamt Grunewald",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Longitudinal study",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Louis Essen",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Louis Robert (historian)",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lowitja O'Donoghue",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Lucia Nixon",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "L\u00e9on Brillouin",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "L\u00e9on Heuzey",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Man and the Natural World",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Manfred Ewald",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Manfred von Brauchitsch",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Manzoor Hussain Atif",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Marcel Detienne",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Marcel Leclef",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Margareta of Romania",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Maria Kwa\u015bniewska",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Marine counterparts of land creatures",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mariner's astrolabe",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Marios Philippides",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mars hoax",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Martin Goodman (historian)",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Massive online open research",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Matroid rank",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Maurice Besnier",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Max Abraham",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Max Bangerter",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Max Bernhard Weinstein",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Max Planck Institute for the History of Science",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mechanical Turk",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Medical history",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mega journal",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "MegaTransect",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Menyh\u00e9rt Pal\u00e1gyi",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mephisto (automaton)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Merchants of Doubt",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Methods in Molecular Biology",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Metre Convention",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "history",
+        "ottoman_history"
+      ]
+    },
+    {
+      "title": "Michael A. Chambers",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Michael Ansell",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Michael Knight (Australian politician)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Michael Patrick O'Connor",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Michael Wood (historian)",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Microphysiometry",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Mikio Oda",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Milan Ercegan",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Minkowski content",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mintimer Shaimiev",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Miroslav \u0160ubrt",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mission Innovation",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Model for assessment of telemedicine",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Monograph",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Moon Jae-in",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Morea expedition",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Motion analysis",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Multimethodology",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Multimodal anthropology",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Multiplex (assay)",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Mural instrument",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "history",
+        "ancient_history"
+      ]
+    },
+    {
+      "title": "Museo Galileo",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mus\u00e9e Curie",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mus\u00e9e Fragonard d'Alfort",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mus\u00e9e Pasteur",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mus\u00e9e d'Art Dentaire Pierre Fauchard",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mus\u00e9e d'histoire des sciences de la Ville de Gen\u00e8ve",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mus\u00e9e de l'Assistance Publique \u2013 H\u00f4pitaux de Paris",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mus\u00e9e des Lunettes et Lorgnettes Pierre Marly",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "NASA Historical Advisory Committee",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nacirema",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Nadia Com\u0103neci",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Naoto Tajima",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nastulus",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "National Research Council Canada National Science Library",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "National Science Library (Bangladesh)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "National Science Library (Georgia)",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "National Science Library and Resource Centre",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Natural history of Australia",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nature center",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nature writing",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Naturhistorieselskabet",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Network-based diffusion analysis",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Newcomen Society",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Newton's law of cooling",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ng Eng Hen",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nicole Brown (social scientist)",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Nikola Tesla Memorial Center",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nikolai Kasterin",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nino Luraghi",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nocturnal (instrument)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nonius (device)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Norman May",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "North Atlantic weather war",
+      "split": "val",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Numa Denis Fustel de Coulanges",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nurimedia",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "ORCID",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Observational astronomy",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Observatory",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Offprint",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Oliver Heaviside",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Omar Bongo",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "One-dimensional space",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Open Archives Initiative",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Open coopetition",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "OpenDOAR",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Operation Moonwatch",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Operation Sunshine (USS Nautilus)",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Orgueil (meteorite)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Orrery",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Orrin Hatch",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Oskar Kraus",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Otto Hirschfeld",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Overlay journal",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "P. K. Baillie Reynolds",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "PERISCOP",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Pablo Cagnasso",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pacific Northwest tree octopus",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Palestinabuch",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Pami\u0119tnik handlowca",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Paper generator",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Parallel study",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Parataxonomy",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Park Seh-jik",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Participatory action research",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Participatory design",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Pasqual Maragall",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Passemant astronomical clock",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pathological science",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paul Allaire",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paul Anspach",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paul Deighton, Baron Deighton",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paul J. Kosmin",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paul Lorenzen",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paul Marmet",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paul Veyne",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paul Weyland",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paul von Rohden",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Paula Fredriksen",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pavel Oliva",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pedro Ferr\u00e1ndiz",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pel\u00e9",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Penicillin",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Peter Blake (sailor)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Peter Boghossian",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Peter Fraser (classicist)",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Peter Garnsey",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Peter Montgomery (water polo)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Peter Ueberroth",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Peterson Identification System",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Petr Beckmann",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pharmacy Museum of the University of Basel",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Phil Coles",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Philipp Lenard",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pierre Duhem",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pierre Grimal",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pierre Vernier",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pierre Vidal-Naquet",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Piltdown Man",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Pip-squeak",
+      "split": "val",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pirmin Zurbriggen",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Plan S",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Plant collecting",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Polish-Studies.Interdisciplinary",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Polymnia Athanassiadi",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Polytechnic Museum",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pooled analysis",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Poppy-seed bagel theorem",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": [
+        "physics",
+        "classical_mechanics"
+      ]
+    },
+    {
+      "title": "Post office box (electricity)",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Postmortem studies",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Postprint",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pragmatic validity",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Preprint",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Primo Nebiolo",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Prodromus",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Project Alpha (hoax)",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Project Camel",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Project Muse",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Prokopis Pavlopoulos",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Proteus phenomenon",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Proximity fuze",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Public health journal",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Publish or perish",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pulse-Doppler radar",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Punctum Books",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "P\u00e2t\u00e9 de Foie Gras (short story)",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Qualitative research",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Queen Sonja of Norway",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "R&D management",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "R. A. L. Fell",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Radcliffe Science Library",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Radio latino",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Raimondo Guarini",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rainier III, Prince of Monaco",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ralph Klein",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ramsden surveying instruments",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Randomized controlled trial",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Rapid reviews",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Record Commission",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rectangulus",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "technology",
+        "hardware"
+      ]
+    },
+    {
+      "title": "Red River Expedition (1806)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Regional Planetary Image Facility",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Registry of Open Access Repositories",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Regius Professor of Natural History (Aberdeen)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Reiner Klimke",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Reizo Koike",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Relative canonical model",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Relative dimension",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ren\u00e9 Bondoux",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ren\u00e9 Burkhalter",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Reporting bias",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Reprint",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rerum italicarum scriptores",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Research and development agreement",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Research synthesis",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Research-based design",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Responsible Research and Innovation",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Retraction index",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Reverse correlation technique",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Rhinogradentia",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Richard Bunn",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Richard Carrier",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Richard Jenkyns (professor)",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Richard Laqueur",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Richard von Weizs\u00e4cker",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rie Mastenbroek",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Robert Kocharyan",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Roger Batty",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Roh Tae-woo",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rolf Schock",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rolls Series",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Romantic medicine",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ronald J. Mellor",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Roone Arledge",
+      "split": "test",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ross expedition",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rub\u00e9n Acosta (volleyball)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rudolf Hellmann",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rudolf K\u00e1rp\u00e1ti",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Russian National Public Library for Science and Technology",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ruth Macrides",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "SCIgen",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Sci-Hub",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Scientific equipment optician",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Scott Reuben",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Sebastian Coe",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Seiko Hashimoto",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Semantic publishing",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": [
+        "technology",
+        "artificial_intelligence"
+      ]
+    },
+    {
+      "title": "Sepp Blatter",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Sergey Kovalev (historian)",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Seth Schwartz",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Seven-dimensional space",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Shadow square",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "technology",
+        "hardware"
+      ]
+    },
+    {
+      "title": "Shinzo Abe",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Shirley Strickland",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Simon Hornblower",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Simon Sebag Montefiore",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": [
+        "books",
+        "authors"
+      ]
+    },
+    {
+      "title": "Sissel Undheim",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Sitta von Reden",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Six-dimensional space",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Skvader",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Slavonic Library in Prague",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Slide rule",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "technology",
+        "hardware"
+      ]
+    },
+    {
+      "title": "Slide rule scale",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": [
+        "technology",
+        "hardware"
+      ]
+    },
+    {
+      "title": "Society for Research Synthesis Methodology",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Society for Scholarly Publishing",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Society for the History of Astronomy",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Society for the History of Natural History",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Society of Swedish Literature in Finland",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Sokal affair",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Song Yoo-geun",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Springer Protocols",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "State Scientific and Technical Library of Ukraine",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Statistics",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Stefan Marinov",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Steffi Graf",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Stimulus-triggered acquisition of pluripotency",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Stjepan Mohorovi\u010di\u0107",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Storm chasing",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Streetlight effect",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "String galvanometer",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "String theory",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": [
+        "physics",
+        "astrophysics|quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Studying Children in Context",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Subscribe to Open",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Sukkulenten-Sammlung Zurich",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Sun Chunlan",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Surveyor's wheel",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "TR Ara\u00f1a",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Tasuku Tsukada",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Technology brokering",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Technology life cycle",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ted Stevens",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Teo Chee Hean",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Text publication society",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Te\u00f3filo Cruz",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Te\u00f3filo Stevenson",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "The Battle of Brains",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "The Discoverers",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "The Invention of Nature",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "The Myth of the Machine",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "The Truth About Hansel and Gretel",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Theodor Fritsch",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Theodor Mommsen",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Theodore Wade-Gery",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Theodorus Janssonius van Almeloveen",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Thermo galvanometer",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Thesis statement",
+      "split": "val",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Thomas G. Barnes",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Thomas Jefferson Jackson See",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Thomas S. Burns",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Tim Cornell",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Time travel claims and urban legends",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Todor Zhivkov",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Tom Bethell",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Tom Van Flandern",
+      "split": "test",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Toni Sailer",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Tony Estanguet",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Torquetum",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Toshir\u014d Mut\u014d",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Transect",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": [
+        "biology",
+        "ecology"
+      ]
+    },
+    {
+      "title": "Transversal (instrument making)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Trend Receiver",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Trend analysis",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Trevor R. Bryce",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Triquetrum (astronomy)",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Trixolan",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Tube Alloys",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Turbo encabulator",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Turgut Atakol",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "US\u2013China Clean Energy Research Center",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ulugh Beg",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Umberto Laffi",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Undergraduate research journal",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "Universal extra dimensions",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": [
+        "physics",
+        "astrophysics|quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Valentino Castellani",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Victor Gardthausen",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Viktor Tikhonov (born 1930)",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Viktor Yanukovych",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Villejuif leaflet",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Vincenzo de Vit",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Virtual colony count",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Vishwa Jit Gupta",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Visual ethnography",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Vittorio Adorni",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Vivian Balakrishnan",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Vivisection",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Vlade Divac",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Vladimir Alyoshin",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Waldemar Heckel",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Walter Bush",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Walter Wasservogel",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Walther Ritz",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Wang Zhengpu",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "War in the Age of Intelligent Machines",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Wau Ecology Institute",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Weather Station Kurt",
+      "split": "train",
+      "old": [
+        "history",
+        "world_wars"
+      ],
+      "new": null
+    },
+    {
+      "title": "Weather balloon",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_method"
+      ],
+      "new": null
+    },
+    {
+      "title": "Well to Hell",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Werner Hu\u00df",
+      "split": "val",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Westphal balance",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Whipple Museum of the History of Science",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Whitney South Sea Expedition",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Who's Afraid of Peer Review?",
+      "split": "train",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Wildlife observation",
+      "split": "test",
+      "old": [
+        "science",
+        "scientific_method|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Wilhelm Ensslin",
+      "split": "test",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Wilhelm Oncken",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "Willem-Alexander of the Netherlands",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "William Duncan MacMillan",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "Wimshurst machine",
+      "split": "test",
+      "old": [
+        "science",
+        "history_of_science"
+      ],
+      "new": null
+    },
+    {
+      "title": "Wolf-Dieter Montag",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Xi Jinping",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Yoshiaki Tsutsumi",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Yoshihide Suga",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Yuasa Phenomenon",
+      "split": "val",
+      "old": [
+        "science",
+        "history_of_science|scientific_research"
+      ],
+      "new": [
+        "science",
+        "scientific_research"
+      ]
+    },
+    {
+      "title": "Yuriko Koike",
+      "split": "val",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Yury Luzhkov",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Zdzis\u0142aw Krzyszkowiak",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    },
+    {
+      "title": "Zero-dimensional space",
+      "split": "val",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "\u00c1rp\u00e1d G\u00f6ncz",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": [
+        "books",
+        "authors"
+      ]
+    },
+    {
+      "title": "\u00c9douard Guillaume",
+      "split": "train",
+      "old": [
+        "physics",
+        "relativity"
+      ],
+      "new": null
+    },
+    {
+      "title": "\u00c9rudit",
+      "split": "train",
+      "old": [
+        "science",
+        "scientific_research"
+      ],
+      "new": null
+    },
+    {
+      "title": "\u00d6rjan Wikander",
+      "split": "train",
+      "old": [
+        "history",
+        "ancient_history"
+      ],
+      "new": null
+    },
+    {
+      "title": "\u013dudov\u00edt Komadel",
+      "split": "train",
+      "old": [
+        "sports",
+        "olympics"
+      ],
+      "new": null
+    }
+  ]
+}

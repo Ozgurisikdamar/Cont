@@ -365,3 +365,57 @@ no meaningful inter-message time); a KL/embedding change-point detector (needs
 labelled conversations to tune).
 **Test split.** No longer used by the tuning script; conversation metrics on
 held-out data are reported once by the locked evaluation.
+
+## D-32 · Science means the scientific enterprise itself; audit-driven label fixes (taxonomy 1.2.0)
+**Decision.** The general topic *Science* covers science as an activity —
+method, philosophy of science, research practice and publishing, misconduct,
+the history of science *as such* — and no longer anything a science-history
+category happens to contain. Taxonomy 1.2.0:
+* `history_of_science`: seed `History_of_science@1` (was @2) with exclusions for
+  per-discipline histories, natural history, naturalists, hoaxes, museums,
+  libraries, expeditions, instruments, timelines, measurement, organisations and
+  books;
+* `scientific_research`: drops `Research_and_development@0` and
+  `Academic_publishing@0` (business R&D and publishing-industry articles);
+* audit fixes (categories located with the cached crawl, one per systematic
+  error): global `recipients_of` (politicians reached through the Olympic Order),
+  `relativity` excludes `…critics` and the category `Dimension` (algebraic
+  geometry), `scientific_method` excludes `Research_methods` and
+  `Scientific_observation` sub-categories (instruments, cell-biology
+  techniques, Euler's laws), `world_wars` excludes
+  `Science_and_technology_during_…` (radar articles), `ancient_history`
+  excludes `Historians_of_…` (modern scholars).
+
+**Why.** Root cause of the weak Science class (dev data only: val recall 0.688;
+ext_dev hsm recall 0.324, its false negatives going to Physics): the depth-2
+crawl under `History_of_science` pulled in the history of physics, biology,
+chemistry, astronomy and mathematics, so "Science" was trained as a mixture of
+every other class. The 310-passage stratified audit
+(`reports/label_audit_v2.json`, `scripts/label_audit_v2.py`) measured the rest:
+correct 74.5% [69.4, 79.1], weak 20.3% [16.2, 25.2], incorrect **5.2% [3.2,
+8.2]** (Wilson 95%); Science was the worst general topic (8/45 incorrect,
+[9.3%, 31.3%]). Each incorrect item was traced to the category that brought it
+in; the fixes above remove 7 of the 16. The 9 left are single articles filed
+directly in a seed category (Supersymmetry, "Ice age" and an ornithological
+collection sit in `Category:History_of_science` itself; a judicial institute in
+`Category:Research`) and cannot be removed by a category rule without dropping
+the seed. `Research_methods@0` was kept for *scientific_research*: removing it
+also removed literature reviews, cross-sectional studies, grounded theory and
+research synthesis (68 articles, most of them in scope), which is worse than the
+two instruments it contained.
+
+**Effect on the corpus** (`reports/relabel_taxonomy_1.2.0.json`, relabelled
+from the committed 1.1 corpus, splits kept): 883 articles changed, 730 removed
+(Science 313, Sports 207, History 125, Physics 85), 10,358 articles / 40,112
+passages left; Science keeps 2,388 / 463 / 465 train / val / test passages.
+
+**Evaluation rule for Stack Exchange.** The general external set labels every
+`hsm` question *Science*, but hsm is "history of science **and mathematics**"
+and most of its questions ask about a specific field. It is therefore reported
+twice from now on: the legacy number (all sites) and the number without hsm;
+Science on questions is measured on the subtopic set (hsm tagged
+scientific-method / philosophy-of-science, philosophy scientific-method,
+academia research-process). Test sets are not re-cut by this rule — the same
+rule applies to dev and test.
+**Not done.** The auditor is the agent that built the corpus, not an
+independent annotator; the audit is a lower bound on disagreement.

@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "ContextLens topic taxonomy: 8 general topics, 28 subtopics. Labels are stable snake_case ids; display names are for the UI. 'seeds' are Wikipedia categories written as 'Category_name@max_depth' (DBpedia 'dbc:' names) used to build the training corpus; 'stackexchange' lists (site, tag) pairs used only for the external evaluation set. See docs/TAXONOMY.md.",
   "global_exclude_category_patterns": [
     "(?i)stubs?$",
@@ -19,7 +19,8 @@
     "(?i)popular_culture",
     "(?i)fiction",
     "(?i)(^|_)(films?|songs?|albums?|television|anime|manga)(_|$)",
-    "(?i)(^|_)(awards?|prizes?)(_|$)"
+    "(?i)(^|_)(awards?|prizes?)(_|$)",
+    "(?i)recipients_of"
   ],
   "science_person_exclude_patterns": [
     "(?i)(physicists|chemists|biologists|geneticists|ecologists|astronomers|astrophysicists|mathematicians|scientists|engineers|researchers|inventors|people|alumni|awards|prizes|laureates|medalists|academic_journals|journals|periodicals|institutes|organizations|organisations|companies|societies|museums|universities|laboratories|conferences|fictional|in_fiction|in_popular_culture|films|television|songs|albums|games|toys)"
@@ -63,7 +64,9 @@
           "exclude": [
             "science_person"
           ],
-          "exclude_patterns": [],
+          "exclude_patterns": [
+            "(?i)critics|^Dimension$"
+          ],
           "stackexchange": [
             [
               "physics",
@@ -394,7 +397,8 @@
             "science_person"
           ],
           "exclude_patterns": [
-            "(?i)techniques|data_analysis|heuristics|religion|dating_methods|evidence-based|hypotheses"
+            "(?i)techniques|data_analysis|heuristics|religion|dating_methods|evidence-based|hypotheses",
+            "(?i)^research_methods$|scientific_observation"
           ],
           "stackexchange": [
             [
@@ -412,10 +416,14 @@
           "name": "History of Science",
           "phrase": "history of science",
           "seeds": [
-            "History_of_science@2"
+            "History_of_science@1"
           ],
-          "exclude": [],
-          "exclude_patterns": [],
+          "exclude": [
+            "science_person"
+          ],
+          "exclude_patterns": [
+            "(?i)by_discipline|natural_history|naturalist|hoax|romantic|librar|museum|expedition|instrument|timeline|measurement|genealog|defunct|former_|books|works_about|organizations"
+          ],
           "stackexchange": [
             [
               "hsm",
@@ -435,9 +443,7 @@
             "Scientific_misconduct@1",
             "Peer_review@0",
             "Open_science@0",
-            "Research_ethics@0",
-            "Research_and_development@0",
-            "Academic_publishing@0"
+            "Research_ethics@0"
           ],
           "exclude": [
             "science_person"
@@ -613,7 +619,8 @@
           ],
           "exclude": [],
           "exclude_patterns": [
-            "(?i)cultural|media|works_about|(^|_)(art|arts|music|literature|memorials?)(_|$)|controversies"
+            "(?i)cultural|media|works_about|(^|_)(art|arts|music|literature|memorials?)(_|$)|controversies",
+            "(?i)science_and_technology_during"
           ],
           "stackexchange": [
             [
@@ -634,7 +641,9 @@
             "Ancient_history@2"
           ],
           "exclude": [],
-          "exclude_patterns": [],
+          "exclude_patterns": [
+            "(?i)^historians_of"
+          ],
           "stackexchange": [
             [
               "history",
