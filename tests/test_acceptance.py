@@ -97,14 +97,12 @@ def test_short_non_english_input_is_rejected_by_the_language_gate(model, text):
     assert model.predict(text).status == "non_english"
 
 
-@pytest.mark.xfail(
-    reason="caught by neither gate with the v1.0 OOD gate (Sports 0.58); revisited after H7", strict=False
-)
 def test_guten_tag_is_not_answered_with_a_topic(model):
     # The language gate is NOT confident on "guten tag" (fastText: German 0.49,
-    # below the 2-word threshold 0.5 chosen on dev data) - the brief's expectation
-    # "non-English / uncertain" is met by the topic gates instead. Recorded, not
-    # tuned away (docs/HARDENING.md, item 6).
+    # below the 2-word threshold 0.5 chosen on dev data). With the v1.0 centroid
+    # gate it was answered "Sports 0.58" (xfail); the Mahalanobis gate (D-34)
+    # flags it as far from every topic, so the brief's expectation
+    # "non-English / uncertain" is met by the topic gates, not the language gate.
     assert model.predict("guten tag").status in {"non_english", "uncertain"}
 
 
