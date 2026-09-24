@@ -17,7 +17,7 @@ What is used, and why:
 
 Splits: CLINC ``validation`` -> ``dev`` (detector choice and thresholds),
 CLINC ``test`` -> ``locked`` (evaluated once after the freeze,
-scripts/locked_eval.py). CLINC ``train`` is kept for training a dedicated OOD
+evaluate.py --stage locked). CLINC ``train`` is kept for training a dedicated OOD
 classifier (``train``); it never reaches an evaluation.
 
     python scripts/build_ood_conversational.py   # -> data/external/ood_conversational.jsonl

@@ -7,8 +7,8 @@
 <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.11"/>
 <img src="https://img.shields.io/badge/PyTorch-2.5.1-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch 2.5.1"/>
 <img src="https://img.shields.io/badge/SQLite-Local%20History-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite"/>
-<img src="https://img.shields.io/badge/Model-MiniLM-FFD21E?style=for-the-badge&logo=huggingface&logoColor=111827" alt="MiniLM"/>
-<img src="https://img.shields.io/badge/Tests-162%20Passed-22C55E?style=for-the-badge&logo=pytest&logoColor=white" alt="162 tests passed"/>
+<img src="https://img.shields.io/badge/Model-MiniLM%20v1.1.0-FFD21E?style=for-the-badge&logo=huggingface&logoColor=111827" alt="MiniLM v1.1.0"/>
+<img src="https://img.shields.io/badge/Tests-230%20Passed-22C55E?style=for-the-badge&logo=pytest&logoColor=white" alt="230 tests passed"/>
 
 <br/><br/>
 
@@ -20,7 +20,8 @@
 <tr>
 <td align="center"><strong>8</strong><br/><sub>GENERAL TOPICS</sub></td>
 <td align="center"><strong>28</strong><br/><sub>SUBTOPICS</sub></td>
-<td align="center"><strong>42,942</strong><br/><sub>TRAINING PASSAGES</sub></td>
+<td align="center"><strong>40,112</strong><br/><sub>TRAINING PASSAGES</sub></td>
+<td align="center"><strong>0.838</strong><br/><sub>LOCKED MACRO-F1 (WIKIPEDIA)</sub></td>
 <td align="center"><strong>19.9 ms</strong><br/><sub>MEDIAN LATENCY</sub></td>
 </tr>
 </table>
@@ -44,21 +45,20 @@
 ```text
 $ python project.py
 ContextLens - English conversation topic analysis
-Model ready (v1.0.0, …s).
+Model ready (v1.1.0, …s).
 Enter text (or 'help'): Quantum processors can speed up certain algorithms by using qubits.
 
 [Text analysis]
 General topic : Technology
 Confidence    : …
 Subtopics     :
-  - Technology > Quantum Computing (…)
+  - Quantum Computing (…)
 …
 ```
 
 </details>
 
-The full, real output of a three-message conversation is in
-[§14 Example output](#14-example-output).
+The full, real output of a conversation is in [§14 Example output](#14-example-output).
 
 ---
 
@@ -66,14 +66,18 @@ The full, real output of a three-message conversation is in
 
 For every message a user types, ContextLens
 
-1. predicts the **general topic** (8 classes) and the **subtopics** (28, multi-label,
-   organised under the general topics) with **calibrated probabilities**;
+1. predicts the **general topic** (8 classes) and a **primary subtopic** (28,
+   organised under the general topics) with **calibrated probabilities**, plus
+   **secondary sibling suggestions** when another subtopic of the same general
+   topic is also likely;
 2. answers **uncertain** instead of guessing when the text is outside the
-   taxonomy ("I'm going to order pizza tonight") or the model is not confident;
+   taxonomy ("I'm going to order pizza tonight") or the model is not confident,
+   and **non_english** when the text is in another language;
 3. keeps a **conversation context** in which older messages fade out
-   (exponential decay) and composes the active topics into one theme —
-   Books + Science → *science books*; + Biology → *science books about biology*;
-   Books + History → *history books*;
+   (exponential decay), a one-message tangent does not take over, and a run of
+   off-topic messages clears the context; the active topics are composed into
+   one theme — Books + Science → *science books*; + Biology → *science books
+   about biology*; Books + History → *history books*;
 4. turns the theme into a **search query**, searches **Wikipedia** (DuckDuckGo as
    fallback, no API keys) and shows the top results;
 5. stores **messages, predictions, themes, queries and results** in SQLite, so
@@ -85,13 +89,14 @@ Everything — data, input, output, documentation — is English.
 
 | area | what it does | where |
 |---|---|---|
-| classification | general topic + hierarchical multi-label subtopics, temperature-scaled probabilities, validation-tuned subtopic threshold | `contextlens/models/` |
-| uncertainty | out-of-taxonomy gate (cosine to class centroids) + minimum confidence; uninformative input (symbols, stop words only) is not a turn | `topic_model.py` |
-| conversation | decayed topic scores, uncertain turns carry no weight, `reset` starts a new context | `services/tracker.py` |
+| classification | general topic + primary subtopic with sibling suggestions, temperature-scaled probabilities, validation-tuned sibling threshold | `contextlens/models/` |
+| uncertainty | off-topic gate (Mahalanobis distance to the general-topic means, calibrated on real questions) + minimum confidence; language gate (fastText lid.176 + training lexicon, per-length thresholds); uninformative input (symbols, stop words only) is not a turn | `topic_model.py`, `ood.py`, `language.py` |
+| conversation | decayed topic scores; the dominant topic changes only after two agreeing confident messages; the context expires after four messages without a confident topic; uncertain turns carry no weight; `reset` starts a new context | `services/tracker.py` |
 | theme composition | driven by taxonomy metadata (format / domain / perspective roles), no hard-coded pairs | `services/composer.py`, `configs/taxonomy.json` |
 | search | privacy-preserving query (theme phrase + at most two public-vocabulary words), Wikipedia → DuckDuckGo fallback, 72 h cache, retries with back-off, circuit breaker, HTTPS allow-list | `services/query.py`, `services/websearch.py` |
 | storage | SQLite with foreign keys, indexes, transactions, parameterised SQL, `PRAGMA user_version` migrations, model version on every prediction; a database error never crashes a turn | `database/db.py` |
-| safety | model artifact loaded with skops type allow-list + SHA-256 checksums + encoder fingerprint; never retrained at start-up | `models/artifact.py` |
+| safety | model artifact loaded with a skops type allow-list, SHA-256 checksums of every artifact **and encoder** file, encoder fingerprint; never retrained at start-up | `models/artifact.py` |
+| evaluation hygiene | development data only for every choice; a **locked holdout** built before any v1.1 decision, fingerprinted by `scripts/freeze.py` and evaluated once | `evaluate.py`, `data/locked/`, `reports/locked/` |
 | reproducibility | `RANDOM_SEED = 42`, every dataset/model pinned by revision, committed label manifest and passages | `contextlens/config.py`, `data/` |
 
 ## 3. Architecture
@@ -100,19 +105,20 @@ Everything — data, input, output, documentation — is English.
 %%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, ui-sans-serif, system-ui","lineColor":"#64748B","primaryTextColor":"#FFFFFF"}}}%%
 flowchart LR
     U["💬 User message"] --> P["✨ Preprocess"]
-    P --> E["🧠 Sentence encoder"]
+    P --> L{"🌍 Language gate"}
+    L -->|"not English"| NE["🚫 non_english<br/>weight = 0"]
+    L --> E["🧠 Fine-tuned MiniLM"]
 
     subgraph INT["INTELLIGENCE"]
       direction TB
-      E --> G["General topic<br/>+ calibration"]
-      E --> S["Subtopics<br/>multi-label"]
-      E --> O["OOD gate<br/>centroid similarity"]
+      E --> S["28-way subtopic softmax<br/>+ temperature"]
+      S --> G["General topic<br/>= sum of children"]
+      E --> O["Off-topic gate<br/>Mahalanobis"]
       G --> D{"Decision"}
-      S --> D
       O --> D
     end
 
-    D -->|"confident"| T["🧭 Conversation tracker<br/>decay"]
+    D -->|"confident"| T["🧭 Conversation tracker<br/>decay · hysteresis · expiry"]
     D -->|"uncertain"| X["⚠️ Show uncertainty<br/>weight = 0"]
 
     T --> C["🧩 Theme composer"]
@@ -133,11 +139,11 @@ flowchart LR
     classDef db fill:#111827,stroke:#94A3B8,color:#FFFFFF,stroke-width:2px;
 
     class U,P input;
-    class E,G,S,O intelligence;
+    class L,E,G,S,O intelligence;
     class D decision;
     class T,C context;
     class Q,W retrieval;
-    class X warn;
+    class X,NE warn;
     class DB db;
 ```
 
@@ -156,13 +162,13 @@ therefore **built from English Wikipedia**:
 | | |
 |---|---|
 | source | English Wikipedia text (`wikimedia/wikipedia` 20231101.en, fallback `legacy-datasets/wikipedia` 20220301.en — both pinned) labelled through Wikipedia's own **category graph** (DBpedia SPARQL) from curated seed categories |
-| size | **42,942 passages** from **11,073 articles** (train 30,051 · val 6,464 · test 6,427), split by article (grouped, stratified) |
-| labels | 8 general topics (imbalance ratio 1.59), 28 subtopics (3.81), 6.2% of passages carry 2–3 subtopics; one label rule fixed after error analysis (136 quantum articles, [DATASET_CARD §9](docs/DATASET_CARD.md)) |
-| label quality | manual audit of 48 training passages: 89.6% correct, 6.2% weak passage, 4.2% wrong label |
+| size | taxonomy **1.2.0**: **40,112 passages** from **10,344 articles**, split by article (grouped, stratified): train 28,075 · val 5,984 · legacy test 6,053 |
+| labels | 8 general topics (imbalance ratio 1.97), 28 subtopics (3.67); 5.4% of passages carry 2–3 subtopics; two label-rule revisions after error analysis and audit (quantum seed, D-27; Science redefined as the scientific enterprise, D-32) |
+| label quality | stratified audit of **310** passages: 74.5% correct, 20.3% weak, **5.2% wrong [95% CI 3.2, 8.2]**; 7 of the 16 wrong ones removed by category rules |
 | leakage | 0 shared articles, 0 exact duplicates, 0 near-duplicates (TF-IDF cosine ≥ 0.9) between splits; acceptance sentences absent |
-| external evaluation | **Stack Exchange question titles** (never trained on): 10,124 / 10,087 in-taxonomy + 6,000 / 6,000 off-topic (ext_dev / ext_test); a 25-subtopic set of 1,630 / 1,642 questions |
-| out-of-taxonomy | 1,327 Wikipedia passages from 12 unrelated categories (cooking, music, cars, …) |
-| licence | Wikipedia CC BY-SA 4.0; Stack Exchange CC BY-SA 4.0 — [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) |
+| development sets | Wikipedia val; **Stack Exchange question titles** ext_dev (10,124 in-taxonomy + 6,000 off-topic; 1,630 subtopic questions); **CLINC150** assistant chat as off-topic text (dev 2,900); **Tatoeba** sentences for the language gate (dev half); 652 out-of-taxonomy Wikipedia passages |
+| locked holdout | built before any v1.1 decision, read once: **374** Wikipedia passages from articles never used, **2,713** Stack Exchange questions created in 2026, CLINC150 test (4,350), Tatoeba locked half (`data/locked/MANIFEST.json`) |
+| licence | Wikipedia CC BY-SA 4.0; Stack Exchange CC BY-SA 4.0; CLINC150 CC BY 3.0; Tatoeba CC BY 2.0 FR — [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) |
 
 <div align="center">
 
@@ -183,9 +189,9 @@ therefore **built from English Wikipedia**:
 
 **Why this data:** it is the only source that covers all 8 × 28 topics in
 English, it is reproducible from pinned snapshots, its labels come from a
-human-curated structure (the category graph) rather than from us, and it has a
-real-question counterpart (Stack Exchange) for measuring how well a model
-trained on encyclopedic text transfers to the way people actually type.
+human-curated structure (the category graph) rather than from us, and it has
+real-question and chat counterparts for measuring how well a model trained on
+encyclopedic text transfers to the way people actually type.
 Card: [docs/DATASET_CARD.md](docs/DATASET_CARD.md).
 
 ## 5. Model
@@ -193,53 +199,65 @@ Card: [docs/DATASET_CARD.md](docs/DATASET_CARD.md).
 | part | what |
 |---|---|
 | encoder | **all-MiniLM-L6-v2, fine-tuned** 3 epochs on the training split (general + subtopic heads during fine-tuning), exported without its heads, float16 on disk |
-| head | one multinomial logistic regression (C = 8, class-weighted) over the **28 subtopics**; P(general) = sum of its subtopics; temperature T = 1.431 |
-| subtopics | best subtopic of the predicted general topic + siblings with P(sub \| general) ≥ 0.40, at most 3 |
-| "uncertain" | cosine to the nearest class centroid < 0.705, **or** confidence < 0.50, **or** fewer than 40% known English words |
-| conversation | exponentially decayed topic scores (decay 0.7 per message, topics below 20% of the total are dropped), composed into one theme by the taxonomy's rules |
+| head | one multinomial logistic regression (C = 16, class-weighted) over the **28 subtopics**, trained on each passage's primary subtopic; P(general) = sum of its subtopics; temperature T = 1.428 |
+| subtopics | the **primary subtopic** (best child of the predicted general topic) + **sibling suggestions** with P(sub \| general) ≥ 0.40, at most 3 in total |
+| "uncertain" | Mahalanobis score below the value that keeps 95% of ext_dev questions, **or** confidence < 0.50 |
+| "non_english" | fastText lid.176 confident the text is another language (reject confidence 0.5 for 1–2 words, 0.3 for 3+ words), lexicon as a tie-breaker |
+| conversation | decay 0.7, theme share ≥ 0.20, dominant topic changes after 2 agreeing confident messages, context expires after 4 messages without a confident topic |
 
-Held-out results (`reports/evaluation.json`, never used for a choice):
+It is **not** a full multi-label classifier: only 6% of the passages carry two
+subtopics, and a comparison with one-vs-rest and per-parent sigmoid heads
+(D-33) showed that their best operating point also predicts one label.
 
-| set | accuracy | macro-F1 | weighted-F1 | ECE |
-|---|---:|---:|---:|---:|
-| Wikipedia test (6,427 passages) | 0.835 | 0.834 | 0.835 | 0.031 |
-| Stack Exchange questions (10,087) | 0.775 | 0.756 | 0.773 | 0.067 |
+**Locked holdout** (`reports/locked/results.json`, evaluated once after the
+freeze):
+
+| set | n | accuracy | macro-F1 | weighted-F1 | ECE |
+|---|---:|---:|---:|---:|---:|
+| Wikipedia, unseen articles | 374 | 0.848 | 0.838 | 0.847 | 0.058 |
+| Stack Exchange questions (2026) | 1,623 | 0.804 | 0.730 | 0.796 | 0.056 |
+| same, without the history-of-science site | 1,524 | 0.843 | 0.818 (7 classes) | – | – |
 
 <div align="center">
 
-<img src="reports/figures/reliability_final.png" alt="Reliability diagram" width="70%"/>
+<img src="reports/figures/reliability_locked.png" alt="Reliability diagram" width="70%"/>
 
-<sub>Calibration / reliability of the final model</sub>
+<sub>Calibration / reliability of the final model on the locked holdout</sub>
 
 </div>
 
-Subtopics: macro-F1 0.647 on Wikipedia, 0.701 on questions (25 labels);
-the right subtopic is in the top 3 for 86% of Wikipedia passages.
+Subtopics: micro-F1 0.659 on Wikipedia (the right one is in the top 3 for 85%),
+0.603 on questions. Off-topic: 78.1% of assistant chat and 48.5% of off-topic
+questions answered "uncertain" (AUROC 0.961 / 0.887).
 
 ## 6. Why this model
 
-Eleven models were compared on the same splits (`reports/tables.md`); the
-choice was made on Wikipedia validation **and** real Stack Exchange questions
-(ext_dev), never on test data. General-topic macro-F1:
+Eleven model families were compared on the same splits (`reports/tables.md`,
+taxonomy 1.2.0); the choice was made on Wikipedia validation **and** real Stack
+Exchange questions (ext_dev), never on test data. General-topic macro-F1:
 
 | model | Wikipedia val | questions (ext_dev) | ms / text | MB |
 |---|---:|---:|---:|---:|
-| TF-IDF + logistic regression | 0.793 | 0.595 | 1.6 | 11 |
-| TF-IDF + complement naive Bayes | 0.803 | 0.643 | 1.8 | 18 |
-| zero-shot NLI (bart-large-mnli) | 0.623 | 0.511 | 2,556 | – |
-| MiniLM (frozen) + LR | 0.813 | 0.679 | 14.9 | 91 |
-| e5-small (frozen) + LR | 0.823 | 0.743 | 27.1 | 133 |
-| mpnet-base (frozen) + LR | 0.836 | 0.737 | 66.7 | 438 |
-| **MiniLM fine-tuned** | **0.843** | **0.752** | **13.0** | **91** |
+| TF-IDF + logistic regression | 0.805 | 0.593 | 1.5 | 10 |
+| TF-IDF + complement naive Bayes | 0.813 | 0.636 | 1.5 | 17 |
+| zero-shot NLI (bart-large-mnli, v1.0 sample) | 0.623 | 0.511 | 2,556 | – |
+| MiniLM (frozen) + LR | 0.830 | 0.712 | 14.1 | 91 |
+| mpnet-base (frozen) + LR | 0.849 | 0.713 | 66.3 | 438 |
+| bge-small (frozen) + LR | 0.838 | 0.736 | 27.8 | 133 |
+| e5-small (frozen) + LR | 0.842 | 0.747 | 25.3 | 133 |
+| **MiniLM fine-tuned** | **0.848** | **0.749** | **13.5** | **91** |
 
-* Lexical models score well on encyclopedia text but lose 15–20 points on
-  real questions — they memorise vocabulary.
-* Among frozen encoders the largest is best on Wikipedia but not on questions.
-* Fine-tuning the smallest encoder beats all of them on both sets and is the
-  fastest (numbers from labels v1.0; after the label fix of D-27 it reaches
-  0.840 / 0.756).
-* A single softmax over the 28 subtopics beat a hierarchical head and
-  independent sigmoids for every embedding encoder (E-7, D-23).
+* Lexical models score well on encyclopedia text but lose ~20 points on
+  real questions — they memorise vocabulary (training macro-F1 0.94–1.00).
+* Among frozen encoders the largest (mpnet-base) is best on Wikipedia but
+  among the worst on questions: choosing on Wikipedia alone would pick the
+  wrong, slowest model.
+* Fine-tuning the smallest encoder is best on questions and ties the best on
+  Wikipedia, at the lowest latency and size. The margins are narrower on the
+  1.2.0 labels than on v1.0 (where it led on both); the choice made before the
+  freeze stands (docs/MODEL_REPORT.md §1).
+* One softmax over the 28 subtopics beat hierarchical and one-vs-rest sigmoid
+  heads, also on the production encoder (D-23, D-33).
 
 The full comparison: [docs/MODEL_REPORT.md](docs/MODEL_REPORT.md) · every experiment:
 [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md) · failure modes:
@@ -251,16 +269,17 @@ The full comparison: [docs/MODEL_REPORT.md](docs/MODEL_REPORT.md) · every exper
 Python 3.11, CPU is enough (a GPU is used automatically when present).
 
 ```bash
-git clone https://github.com/Ozgurisikdamar/ContexLens-NLP.git && cd ContexLens-NLP
+git clone https://github.com/Ozgurisikdamar/ContexLens.git && cd ContexLens
 python -m venv .venv && . .venv/bin/activate
 pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1   # CPU build, avoids CUDA wheels
 pip install -r requirements.txt                 # runtime + training
 pip install -r requirements-dev.txt             # + pytest, ruff, mypy
 ```
 
-The trained model (`models/contextlens-topic/`, 45 MB: float16 encoder + heads + metadata) is part of the
-repository, so the application runs right after installation — nothing is
-downloaded or trained at start-up.
+The trained model (`models/contextlens-topic/`, 47 MB: float16 encoder, heads,
+off-topic detector, fastText language identifier `langid.ftz`, metadata with
+SHA-256 checksums) is part of the repository, so the application runs right
+after installation — nothing is downloaded or trained at start-up.
 
 ## 8. Running
 
@@ -272,80 +291,98 @@ python project.py --script messages.txt   # one message per line
 python project.py --debug          # technical detail to stderr and logs/contextlens.log
 ```
 
-Settings (database path, decay, search on/off, …) can be changed with
+Settings (database path, decay, expiry, search on/off, …) can be changed with
 `CONTEXTLENS_<SETTING>` environment variables — list in [docs/api.md §2](docs/api.md).
 
 ## 9. Training
 
 ```bash
 python scripts/download_data.py --all    # corpus + Stack Exchange sets (network, ~20 min, cached)
+python scripts/build_ood_conversational.py   # CLINC150 off-topic chat (train / dev / locked)
+python scripts/build_language_eval.py        # Tatoeba language set (dev / locked)
 python scripts/eda.py                    # data report + leakage checks → reports/eda.json
-python scripts/run_experiments.py        # benchmark → reports/experiments/*.json
+python scripts/run_experiments.py        # benchmark → reports/experiments/*.json (dev splits only)
 python scripts/finetune_transformer.py --encoder minilm-l6 --export models/finetuned/minilm-l6
+python scripts/head_comparison.py        # softmax vs sigmoid heads → head_comparison.json
+python scripts/ood_experiment.py         # seven off-topic detectors → ood_detectors.json
+python scripts/language_gate_experiment.py
 python train.py                          # final model → models/contextlens-topic/
-python scripts/tune_decay.py             # conversation decay → reports/experiments/decay.json
+python scripts/tune_decay.py             # conversation tracker → reports/experiments/decay.json
 ```
 
 `train.py` reads its hyper-parameters from `configs/model.json`, which records
-the benchmark's choice. The data build needs network access; everything it
-fetches is cached under `data/raw/`, and the label manifest and passages are
+the choices of the experiments. The data build needs network access; everything
+it fetches is cached under `data/raw/`, and the label manifest and passages are
 committed (`data/manifest/`, `data/processed/`), so training alone runs offline.
-Timings on the reference machine (4 vCPU, no GPU): corpus build ~20 min (network), benchmark about an hour, fine-tuning 30.5 min, `train.py` 3.6 min (`evaluate.py` was not timed separately).
+Timings on the reference machine (4 vCPU, no GPU): corpus build ~20 min
+(network), benchmark ~1.5 h, fine-tuning ~40 min, `train.py` < 1 min with
+cached embeddings.
 
 ## 10. Evaluation
 
 ```bash
-python evaluate.py                # all held-out sets → reports/evaluation.json + figures
-python scripts/report_tables.py   # benchmark JSON → reports/tables.md
+python evaluate.py --stage dev      # development data → reports/evaluation_dev.json + figures
+python scripts/freeze.py            # fingerprint config, data and artifact → reports/locked/FREEZE.json
+python evaluate.py --stage locked   # ONCE: locked holdout → reports/locked/results.json + raw predictions
+python scripts/report_tables.py     # benchmark JSON → reports/tables.md, reports/experiment_log.md
 ```
 
-`evaluate.py` reports general-topic accuracy / macro-F1 / weighted-F1 /
-ECE, per-class reports, confusion matrices, subtopic metrics (macro/micro/
-samples F1, Hamming loss, subset accuracy, P@1, R@3), the uncertain gate on
-in-domain and off-topic text, breakdowns by source and length, the most
-confident errors and latency. Summary of the final run:
+`evaluate.py` reports general-topic accuracy / macro-F1 / weighted-F1 / ECE,
+per-class reports, confusion matrices, subtopic metrics (macro/micro/samples
+F1, Hamming loss, subset accuracy, P@1, R@3), the gates on in-domain,
+off-topic and non-English text (AUROC, AUPRC, FPR@95TPR, flag rates by rule),
+breakdowns by source and length, the most confident errors, latency and the
+acceptance probes. `--stage locked` refuses to run without the freeze file or
+when anything in the fingerprint changed. Summary of the locked run:
 
-| measure | Wikipedia test | Stack Exchange ext_test |
+| measure | Wikipedia (374) | questions (1,623) |
 |---|---:|---:|
-| general macro-F1 | 0.834 | 0.756 |
-| subtopic macro-F1 | 0.647 | 0.701 |
-| answered "uncertain" | 6.8% | 9.2% |
-| accuracy of the answered ones | 0.868 | 0.812 |
-| off-topic texts flagged uncertain | 33.3% (675 passages) | 43.6% (6,000 questions) |
-| median latency per message | 19.9 ms (p95 28.3 ms) | |
+| general macro-F1 | 0.838 | 0.730 (0.818 without hsm) |
+| subtopic micro-F1 / P@1 | 0.659 / 0.668 | 0.603 / 0.624 |
+| answered "uncertain" | 4.0% | 9.3% |
+| accuracy of the answered ones | 0.861 | 0.844 |
+| off-topic flagged | – | 48.5% of off-topic questions · 78.1% of CLINC150 chat |
+| non-English rejected (Tatoeba) | 48% (1 word) · 76% (2) · 93% (3) · 97% (sentence) | |
+| median latency per message | 19.9 ms (p95 30.3 ms) | |
 
 <div align="center">
 
-### Evaluation visuals
+### Evaluation visuals (locked holdout)
 
 <table>
 <tr>
-<td width="50%" align="center"><img src="reports/figures/confusion_wiki_test.png" alt="Wikipedia test confusion matrix" width="100%"/></td>
-<td width="50%" align="center"><img src="reports/figures/confusion_se_ext_test.png" alt="Stack Exchange test confusion matrix" width="100%"/></td>
+<td width="50%" align="center"><img src="reports/figures/confusion_wiki_locked.png" alt="Wikipedia locked confusion matrix" width="100%"/></td>
+<td width="50%" align="center"><img src="reports/figures/confusion_se_locked.png" alt="Stack Exchange locked confusion matrix" width="100%"/></td>
 </tr>
 <tr>
-<td align="center"><sub>Wikipedia test</sub></td>
-<td align="center"><sub>Stack Exchange external test</sub></td>
+<td align="center"><sub>Wikipedia, unseen articles</sub></td>
+<td align="center"><sub>Stack Exchange questions (2026)</sub></td>
 </tr>
 </table>
 
-<img src="reports/figures/subtopic_f1_wiki_test.png" alt="Subtopic F1 scores" width="82%"/>
+<img src="reports/figures/subtopic_f1_wiki_locked.png" alt="Subtopic F1 scores" width="82%"/>
 
-<sub>Per-subtopic F1 on the Wikipedia test split</sub>
+<sub>Per-subtopic F1 on the locked Wikipedia passages</sub>
 
 </div>
+
+The v1.0 `test` / `ext_test` splits were looked at during v1.0 development and
+are reported only as a *legacy* section of the locked report.
 
 ## 11. Tests
 
 ```bash
-pytest -q              # offline suite: unit + integration + CLI + data integrity (fake encoder, seconds)
-pytest -q -m model     # the trained model: acceptance sentences, OOD, conversation, edge cases
+pytest -q                   # offline suite: unit + integration + CLI + data integrity (fake encoder)
+pytest -q -m model          # the trained model: acceptance sentences, off-topic, conversation, edge cases
 pytest -q -m network        # resilience: clean status whatever the providers do
 pytest -q -m network_live   # live smoke: fails unless a provider returns a valid result
-ruff check . && ruff format --check . && mypy contextlens project.py train.py evaluate.py
+bash scripts/ci.sh          # ruff, format, mypy, offline + model tests (the CI steps)
 ```
 
-Last full run: **162 passed, 0 failed** (161 offline + model, 1 network); ruff and mypy clean. Full record: [docs/TEST_REPORT.md](docs/TEST_REPORT.md).
+Last full run: **230 passed, 0 failed** (227 offline + model, 1 network resilience, 2 live smoke); ruff and mypy clean. Full record: [docs/TEST_REPORT.md](docs/TEST_REPORT.md).
+The GitHub Actions workflow (`.github/workflows/ci.yml`) runs the same steps;
+it has a manual trigger only, because Actions does not start on this account
+(billing) — see decisions.md D-35.
 
 ## 12. Console commands
 
@@ -378,50 +415,51 @@ everything typed, in plain text; delete it to erase history
 
 ## 14. Example output
 
-The three test sentences of the brief, one after another (`python project.py`,
-web search on; the Wikipedia summaries are shortened here):
+The three test sentences of the brief and the off-topic sentence, one after
+another (`python project.py --no-web --script …`, model v1.1.0; with web search
+on, Wikipedia results follow each block):
 
 ```
 > I read the novel I borrowed from the library; the author's narration was very fluent.
 
 [Text analysis]
 General topic : Books
-Confidence    : 92.4%
+Confidence    : 93.5%
 Subtopics     :
-  - Novels (56.0%)
+  - Novels (65.7%)
 
 [Conversation]
 Theme         : Books > Novels
 In words      : novels
-Search query  : "novels narration novel"
-
-[Web results]
-1. Verse novel (Wikipedia) …
-2. Shirley (novel) (Wikipedia) …
+Search query  : "novels narration borrowed"
 
 > Scientists test their hypotheses using experiments and observation.
 
-General topic : Science        Confidence : 92.0%     Subtopics : Scientific Method (66.3%)
-Theme         : Science + Books
+General topic : Science        Confidence : 91.9%     Subtopics : Scientific Method (57.6%)
+Theme         : Books + Science
 In words      : science books
-Search query  : "science books hypotheses observation"
+Search query  : "science books hypotheses experiments"
 
 > Cells carry DNA and living things diversify through evolution.
 
-General topic : Biology        Confidence : 93.8%     Subtopics : Evolution (45.5%)
-Theme         : Biology + Science + Books
+General topic : Biology        Confidence : 93.1%     Subtopics : Evolution (47.0%)
+Theme         : Books + Biology + Science
 In words      : science books about biology
 Search query  : "science books about biology cells evolution"
-1. Cell (biology) (Wikipedia) …   2. Evolution (Wikipedia) …
 
 > I'm going to order pizza tonight.
 
+[Text analysis]
 General topic : Books
-Confidence    : 77.2%
+Confidence    : 53.0%
 Subtopics     :
-  - Novels (94.0%)
+  - Novels (94.3%)
 Note          : uncertain - far from all training topics (possible out-of-taxonomy input).
                 This message was not added to the conversation theme.
+
+[Conversation]
+Theme         : Books + Biology + Science
+In words      : science books about biology
 ```
 
 (The second and third turns are condensed here; the application prints them in
@@ -432,44 +470,51 @@ the same block layout as the first.)
 ```
 project.py            console entry point
 train.py              train the final model  →  models/contextlens-topic/
-evaluate.py           evaluate it            →  reports/evaluation.json
+evaluate.py           evaluate it: --stage dev | --stage locked
 contextlens/          package
   config.py             paths, settings (env overrides), data config, RANDOM_SEED
   taxonomy.py           loads configs/taxonomy.json
   preprocessing/        normalisation, informativeness
   data/                 corpus construction: DBpedia crawl, dump extraction, labels, passages, Stack Exchange
-  models/               encoders, heads, TopicModel, artifact I/O, training
+  models/               encoders, heads, off-topic detectors, language gate, TopicModel, artifact I/O, training
   services/             tracker, composer, query builder, web search, conversation pipeline
   database/             SQLite layer with migrations
   evaluation/           metrics, plots
   cli/                  console app
-configs/              taxonomy.json (source of truth), model.json (benchmark choice)
-scripts/              data download, EDA, label audit, benchmark, fine-tuning, NLI, decay tuning, tables
-data/                 manifest/ (labels), processed/ (passages), external/ (Stack Exchange)
+configs/              taxonomy.json (source of truth), model.json (experiment choices)
+scripts/              data build, EDA, label audit, benchmark, fine-tuning, head / off-topic / language
+                      experiments, tracker tuning, locked-set build, freeze, tables, ci.sh
+data/                 manifest/ (labels), processed/ (passages), external/ (dev sets), locked/ (holdout)
 models/               contextlens-topic/ (trained artifact)
-reports/              every number in the documentation: experiments/, evaluation.json, eda.json, figures/
-tests/                unit, integration, acceptance, edge cases, data integrity, live network
+reports/              every number in the documentation: experiments/, evaluation_dev.json,
+                      locked/ (FREEZE, results, raw predictions), eda.json, label audits, figures/, tests/
+tests/                unit, integration, acceptance, edge cases, data integrity, network
 docs/                 dataset research & card, taxonomy, architecture, API, experiments, model report & card,
-                      error analysis, test report, security review, final report
+                      error analysis, test report, security review, hardening log, final report
 ```
 
 Project management: [CLAUDE.md](CLAUDE.md) (quick reference),
 [decisions.md](decisions.md), [sprints.md](sprints.md), [handover.md](handover.md),
-[PROJECT_STATE.md](PROJECT_STATE.md), [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
+[PROJECT_STATE.md](PROJECT_STATE.md), [KNOWN_ISSUES.md](KNOWN_ISSUES.md),
+[docs/HARDENING.md](docs/HARDENING.md).
 
 ## 16. Known limitations
 
-* **Science** (research, method, history of science) is the weakest class:
-  F1 0.661 on Wikipedia and 0.369 on questions — its texts are about other fields.
-* Trained on encyclopedia passages: short, conversational messages are harder
-  (questions ≤ 7 words: accuracy 0.737).
-* Off-topic detection is partial: at the chosen operating point only a third
-  (Wikipedia) to a half (questions) of off-topic texts are answered "uncertain".
-* English only; other languages are answered "uncertain" when fewer than 40% of
-  their words are known English words.
-* Labels are distant supervision (manual audit: 4.2% wrong, 6.2% weak).
+* **Science on real questions** is the weakest point: F1 0.656 on Wikipedia
+  but 0.241 on questions — the history-of-science site asks about the history
+  of one field (accuracy 0.19; 42% go to Physics).
+* **Off-topic detection is partial:** half of off-topic questions and a fifth
+  of assistant chat still get a topic; out-of-taxonomy encyclopedia paragraphs
+  are caught only about a quarter of the time.
+* **Short non-English inputs:** about half of one-word non-English inputs pass
+  the language gate.
+* **Subtopics are one primary label + suggestions**, not multi-label
+  predictions.
+* **Labels are distant supervision** (audit: 5.2% wrong, 20.3% weak).
+* **Real topic switches are followed one turn later** — the price of not
+  following one-message tangents.
 * Web search depends on free public endpoints that may rate-limit (the app
-  falls back and keeps working without results).
+  falls back and keeps working without results); CI has no automatic trigger.
 
 All issues with measurements and workarounds: [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
 
@@ -479,12 +524,12 @@ All issues with measurements and workarounds: [KNOWN_ISSUES.md](KNOWN_ISSUES.md)
 
 ## 17. Future work
 
-- A human-annotated set of real chat messages for the 28 subtopics (the external
-  sets are question titles, and three subtopics have no Stack Exchange source).
+- A human-annotated set of real chat messages (in- and off-topic) for the 28
+  subtopics, and an off-topic detector trained on it.
+- A second general topic for "history of a field" questions.
+- Fine-tuning a larger encoder (e5-small-v2, not run: E-6).
 - Newer Wikipedia snapshot; more seed categories for the weakest subtopics.
-- Distilling the encoder further or ONNX export for faster start-up.
-- More key-less search providers; per-user option to never send queries.
-- Encrypting the local database.
+- ONNX export for faster start-up; encrypting the local database.
 
 
 <br/>

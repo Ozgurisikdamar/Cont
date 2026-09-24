@@ -201,7 +201,7 @@ def main() -> int:
     thr = max(sweep)[1]
     results["subtopic_threshold"] = thr
     # Development splits only (docs/HARDENING.md item 2): test and ext_test are
-    # evaluated once, after the freeze, by scripts/locked_eval.py.
+    # evaluated once, after the freeze, by evaluate.py --stage locked.
     for split in ("val", "se_ext_dev", "sesub_ext_dev"):
         gp, sp = predict(model, tok, data.text[split], spec["prefix"], device, args.max_len)
         row = {

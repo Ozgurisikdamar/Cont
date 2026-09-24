@@ -1,6 +1,6 @@
 """Compare language-identification methods for the English gate (docs/HARDENING.md, item 6).
 
-Data (dev only - the ``locked`` half is reserved for scripts/locked_eval.py):
+Data (dev only - the ``locked`` half is reserved for evaluate.py --stage locked):
 
 * data/external/language_eval.jsonl, split ``dev``: Tatoeba sentences in English
   (positives) and 17 other languages (negatives), full and cut to 1/2/3 words;

@@ -9,7 +9,7 @@ the negatives.
 Every sentence is assigned to ``dev`` or ``locked`` by a hash of its Tatoeba id,
 so the split is stable and independent of sampling. ``dev`` is used to choose the
 language-ID method and its threshold; ``locked`` is only evaluated once, after
-all decisions are frozen (scripts/locked_eval.py).
+all decisions are frozen (evaluate.py --stage locked).
 
 Besides the full sentence, the first 1, 2 and 3 words of each sentence are added
 as separate rows (``length`` = 1/2/3/full), because short inputs are where the
