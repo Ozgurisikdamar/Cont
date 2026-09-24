@@ -179,7 +179,7 @@ def main() -> int:
     train_seconds = time.perf_counter() - t_start
     results: dict = {
         "encoder": args.encoder,
-        "hyperparameters": vars(args),
+        "hyperparameters": {k: (str(v) if isinstance(v, Path) else v) for k, v in vars(args).items()},
         "history": history,
         "train_seconds": round(train_seconds, 1),
         "device": device,
@@ -224,15 +224,15 @@ def main() -> int:
         times.append((time.perf_counter() - t0) * 1000)
     results["latency_single_ms_median"] = round(float(np.median(times)), 2)
     results["size_mb"] = round(sum(p.numel() * p.element_size() for p in model.parameters()) / 1e6, 1)
-    out = PATHS.reports / "experiments" / f"finetune_{args.encoder}.json"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(results, indent=2), encoding="utf-8")
+    # Save the expensive outputs first, so a reporting error can never lose the model.
     if args.save:
         torch.save(model.state_dict(), PATHS.models / f"finetuned_{args.encoder}.pt")
     if args.export is not None:
         export_sentence_transformer(model, spec, args.max_len, args.export, half=not args.export_float32)
         results["exported_to"] = str(args.export)
-        out.write_text(json.dumps(results, indent=2), encoding="utf-8")
+    out = PATHS.reports / "experiments" / f"finetune_{args.encoder}.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(results, indent=2, default=str), encoding="utf-8")
     log.info("wrote %s", out)
     return 0
 
