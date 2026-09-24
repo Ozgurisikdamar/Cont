@@ -12,6 +12,8 @@ and its repository contains data derived from, the third-party material below.
 | Stack Exchange questions — Stack Exchange API | `data/external/se_subtopic_eval.jsonl` (evaluation only) | CC BY-SA (2.5 / 3.0 / 4.0 depending on the post date) | Each record carries the question link; content by the respective Stack Exchange users |
 | MTEB `StackExchangeClustering` titles (rev `9006e01`) | general-topic and OOD evaluation (not committed; regenerated) | derived from the Stack Exchange data dump, CC BY-SA | Muennighoff et al., *MTEB: Massive Text Embedding Benchmark*, 2022; Stack Exchange users |
 | Tatoeba sentences (per-language exports) | language-gate evaluation, `data/external/language_eval.jsonl` (sentence id, language, text) | CC BY 2.0 FR | © Tatoeba contributors, https://tatoeba.org — each row carries its Tatoeba sentence id |
+| CLINC150 (`clinc/clinc_oos`, config `plus`, revision `155b9c7`) | conversational off-topic evaluation and OOD-detector training, `data/external/ood_conversational.jsonl` | CC BY 3.0 | Larson et al., *An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction*, EMNLP 2019 |
+| Stack Exchange question titles 2026-01-01..2026-09-20 (locked holdout) | `data/locked/se_locked.jsonl` | CC BY-SA 4.0 | © Stack Exchange contributors; each row carries site + question id |
 | AG News, 20 Newsgroups, DBpedia-14, DBPedia Classes, News Category (HuffPost) | measured once for the dataset comparison only; nothing redistributed | see `docs/DATASET_RESEARCH.md` | respective authors |
 
 ## Models (downloaded at pinned revisions, not redistributed in git)

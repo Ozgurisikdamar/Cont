@@ -87,9 +87,17 @@ def test_evaluate_and_decay_scripts_run(tmp_path, monkeypatch):
         ("load_se_subtopic", sub),
     ]:
         monkeypatch.setattr(evaluate, name, lambda v=value: v)
-    assert evaluate.main() == 0
-    report = json.loads((tmp_path / "reports" / "evaluation.json").read_text())
-    assert {"wiki_test", "se_general_ext_test", "ood", "analysis", "acceptance", "latency"} <= set(report)
+    real_jsonl = evaluate.load_jsonl
+    monkeypatch.setattr(evaluate, "load_jsonl", lambda p: real_jsonl(p).groupby("split", group_keys=False).head(40))
+    assert evaluate.main(["--stage", "dev"]) == 0
+    report = json.loads((tmp_path / "reports" / "evaluation_dev.json").read_text())
+    assert {"stage", "dev", "acceptance", "latency"} <= set(report)
+    assert {"wiki", "se_general", "se_general_without_hsm", "se_subtopic", "offtopic", "language"} <= set(report["dev"])
+    assert {"se_sites", "wiki_categories", "chat"} <= set(report["dev"]["offtopic"])
+    # the locked stage refuses to run without a freeze
+    monkeypatch.setattr(evaluate, "LOCKED_DIR", tmp_path / "reports" / "locked")
+    with pytest.raises(SystemExit, match="FREEZE"):
+        evaluate.main(["--stage", "locked"])
 
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
     tune_decay = importlib.import_module("tune_decay")

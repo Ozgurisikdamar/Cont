@@ -73,6 +73,9 @@ class TopicModel:
     # Language gate (contextlens.models.language.LanguageGate, decisions.md D-30):
     # any object with is_english(text) -> bool. None = gate off.
     language_gate: Any = None
+    # Out-of-taxonomy detector (contextlens.models.ood.OODDetector, decisions.md D-34).
+    # None = the v1.0 centroid cosine gate on ``centroids``.
+    ood_detector: Any = None
 
     @property
     def sub_index(self) -> dict[str, int]:
@@ -88,17 +91,27 @@ class TopicModel:
             n_gen, n_sub = len(self.general_ids), len(self.subtopic_ids)
             return np.zeros((0, n_gen)), np.zeros((0, n_sub)), np.zeros(0)
         X = self.encoder.encode(texts)
+        general, conditional, logits = self.head_outputs(X)
+        return general, conditional, self.ood_scores(X, general, logits)
+
+    def head_outputs(self, X: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """From embeddings: (P(general), P(sub | general), raw logits of the calibrated head)."""
         if self.head_type == "flat_softmax":
             assert isinstance(self.general_head, FlatSubtopicSoftmax)
-            general, conditional = grouped_probs(
-                self.general_head.logits(X), self.temperature, self.parent_col, len(self.general_ids)
-            )
+            logits = self.general_head.logits(X)
+            general, conditional = grouped_probs(logits, self.temperature, self.parent_col, len(self.general_ids))
         else:
             assert self.subtopic_heads is not None
-            general = calibrated_softmax(self.general_head.decision_function(X), self.temperature)
+            logits = self.general_head.decision_function(X)
+            general = calibrated_softmax(logits, self.temperature)
             conditional = self.subtopic_heads.conditional(X, self.sub_index, len(self.subtopic_ids))
-        ood = (X @ self.centroids.T).max(axis=1)
-        return general, conditional, ood
+        return general, conditional, logits
+
+    def ood_scores(self, X: np.ndarray, general: np.ndarray, logits: np.ndarray) -> np.ndarray:
+        """In-domain score of the configured detector (v1.0: cosine to the centroids)."""
+        if self.ood_detector is None:
+            return (X @ self.centroids.T).max(axis=1)
+        return self.ood_detector.score(X, general, logits, self.temperature)
 
     def looks_english(self, text: str) -> bool:
         """False when the language gate is confident the (normalised) text is not English."""

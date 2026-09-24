@@ -5,8 +5,8 @@
 
 Requires the processed corpus (python scripts/download_data.py --all).
 Hyper-parameters come from configs/model.json, which records the choice made in
-the benchmark (docs/MODEL_REPORT.md). Training never looks at the test split;
-test metrics are computed afterwards for the metadata only.
+the benchmark (docs/MODEL_REPORT.md). Training and tuning use development data
+only; the test splits are evaluated once after the freeze (scripts/locked_eval.py).
 """
 
 from __future__ import annotations
@@ -19,15 +19,15 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 
 from contextlens.config import PATHS, RANDOM_SEED, load_settings
-from contextlens.data.dataset import DataMissingError, LabelSpace, load_passages, load_se_general
-from contextlens.evaluation.metrics import multiclass_report
+from contextlens.data.dataset import DataMissingError, LabelSpace, load_jsonl, load_passages, load_se_general
 from contextlens.logging_setup import setup_logging
 from contextlens.models.artifact import save_artifact
-from contextlens.models.encoders import ENCODERS, SentenceEncoder
+from contextlens.models.encoders import ENCODERS, CachingEncoder, SentenceEncoder
 from contextlens.models.language import (
     FASTTEXT_MODEL,
     LanguageGate,
@@ -35,6 +35,8 @@ from contextlens.models.language import (
     ensure_fasttext_model,
     load_fasttext,
 )
+from contextlens.models.ood import fit_detector
+from contextlens.models.topic_model import TopicModel
 from contextlens.models.training import TrainConfig, build_vocabulary, fit_topic_model
 from contextlens.preprocessing.text import normalize
 from contextlens.reproducibility import seed_everything
@@ -51,17 +53,8 @@ def dataset_fingerprint() -> str:
     return h.hexdigest()[:16]
 
 
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--config", type=Path, default=MODEL_CONFIG)
-    parser.add_argument("--out", type=Path, default=None, help="artifact directory (default: settings.model_dir)")
-    parser.add_argument("--no-save-encoder", action="store_true", help="do not copy encoder weights into the artifact")
-    args = parser.parse_args(argv)
-    setup_logging("INFO", PATHS.root / "logs" / "train.log")
-    seed_everything(RANDOM_SEED)
-    out_dir = args.out or load_settings().model_dir
-    conf = json.loads(args.config.read_text(encoding="utf-8"))
-    cfg = TrainConfig(
+def train_config(conf: dict) -> TrainConfig:
+    return TrainConfig(
         encoder=conf["encoder"],
         general_C=float(conf["general_C"]),
         subtopic_C=float(conf["subtopic_C"]),
@@ -70,11 +63,25 @@ def main(argv: list[str] | None = None) -> int:
         vocabulary_size=int(conf["vocabulary_size"]),
         head_type=conf.get("head_type", "hierarchical"),
     )
-    try:
-        df = load_passages()
-    except DataMissingError as exc:
-        log.error("%s", exc)
-        return 2
+
+
+def offtopic_training_texts() -> list[str]:
+    """CLINC150 train utterances (scripts/build_ood_conversational.py); used only by
+    detectors that learn from off-topic examples."""
+    df = load_jsonl(PATHS.root / "data" / "external" / "ood_conversational.jsonl")
+    return [normalize(t) for t in df[df.split == "train"].text]
+
+
+def fit_from_config(conf: dict, encoder: Any) -> tuple[TopicModel, dict]:
+    """Fit the full production model (heads, OOD gate, confidence, language gate) from ``conf``.
+
+    Development data only: Wikipedia ``train`` / ``val`` and Stack Exchange
+    ``ext_dev``. The test splits are evaluated once after the freeze
+    (scripts/locked_eval.py). ``encoder`` may be a :class:`CachingEncoder` in
+    development scripts; the caller puts the real encoder on the model.
+    """
+    cfg = train_config(conf)
+    df = load_passages()
     tax = load_taxonomy()
     space = LabelSpace.from_taxonomy(tax)
     children = {g: tax.children_of(g) for g in tax.general_ids}
@@ -84,32 +91,40 @@ def main(argv: list[str] | None = None) -> int:
         texts = [normalize(t) for t in part.text]
         return texts, space.encode_general(part.general), space.encode_subtopics(part.subtopics)
 
-    train, val, test = split("train"), split("val"), split("test")
-    log.info("train=%d val=%d test=%d passages", len(train[0]), len(val[0]), len(test[0]))
+    train, val = split("train"), split("val")
+    log.info("train=%d val=%d passages", len(train[0]), len(val[0]))
 
-    ood_calibration = conf.get("ood_calibration", "wiki_val")
-    calibration_texts = None
-    if ood_calibration == "se_ext_dev":  # real user questions, in-distribution only (never ext_test)
-        se = load_se_general()
-        calibration_texts = [normalize(t) for t in se[(se.split == "ext_dev") & ~se.is_ood].text]
-    elif ood_calibration != "wiki_val":
-        log.error("unknown ood_calibration %r (expected wiki_val or se_ext_dev)", ood_calibration)
-        return 2
+    se = load_se_general()
+    se_dev = se[(se.split == "ext_dev") & ~se.is_ood]
+    ood_conf = conf.get("ood", {"method": "centroid", "calibration": conf.get("ood_calibration", "wiki_val")})
+    if ood_conf["calibration"] == "se_ext_dev":  # real user questions, in-distribution only (never ext_test)
+        calibration_texts = [normalize(t) for t in se_dev.text]
+    elif ood_conf["calibration"] == "wiki_val":
+        calibration_texts = val[0]
+    else:
+        raise ValueError(f"unknown OOD calibration {ood_conf['calibration']!r} (expected wiki_val or se_ext_dev)")
     t0 = time.perf_counter()
-    encoder = SentenceEncoder(cfg.encoder)
     model, val_report = fit_topic_model(
         encoder, space, children, train, val, cfg, ood_calibration_texts=calibration_texts
     )
+    method = ood_conf["method"]
+    if method != "centroid":
+        # decisions.md D-34: the detector chosen by scripts/ood_experiment.py on dev data
+        Xtr = encoder.encode(train[0])
+        offtopic = encoder.encode(offtopic_training_texts()) if method in ("binary", "other_class") else None
+        model.ood_detector = fit_detector(method, Xtr, train[1], len(space.general_ids), offtopic)
+        Xcal = encoder.encode(calibration_texts)
+        gp_cal, _, logits_cal = model.head_outputs(Xcal)
+        model.ood_threshold = float(np.quantile(model.ood_scores(Xcal, gp_cal, logits_cal), cfg.ood_keep_quantile))
+    log.info("OOD detector %s, threshold %.4f", method, model.ood_threshold)
     train_seconds = time.perf_counter() - t0
 
     min_conf_sweep = None
     if conf["min_confidence"] == "auto":
         # Largest threshold that still answers >= min_coverage of real in-domain
         # questions (Stack Exchange ext_dev; never ext_test).
-        se = load_se_general()
-        dev = se[(se.split == "ext_dev") & ~se.is_ood]
-        gp_dev, _, _ = model.predict_proba([normalize(t) for t in dev.text])
-        conf_dev, correct = gp_dev.max(axis=1), gp_dev.argmax(axis=1) == space.encode_general(dev.general)
+        gp_dev, _, _ = model.predict_proba([normalize(t) for t in se_dev.text])
+        conf_dev, correct = gp_dev.max(axis=1), gp_dev.argmax(axis=1) == space.encode_general(se_dev.general)
         min_conf_sweep = [
             {
                 "min_confidence": t,
@@ -131,11 +146,41 @@ def main(argv: list[str] | None = None) -> int:
         {k: float(v) for k, v in conf["language_gate"]["reject_confidence"].items()},
         source=ft_path,
     )
+    info = {
+        "cfg": cfg,
+        "val_report": val_report,
+        "min_conf_sweep": min_conf_sweep,
+        "ood": ood_conf,
+        "train_seconds": train_seconds,
+        "train": train,
+    }
+    return model, info
 
-    gp_test, _, _ = model.predict_proba(test[0])
-    test_report = multiclass_report(test[1], gp_test, space.general_ids)
-    log.info("test (report only): acc=%.4f macroF1=%.4f", test_report["accuracy"], test_report["macro_f1"])
 
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--config", type=Path, default=MODEL_CONFIG)
+    parser.add_argument("--out", type=Path, default=None, help="artifact directory (default: settings.model_dir)")
+    parser.add_argument("--no-save-encoder", action="store_true", help="do not copy encoder weights into the artifact")
+    args = parser.parse_args(argv)
+    setup_logging("INFO", PATHS.root / "logs" / "train.log")
+    seed_everything(RANDOM_SEED)
+    out_dir = args.out or load_settings().model_dir
+    conf = json.loads(args.config.read_text(encoding="utf-8"))
+    try:
+        load_passages()
+    except DataMissingError as exc:
+        log.error("%s", exc)
+        return 2
+    # embeddings are cached on disk, keyed by the encoder weights and the texts
+    encoder = CachingEncoder(SentenceEncoder(conf["encoder"]), PATHS.data_processed / "embeddings")
+    try:
+        model, info = fit_from_config(conf, encoder)
+    except ValueError as exc:
+        log.error("%s", exc)
+        return 2
+    model.encoder = encoder.inner
+    cfg, val_report, train = info["cfg"], info["val_report"], info["train"]
     model.metadata = {
         "model_name": conf["model_name"],
         "model_version": conf["model_version"],
@@ -149,20 +194,19 @@ def main(argv: list[str] | None = None) -> int:
             "general_C": cfg.general_C,
             "subtopic_C": cfg.subtopic_C,
             "ood_keep_quantile": cfg.ood_keep_quantile,
-            "ood_calibration": ood_calibration,
+            "ood": info["ood"],
             "language_gate": conf["language_gate"],
         },
         "preprocessing": "contextlens.preprocessing.text.normalize (NFKC, HTML/URL/mention removal, no lower-casing)",
-        "train_seconds": round(train_seconds, 1),
+        "train_seconds": round(info["train_seconds"], 1),
         "val_metrics": {k: val_report["general"][k] for k in ("accuracy", "macro_f1", "weighted_f1", "ece")}
         | {"subtopic_macro_f1": val_report["subtopic_macro_f1"]},
-        "test_metrics": {k: test_report[k] for k in ("accuracy", "macro_f1", "weighted_f1", "ece")},
         "subtopic_threshold_sweep": val_report["subtopic_threshold_sweep"],
-        "min_confidence_sweep_ext_dev": min_conf_sweep,
+        "min_confidence_sweep_ext_dev": info["min_conf_sweep"],
     }
     vocabulary = build_vocabulary([t.lower() for t in train[0]], train[1], cfg.vocabulary_size)
     save_artifact(model, out_dir, vocabulary, save_encoder=not args.no_save_encoder)
-    log.info("artifact written to %s (%.0fs)", out_dir, train_seconds)
+    log.info("artifact written to %s (%.0fs)", out_dir, info["train_seconds"])
     return 0
 
 

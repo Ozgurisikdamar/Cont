@@ -419,3 +419,20 @@ academia research-process). Test sets are not re-cut by this rule — the same
 rule applies to dev and test.
 **Not done.** The auditor is the agent that built the corpus, not an
 independent annotator; the audit is a lower bound on disagreement.
+
+## D-35 · CI: one workflow, manual trigger on this account; the same steps locally
+**Decision.** `.github/workflows/ci.yml` has two jobs — *fast* (ruff check,
+ruff format --check, mypy, the offline pytest suite with `-m "not model"`) and
+*model* (the tests that need the committed artifact) — and is triggered by
+`workflow_dispatch` only. `scripts/ci.sh` runs exactly the same steps locally
+(`bash scripts/ci.sh fast` for the first job). Network tests stay out of CI
+(`network` / `network_live`, run before releases).
+**Why not push / pull_request.** GitHub Actions on this account ends every run
+in `startup_failure` before a runner starts (billing; measured on the
+account's other repositories, 55 of 55 runs). An automatic trigger would mark
+every commit red without running a single step, which is worse than no badge:
+it trains readers to ignore red. The trigger lines are in the workflow as a
+comment; enabling them is a two-line change once Actions minutes exist.
+**Consequence (not hidden).** The audit asked for CI on every push; on this
+account that is not achievable today. What is guaranteed is that the CI
+definition exists, is correct, and passes locally (`reports/tests/`).

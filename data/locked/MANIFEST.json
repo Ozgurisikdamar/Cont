@@ -1,0 +1,22 @@
+{
+  "built_with": "scripts/build_locked_sets.py",
+  "taxonomy_version": "1.2.0",
+  "se_date_range": [
+    "2026-01-01",
+    "2026-09-20"
+  ],
+  "files": {
+    "wiki_locked.jsonl": {
+      "rows": 374,
+      "sha256": "7d1bbb95f502984af8a1bd01abc73f0cea05c43ef7d8108df1bea1f80c482b43"
+    },
+    "se_locked.jsonl": {
+      "rows": 2713,
+      "sha256": "cca58b805e93c404264ec168ed825b46a4d6b79ca7961204b7d8040c22d6ef23"
+    }
+  },
+  "external_locked_halves": {
+    "language_eval.jsonl (split=locked)": "451174a6f8e8320ed76f64f910f08b5799764121992df02bad4b6ac30e20aa7a",
+    "ood_conversational.jsonl (split=locked)": "48d560c34d00158eb3073c47a67eeeb60e0170f56479602c288f7073cb1167b0"
+  }
+}

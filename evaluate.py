@@ -1,28 +1,48 @@
-"""Evaluate the trained artifact on every held-out set and write the final report data.
+"""Evaluate the trained artifact and write the report data.
 
-    python evaluate.py
+    python evaluate.py                     # development stage (default)
+    python evaluate.py --stage locked      # final holdout - once, after scripts/freeze.py
 
-Outputs reports/evaluation.json and figures in reports/figures/:
-  * Wikipedia test split: general topic (multi-class) + subtopics (multi-label)
-  * Stack Exchange ext_test: real user questions (general + subtopics)
-  * OOD: Wikipedia out-of-taxonomy categories + Stack Exchange off-topic sites
-  * calibration (ECE, reliability), latency, acceptance probes, error samples
+Stages (docs/HARDENING.md item 2, decisions.md D-36):
+
+* ``dev``    - data used to take decisions: Wikipedia ``val``, Stack Exchange
+  ``ext_dev`` (general + subtopic), Wikipedia OOD ``val``, CLINC150 ``dev``
+  chat, Tatoeba ``dev`` -> reports/evaluation_dev.json + figures ``*_dev.png``.
+* ``locked`` - the locked final holdout, evaluated once with a frozen
+  configuration: new Wikipedia articles and 2026 Stack Exchange questions
+  (scripts/build_locked_sets.py), CLINC150 ``test``, Tatoeba ``locked``; plus
+  the v1.0 test splits reported as **legacy** (they were seen during v1.0
+  development). Refuses to run unless reports/locked/FREEZE.json matches the
+  current configuration, artifact and data, and refuses a second run unless
+  ``--rerun-reason`` is given (the reason is recorded). Writes
+  reports/locked/results.json and the raw predictions to reports/locked/raw/.
+
+Both stages report: general topic (multi-class) and subtopics (multi-label),
+the deployed uncertain gate on in-domain and off-topic data, off-topic
+detection (AUROC, AUPRC, FPR@95TPR, recall), language gate, calibration,
+error breakdowns, latency and the acceptance probes.
 """
 
 from __future__ import annotations
 
+import argparse
+import hashlib
 import json
 import logging
 import sys
 import time
 import tracemalloc
+from datetime import datetime, timezone
+from pathlib import Path
 
 import numpy as np
+import pandas as pd
 
 from contextlens.config import PATHS, load_settings
 from contextlens.data.dataset import (
     DataMissingError,
     LabelSpace,
+    load_jsonl,
     load_ood_passages,
     load_passages,
     load_se_general,
@@ -214,9 +234,199 @@ def strip_private(d: dict) -> dict:
     return {k: v for k, v in d.items() if not k.startswith("_") and k != "ood_scores"}
 
 
-def main() -> int:
+LOCKED_DIR = PATHS.reports / "locked"
+
+
+def _read_jsonl(path: Path) -> pd.DataFrame:
+    return load_jsonl(path)
+
+
+def _labels(df: pd.DataFrame) -> pd.Series:
+    """Subtopics as the "a|b" strings LabelSpace expects (lists in the locked files)."""
+    return df.subtopics.map(lambda v: "|".join(v) if isinstance(v, list) else v)
+
+
+def load_stage(stage: str) -> dict[str, dict]:
+    """Named evaluation sections -> their data frames (normalised later)."""
+    df, ood, seg, ses = load_passages(), load_ood_passages(), load_se_general(), load_se_subtopic()
+    clinc = _read_jsonl(PATHS.data_external / "ood_conversational.jsonl")
+    lang = _read_jsonl(PATHS.data_external / "language_eval.jsonl")
+    legacy = {
+        "wiki": df[df.split == "test"],
+        "se_general": seg[seg.split == "ext_test"],
+        "se_subtopic": ses[ses.split == "ext_test"],
+        "ood_wiki": ood[ood.split == "test"],
+    }
+    if stage == "dev":
+        return {
+            "dev": {
+                "wiki": df[df.split == "val"],
+                "se_general": seg[seg.split == "ext_dev"],
+                "se_subtopic": ses[ses.split == "ext_dev"],
+                "ood_wiki": ood[ood.split == "val"],
+                "chat": clinc[clinc.split == "dev"],
+                "language": lang[lang.split == "dev"],
+            }
+        }
+    se_locked = _read_jsonl(PATHS.root / "data" / "locked" / "se_locked.jsonl")
+    se_locked = se_locked.assign(subtopics=_labels(se_locked))
+    wiki_locked = _read_jsonl(PATHS.root / "data" / "locked" / "wiki_locked.jsonl")
+    return {
+        "locked": {
+            "wiki": wiki_locked.assign(subtopics=_labels(wiki_locked)),
+            "se_general": se_locked[se_locked.set == "general"],
+            "se_subtopic": se_locked[(se_locked.subtopics != "") & ~se_locked.is_ood],
+            "chat": clinc[clinc.split == "locked"],
+            "language": lang[lang.split == "locked"],
+        },
+        "legacy_seen_in_v1": legacy,
+    }
+
+
+def language_summary(model, lang: pd.DataFrame) -> dict:
+    ok = np.array([model.looks_english(normalize(t)) for t in lang.text])
+    out = {}
+    for length in ("1", "2", "3", "full"):
+        m = (lang.length == length).to_numpy()
+        eng, other = m & lang.is_english.to_numpy(), m & ~lang.is_english.to_numpy()
+        out[length] = {
+            "english_accepted": round(float(ok[eng].mean()), 4),
+            "non_english_rejected": round(float((~ok[other]).mean()), 4),
+            "n_english": int(eng.sum()),
+            "n_non_english": int(other.sum()),
+        }
+    return out
+
+
+def evaluate_section(model, space: LabelSpace, data: dict, raw_dir: Path | None) -> dict:
+    out: dict = {}
+    raw: dict[str, list[dict]] = {}
+
+    def keep_raw(name: str, texts: list[str], gp, ood, yg=None) -> None:
+        if raw_dir is None:
+            return
+        unc = model.uncertain_mask(texts, gp, ood)
+        raw[name] = [
+            {
+                "text": t,
+                "gold": None if yg is None else space.general_ids[int(yg[i])],
+                "pred": space.general_ids[int(gp[i].argmax())],
+                "confidence": round(float(gp[i].max()), 4),
+                "ood_score": round(float(ood[i]), 5),
+                "uncertain": bool(unc[i]),
+            }
+            for i, t in enumerate(texts)
+        ]
+
+    wiki = data["wiki"]
+    w_texts = [normalize(t) for t in wiki.text]
+    yg_w = space.encode_general(wiki.general)
+    res_w = evaluate_split(model, space, w_texts, yg_w, space.encode_subtopics(wiki.subtopics))
+    out["wiki"] = strip_private(res_w)
+    out["wiki_errors"] = errors(w_texts, yg_w, res_w["_gp"], space.general_ids, N_ERROR_EXAMPLES)
+    keep_raw("wiki", w_texts, res_w["_gp"], res_w["ood_scores"], yg_w)
+
+    seg = data["se_general"]
+    se_in = seg[~seg.is_ood.astype(bool)]
+    s_texts = [normalize(t) for t in se_in.text]
+    yg_s = space.encode_general(se_in.general)
+    res_s = evaluate_split(model, space, s_texts, yg_s, None)
+    out["se_general"] = strip_private(res_s)
+    # decisions.md D-32: hsm is "history of science AND mathematics" - reported with and without
+    no_hsm = (se_in.site != "hsm.stackexchange.com.txt").to_numpy() & (se_in.site != "hsm").to_numpy()
+    out["se_general_without_hsm"] = multiclass_report(yg_s[no_hsm], res_s["_gp"][no_hsm], space.general_ids)
+    out["se_general_errors"] = errors(s_texts, yg_s, res_s["_gp"], space.general_ids, N_ERROR_EXAMPLES)
+    keep_raw("se_general", s_texts, res_s["_gp"], res_s["ood_scores"], yg_s)
+
+    sub = data["se_subtopic"]
+    sub_texts = [normalize(t) for t in sub.text]
+    res_sub = evaluate_split(
+        model, space, sub_texts, space.encode_general(sub.general), space.encode_subtopics(sub.subtopics)
+    )
+    out["se_subtopic"] = strip_private(res_sub)
+
+    offtopic: dict = {}
+    sources = {"se_sites": [normalize(t) for t in seg[seg.is_ood.astype(bool)].text]}
+    if "ood_wiki" in data:
+        sources["wiki_categories"] = [normalize(t) for t in data["ood_wiki"].text]
+    if "chat" in data:
+        sources["chat"] = [normalize(t) for t in data["chat"].text]
+    for name, texts in sources.items():
+        gp_o, _, sc_o = model.predict_proba(texts)
+        in_scores = res_w["ood_scores"] if name == "wiki_categories" else res_s["ood_scores"]
+        offtopic[name] = ood_report(in_scores, sc_o) | {
+            "in_domain_reference": "wiki" if name == "wiki_categories" else "se_general",
+            "deployed_gate": gate_summary(model, texts, gp_o, sc_o),
+        }
+        keep_raw(f"offtopic_{name}", texts, gp_o, sc_o)
+    out["offtopic"] = offtopic
+    if "language" in data:
+        out["language"] = language_summary(model, data["language"])
+
+    out["calibration"] = {
+        "wiki": reliability_curve(res_w["_gp"], yg_w),
+        "se_general": reliability_curve(res_s["_gp"], yg_s),
+    }
+    unc_s = model.uncertain_mask(s_texts, res_s["_gp"], res_s["ood_scores"])
+    site_col = list(se_in.site)
+    out["analysis"] = {
+        "wiki_accuracy_by_words": by_group(
+            res_w["_gp"].argmax(1) == yg_w, [length_bucket(t, (15, 25, 40)) for t in w_texts]
+        ),
+        "wiki_accuracy_by_label_count": by_group(
+            res_w["_gp"].argmax(1) == yg_w, [f"{len(str(s).split('|'))} subtopic(s)" for s in wiki.subtopics]
+        ),
+        "wiki_confusion_pairs": confusion_pairs(yg_w, res_w["_gp"], space.general_ids),
+        "se_accuracy_by_words": by_group(res_s["_gp"].argmax(1) == yg_s, [length_bucket(t, (7, 12)) for t in s_texts]),
+        "se_accuracy_by_site": by_group(res_s["_gp"].argmax(1) == yg_s, site_col),
+        "se_uncertain_rate_by_site": by_group(unc_s, site_col),
+        "se_confusion_pairs": confusion_pairs(yg_s, res_s["_gp"], space.general_ids),
+    }
+    if raw_dir is not None:
+        raw_dir.mkdir(parents=True, exist_ok=True)
+        for name, rows in raw.items():
+            with (raw_dir / f"{name}.jsonl").open("w", encoding="utf-8") as fh:
+                for r in rows:
+                    fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+    return out
+
+
+def freeze_fingerprint(model_dir: Path) -> dict[str, str]:
+    """SHA-256 of everything that defines the frozen system (compared with FREEZE.json)."""
+    files = [
+        PATHS.root / "configs" / "model.json",
+        PATHS.taxonomy,
+        PATHS.root / "contextlens" / "config.py",
+        PATHS.data_processed / "passages.parquet",
+        PATHS.root / "data" / "locked" / "MANIFEST.json",
+        model_dir / "metadata.json",
+    ]
+    return {str(p.relative_to(PATHS.root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
+
+
+def check_freeze(model_dir: Path, rerun_reason: str | None) -> dict:
+    freeze_path = LOCKED_DIR / "FREEZE.json"
+    if not freeze_path.exists():
+        raise SystemExit("no reports/locked/FREEZE.json - run scripts/freeze.py before the locked evaluation")
+    freeze = json.loads(freeze_path.read_text(encoding="utf-8"))
+    now = freeze_fingerprint(model_dir)
+    changed = [k for k, v in freeze["files"].items() if now.get(k) != v]
+    if changed:
+        raise SystemExit(f"configuration changed since the freeze: {changed}")
+    results = LOCKED_DIR / "results.json"
+    if results.exists() and not rerun_reason:
+        raise SystemExit("the locked holdout was already evaluated; pass --rerun-reason to record a second run")
+    return freeze
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--stage", choices=("dev", "locked"), default="dev")
+    parser.add_argument("--rerun-reason", default=None)
+    args = parser.parse_args(argv)
     setup_logging("INFO", PATHS.root / "logs" / "evaluate.log")
     settings = load_settings()
+    freeze = check_freeze(settings.model_dir, args.rerun_reason) if args.stage == "locked" else None
     t0 = time.perf_counter()
     try:
         model = load_artifact(settings.model_dir)
@@ -227,113 +437,56 @@ def main() -> int:
     tax = load_taxonomy()
     space = LabelSpace.from_taxonomy(tax)
     try:
-        df, ood_df, seg, ses = load_passages(), load_ood_passages(), load_se_general(), load_se_subtopic()
+        sections = load_stage(args.stage)
     except DataMissingError as exc:
         log.error("%s", exc)
         return 2
     report: dict = {
+        "stage": args.stage,
         "model": {
             k: model.metadata.get(k)
             for k in ("model_name", "model_version", "trained_at", "dataset_version", "encoder", "encoder_revision")
-        },
+        }
+        | {"head_type": model.head_type, "ood_method": model.metadata.get("ood_method", "centroid")},
         "load_seconds": round(load_seconds, 2),
+        "evaluated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
-
-    test = df[df.split == "test"]
-    t_texts = [normalize(t) for t in test.text]
-    res_test = evaluate_split(
-        model, space, t_texts, space.encode_general(test.general), space.encode_subtopics(test.subtopics)
-    )
-    report["wiki_test"] = strip_private(res_test)
-    report["wiki_test_errors"] = errors(
-        t_texts, space.encode_general(test.general), res_test["_gp"], space.general_ids, N_ERROR_EXAMPLES
-    )
-
-    se_test = seg[(seg.split == "ext_test") & (~seg.is_ood)]
-    s_texts = [normalize(t) for t in se_test.text]
-    res_se = evaluate_split(model, space, s_texts, space.encode_general(se_test.general), None)
-    report["se_general_ext_test"] = strip_private(res_se)
-    report["se_general_errors"] = errors(
-        s_texts, space.encode_general(se_test.general), res_se["_gp"], space.general_ids, N_ERROR_EXAMPLES
-    )
-    sub_test = ses[ses.split == "ext_test"]
-    res_sesub = evaluate_split(
-        model,
-        space,
-        [normalize(t) for t in sub_test.text],
-        space.encode_general(sub_test.general),
-        space.encode_subtopics(sub_test.subtopics),
-    )
-    report["se_subtopic_ext_test"] = strip_private(res_sesub)
-
-    ood_test = [normalize(t) for t in ood_df[ood_df.split == "test"].text]
-    se_ood = [normalize(t) for t in seg[(seg.split == "ext_test") & seg.is_ood].text]
-    gp_ood_wiki, _, ood_scores_wiki = model.predict_proba(ood_test)
-    gp_ood_se, _, ood_scores_se = model.predict_proba(se_ood)
-    report["ood"] = {
-        "threshold": model.ood_threshold,
-        "wiki": ood_report(res_test["ood_scores"], ood_scores_wiki)
-        | {
-            "id_kept": float(np.mean(res_test["ood_scores"] >= model.ood_threshold)),
-            "ood_flagged": float(np.mean(ood_scores_wiki < model.ood_threshold)),
-            "deployed_gate": gate_summary(model, ood_test, gp_ood_wiki, ood_scores_wiki),
-        },
-        "stackexchange": ood_report(res_se["ood_scores"], ood_scores_se)
-        | {
-            "id_kept": float(np.mean(res_se["ood_scores"] >= model.ood_threshold)),
-            "ood_flagged": float(np.mean(ood_scores_se < model.ood_threshold)),
-            "deployed_gate": gate_summary(model, se_ood, gp_ood_se, ood_scores_se),
-        },
-    }
-    yg_test = space.encode_general(test.general)
-    report["calibration"] = {
-        "wiki_test": reliability_curve(res_test["_gp"], yg_test),
-        "se_ext_test": reliability_curve(res_se["_gp"], space.encode_general(se_test.general)),
-    }
-    # --- error-analysis breakdowns (docs/ERROR_ANALYSIS.md) ---------------------------
-    gp_se = res_se["_gp"]
-    yg_se = space.encode_general(se_test.general)
-    unc_se = model.uncertain_mask(s_texts, gp_se, res_se["ood_scores"])
-    ood_wiki_flag = model.uncertain_mask(ood_test, gp_ood_wiki, ood_scores_wiki)
-    ood_se_flag = model.uncertain_mask(se_ood, gp_ood_se, ood_scores_se)
-    report["analysis"] = {
-        "wiki_test_accuracy_by_words": by_group(
-            res_test["_gp"].argmax(1) == yg_test, [length_bucket(t, (15, 25, 40)) for t in t_texts]
-        ),
-        "wiki_test_accuracy_by_label_count": by_group(
-            res_test["_gp"].argmax(1) == yg_test, [f"{len(s.split('|'))} subtopic(s)" for s in test.subtopics]
-        ),
-        "wiki_test_confusion_pairs": confusion_pairs(yg_test, res_test["_gp"], space.general_ids),
-        "se_ext_test_accuracy_by_words": by_group(
-            gp_se.argmax(1) == yg_se, [length_bucket(t, (7, 12)) for t in s_texts]
-        ),
-        "se_ext_test_accuracy_by_site": by_group(gp_se.argmax(1) == yg_se, list(se_test.site)),
-        "se_ext_test_uncertain_rate_by_site": by_group(unc_se, list(se_test.site)),
-        "se_ext_test_confusion_pairs": confusion_pairs(yg_se, gp_se, space.general_ids),
-        "ood_wiki_uncertain_rate_by_category": by_group(ood_wiki_flag, list(ood_df[ood_df.split == "test"].category)),
-        "ood_se_uncertain_rate_by_site": by_group(ood_se_flag, list(seg[(seg.split == "ext_test") & seg.is_ood].site)),
-    }
-    report["latency"] = measure_latency(model, t_texts)
+    if freeze is not None:
+        report["freeze"] = {"frozen_at": freeze.get("frozen_at"), "commit": freeze.get("commit")}
+        if args.rerun_reason:
+            report["rerun_reason"] = args.rerun_reason
+    for name, data in sections.items():
+        raw_dir = LOCKED_DIR / "raw" / name if args.stage == "locked" else None
+        report[name] = evaluate_section(model, space, data, raw_dir)
+    first = next(iter(sections))
+    report["latency"] = measure_latency(model, [normalize(t) for t in sections[first]["wiki"].text])
     report["acceptance"] = acceptance(model, tax)
 
+    tag = args.stage
     figs = PATHS.figures
-    plot_confusion(report["wiki_test"]["general"], figs / "confusion_wiki_test.png", "General topic - Wikipedia test")
+    main_sec = report[first]
+    plot_confusion(main_sec["wiki"]["general"], figs / f"confusion_wiki_{tag}.png", f"General topic - Wikipedia {tag}")
     plot_confusion(
-        report["se_general_ext_test"]["general"],
-        figs / "confusion_se_ext_test.png",
-        "General topic - Stack Exchange ext_test",
+        main_sec["se_general"]["general"],
+        figs / f"confusion_se_{tag}.png",
+        f"General topic - Stack Exchange {tag}",
     )
     plot_per_class_f1(
-        report["wiki_test"]["subtopics"]["per_label"],
-        figs / "subtopic_f1_wiki_test.png",
-        "Subtopic F1 - Wikipedia test",
+        main_sec["wiki"]["subtopics"]["per_label"],
+        figs / f"subtopic_f1_wiki_{tag}.png",
+        f"Subtopic F1 - Wikipedia {tag}",
     )
-    plot_reliability(report["calibration"], figs / "reliability_final.png")
-    out = PATHS.reports / "evaluation.json"
+    plot_reliability(main_sec["calibration"], figs / f"reliability_{tag}.png")
+    if args.stage == "locked":
+        LOCKED_DIR.mkdir(parents=True, exist_ok=True)
+        out = LOCKED_DIR / "results.json"
+    else:
+        out = PATHS.reports / "evaluation_dev.json"
     out.write_text(json.dumps(report, indent=2, default=float), encoding="utf-8")
-    g, s = report["wiki_test"]["general"], report["se_general_ext_test"]["general"]
+    g, s = main_sec["wiki"]["general"], main_sec["se_general"]["general"]
     log.info(
-        "wiki test acc=%.4f macroF1=%.4f | SE ext_test acc=%.4f macroF1=%.4f | wrote %s",
+        "%s: wiki acc=%.4f macroF1=%.4f | SE acc=%.4f macroF1=%.4f | wrote %s",
+        tag,
         g["accuracy"],
         g["macro_f1"],
         s["accuracy"],

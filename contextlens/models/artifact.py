@@ -37,6 +37,7 @@ import skops.io as sio
 from contextlens.models.encoders import ENCODERS, SentenceEncoder
 from contextlens.models.heads import FlatSubtopicSoftmax, HierarchicalSubtopics, MultiLabelHead
 from contextlens.models.language import LanguageGate, load_fasttext, read_lexicon, write_lexicon
+from contextlens.models.ood import DETECTORS, OODDetector
 from contextlens.models.topic_model import TopicModel
 
 log = logging.getLogger(__name__)
@@ -45,6 +46,7 @@ TRUSTED_TYPES = {
     "contextlens.models.heads.FlatSubtopicSoftmax",
     "contextlens.models.heads.HierarchicalSubtopics",
     "contextlens.models.heads.MultiLabelHead",
+    "contextlens.models.ood.OODDetector",
     "sklearn.linear_model._logistic.LogisticRegression",
     "numpy.dtype",
     "builtins.dict",
@@ -144,6 +146,8 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
     heads: dict[str, Any] = {"head_type": model.head_type, "general_head": model.general_head}
     if model.subtopic_heads is not None:
         heads["subtopic_heads"] = model.subtopic_heads
+    if model.ood_detector is not None:
+        heads["ood_detector"] = model.ood_detector
     sio.dump(heads, directory / "heads.skops")
     np.save(directory / "centroids.npy", model.centroids.astype(np.float32), allow_pickle=False)
     (directory / "vocabulary.json").write_text(json.dumps(vocabulary, sort_keys=True), encoding="utf-8")
@@ -165,6 +169,7 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
             "temperature": model.temperature,
             "subtopic_threshold": model.subtopic_threshold,
             "ood_threshold": model.ood_threshold,
+            "ood_method": "centroid" if model.ood_detector is None else model.ood_detector.method,
             "min_confidence": model.min_confidence,
             "language_gate": None if gate is None else {"reject_confidence": gate.reject_confidence},
             "encoder_probe": encoder_probe(model.encoder),
@@ -198,6 +203,9 @@ def _load_heads(path: Path) -> dict[str, Any]:
             raise ArtifactError(f"{path} has unexpected subtopic head types")
     else:
         raise ArtifactError(f"{path} has an unknown head_type {head_type!r}")
+    detector = heads.setdefault("ood_detector", None)
+    if detector is not None and (not isinstance(detector, OODDetector) or detector.method not in DETECTORS):
+        raise ArtifactError(f"{path} has an unexpected OOD detector")
     return heads
 
 
@@ -248,6 +256,7 @@ def load_artifact(
         max_subtopics=max_subtopics,
         head_type=heads["head_type"],
         language_gate=_load_language_gate(directory, gate_meta),
+        ood_detector=heads["ood_detector"],
     )
 
 
