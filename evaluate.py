@@ -37,6 +37,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from sklearn.metrics import f1_score
 
 from contextlens.config import PATHS, load_settings
 from contextlens.data.dataset import (
@@ -332,9 +333,20 @@ def evaluate_section(model, space: LabelSpace, data: dict, raw_dir: Path | None)
     yg_s = space.encode_general(se_in.general)
     res_s = evaluate_split(model, space, s_texts, yg_s, None)
     out["se_general"] = strip_private(res_s)
-    # decisions.md D-32: hsm is "history of science AND mathematics" - reported with and without
-    no_hsm = (se_in.site != "hsm.stackexchange.com.txt").to_numpy() & (se_in.site != "hsm").to_numpy()
-    out["se_general_without_hsm"] = multiclass_report(yg_s[no_hsm], res_s["_gp"][no_hsm], space.general_ids)
+    # decisions.md D-32: hsm is "history of science AND mathematics" and the only
+    # Science site of the general set - reported with and without it. Without hsm
+    # there is no Science question left, so macro-F1 is over the present classes.
+    no_hsm = np.array([str(site).split(".")[0] != "hsm" for site in se_in.site])
+    present = sorted(set(yg_s[no_hsm].tolist()))
+    pred = res_s["_gp"].argmax(axis=1)
+    out["se_general_without_hsm"] = {
+        "n": int(no_hsm.sum()),
+        "accuracy": float(np.mean(pred[no_hsm] == yg_s[no_hsm])),
+        "macro_f1_present_classes": float(
+            f1_score(yg_s[no_hsm], pred[no_hsm], labels=present, average="macro", zero_division=0)
+        ),
+        "classes": [space.general_ids[i] for i in present],
+    }
     out["se_general_errors"] = errors(s_texts, yg_s, res_s["_gp"], space.general_ids, N_ERROR_EXAMPLES)
     keep_raw("se_general", s_texts, res_s["_gp"], res_s["ood_scores"], yg_s)
 
