@@ -61,6 +61,7 @@ def main(argv: list[str] | None = None) -> int:
         ood_keep_quantile=float(conf["ood_keep_quantile"]),
         min_confidence=float(conf["min_confidence"]),
         vocabulary_size=int(conf["vocabulary_size"]),
+        head_type=conf.get("head_type", "hierarchical"),
     )
     try:
         df = load_passages()
@@ -107,6 +108,7 @@ def main(argv: list[str] | None = None) -> int:
         "encoder_repo": ENCODERS[cfg.encoder]["repo"],
         "encoder_revision": ENCODERS[cfg.encoder]["revision"],
         "hyperparameters": {
+            "head_type": cfg.head_type,
             "general_C": cfg.general_C,
             "subtopic_C": cfg.subtopic_C,
             "ood_keep_quantile": cfg.ood_keep_quantile,

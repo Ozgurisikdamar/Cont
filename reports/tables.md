@@ -38,3 +38,149 @@
 | `mpnet-base|label-similarity` | se_ext_dev | 0.662 | 0.640 |
 | `mpnet-base|label-similarity` | test | 0.711 | 0.701 |
 | `mpnet-base|label-similarity` | se_ext_test | 0.673 | 0.649 |
+
+## Zero-shot NLI (stratified sample)
+
+| model | split | acc | macro-F1 | n | ms / text |
+|---|---|---|---|---|---|
+| `facebook/bart-large-mnli` | val | 0.606 | 0.623 | 320 | 2556.0 |
+| `facebook/bart-large-mnli` | se_ext_dev | 0.525 | 0.511 | 320 | 1937.9 |
+
+## Fine-tuned two-head transformer (minilm-l6, 3074.1 s, 13.0 ms/text, 90.9 MB)
+
+| model | split | general acc | general macro-F1 | subtopic macro-F1 |
+|---|---|---|---|---|
+| `finetune_minilm-l6` | val | 0.845 | 0.843 | 0.489 |
+| `finetune_minilm-l6` | se_ext_dev | 0.770 | 0.752 | – |
+| `finetune_minilm-l6` | sesub_ext_dev | 0.869 | 0.855 | 0.499 |
+| `finetune_minilm-l6` | test | 0.830 | 0.829 | 0.482 |
+| `finetune_minilm-l6` | se_ext_test | 0.772 | 0.752 | – |
+| `finetune_minilm-l6` | sesub_ext_test | 0.877 | 0.861 | 0.502 |
+
+history: [{"epoch": 1, "train_loss": 0.9212, "val_accuracy": 0.8365, "val_macro_f1": 0.8326, "epoch_seconds": 1061.0}, {"epoch": 2, "train_loss": 0.4824, "val_accuracy": 0.8413, "val_macro_f1": 0.8381, "epoch_seconds": 621.8}, {"epoch": 3, "train_loss": 0.3556, "val_accuracy": 0.8445, "val_macro_f1": 0.8428, "epoch_seconds": 1391.2}]
+
+## Fine-tuned two-head transformer (minilm-l6, 3074.1 s, 13.0 ms/text, 90.9 MB)
+
+| model | split | general acc | general macro-F1 | subtopic macro-F1 |
+|---|---|---|---|---|
+| `finetune_minilm-l6.run1` | val | 0.845 | 0.843 | 0.489 |
+| `finetune_minilm-l6.run1` | se_ext_dev | 0.770 | 0.752 | – |
+| `finetune_minilm-l6.run1` | sesub_ext_dev | 0.869 | 0.855 | 0.499 |
+| `finetune_minilm-l6.run1` | test | 0.830 | 0.829 | 0.482 |
+| `finetune_minilm-l6.run1` | se_ext_test | 0.772 | 0.752 | – |
+| `finetune_minilm-l6.run1` | sesub_ext_test | 0.877 | 0.861 | 0.502 |
+
+history: [{"epoch": 1, "train_loss": 0.9212, "val_accuracy": 0.8365, "val_macro_f1": 0.8326, "epoch_seconds": 1061.0}, {"epoch": 2, "train_loss": 0.4824, "val_accuracy": 0.8413, "val_macro_f1": 0.8381, "epoch_seconds": 621.8}, {"epoch": 3, "train_loss": 0.3556, "val_accuracy": 0.8445, "val_macro_f1": 0.8428, "epoch_seconds": 1391.2}]
+
+## Subtopics — hierarchical vs flat
+
+| model | variant | τ | val macro-F1 | val micro-F1 | val samples-F1 | val Hamming | val subset acc | val P@1 | val R@3 | ext_dev macro-F1 (25 labels) | ext_dev micro-F1 | val general macro-F1 | test macro-F1 † |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `tfidf-word+char|hierarchical` | 0.60 | 0.651 | 0.648 | 0.653 | 0.0264 | 0.610 | 0.668 | 0.847 | 0.628 | 0.617 | 0.797 | 0.638 |
+| `tfidf-word+char|flat_multilabel` | 0.70 | 0.665 | 0.661 | 0.666 | 0.0257 | 0.606 | 0.675 | 0.842 | 0.650 | 0.639 | 0.801 | 0.646 |
+| `tfidf-word+char|flat_softmax` | 0.40 | 0.660 | 0.657 | 0.664 | 0.0256 | 0.626 | 0.668 | 0.851 | 0.641 | 0.633 | 0.810 | 0.637 |
+| `bge-small|hierarchical` | 0.65 | 0.662 | 0.660 | 0.670 | 0.0260 | 0.609 | 0.678 | 0.876 | 0.688 | 0.689 | 0.819 | 0.650 |
+| `bge-small|flat_multilabel` | 0.70 | 0.607 | 0.603 | 0.621 | 0.0366 | 0.390 | 0.662 | 0.865 | 0.660 | 0.654 | 0.811 | 0.610 |
+| `bge-small|flat_softmax` | 0.40 | 0.676 | 0.674 | 0.683 | 0.0244 | 0.636 | 0.685 | 0.883 | 0.709 | 0.712 | 0.832 | 0.662 |
+| `e5-small|hierarchical` | 0.65 | 0.674 | 0.672 | 0.680 | 0.0249 | 0.622 | 0.692 | 0.881 | 0.695 | 0.697 | 0.821 | 0.659 |
+| `e5-small|flat_multilabel` | 0.70 | 0.615 | 0.611 | 0.630 | 0.0360 | 0.393 | 0.675 | 0.873 | 0.659 | 0.643 | 0.818 | 0.614 |
+| `e5-small|flat_softmax` | 0.40 | 0.688 | 0.687 | 0.694 | 0.0235 | 0.647 | 0.700 | 0.888 | 0.716 | 0.721 | 0.840 | 0.673 |
+| `mpnet-base|hierarchical` | 0.70 | 0.692 | 0.691 | 0.698 | 0.0233 | 0.648 | 0.711 | 0.891 | 0.690 | 0.688 | 0.834 | 0.680 |
+| `mpnet-base|flat_multilabel` | 0.70 | 0.656 | 0.652 | 0.673 | 0.0306 | 0.478 | 0.709 | 0.886 | 0.687 | 0.696 | 0.836 | 0.648 |
+| `mpnet-base|flat_softmax` | 0.35 | 0.699 | 0.698 | 0.710 | 0.0230 | 0.650 | 0.711 | 0.895 | 0.712 | 0.718 | 0.844 | 0.684 |
+
+## Calibration — temperature scaling
+
+| model | split | T | ECE raw | ECE after T | NLL raw | NLL after T |
+|---|---|---|---|---|---|---|
+| `tfidf-word+char` | val | 1.151 | 0.027 | 0.022 | 0.646 | 0.639 |
+| `tfidf-word+char` | test | 1.151 | 0.029 | 0.025 | 0.666 | 0.658 |
+| `tfidf-word+char` | se_ext_dev | 1.151 | 0.055 | 0.024 | 1.167 | 1.147 |
+| `tfidf-word+char` | se_ext_test | 1.151 | 0.057 | 0.018 | 1.180 | 1.157 |
+| `bge-small` | val | 1.107 | 0.017 | 0.017 | 0.564 | 0.560 |
+| `bge-small` | test | 1.107 | 0.025 | 0.012 | 0.571 | 0.567 |
+| `bge-small` | se_ext_dev | 1.107 | 0.067 | 0.046 | 0.808 | 0.784 |
+| `bge-small` | se_ext_test | 1.107 | 0.057 | 0.035 | 0.790 | 0.768 |
+| `e5-small` | val | 1.032 | 0.011 | 0.011 | 0.547 | 0.547 |
+| `e5-small` | test | 1.032 | 0.011 | 0.011 | 0.569 | 0.568 |
+| `e5-small` | se_ext_dev | 1.032 | 0.022 | 0.016 | 0.742 | 0.741 |
+| `e5-small` | se_ext_test | 1.032 | 0.019 | 0.017 | 0.731 | 0.730 |
+| `mpnet-base` | val | 1.118 | 0.022 | 0.016 | 0.523 | 0.519 |
+| `mpnet-base` | test | 1.118 | 0.023 | 0.009 | 0.541 | 0.537 |
+| `mpnet-base` | se_ext_dev | 1.118 | 0.041 | 0.017 | 0.921 | 0.907 |
+| `mpnet-base` | se_ext_test | 1.118 | 0.041 | 0.016 | 0.921 | 0.907 |
+
+## Out-of-taxonomy detection
+
+| model | score | pair | AUROC | FPR@95TPR | ID kept @SE-thr | OOD flagged @SE-thr | ID kept @wiki-thr | OOD flagged @wiki-thr |
+|---|---|---|---|---|---|---|---|---|
+| `tfidf-word+char` | msp | wiki_val | 0.811 | 0.759 | 0.986 | 0.083 | 0.950 | 0.241 |
+| `tfidf-word+char` | msp | wiki_test | 0.838 | 0.696 | 0.988 | 0.116 | 0.948 | 0.319 |
+| `tfidf-word+char` | msp | se_ext_dev | 0.741 | 0.834 | 0.950 | 0.167 | 0.839 | 0.413 |
+| `tfidf-word+char` | msp | se_ext_test | 0.746 | 0.827 | 0.952 | 0.164 | 0.847 | 0.411 |
+| `tfidf-word+char` | msp | thresholds | wiki_val=0.3526 | se_ext_dev=0.2721 |  |  |  |  |
+| `tfidf-word+char` | energy | wiki_val | 0.836 | 0.707 | 0.989 | 0.068 | 0.950 | 0.293 |
+| `tfidf-word+char` | energy | wiki_test | 0.860 | 0.619 | 0.992 | 0.098 | 0.949 | 0.388 |
+| `tfidf-word+char` | energy | se_ext_dev | 0.771 | 0.820 | 0.950 | 0.180 | 0.804 | 0.545 |
+| `tfidf-word+char` | energy | se_ext_test | 0.774 | 0.811 | 0.950 | 0.188 | 0.805 | 0.548 |
+| `tfidf-word+char` | energy | thresholds | wiki_val=2.5678 | se_ext_dev=2.3232 |  |  |  |  |
+| `bge-small` | msp | wiki_val | 0.816 | 0.771 | 0.955 | 0.204 | 0.950 | 0.229 |
+| `bge-small` | msp | wiki_test | 0.839 | 0.693 | 0.962 | 0.262 | 0.956 | 0.279 |
+| `bge-small` | msp | se_ext_dev | 0.768 | 0.787 | 0.950 | 0.213 | 0.944 | 0.232 |
+| `bge-small` | msp | se_ext_test | 0.768 | 0.803 | 0.950 | 0.198 | 0.943 | 0.214 |
+| `bge-small` | msp | thresholds | wiki_val=0.4077 | se_ext_dev=0.3974 |  |  |  |  |
+| `bge-small` | energy | wiki_val | 0.840 | 0.710 | 0.960 | 0.242 | 0.950 | 0.290 |
+| `bge-small` | energy | wiki_test | 0.878 | 0.585 | 0.961 | 0.354 | 0.954 | 0.391 |
+| `bge-small` | energy | se_ext_dev | 0.819 | 0.722 | 0.950 | 0.278 | 0.939 | 0.317 |
+| `bge-small` | energy | se_ext_test | 0.819 | 0.743 | 0.946 | 0.271 | 0.936 | 0.316 |
+| `bge-small` | energy | thresholds | wiki_val=3.0217 | se_ext_dev=2.9551 |  |  |  |  |
+| `bge-small` | centroid_cos | wiki_val | 0.783 | 0.842 | 0.968 | 0.100 | 0.950 | 0.158 |
+| `bge-small` | centroid_cos | wiki_test | 0.812 | 0.793 | 0.969 | 0.096 | 0.954 | 0.193 |
+| `bge-small` | centroid_cos | se_ext_dev | 0.893 | 0.483 | 0.950 | 0.516 | 0.920 | 0.625 |
+| `bge-small` | centroid_cos | se_ext_test | 0.891 | 0.489 | 0.949 | 0.517 | 0.921 | 0.623 |
+| `bge-small` | centroid_cos | thresholds | wiki_val=0.6075 | se_ext_dev=0.5952 |  |  |  |  |
+| `bge-small` | knn10_cos | wiki_val | 0.761 | 0.903 | 0.959 | 0.074 | 0.950 | 0.097 |
+| `bge-small` | knn10_cos | wiki_test | 0.810 | 0.803 | 0.958 | 0.159 | 0.950 | 0.197 |
+| `bge-small` | knn10_cos | se_ext_dev | 0.885 | 0.574 | 0.950 | 0.426 | 0.936 | 0.482 |
+| `bge-small` | knn10_cos | se_ext_test | 0.889 | 0.571 | 0.950 | 0.432 | 0.938 | 0.484 |
+| `bge-small` | knn10_cos | thresholds | wiki_val=0.5965 | se_ext_dev=0.5916 |  |  |  |  |
+| `e5-small` | msp | wiki_val | 0.807 | 0.770 | 0.973 | 0.135 | 0.950 | 0.230 |
+| `e5-small` | msp | wiki_test | 0.829 | 0.687 | 0.976 | 0.187 | 0.951 | 0.308 |
+| `e5-small` | msp | se_ext_dev | 0.761 | 0.799 | 0.950 | 0.201 | 0.908 | 0.322 |
+| `e5-small` | msp | se_ext_test | 0.763 | 0.785 | 0.953 | 0.201 | 0.913 | 0.315 |
+| `e5-small` | msp | thresholds | wiki_val=0.4219 | se_ext_dev=0.3693 |  |  |  |  |
+| `e5-small` | energy | wiki_val | 0.842 | 0.710 | 0.976 | 0.156 | 0.950 | 0.290 |
+| `e5-small` | energy | wiki_test | 0.872 | 0.603 | 0.977 | 0.233 | 0.951 | 0.388 |
+| `e5-small` | energy | se_ext_dev | 0.819 | 0.741 | 0.950 | 0.259 | 0.905 | 0.420 |
+| `e5-small` | energy | se_ext_test | 0.818 | 0.745 | 0.950 | 0.255 | 0.904 | 0.415 |
+| `e5-small` | energy | thresholds | wiki_val=3.0372 | se_ext_dev=2.8179 |  |  |  |  |
+| `e5-small` | centroid_cos | wiki_val | 0.780 | 0.851 | 0.999 | 0.003 | 0.950 | 0.149 |
+| `e5-small` | centroid_cos | wiki_test | 0.823 | 0.791 | 0.999 | 0.004 | 0.956 | 0.193 |
+| `e5-small` | centroid_cos | se_ext_dev | 0.770 | 0.827 | 0.950 | 0.173 | 0.659 | 0.753 |
+| `e5-small` | centroid_cos | se_ext_test | 0.778 | 0.792 | 0.956 | 0.185 | 0.654 | 0.757 |
+| `e5-small` | centroid_cos | thresholds | wiki_val=0.8463 | se_ext_dev=0.8222 |  |  |  |  |
+| `e5-small` | knn10_cos | wiki_val | 0.778 | 0.836 | 1.000 | 0.000 | 0.950 | 0.164 |
+| `e5-small` | knn10_cos | wiki_test | 0.840 | 0.717 | 1.000 | 0.000 | 0.946 | 0.307 |
+| `e5-small` | knn10_cos | se_ext_dev | 0.756 | 0.897 | 0.950 | 0.103 | 0.654 | 0.753 |
+| `e5-small` | knn10_cos | se_ext_test | 0.766 | 0.886 | 0.953 | 0.107 | 0.659 | 0.767 |
+| `e5-small` | knn10_cos | thresholds | wiki_val=0.8152 | se_ext_dev=0.7870 |  |  |  |  |
+| `mpnet-base` | msp | wiki_val | 0.863 | 0.633 | 0.988 | 0.141 | 0.950 | 0.367 |
+| `mpnet-base` | msp | wiki_test | 0.849 | 0.649 | 0.987 | 0.139 | 0.948 | 0.358 |
+| `mpnet-base` | msp | se_ext_dev | 0.733 | 0.840 | 0.950 | 0.161 | 0.850 | 0.389 |
+| `mpnet-base` | msp | se_ext_test | 0.736 | 0.842 | 0.947 | 0.168 | 0.849 | 0.387 |
+| `mpnet-base` | msp | thresholds | wiki_val=0.4294 | se_ext_dev=0.3307 |  |  |  |  |
+| `mpnet-base` | energy | wiki_val | 0.899 | 0.520 | 0.991 | 0.149 | 0.950 | 0.480 |
+| `mpnet-base` | energy | wiki_test | 0.893 | 0.507 | 0.990 | 0.209 | 0.943 | 0.521 |
+| `mpnet-base` | energy | se_ext_dev | 0.760 | 0.819 | 0.950 | 0.181 | 0.799 | 0.524 |
+| `mpnet-base` | energy | se_ext_test | 0.761 | 0.825 | 0.946 | 0.186 | 0.798 | 0.532 |
+| `mpnet-base` | energy | thresholds | wiki_val=3.0565 | se_ext_dev=2.6063 |  |  |  |  |
+| `mpnet-base` | centroid_cos | wiki_val | 0.897 | 0.521 | 0.999 | 0.009 | 0.950 | 0.478 |
+| `mpnet-base` | centroid_cos | wiki_test | 0.895 | 0.468 | 0.998 | 0.010 | 0.955 | 0.511 |
+| `mpnet-base` | centroid_cos | se_ext_dev | 0.907 | 0.428 | 0.950 | 0.572 | 0.662 | 0.936 |
+| `mpnet-base` | centroid_cos | se_ext_test | 0.906 | 0.456 | 0.946 | 0.567 | 0.654 | 0.937 |
+| `mpnet-base` | centroid_cos | thresholds | wiki_val=0.1982 | se_ext_dev=0.0707 |  |  |  |  |
+| `mpnet-base` | knn10_cos | wiki_val | 0.898 | 0.459 | 0.998 | 0.034 | 0.950 | 0.541 |
+| `mpnet-base` | knn10_cos | wiki_test | 0.921 | 0.366 | 0.998 | 0.118 | 0.951 | 0.627 |
+| `mpnet-base` | knn10_cos | se_ext_dev | 0.934 | 0.293 | 0.950 | 0.707 | 0.660 | 0.953 |
+| `mpnet-base` | knn10_cos | se_ext_test | 0.936 | 0.300 | 0.947 | 0.715 | 0.666 | 0.958 |
+| `mpnet-base` | knn10_cos | thresholds | wiki_val=0.3997 | se_ext_dev=0.3202 |  |  |  |  |

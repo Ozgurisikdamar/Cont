@@ -1,0 +1,8 @@
+{
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "n_texts": 300,
+  "reloaded_dtype": "torch.float32",
+  "cosine_min": 0.9999993,
+  "cosine_mean": 0.9999996,
+  "max_abs_diff": 0.0002663
+}

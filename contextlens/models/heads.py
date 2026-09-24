@@ -4,7 +4,11 @@
 * Subtopics: multi-label one-vs-rest logistic regression (sigmoid per label),
   either *hierarchical* (one head per general topic, trained only on that
   topic's rows, giving P(subtopic | general)) or *flat* (one head over all
-  subtopics). The choice is made experimentally (docs/EXPERIMENTS.md).
+  subtopics).
+* Alternative to both: :class:`FlatSubtopicSoftmax`, one softmax over the 28
+  subtopics (trained on each passage's primary subtopic); P(general) is the sum
+  of its children's probabilities and P(subtopic | general) their share.
+The choice is made experimentally (docs/EXPERIMENTS.md, E-7).
 """
 
 from __future__ import annotations
@@ -42,6 +46,54 @@ def fit_temperature(logits: np.ndarray, y: np.ndarray) -> float:
 
 def calibrated_softmax(logits: np.ndarray, temperature: float) -> np.ndarray:
     return softmax(logits / temperature, axis=1)
+
+
+def grouped_probs(
+    logits: np.ndarray, temperature: float, parent_col: np.ndarray, n_general: int
+) -> tuple[np.ndarray, np.ndarray]:
+    """From subtopic logits: (P(general), P(subtopic | general)).
+
+    P(general) sums the softmax probabilities of the general topic's subtopics;
+    the conditional is each subtopic's share of its parent's mass.
+    """
+    sub = softmax(logits / temperature, axis=1)
+    general = np.stack([sub[:, parent_col == g].sum(axis=1) for g in range(n_general)], axis=1)
+    conditional = sub / np.maximum(general[:, parent_col], 1e-12)
+    return general, conditional
+
+
+def fit_grouped_temperature(logits: np.ndarray, y_general: np.ndarray, parent_col: np.ndarray) -> float:
+    """Temperature minimising the validation NLL of the *general* topic under grouped_probs."""
+    n_general = int(parent_col.max()) + 1
+
+    def nll(t: float) -> float:
+        general, _ = grouped_probs(logits, t, parent_col, n_general)
+        return float(-np.log(np.maximum(general[np.arange(len(y_general)), y_general], 1e-12)).mean())
+
+    return float(minimize_scalar(nll, bounds=(0.05, 20.0), method="bounded").x)
+
+
+@dataclass
+class FlatSubtopicSoftmax:
+    """Multinomial logistic regression over all subtopics (the primary label of each passage)."""
+
+    n_subtopics: int
+    C: float = 1.0
+    clf: LogisticRegression | None = None
+
+    def fit(self, X: np.ndarray, Y: np.ndarray) -> FlatSubtopicSoftmax:
+        # Primary subtopic = first positive column; every positive column of a
+        # passage belongs to its general topic (checked in tests/test_leakage.py).
+        self.clf = fit_softmax(X, Y.argmax(axis=1), self.C)
+        return self
+
+    def logits(self, X: np.ndarray) -> np.ndarray:
+        """Logits for every subtopic column; subtopics never seen in training get -inf."""
+        if self.clf is None:
+            raise RuntimeError("FlatSubtopicSoftmax is not fitted")
+        out = np.full((X.shape[0], self.n_subtopics), -np.inf)
+        out[:, self.clf.classes_] = self.clf.decision_function(X)
+        return out
 
 
 @dataclass

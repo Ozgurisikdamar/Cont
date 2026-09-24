@@ -69,7 +69,7 @@ the field's type. Command-line options win over the environment.
 | `db_path` | `contextlens.db` | database file |
 | `model_dir` | `models/contextlens-topic` | artifact directory |
 | `log_level` | `WARNING` | logging level when `--debug` is not given |
-| `min_confidence` | `0.40` | below this calibrated probability a prediction is `uncertain` |
+| `min_confidence` | `None` | below this calibrated probability a prediction is `uncertain`; `None` uses the value tuned in the benchmark and stored in the artifact (`CONTEXTLENS_MIN_CONFIDENCE=0.5` overrides) |
 | `max_subtopics` | `3` | at most this many subtopics are reported per message |
 | `decay` | `0.7` | conversation decay (`score = score·decay + weight·p`); chosen by `scripts/tune_decay.py` |
 | `theme_min_share` | `0.2` | a topic is part of the theme when it holds ≥ this share of the decayed mass |

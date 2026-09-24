@@ -1,0 +1,710 @@
+{
+  "tfidf-word+char": {
+    "msp": {
+      "thresholds_at_95": {
+        "wiki_val": 0.3526,
+        "se_ext_dev": 0.2721
+      },
+      "wiki_val": {
+        "auroc": 0.8108,
+        "aupr_ood": 0.2642,
+        "fpr_at_95_tpr": 0.7592,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.2408,
+        "id_kept@se_ext_dev": 0.9863,
+        "ood_flagged@se_ext_dev": 0.0828
+      },
+      "wiki_test": {
+        "auroc": 0.8381,
+        "aupr_ood": 0.3328,
+        "fpr_at_95_tpr": 0.6963,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9477,
+        "ood_flagged@wiki_val": 0.3185,
+        "id_kept@se_ext_dev": 0.9881,
+        "ood_flagged@se_ext_dev": 0.1156
+      },
+      "se_ext_dev": {
+        "auroc": 0.7414,
+        "aupr_ood": 0.5872,
+        "fpr_at_95_tpr": 0.8335,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.839,
+        "ood_flagged@wiki_val": 0.4133,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.1665
+      },
+      "se_ext_test": {
+        "auroc": 0.7458,
+        "aupr_ood": 0.5893,
+        "fpr_at_95_tpr": 0.8273,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.8473,
+        "ood_flagged@wiki_val": 0.4107,
+        "id_kept@se_ext_dev": 0.9518,
+        "ood_flagged@se_ext_dev": 0.164
+      }
+    },
+    "energy": {
+      "thresholds_at_95": {
+        "wiki_val": 2.5678,
+        "se_ext_dev": 2.3232
+      },
+      "wiki_val": {
+        "auroc": 0.8361,
+        "aupr_ood": 0.3008,
+        "fpr_at_95_tpr": 0.7071,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.2929,
+        "id_kept@se_ext_dev": 0.9889,
+        "ood_flagged@se_ext_dev": 0.0675
+      },
+      "wiki_test": {
+        "auroc": 0.8597,
+        "aupr_ood": 0.3836,
+        "fpr_at_95_tpr": 0.6193,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9488,
+        "ood_flagged@wiki_val": 0.3881,
+        "id_kept@se_ext_dev": 0.9915,
+        "ood_flagged@se_ext_dev": 0.0978
+      },
+      "se_ext_dev": {
+        "auroc": 0.771,
+        "aupr_ood": 0.6166,
+        "fpr_at_95_tpr": 0.8202,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.804,
+        "ood_flagged@wiki_val": 0.545,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.1798
+      },
+      "se_ext_test": {
+        "auroc": 0.7744,
+        "aupr_ood": 0.6218,
+        "fpr_at_95_tpr": 0.8115,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.8049,
+        "ood_flagged@wiki_val": 0.5483,
+        "id_kept@se_ext_dev": 0.9504,
+        "ood_flagged@se_ext_dev": 0.1875
+      }
+    }
+  },
+  "bge-small": {
+    "msp": {
+      "thresholds_at_95": {
+        "wiki_val": 0.4077,
+        "se_ext_dev": 0.3974
+      },
+      "wiki_val": {
+        "auroc": 0.8161,
+        "aupr_ood": 0.2614,
+        "fpr_at_95_tpr": 0.7715,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.2285,
+        "id_kept@se_ext_dev": 0.9547,
+        "ood_flagged@se_ext_dev": 0.204
+      },
+      "wiki_test": {
+        "auroc": 0.8393,
+        "aupr_ood": 0.3286,
+        "fpr_at_95_tpr": 0.6933,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.956,
+        "ood_flagged@wiki_val": 0.2785,
+        "id_kept@se_ext_dev": 0.9617,
+        "ood_flagged@se_ext_dev": 0.2622
+      },
+      "se_ext_dev": {
+        "auroc": 0.7676,
+        "aupr_ood": 0.6286,
+        "fpr_at_95_tpr": 0.7872,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9438,
+        "ood_flagged@wiki_val": 0.2318,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.2128
+      },
+      "se_ext_test": {
+        "auroc": 0.7684,
+        "aupr_ood": 0.6182,
+        "fpr_at_95_tpr": 0.8027,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9425,
+        "ood_flagged@wiki_val": 0.2145,
+        "id_kept@se_ext_dev": 0.9497,
+        "ood_flagged@se_ext_dev": 0.1977
+      }
+    },
+    "energy": {
+      "thresholds_at_95": {
+        "wiki_val": 3.0217,
+        "se_ext_dev": 2.9551
+      },
+      "wiki_val": {
+        "auroc": 0.8398,
+        "aupr_ood": 0.3018,
+        "fpr_at_95_tpr": 0.7101,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.2899,
+        "id_kept@se_ext_dev": 0.9595,
+        "ood_flagged@se_ext_dev": 0.2423
+      },
+      "wiki_test": {
+        "auroc": 0.8781,
+        "aupr_ood": 0.4058,
+        "fpr_at_95_tpr": 0.5852,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9539,
+        "ood_flagged@wiki_val": 0.3911,
+        "id_kept@se_ext_dev": 0.9614,
+        "ood_flagged@se_ext_dev": 0.3541
+      },
+      "se_ext_dev": {
+        "auroc": 0.8188,
+        "aupr_ood": 0.6918,
+        "fpr_at_95_tpr": 0.7218,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9389,
+        "ood_flagged@wiki_val": 0.317,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.2782
+      },
+      "se_ext_test": {
+        "auroc": 0.8186,
+        "aupr_ood": 0.6878,
+        "fpr_at_95_tpr": 0.743,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9358,
+        "ood_flagged@wiki_val": 0.3163,
+        "id_kept@se_ext_dev": 0.9457,
+        "ood_flagged@se_ext_dev": 0.2707
+      }
+    },
+    "centroid_cos": {
+      "thresholds_at_95": {
+        "wiki_val": 0.6075,
+        "se_ext_dev": 0.5952
+      },
+      "wiki_val": {
+        "auroc": 0.7832,
+        "aupr_ood": 0.2095,
+        "fpr_at_95_tpr": 0.842,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.158,
+        "id_kept@se_ext_dev": 0.9678,
+        "ood_flagged@se_ext_dev": 0.0997
+      },
+      "wiki_test": {
+        "auroc": 0.8119,
+        "aupr_ood": 0.2467,
+        "fpr_at_95_tpr": 0.7926,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9535,
+        "ood_flagged@wiki_val": 0.1926,
+        "id_kept@se_ext_dev": 0.9687,
+        "ood_flagged@se_ext_dev": 0.0963
+      },
+      "se_ext_dev": {
+        "auroc": 0.8935,
+        "aupr_ood": 0.8273,
+        "fpr_at_95_tpr": 0.4835,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9198,
+        "ood_flagged@wiki_val": 0.6253,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.5165
+      },
+      "se_ext_test": {
+        "auroc": 0.8915,
+        "aupr_ood": 0.8267,
+        "fpr_at_95_tpr": 0.4892,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.921,
+        "ood_flagged@wiki_val": 0.6228,
+        "id_kept@se_ext_dev": 0.9487,
+        "ood_flagged@se_ext_dev": 0.5167
+      }
+    },
+    "knn10_cos": {
+      "thresholds_at_95": {
+        "wiki_val": 0.5965,
+        "se_ext_dev": 0.5916
+      },
+      "wiki_val": {
+        "auroc": 0.7607,
+        "aupr_ood": 0.1753,
+        "fpr_at_95_tpr": 0.9034,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.0966,
+        "id_kept@se_ext_dev": 0.9587,
+        "ood_flagged@se_ext_dev": 0.0736
+      },
+      "wiki_test": {
+        "auroc": 0.8104,
+        "aupr_ood": 0.2483,
+        "fpr_at_95_tpr": 0.803,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9498,
+        "ood_flagged@wiki_val": 0.197,
+        "id_kept@se_ext_dev": 0.9582,
+        "ood_flagged@se_ext_dev": 0.1585
+      },
+      "se_ext_dev": {
+        "auroc": 0.8853,
+        "aupr_ood": 0.7858,
+        "fpr_at_95_tpr": 0.574,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9361,
+        "ood_flagged@wiki_val": 0.482,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.426
+      },
+      "se_ext_test": {
+        "auroc": 0.8888,
+        "aupr_ood": 0.7952,
+        "fpr_at_95_tpr": 0.5705,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9379,
+        "ood_flagged@wiki_val": 0.484,
+        "id_kept@se_ext_dev": 0.9497,
+        "ood_flagged@se_ext_dev": 0.4325
+      }
+    }
+  },
+  "e5-small": {
+    "msp": {
+      "thresholds_at_95": {
+        "wiki_val": 0.4219,
+        "se_ext_dev": 0.3693
+      },
+      "wiki_val": {
+        "auroc": 0.8074,
+        "aupr_ood": 0.2552,
+        "fpr_at_95_tpr": 0.7699,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.2301,
+        "id_kept@se_ext_dev": 0.973,
+        "ood_flagged@se_ext_dev": 0.135
+      },
+      "wiki_test": {
+        "auroc": 0.829,
+        "aupr_ood": 0.33,
+        "fpr_at_95_tpr": 0.6874,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9511,
+        "ood_flagged@wiki_val": 0.3081,
+        "id_kept@se_ext_dev": 0.9761,
+        "ood_flagged@se_ext_dev": 0.1867
+      },
+      "se_ext_dev": {
+        "auroc": 0.7613,
+        "aupr_ood": 0.6175,
+        "fpr_at_95_tpr": 0.7995,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9082,
+        "ood_flagged@wiki_val": 0.322,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.2005
+      },
+      "se_ext_test": {
+        "auroc": 0.7632,
+        "aupr_ood": 0.6193,
+        "fpr_at_95_tpr": 0.785,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9129,
+        "ood_flagged@wiki_val": 0.315,
+        "id_kept@se_ext_dev": 0.9532,
+        "ood_flagged@se_ext_dev": 0.2012
+      }
+    },
+    "energy": {
+      "thresholds_at_95": {
+        "wiki_val": 3.0372,
+        "se_ext_dev": 2.8179
+      },
+      "wiki_val": {
+        "auroc": 0.8416,
+        "aupr_ood": 0.3061,
+        "fpr_at_95_tpr": 0.7101,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.2899,
+        "id_kept@se_ext_dev": 0.9759,
+        "ood_flagged@se_ext_dev": 0.1564
+      },
+      "wiki_test": {
+        "auroc": 0.8721,
+        "aupr_ood": 0.3968,
+        "fpr_at_95_tpr": 0.603,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9514,
+        "ood_flagged@wiki_val": 0.3881,
+        "id_kept@se_ext_dev": 0.977,
+        "ood_flagged@se_ext_dev": 0.2326
+      },
+      "se_ext_dev": {
+        "auroc": 0.8186,
+        "aupr_ood": 0.6859,
+        "fpr_at_95_tpr": 0.7412,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9049,
+        "ood_flagged@wiki_val": 0.4203,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.2588
+      },
+      "se_ext_test": {
+        "auroc": 0.8181,
+        "aupr_ood": 0.6811,
+        "fpr_at_95_tpr": 0.7447,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.9038,
+        "ood_flagged@wiki_val": 0.4148,
+        "id_kept@se_ext_dev": 0.9504,
+        "ood_flagged@se_ext_dev": 0.255
+      }
+    },
+    "centroid_cos": {
+      "thresholds_at_95": {
+        "wiki_val": 0.8463,
+        "se_ext_dev": 0.8222
+      },
+      "wiki_val": {
+        "auroc": 0.7804,
+        "aupr_ood": 0.2082,
+        "fpr_at_95_tpr": 0.8512,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.1488,
+        "id_kept@se_ext_dev": 0.9985,
+        "ood_flagged@se_ext_dev": 0.0031
+      },
+      "wiki_test": {
+        "auroc": 0.8225,
+        "aupr_ood": 0.2642,
+        "fpr_at_95_tpr": 0.7911,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9559,
+        "ood_flagged@wiki_val": 0.1926,
+        "id_kept@se_ext_dev": 0.9986,
+        "ood_flagged@se_ext_dev": 0.0044
+      },
+      "se_ext_dev": {
+        "auroc": 0.7704,
+        "aupr_ood": 0.6129,
+        "fpr_at_95_tpr": 0.8267,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.6588,
+        "ood_flagged@wiki_val": 0.7535,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.1733
+      },
+      "se_ext_test": {
+        "auroc": 0.778,
+        "aupr_ood": 0.6341,
+        "fpr_at_95_tpr": 0.7917,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.6541,
+        "ood_flagged@wiki_val": 0.7568,
+        "id_kept@se_ext_dev": 0.9559,
+        "ood_flagged@se_ext_dev": 0.1848
+      }
+    },
+    "knn10_cos": {
+      "thresholds_at_95": {
+        "wiki_val": 0.8152,
+        "se_ext_dev": 0.787
+      },
+      "wiki_val": {
+        "auroc": 0.7778,
+        "aupr_ood": 0.2036,
+        "fpr_at_95_tpr": 0.8359,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.1641,
+        "id_kept@se_ext_dev": 0.9995,
+        "ood_flagged@se_ext_dev": 0.0
+      },
+      "wiki_test": {
+        "auroc": 0.84,
+        "aupr_ood": 0.3019,
+        "fpr_at_95_tpr": 0.717,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9457,
+        "ood_flagged@wiki_val": 0.3067,
+        "id_kept@se_ext_dev": 0.9998,
+        "ood_flagged@se_ext_dev": 0.0
+      },
+      "se_ext_dev": {
+        "auroc": 0.7557,
+        "aupr_ood": 0.5624,
+        "fpr_at_95_tpr": 0.8973,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.6538,
+        "ood_flagged@wiki_val": 0.7532,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.1027
+      },
+      "se_ext_test": {
+        "auroc": 0.7661,
+        "aupr_ood": 0.5801,
+        "fpr_at_95_tpr": 0.886,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.6588,
+        "ood_flagged@wiki_val": 0.7668,
+        "id_kept@se_ext_dev": 0.9532,
+        "ood_flagged@se_ext_dev": 0.1073
+      }
+    }
+  },
+  "mpnet-base": {
+    "msp": {
+      "thresholds_at_95": {
+        "wiki_val": 0.4294,
+        "se_ext_dev": 0.3307
+      },
+      "wiki_val": {
+        "auroc": 0.8627,
+        "aupr_ood": 0.3945,
+        "fpr_at_95_tpr": 0.6334,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.3666,
+        "id_kept@se_ext_dev": 0.9883,
+        "ood_flagged@se_ext_dev": 0.1411
+      },
+      "wiki_test": {
+        "auroc": 0.8494,
+        "aupr_ood": 0.363,
+        "fpr_at_95_tpr": 0.6489,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9481,
+        "ood_flagged@wiki_val": 0.3585,
+        "id_kept@se_ext_dev": 0.9867,
+        "ood_flagged@se_ext_dev": 0.1393
+      },
+      "se_ext_dev": {
+        "auroc": 0.7326,
+        "aupr_ood": 0.5761,
+        "fpr_at_95_tpr": 0.8395,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.8497,
+        "ood_flagged@wiki_val": 0.3892,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.1605
+      },
+      "se_ext_test": {
+        "auroc": 0.7362,
+        "aupr_ood": 0.5781,
+        "fpr_at_95_tpr": 0.8418,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.8485,
+        "ood_flagged@wiki_val": 0.3865,
+        "id_kept@se_ext_dev": 0.9465,
+        "ood_flagged@se_ext_dev": 0.1677
+      }
+    },
+    "energy": {
+      "thresholds_at_95": {
+        "wiki_val": 3.0565,
+        "se_ext_dev": 2.6063
+      },
+      "wiki_val": {
+        "auroc": 0.8991,
+        "aupr_ood": 0.4668,
+        "fpr_at_95_tpr": 0.5199,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.4801,
+        "id_kept@se_ext_dev": 0.9905,
+        "ood_flagged@se_ext_dev": 0.1488
+      },
+      "wiki_test": {
+        "auroc": 0.8932,
+        "aupr_ood": 0.4988,
+        "fpr_at_95_tpr": 0.5067,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9432,
+        "ood_flagged@wiki_val": 0.5215,
+        "id_kept@se_ext_dev": 0.9901,
+        "ood_flagged@se_ext_dev": 0.2089
+      },
+      "se_ext_dev": {
+        "auroc": 0.7604,
+        "aupr_ood": 0.6048,
+        "fpr_at_95_tpr": 0.8185,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.7994,
+        "ood_flagged@wiki_val": 0.5242,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.1815
+      },
+      "se_ext_test": {
+        "auroc": 0.7607,
+        "aupr_ood": 0.604,
+        "fpr_at_95_tpr": 0.8253,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.7984,
+        "ood_flagged@wiki_val": 0.5317,
+        "id_kept@se_ext_dev": 0.9462,
+        "ood_flagged@se_ext_dev": 0.1862
+      }
+    },
+    "centroid_cos": {
+      "thresholds_at_95": {
+        "wiki_val": 0.1982,
+        "se_ext_dev": 0.0707
+      },
+      "wiki_val": {
+        "auroc": 0.8969,
+        "aupr_ood": 0.438,
+        "fpr_at_95_tpr": 0.5215,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.4785,
+        "id_kept@se_ext_dev": 0.9988,
+        "ood_flagged@se_ext_dev": 0.0092
+      },
+      "wiki_test": {
+        "auroc": 0.8953,
+        "aupr_ood": 0.4865,
+        "fpr_at_95_tpr": 0.4681,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9545,
+        "ood_flagged@wiki_val": 0.5111,
+        "id_kept@se_ext_dev": 0.9983,
+        "ood_flagged@se_ext_dev": 0.0104
+      },
+      "se_ext_dev": {
+        "auroc": 0.9068,
+        "aupr_ood": 0.8443,
+        "fpr_at_95_tpr": 0.4285,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.6624,
+        "ood_flagged@wiki_val": 0.936,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.5715
+      },
+      "se_ext_test": {
+        "auroc": 0.9064,
+        "aupr_ood": 0.8441,
+        "fpr_at_95_tpr": 0.456,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.6541,
+        "ood_flagged@wiki_val": 0.937,
+        "id_kept@se_ext_dev": 0.9455,
+        "ood_flagged@se_ext_dev": 0.5672
+      }
+    },
+    "knn10_cos": {
+      "thresholds_at_95": {
+        "wiki_val": 0.3997,
+        "se_ext_dev": 0.3202
+      },
+      "wiki_val": {
+        "auroc": 0.8976,
+        "aupr_ood": 0.4822,
+        "fpr_at_95_tpr": 0.4586,
+        "n_in": 6515,
+        "n_ood": 652,
+        "id_kept@wiki_val": 0.95,
+        "ood_flagged@wiki_val": 0.5414,
+        "id_kept@se_ext_dev": 0.9975,
+        "ood_flagged@se_ext_dev": 0.0337
+      },
+      "wiki_test": {
+        "auroc": 0.9214,
+        "aupr_ood": 0.6171,
+        "fpr_at_95_tpr": 0.3659,
+        "n_in": 6479,
+        "n_ood": 675,
+        "id_kept@wiki_val": 0.9511,
+        "ood_flagged@wiki_val": 0.6267,
+        "id_kept@se_ext_dev": 0.998,
+        "ood_flagged@se_ext_dev": 0.1185
+      },
+      "se_ext_dev": {
+        "auroc": 0.9342,
+        "aupr_ood": 0.9015,
+        "fpr_at_95_tpr": 0.2935,
+        "n_in": 10124,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.6599,
+        "ood_flagged@wiki_val": 0.9527,
+        "id_kept@se_ext_dev": 0.9499,
+        "ood_flagged@se_ext_dev": 0.7065
+      },
+      "se_ext_test": {
+        "auroc": 0.9364,
+        "aupr_ood": 0.9,
+        "fpr_at_95_tpr": 0.2997,
+        "n_in": 10087,
+        "n_ood": 6000,
+        "id_kept@wiki_val": 0.6658,
+        "ood_flagged@wiki_val": 0.9578,
+        "id_kept@se_ext_dev": 0.9469,
+        "ood_flagged@se_ext_dev": 0.715
+      }
+    }
+  }
+}

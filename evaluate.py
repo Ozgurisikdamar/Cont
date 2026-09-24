@@ -56,8 +56,59 @@ def evaluate_split(model, space: LabelSpace, texts: list[str], yg: np.ndarray, Y
         out["subtopics_given_correct_general"] = multilabel_report(
             Ys[right], dec[right], cond[right], space.subtopic_ids
         )
+    out["deployed_gate"] = gate_summary(model, gp, ood, yg)
     out["_gp"] = gp
     return out
+
+
+def gate_summary(model, gp: np.ndarray, ood: np.ndarray, yg: np.ndarray | None = None) -> dict:
+    """What the user sees: share of texts answered 'uncertain' by the deployed rule
+    (OOD score below threshold OR calibrated confidence below min_confidence)."""
+    conf = gp.max(axis=1)
+    by_ood, by_conf = ood < model.ood_threshold, conf < model.min_confidence
+    uncertain = by_ood | by_conf
+    out: dict = {
+        "n": int(len(conf)),
+        "uncertain_rate": round(float(uncertain.mean()), 4),
+        "uncertain_by_ood_score": round(float(by_ood.mean()), 4),
+        "uncertain_by_low_confidence": round(float(by_conf.mean()), 4),
+    }
+    if yg is not None:
+        correct = gp.argmax(axis=1) == yg
+        out["accuracy_all"] = round(float(correct.mean()), 4)
+        out["accuracy_answered"] = round(float(correct[~uncertain].mean()), 4) if (~uncertain).any() else None
+        out["accuracy_uncertain"] = round(float(correct[uncertain].mean()), 4) if uncertain.any() else None
+    return out
+
+
+def by_group(correct: np.ndarray, groups: list[str]) -> dict:
+    """Accuracy (or flag rate) and count per group, sorted by rate ascending."""
+    out = {}
+    for g in sorted(set(groups)):
+        mask = np.array([x == g for x in groups])
+        out[g] = {"n": int(mask.sum()), "rate": round(float(correct[mask].mean()), 4)}
+    return dict(sorted(out.items(), key=lambda kv: kv[1]["rate"]))
+
+
+def length_bucket(text: str, edges: tuple[int, ...]) -> str:
+    n = len(text.split())
+    for lo, hi in zip((0, *edges), (*edges, 10_000), strict=True):
+        if lo < n <= hi:
+            return f"{lo + 1}-{hi}" if hi < 10_000 else f">{lo}"
+    return f">{edges[-1]}"
+
+
+def confusion_pairs(yg: np.ndarray, gp: np.ndarray, labels: list[str], k: int = 10) -> list[dict]:
+    pred = gp.argmax(axis=1)
+    pairs: dict[tuple[int, int], int] = {}
+    for t, p in zip(yg, pred, strict=True):
+        if t != p:
+            pairs[(int(t), int(p))] = pairs.get((int(t), int(p)), 0) + 1
+    top = sorted(pairs.items(), key=lambda kv: -kv[1])[:k]
+    return [
+        {"true": labels[t], "pred": labels[p], "count": c, "share_of_true_class": round(c / int((yg == t).sum()), 4)}
+        for (t, p), c in top
+    ]
 
 
 def errors(texts: list[str], yg: np.ndarray, gp: np.ndarray, labels: list[str], k: int) -> list[dict]:
@@ -210,25 +261,50 @@ def main() -> int:
 
     ood_test = [normalize(t) for t in ood_df[ood_df.split == "test"].text]
     se_ood = [normalize(t) for t in seg[(seg.split == "ext_test") & seg.is_ood].text]
-    _, _, ood_scores_wiki = model.predict_proba(ood_test)
-    _, _, ood_scores_se = model.predict_proba(se_ood)
+    gp_ood_wiki, _, ood_scores_wiki = model.predict_proba(ood_test)
+    gp_ood_se, _, ood_scores_se = model.predict_proba(se_ood)
     report["ood"] = {
         "threshold": model.ood_threshold,
         "wiki": ood_report(res_test["ood_scores"], ood_scores_wiki)
         | {
             "id_kept": float(np.mean(res_test["ood_scores"] >= model.ood_threshold)),
             "ood_flagged": float(np.mean(ood_scores_wiki < model.ood_threshold)),
+            "deployed_gate": gate_summary(model, gp_ood_wiki, ood_scores_wiki),
         },
         "stackexchange": ood_report(res_se["ood_scores"], ood_scores_se)
         | {
             "id_kept": float(np.mean(res_se["ood_scores"] >= model.ood_threshold)),
             "ood_flagged": float(np.mean(ood_scores_se < model.ood_threshold)),
+            "deployed_gate": gate_summary(model, gp_ood_se, ood_scores_se),
         },
     }
     yg_test = space.encode_general(test.general)
     report["calibration"] = {
         "wiki_test": reliability_curve(res_test["_gp"], yg_test),
         "se_ext_test": reliability_curve(res_se["_gp"], space.encode_general(se_test.general)),
+    }
+    # --- error-analysis breakdowns (docs/ERROR_ANALYSIS.md) ---------------------------
+    gp_se = res_se["_gp"]
+    yg_se = space.encode_general(se_test.general)
+    unc_se = (res_se["ood_scores"] < model.ood_threshold) | (gp_se.max(axis=1) < model.min_confidence)
+    ood_wiki_flag = (ood_scores_wiki < model.ood_threshold) | (gp_ood_wiki.max(axis=1) < model.min_confidence)
+    ood_se_flag = (ood_scores_se < model.ood_threshold) | (gp_ood_se.max(axis=1) < model.min_confidence)
+    report["analysis"] = {
+        "wiki_test_accuracy_by_words": by_group(
+            res_test["_gp"].argmax(1) == yg_test, [length_bucket(t, (15, 25, 40)) for t in t_texts]
+        ),
+        "wiki_test_accuracy_by_label_count": by_group(
+            res_test["_gp"].argmax(1) == yg_test, [f"{len(s)} subtopic(s)" for s in test.subtopics]
+        ),
+        "wiki_test_confusion_pairs": confusion_pairs(yg_test, res_test["_gp"], space.general_ids),
+        "se_ext_test_accuracy_by_words": by_group(
+            gp_se.argmax(1) == yg_se, [length_bucket(t, (7, 12)) for t in s_texts]
+        ),
+        "se_ext_test_accuracy_by_site": by_group(gp_se.argmax(1) == yg_se, list(se_test.site)),
+        "se_ext_test_uncertain_rate_by_site": by_group(unc_se, list(se_test.site)),
+        "se_ext_test_confusion_pairs": confusion_pairs(yg_se, gp_se, space.general_ids),
+        "ood_wiki_uncertain_rate_by_category": by_group(ood_wiki_flag, list(ood_df[ood_df.split == "test"].category)),
+        "ood_se_uncertain_rate_by_site": by_group(ood_se_flag, list(seg[(seg.split == "ext_test") & seg.is_ood].site)),
     }
     report["latency"] = measure_latency(model, t_texts)
     report["acceptance"] = acceptance(model, tax)

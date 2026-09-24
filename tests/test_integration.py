@@ -256,3 +256,20 @@ def test_reported_subtopics_are_capped(fake_model):
     assert len(loose.predict("particle wave function entanglement spacetime newton star").subtopics) == 2
     capped = dataclasses.replace(fake_model, subtopic_threshold=0.0, max_subtopics=0)
     assert len(capped.predict("particle wave function entanglement").subtopics) == 1  # best one is always kept
+
+
+def test_artifact_with_unknown_head_type_is_refused(fake_model, tmp_path):
+    import skops.io as sio
+
+    from contextlens.models import artifact
+
+    out = tmp_path / "model"
+    save_artifact(fake_model, out, {}, save_encoder=False)
+    heads = sio.load(out / "heads.skops", trusted=sorted(sio.get_untrusted_types(file=out / "heads.skops")))
+    heads["head_type"] = "mystery"
+    sio.dump(heads, out / "heads.skops")
+    meta = json.loads((out / "metadata.json").read_text())
+    meta["checksums"]["heads.skops"] = artifact.sha256_file(out / "heads.skops")
+    (out / "metadata.json").write_text(json.dumps(meta))
+    with pytest.raises(ArtifactError, match="unknown head_type"):
+        load_artifact(out, encoder=FakeEncoder())

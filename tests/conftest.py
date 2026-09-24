@@ -94,8 +94,9 @@ def taxonomy():
     return load_taxonomy()
 
 
-@pytest.fixture(scope="session")
-def fake_model(taxonomy):
+@pytest.fixture(scope="session", params=["hierarchical", "flat_softmax"])
+def fake_model(taxonomy, request):
+    """A tiny trained TopicModel; every test using it runs once per head type."""
     import pandas as pd
 
     space = LabelSpace.from_taxonomy(taxonomy)
@@ -106,7 +107,14 @@ def fake_model(taxonomy):
     def pack(c):
         return (c[0], space.encode_general(pd.Series(c[1])), space.encode_subtopics(pd.Series(c[2])))
 
-    cfg = TrainConfig(encoder="fake", general_C=8.0, subtopic_C=8.0, min_confidence=0.2, ood_keep_quantile=0.02)
+    cfg = TrainConfig(
+        encoder="fake",
+        general_C=8.0,
+        subtopic_C=8.0,
+        min_confidence=0.2,
+        ood_keep_quantile=0.02,
+        head_type=request.param,
+    )
     model, _ = fit_topic_model(FakeEncoder(), space, children, pack(tr), pack(va), cfg)
     model.metadata = {
         "model_name": "contextlens-topic",

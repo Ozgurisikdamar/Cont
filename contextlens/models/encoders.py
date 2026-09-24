@@ -81,6 +81,7 @@ class SentenceEncoder:
         if found is not None:
             self.model = SentenceTransformer(str(found), device=best_device())
             self.source = str(found)
+            self.cache_tag = f"{self.key}@{_weights_digest(found)}"
         elif "local" in spec:
             # A fine-tuned encoder has no Hub fallback: silently loading the base
             # model would give embeddings the heads were never trained on.
@@ -92,6 +93,7 @@ class SentenceEncoder:
         else:  # pinned revision from the Hugging Face Hub (cached after the first download)
             self.model = SentenceTransformer(spec["repo"], device=best_device(), revision=spec["revision"])
             self.source = f"{spec['repo']}@{spec['revision']}"
+            self.cache_tag = f"{self.key}@{spec['revision'][:8]}"
         self.model.max_seq_length = self.max_seq_length
         self.dim = int(self.model.get_sentence_embedding_dimension() or 0)
 
@@ -139,10 +141,25 @@ class SentenceEncoder:
                 self.model.float()
 
 
+def _weights_digest(directory: Path) -> str:
+    """Short content hash of a saved model's weight files (identifies a local export)."""
+    h = hashlib.sha256()
+    for f in sorted(directory.rglob("*")):
+        if f.is_file() and f.suffix in {".safetensors", ".bin"}:
+            h.update(f.name.encode())
+            h.update(f.read_bytes())
+    return h.hexdigest()[:8]
+
+
 def cached_encode(encoder: SentenceEncoder, texts: list[str], cache_dir: Path, name: str) -> np.ndarray:
-    """Encode ``texts`` once and reuse the result (keyed by encoder + content hash)."""
+    """Encode ``texts`` once and reuse the result.
+
+    The key is the encoder's identity (Hub revision, or a hash of the local
+    weights - so a re-exported fine-tuned encoder never reuses stale vectors)
+    plus a hash of the texts.
+    """
     digest = hashlib.sha1("\n".join(texts).encode("utf-8"), usedforsecurity=False).hexdigest()[:16]
-    path = cache_dir / encoder.key / f"{name}-{digest}.npy"
+    path = cache_dir / encoder.cache_tag / f"{name}-{digest}.npy"
     if path.exists():
         return np.load(path)
     path.parent.mkdir(parents=True, exist_ok=True)

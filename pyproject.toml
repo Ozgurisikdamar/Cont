@@ -24,6 +24,7 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S", "B011", "E501"]
+"scripts/report_tables.py" = ["E501"]  # long human-readable report strings
 
 [tool.mypy]
 python_version = "3.11"

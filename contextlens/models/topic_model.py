@@ -2,9 +2,12 @@
 
 Prediction flow for one text::
 
-    normalise -> features -> P(general) (temperature-scaled softmax)
-              -> P(subtopic | general) (hierarchical heads) -> subtopics of the
-                 predicted general whose probability passes the tuned threshold
+    normalise -> features -> P(general), P(subtopic | general)
+                 (head_type "hierarchical": temperature-scaled general softmax +
+                 one multi-label head per general topic; "flat_softmax": one
+                 temperature-scaled softmax over the 28 subtopics, P(general) =
+                 sum of its subtopics) -> subtopics of the predicted general
+                 whose probability passes the tuned threshold
               -> OOD score (cosine similarity to class centroids) -> uncertain flag
 
 Artifacts are written by ``train.py`` and loaded with integrity checks (see
@@ -20,7 +23,7 @@ from typing import Any
 
 import numpy as np
 
-from contextlens.models.heads import HierarchicalSubtopics, calibrated_softmax
+from contextlens.models.heads import FlatSubtopicSoftmax, HierarchicalSubtopics, calibrated_softmax, grouped_probs
 from contextlens.preprocessing.text import is_informative, normalize
 
 log = logging.getLogger(__name__)
@@ -54,9 +57,9 @@ class TopicModel:
     general_ids: list[str]
     subtopic_ids: list[str]
     parent_col: np.ndarray
-    general_head: Any  # sklearn LogisticRegression
+    general_head: Any  # LogisticRegression (hierarchical) or FlatSubtopicSoftmax (flat_softmax)
     temperature: float
-    subtopic_heads: HierarchicalSubtopics
+    subtopic_heads: HierarchicalSubtopics | None  # None for head_type "flat_softmax"
     subtopic_threshold: float
     centroids: np.ndarray  # L2-normalised class centroids in embedding space
     ood_threshold: float
@@ -64,6 +67,7 @@ class TopicModel:
     encoder: Any  # object with .encode(list[str]) -> np.ndarray
     metadata: dict = field(default_factory=dict)
     max_subtopics: int = 3  # at most this many subtopics are reported per text
+    head_type: str = "hierarchical"  # "hierarchical" | "flat_softmax" (docs/EXPERIMENTS.md, E-7)
 
     @property
     def sub_index(self) -> dict[str, int]:
@@ -76,8 +80,15 @@ class TopicModel:
     def predict_proba(self, texts: list[str]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         """Batch probabilities: (P(general), P(sub | general), ood_scores). Texts must be normalised."""
         X = self.encoder.encode(texts)
-        general = calibrated_softmax(self.general_head.decision_function(X), self.temperature)
-        conditional = self.subtopic_heads.conditional(X, self.sub_index, len(self.subtopic_ids))
+        if self.head_type == "flat_softmax":
+            assert isinstance(self.general_head, FlatSubtopicSoftmax)
+            general, conditional = grouped_probs(
+                self.general_head.logits(X), self.temperature, self.parent_col, len(self.general_ids)
+            )
+        else:
+            assert self.subtopic_heads is not None
+            general = calibrated_softmax(self.general_head.decision_function(X), self.temperature)
+            conditional = self.subtopic_heads.conditional(X, self.sub_index, len(self.subtopic_ids))
         ood = (X @ self.centroids.T).max(axis=1)
         return general, conditional, ood
 

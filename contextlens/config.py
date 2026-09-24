@@ -9,6 +9,7 @@ repository root so the scripts work from any working directory.
 from __future__ import annotations
 
 import os
+from collections.abc import Callable
 from dataclasses import dataclass, fields
 from pathlib import Path
 
@@ -42,7 +43,9 @@ class Settings:
     log_level: str = "WARNING"
     # --- classification -------------------------------------------------
     # Below this calibrated max-probability the input is flagged "uncertain".
-    min_confidence: float = 0.40
+    # None = use the value chosen in the benchmark and stored in the model
+    # artifact (the behaviour that evaluate.py measures); set a number to override.
+    min_confidence: float | None = None
     # Subtopics are shown when their (per-label calibrated) probability is at or
     # above the validation-tuned threshold stored in the model artifact; this is
     # an upper bound on how many are displayed.
@@ -65,9 +68,10 @@ class Settings:
 def _coerce(value: str, target_type: type) -> object:
     if target_type is bool:
         return value.strip().lower() in {"1", "true", "yes", "on"}
-    if target_type is Path:
+    if issubclass(target_type, Path):
         return Path(value).expanduser()
-    return target_type(value)
+    convert: Callable[[str], object] = target_type
+    return convert(value)
 
 
 def load_settings(**overrides: object) -> Settings:
@@ -77,7 +81,12 @@ def load_settings(**overrides: object) -> Settings:
     for f in fields(Settings):
         default = getattr(base, f.name)
         raw = os.environ.get(f"CONTEXTLENS_{f.name.upper()}")
-        values[f.name] = _coerce(raw, type(default)) if raw is not None else default
+        if raw is None:
+            values[f.name] = default
+        elif default is None:  # optional float setting; "", "none" or "model" keep the default
+            values[f.name] = None if raw.strip().lower() in {"", "none", "model"} else float(raw)
+        else:
+            values[f.name] = _coerce(raw, type(default))
     values.update(overrides)
     return Settings(**values)  # type: ignore[arg-type]
 

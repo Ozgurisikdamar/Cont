@@ -72,3 +72,27 @@ def test_macro_f1_over_supported_labels_ignores_absent_classes():
     rep = multilabel_report(y, y.copy(), y.astype(float), ["a", "b", "c"])
     assert rep["macro_f1"] < 1.0  # the absent label counts as F1 = 0
     assert rep["macro_f1_supported"] == 1.0 and rep["labels_supported"] == 2
+
+
+def test_grouped_probs_are_distributions_and_respect_the_hierarchy():
+    from contextlens.models.heads import grouped_probs
+
+    parent = np.array([0, 0, 1, 1, 1])
+    logits = np.array([[2.0, 1.0, 0.0, -1.0, -np.inf], [0.0, 0.0, 3.0, 3.0, 1.0]])
+    general, cond = grouped_probs(logits, 1.0, parent, 2)
+    assert np.allclose(general.sum(axis=1), 1.0)
+    for g in (0, 1):  # conditionals of each general topic sum to 1
+        assert np.allclose(cond[:, parent == g].sum(axis=1), 1.0)
+    assert cond[0, 4] == 0.0  # a subtopic never seen in training (-inf logit) gets probability 0
+    assert general[1].argmax() == 1
+
+
+def test_grouped_temperature_recovers_the_generating_temperature():
+    from contextlens.models.heads import fit_grouped_temperature, grouped_probs
+
+    rng = np.random.default_rng(42)
+    parent = np.repeat(np.arange(4), 3)
+    logits = rng.normal(0, 3, size=(20000, 12))
+    general, _ = grouped_probs(logits, 2.0, parent, 4)
+    y = np.array([rng.choice(4, p=p) for p in general])
+    assert abs(fit_grouped_temperature(logits, y, parent) - 2.0) < 0.15

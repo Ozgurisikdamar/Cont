@@ -160,3 +160,45 @@ for this version.
 **Decision.** No generated, paraphrased or hand-written training examples.
 **Why.** The brief's zero-fabrication rule, and hand-written examples would
 leak the evaluator's intuition into the model.
+
+## D-18 · The encoder is verified, not trusted
+**Decision.** `metadata.json` stores the embedding of a fixed probe sentence
+produced at training time; `load_artifact` re-encodes the probe and refuses to
+run if the cosine to the stored vector is below 0.999. A fine-tuned encoder
+(`"local"` in the encoder registry) never falls back to the Hugging Face Hub.
+**Why.** A missing or different encoder raises no error by itself: the heads
+would silently receive embeddings they were never trained on. The first version
+of the loader did exactly that — when the artifact's encoder copy was absent it
+loaded the *base* model from the Hub.
+**Alternatives.** Hash the weight files (breaks when the same weights are saved
+in another format or dtype); trust the metadata `encoder` key (does not detect
+the fallback).
+**Consequence.** One extra forward pass at start-up. Tests:
+`tests/test_integration.py::test_artifact_refuses_an_encoder_it_was_not_trained_with`,
+`tests/test_encoders.py`.
+
+## D-19 · Fine-tuned encoder weights are stored in float16
+**Decision.** `scripts/finetune_transformer.py --export` writes float16 weights;
+they load back as float32. `SentenceEncoder.save` keeps float16 only when the
+weights are exactly representable (so a Hub encoder is never rounded).
+**Why.** Halves the file (about 45 MB instead of 91 MB) so the trained model can
+live in the repository. Measured on the pinned base MiniLM
+(`reports/fp16_storage.json`, 300 validation passages): embeddings after the
+float16 round trip have cosine ≥ 0.9999993 to the float32 ones. Every later step
+(benchmark rows `minilm-l6-ft`, `train.py`, `evaluate.py`) uses exactly the
+rounded weights, so reported numbers describe the shipped model.
+**Alternatives.** float32 (twice the size, no measurable benefit); int8
+quantisation (needs a different runtime, accuracy not measured).
+
+## D-20 · Embedding cache keyed by encoder identity
+**Decision.** `cached_encode` stores vectors under `<encoder>@<revision>` for Hub
+encoders and `<encoder>@<hash of the weight files>` for local ones.
+**Why.** The first key was the encoder name only; re-exporting the fine-tuned
+encoder would have reused stale vectors without any error.
+
+## D-21 · The artifact's `min_confidence` is the default at run time
+**Decision.** `Settings.min_confidence` defaults to `None` = use the value tuned
+in the benchmark and stored in the artifact; `CONTEXTLENS_MIN_CONFIDENCE`
+overrides it.
+**Why.** The console used to override the artifact with a hard-coded 0.40, so the
+application could behave differently from what `evaluate.py` measured.

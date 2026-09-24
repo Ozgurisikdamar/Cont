@@ -29,12 +29,13 @@ import numpy as np
 import skops.io as sio
 
 from contextlens.models.encoders import ENCODERS, SentenceEncoder
-from contextlens.models.heads import HierarchicalSubtopics, MultiLabelHead
+from contextlens.models.heads import FlatSubtopicSoftmax, HierarchicalSubtopics, MultiLabelHead
 from contextlens.models.topic_model import TopicModel
 
 log = logging.getLogger(__name__)
 
 TRUSTED_TYPES = {
+    "contextlens.models.heads.FlatSubtopicSoftmax",
     "contextlens.models.heads.HierarchicalSubtopics",
     "contextlens.models.heads.MultiLabelHead",
     "sklearn.linear_model._logistic.LogisticRegression",
@@ -100,7 +101,10 @@ def verify_encoder(encoder: Any, meta: dict[str, Any], centroids: np.ndarray) ->
 
 def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, float], save_encoder: bool) -> None:
     directory.mkdir(parents=True, exist_ok=True)
-    sio.dump({"general_head": model.general_head, "subtopic_heads": model.subtopic_heads}, directory / "heads.skops")
+    heads: dict[str, Any] = {"head_type": model.head_type, "general_head": model.general_head}
+    if model.subtopic_heads is not None:
+        heads["subtopic_heads"] = model.subtopic_heads
+    sio.dump(heads, directory / "heads.skops")
     np.save(directory / "centroids.npy", model.centroids.astype(np.float32), allow_pickle=False)
     (directory / "vocabulary.json").write_text(json.dumps(vocabulary, sort_keys=True), encoding="utf-8")
     if save_encoder:
@@ -111,6 +115,7 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
             "general_ids": model.general_ids,
             "subtopic_ids": model.subtopic_ids,
             "parent_col": model.parent_col.tolist(),
+            "head_type": model.head_type,
             "temperature": model.temperature,
             "subtopic_threshold": model.subtopic_threshold,
             "ood_threshold": model.ood_threshold,
@@ -128,12 +133,21 @@ def _load_heads(path: Path) -> dict[str, Any]:
     if unexpected:
         raise ArtifactError(f"{path} contains untrusted types: {sorted(unexpected)}")
     heads = sio.load(path, trusted=sorted(untrusted))
-    if not isinstance(heads, dict) or not {"general_head", "subtopic_heads"} <= set(heads):
+    if not isinstance(heads, dict) or "general_head" not in heads:
         raise ArtifactError(f"{path} does not contain the expected heads")
-    if not isinstance(heads["subtopic_heads"], HierarchicalSubtopics) or not all(
-        isinstance(h, MultiLabelHead) for h in heads["subtopic_heads"].heads.values()
-    ):
-        raise ArtifactError(f"{path} has unexpected subtopic head types")
+    head_type = heads.setdefault("head_type", "hierarchical")
+    if head_type == "flat_softmax":
+        if not isinstance(heads["general_head"], FlatSubtopicSoftmax):
+            raise ArtifactError(f"{path} has an unexpected head type for flat_softmax")
+        heads["subtopic_heads"] = None
+    elif head_type == "hierarchical":
+        subs = heads.get("subtopic_heads")
+        if not isinstance(subs, HierarchicalSubtopics) or not all(
+            isinstance(h, MultiLabelHead) for h in subs.heads.values()
+        ):
+            raise ArtifactError(f"{path} has unexpected subtopic head types")
+    else:
+        raise ArtifactError(f"{path} has an unknown head_type {head_type!r}")
     return heads
 
 
@@ -178,6 +192,7 @@ def load_artifact(
         encoder=encoder,
         metadata=meta,
         max_subtopics=max_subtopics,
+        head_type=heads["head_type"],
     )
 
 

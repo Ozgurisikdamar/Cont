@@ -49,12 +49,15 @@ from contextlens.logging_setup import setup_logging
 from contextlens.models.encoders import SentenceEncoder, available_encoders, cached_encode
 from contextlens.models.featurizers import TFIDF_FEATURIZERS
 from contextlens.models.heads import (
+    FlatSubtopicSoftmax,
     HierarchicalSubtopics,
     MultiLabelHead,
     calibrated_softmax,
     decide_subtopics,
+    fit_grouped_temperature,
     fit_softmax,
     fit_temperature,
+    grouped_probs,
     joint_subtopic_probs,
 )
 from contextlens.reproducibility import seed_everything
@@ -223,7 +226,10 @@ def section_ensemble(data: Data) -> dict:
     labels = data.space.general_ids
     eval_splits = ["val", "test", "se_ext_dev", "se_ext_test"]
     results: dict[str, dict] = {}
-    for a, b in ENSEMBLE_PAIRS:
+    pairs = list(ENSEMBLE_PAIRS)
+    if "minilm-l6-ft" in available_encoders():
+        pairs.append(("minilm-l6-ft", "bge-small"))
+    for a, b in pairs:
         X = {s: np.hstack([embed(data, a, s), embed(data, b, s)]) for s in ["train", *eval_splits]}
         best = None
         for c in C_GRID_EMB:
@@ -347,34 +353,61 @@ def section_hierarchy(data: Data, feats: list[str]) -> dict:
 
 
 # ------------------------------------------------------------ section: calibration
+def general_scorers(data: Data, feat: str, X: dict) -> dict:
+    """Calibrated P(general) for both production head types (fitted on train, T on val).
+
+    ``logreg``: 8-way softmax head + temperature. ``flat_softmax``: 28-way subtopic
+    softmax + temperature fitted on the general NLL, P(general) = sum of children.
+    Returns name -> (temperature, raw-probs fn, calibrated-probs fn).
+    """
+    C = 16.0 if feat in TFIDF_FEATURIZERS else 8.0
+    parent, n_gen = data.space.parent_col, len(data.space.general_ids)
+    clf = fit_softmax(X["train"], data.yg["train"], C)
+    T = fit_temperature(clf.decision_function(X["val"]), data.yg["val"])
+    flat = FlatSubtopicSoftmax(len(data.space.subtopic_ids), C).fit(X["train"], data.ys["train"])
+    Tf = fit_grouped_temperature(flat.logits(X["val"]), data.yg["val"], parent)
+    return {
+        "logreg": (
+            T,
+            lambda Z, clf=clf: softmax(clf.decision_function(Z), axis=1),
+            lambda Z, clf=clf, T=T: calibrated_softmax(clf.decision_function(Z), T),
+        ),
+        "flat_softmax": (
+            Tf,
+            lambda Z, flat=flat: grouped_probs(flat.logits(Z), 1.0, parent, n_gen)[0],
+            lambda Z, flat=flat, Tf=Tf: grouped_probs(flat.logits(Z), Tf, parent, n_gen)[0],
+        ),
+    }
+
+
 def section_calibration(data: Data, feats: list[str]) -> dict:
     gids = data.space.general_ids
+    splits = ("val", "test", "se_ext_dev", "se_ext_test")
     results = {}
     for feat in feats:
-        X, _, _ = features(data, feat, ["val", "test", "se_ext_dev", "se_ext_test"])
-        C = 16.0 if feat in TFIDF_FEATURIZERS else 8.0
-        clf = fit_softmax(X["train"], data.yg["train"], C)
-        T = fit_temperature(clf.decision_function(X["val"]), data.yg["val"])
-        row: dict = {"temperature": round(T, 4)}
-        for s in ("val", "test", "se_ext_dev", "se_ext_test"):
-            logits = clf.decision_function(X[s])
-            raw = multiclass_report(data.yg[s], softmax(logits, axis=1), gids)
-            cal = multiclass_report(data.yg[s], calibrated_softmax(logits, T), gids)
-            row[s] = {
-                "ece_raw": round(raw["ece"], 4),
-                "ece_temp": round(cal["ece"], 4),
-                "nll_raw": round(raw["log_loss"], 4),
-                "nll_temp": round(cal["log_loss"], 4),
-                "reliability_raw": reliability_curve(softmax(logits, axis=1), data.yg[s]),
-                "reliability_temp": reliability_curve(calibrated_softmax(logits, T), data.yg[s]),
-            }
-        results[feat] = row
-        log.info(
-            "calibration %s: T=%.3f %s",
-            feat,
-            T,
-            {s: (row[s]["ece_raw"], row[s]["ece_temp"]) for s in row if s != "temperature"},
-        )
+        X, _, _ = features(data, feat, list(splits))
+        for head, (T, raw_fn, cal_fn) in general_scorers(data, feat, X).items():
+            row: dict = {"temperature": round(T, 4)}
+            for s in splits:
+                raw_p, cal_p = raw_fn(X[s]), cal_fn(X[s])
+                raw = multiclass_report(data.yg[s], raw_p, gids)
+                cal = multiclass_report(data.yg[s], cal_p, gids)
+                row[s] = {
+                    "ece_raw": round(raw["ece"], 4),
+                    "ece_temp": round(cal["ece"], 4),
+                    "nll_raw": round(raw["log_loss"], 4),
+                    "nll_temp": round(cal["log_loss"], 4),
+                    "reliability_raw": reliability_curve(raw_p, data.yg[s]),
+                    "reliability_temp": reliability_curve(cal_p, data.yg[s]),
+                }
+            name = feat if head == "logreg" else f"{feat}|flat_softmax"
+            results[name] = row
+            log.info(
+                "calibration %s: T=%.3f %s",
+                name,
+                T,
+                {s: (row[s]["ece_raw"], row[s]["ece_temp"]) for s in splits},
+            )
     dump("calibration", results)
     return results
 
@@ -388,24 +421,23 @@ def section_selective(data: Data, feats: list[str]) -> dict:
     results: dict = {}
     for feat in feats:
         X, _, _ = features(data, feat, ["val", "se_ext_dev"])
-        C = 16.0 if feat in TFIDF_FEATURIZERS else 8.0
-        clf = fit_softmax(X["train"], data.yg["train"], C)
-        T = fit_temperature(clf.decision_function(X["val"]), data.yg["val"])
-        row: dict = {"temperature": round(T, 4)}
-        for split in ("val", "se_ext_dev"):
-            probs = calibrated_softmax(clf.decision_function(X[split]), T)
-            conf, correct = probs.max(axis=1), probs.argmax(axis=1) == data.yg[split]
-            row[split] = [
-                {
-                    "min_confidence": t,
-                    "coverage": round(float(np.mean(conf >= t)), 4),
-                    "accuracy_kept": round(float(np.mean(correct[conf >= t])), 4) if (conf >= t).any() else None,
-                    "accuracy_rejected": round(float(np.mean(correct[conf < t])), 4) if (conf < t).any() else None,
-                }
-                for t in CONFIDENCE_GRID
-            ]
-        results[feat] = row
-        log.info("selective %s: %s", feat, row["se_ext_dev"])
+        for head, (T, _raw, cal_fn) in general_scorers(data, feat, X).items():
+            row: dict = {"temperature": round(T, 4)}
+            for split in ("val", "se_ext_dev"):
+                probs = cal_fn(X[split])
+                conf, correct = probs.max(axis=1), probs.argmax(axis=1) == data.yg[split]
+                row[split] = [
+                    {
+                        "min_confidence": t,
+                        "coverage": round(float(np.mean(conf >= t)), 4),
+                        "accuracy_kept": round(float(np.mean(correct[conf >= t])), 4) if (conf >= t).any() else None,
+                        "accuracy_rejected": round(float(np.mean(correct[conf < t])), 4) if (conf < t).any() else None,
+                    }
+                    for t in CONFIDENCE_GRID
+                ]
+            name = feat if head == "logreg" else f"{feat}|flat_softmax"
+            results[name] = row
+            log.info("selective %s: %s", name, row["se_ext_dev"])
     dump("selective", results)
     return results
 

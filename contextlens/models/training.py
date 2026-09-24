@@ -19,15 +19,21 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from contextlens.data.dataset import LabelSpace
 from contextlens.evaluation.metrics import multiclass_report, multilabel_report
 from contextlens.models.heads import (
+    FlatSubtopicSoftmax,
     HierarchicalSubtopics,
     calibrated_softmax,
     decide_subtopics,
+    fit_grouped_temperature,
     fit_softmax,
     fit_temperature,
+    grouped_probs,
 )
 from contextlens.models.topic_model import TopicModel
 
 log = logging.getLogger(__name__)
+
+
+HEAD_TYPES = ("hierarchical", "flat_softmax")
 
 
 @dataclass(frozen=True)
@@ -39,6 +45,11 @@ class TrainConfig:
     ood_keep_quantile: float = 0.05  # 5% of in-distribution calibration texts fall below the gate
     min_confidence: float = 0.40
     vocabulary_size: int = 40000
+    head_type: str = "hierarchical"  # or "flat_softmax" (general_C is unused then)
+
+    def __post_init__(self) -> None:
+        if self.head_type not in HEAD_TYPES:
+            raise ValueError(f"head_type must be one of {HEAD_TYPES}, got {self.head_type!r}")
 
 
 def centroids_of(X: np.ndarray, y: np.ndarray, n_classes: int) -> np.ndarray:
@@ -72,12 +83,20 @@ def fit_topic_model(
     yva, Yva = val[1], val[2]
     n_general = len(space.general_ids)
 
-    general = fit_softmax(Xtr, ytr, cfg.general_C)
-    temperature = fit_temperature(general.decision_function(Xva), yva)
-    gp_val = calibrated_softmax(general.decision_function(Xva), temperature)
-
-    subs = HierarchicalSubtopics(children, cfg.subtopic_C).fit(Xtr, ytr, Ytr, space.sub_index, space.general_ids)
-    cond_val = subs.conditional(Xva, space.sub_index, len(space.subtopic_ids))
+    general_head: Any
+    subs: HierarchicalSubtopics | None
+    if cfg.head_type == "flat_softmax":
+        general_head = FlatSubtopicSoftmax(len(space.subtopic_ids), cfg.subtopic_C).fit(Xtr, Ytr)
+        logits_val = general_head.logits(Xva)
+        temperature = fit_grouped_temperature(logits_val, yva, space.parent_col)
+        gp_val, cond_val = grouped_probs(logits_val, temperature, space.parent_col, n_general)
+        subs = None
+    else:
+        general_head = fit_softmax(Xtr, ytr, cfg.general_C)
+        temperature = fit_temperature(general_head.decision_function(Xva), yva)
+        gp_val = calibrated_softmax(general_head.decision_function(Xva), temperature)
+        subs = HierarchicalSubtopics(children, cfg.subtopic_C).fit(Xtr, ytr, Ytr, space.sub_index, space.general_ids)
+        cond_val = subs.conditional(Xva, space.sub_index, len(space.subtopic_ids))
     sweep = []
     for thr in cfg.thresholds:
         dec = decide_subtopics(cond_val, space.parent_col, gp_val.argmax(1), thr)
@@ -92,7 +111,7 @@ def fit_topic_model(
         general_ids=space.general_ids,
         subtopic_ids=space.subtopic_ids,
         parent_col=space.parent_col,
-        general_head=general,
+        general_head=general_head,
         temperature=temperature,
         subtopic_heads=subs,
         subtopic_threshold=float(threshold),
@@ -100,6 +119,7 @@ def fit_topic_model(
         ood_threshold=ood_threshold,
         min_confidence=cfg.min_confidence,
         encoder=encoder,
+        head_type=cfg.head_type,
     )
     val_report = {
         "general": multiclass_report(yva, gp_val, space.general_ids),
@@ -107,6 +127,7 @@ def fit_topic_model(
         "subtopic_threshold_sweep": [{"threshold": t, "macro_f1": round(m, 4)} for m, _, t in sweep],
         "temperature": temperature,
         "ood_threshold": ood_threshold,
+        "head_type": cfg.head_type,
     }
     log.info(
         "val acc=%.4f macroF1=%.4f T=%.3f sub_thr=%.2f sub_macroF1=%.4f ood_thr=%.4f",
