@@ -65,7 +65,6 @@ Status of the work, sprint by sprint. The detailed "why" of each choice is in
   TEST_REPORT, FINAL_REPORT, KNOWN_ISSUES, PROJECT_STATE, handover.
 
 ## Backlog (not planned for v1)
-- Owner decision: drop the superseded 45 MB model from git history (force push).
 - E-6: fine-tune e5-small-v2 and compare on ext_dev.
 - Rework the Science class; explicit off-topic class trained on real data.
 - Re-embed with a newer Wikipedia snapshot when one is published on the Hub.

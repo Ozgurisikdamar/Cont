@@ -55,13 +55,10 @@ Latency: median 19.9 ms per message on 4 vCPU; artifact 45 MB.
 ## Known problems
 
 Off-topic detection partial; Science class weak (F1 0.369 on questions);
-short messages harder; label noise ~4%; small Quantum Computing class;
-extra 45 MB in git history. Details: KNOWN_ISSUES.md.
+short messages harder; label noise ~4%; small Quantum Computing class. Details: KNOWN_ISSUES.md.
 
 ## Next actions
 
-1. Owner decision: rewrite git history to drop the superseded 45 MB model
-   (force push).
-2. Collect a small annotated set of real chat messages (in- and off-topic).
-3. Run E-6 (fine-tune e5-small-v2) and compare on ext_dev.
-4. Rework the Science class (issue 2).
+1. Collect a small annotated set of real chat messages (in- and off-topic).
+2. Run E-6 (fine-tune e5-small-v2) and compare on ext_dev.
+3. Rework the Science class (issue 2).

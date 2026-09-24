@@ -78,5 +78,6 @@ python scripts/report_tables.py    # regenerate reports/tables.md
 - Lessons: write run metadata only after the expensive export (a
   `PosixPath` in `json.dump` cost a 35-minute run); measure latency on an idle
   machine; a CLI default must not silently override an artifact value.
-- Open: the superseded v1.0 artifact (45 MB) is still in git history; removing
-  it needs a force push — owner's decision.
+- The superseded v1.0 artifact (45 MB) was removed from git history on the
+  owner's request (filter-branch on the two commits before the final model,
+  force push); the working tree did not change.
