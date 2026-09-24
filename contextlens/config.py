@@ -59,7 +59,7 @@ class Settings:
     # Clear the context after this many consecutive messages without a confident
     # topic (0 = never), and switch the dominant topic only after this many
     # consecutive confident messages agree on a new one (decisions.md D-31).
-    theme_expire_after: int = 3
+    theme_expire_after: int = 4
     theme_confirm_turns: int = 2
     # --- web search ------------------------------------------------------
     web_enabled: bool = True

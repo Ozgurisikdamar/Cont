@@ -507,3 +507,11 @@ about cooking or cars sits close to the training passages in style and the
 threshold is set on short questions. This is reported, not tuned away.
 **Cost.** 1.1 points fewer in-domain questions answered (0.902 → 0.891), and
 accuracy on the answered ones is unchanged (0.815 vs 0.815).
+
+**D-31 update (model v1.1.0, same rule and grid).** Re-tuned on the relabelled
+corpus with the retrained model (`reports/experiments/decay.json`): expiry
+**4** idle turns (was 3), confirm 2, votes, decay 0.7, share 0.2. Versus the
+v1.0 tracker on the same simulated conversations: theme accuracy 0.767 → 0.729,
+switch lag 1.34 → 1.92 turns, tangent robustness 0.460 → 0.874, false switch
+rate 0.488 → 0.104, stale theme after 10 uncertain turns 1.00 → 0.00,
+premature expiry 0.00, 3-topic accumulation 0.80 → 0.80.
