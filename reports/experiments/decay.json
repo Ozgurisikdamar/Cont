@@ -1,0 +1,109 @@
+{
+  "protocol": "Choose the conversation decay on simulated conversations (docs/EXPERIMENTS.md, E-DECAY).\n\nConversations are simulated from held-out passages with the trained model's\nreal predictions:\n\n* a conversation has 3 segments; each segment has a true topic and lasts 3-6\n  turns; 75% of turns are on-topic, 15% are tangents (another topic) and 10%\n  are out-of-taxonomy passages;\n* the tracker sees exactly what the app would see (calibrated general\n  probabilities, weight 0 for uncertain turns); on-topic turns are drawn from\n  all passages of the topic, including ones the model is unsure about.\n\nMetrics per decay value:\n  theme_accuracy   top theme topic == segment topic (turns after the first of a segment)\n  switch_lag       turns needed after a topic switch until the theme follows\n  tangent_robust   share of tangent turns where the theme stays on the segment topic\n  accumulation_3   P(all three topics of a Books -> Science -> Biology style\n                   3-message sequence of distinct topics are in the theme)\n\nSelection uses conversations built from the validation split; the test split\nonly reports. Output: reports/experiments/decay.json\n\n    python scripts/tune_decay.py\n",
+  "results": {
+    "val": [
+      {
+        "decay": 0.0,
+        "theme_accuracy": 0.6291,
+        "switch_lag": 0.526,
+        "tangent_robust": 0.0162,
+        "accumulation_3": 0.0
+      },
+      {
+        "decay": 0.3,
+        "theme_accuracy": 0.6851,
+        "switch_lag": 0.552,
+        "tangent_robust": 0.0457,
+        "accumulation_3": 0.005
+      },
+      {
+        "decay": 0.5,
+        "theme_accuracy": 0.7108,
+        "switch_lag": 0.644,
+        "tangent_robust": 0.081,
+        "accumulation_3": 0.005
+      },
+      {
+        "decay": 0.6,
+        "theme_accuracy": 0.7424,
+        "switch_lag": 0.974,
+        "tangent_robust": 0.2003,
+        "accumulation_3": 0.035
+      },
+      {
+        "decay": 0.7,
+        "theme_accuracy": 0.7568,
+        "switch_lag": 1.336,
+        "tangent_robust": 0.3328,
+        "accumulation_3": 0.5025
+      },
+      {
+        "decay": 0.8,
+        "theme_accuracy": 0.7278,
+        "switch_lag": 1.79,
+        "tangent_robust": 0.377,
+        "accumulation_3": 0.5925
+      },
+      {
+        "decay": 0.9,
+        "theme_accuracy": 0.6322,
+        "switch_lag": 2.491,
+        "tangent_robust": 0.3579,
+        "accumulation_3": 0.6075
+      }
+    ],
+    "test": [
+      {
+        "decay": 0.0,
+        "theme_accuracy": 0.6277,
+        "switch_lag": 0.573,
+        "tangent_robust": 0.0339,
+        "accumulation_3": 0.0
+      },
+      {
+        "decay": 0.3,
+        "theme_accuracy": 0.6771,
+        "switch_lag": 0.594,
+        "tangent_robust": 0.0663,
+        "accumulation_3": 0.005
+      },
+      {
+        "decay": 0.5,
+        "theme_accuracy": 0.7103,
+        "switch_lag": 0.664,
+        "tangent_robust": 0.1178,
+        "accumulation_3": 0.0125
+      },
+      {
+        "decay": 0.6,
+        "theme_accuracy": 0.7483,
+        "switch_lag": 0.935,
+        "tangent_robust": 0.2489,
+        "accumulation_3": 0.035
+      },
+      {
+        "decay": 0.7,
+        "theme_accuracy": 0.7644,
+        "switch_lag": 1.323,
+        "tangent_robust": 0.38,
+        "accumulation_3": 0.545
+      },
+      {
+        "decay": 0.8,
+        "theme_accuracy": 0.7292,
+        "switch_lag": 1.779,
+        "tangent_robust": 0.4212,
+        "accumulation_3": 0.6125
+      },
+      {
+        "decay": 0.9,
+        "theme_accuracy": 0.6303,
+        "switch_lag": 2.489,
+        "tangent_robust": 0.3682,
+        "accumulation_3": 0.635
+      }
+    ]
+  },
+  "selected_decay": 0.7,
+  "selection_rule": "max validation theme_accuracy subject to accumulation_3 >= 0.80"
+}

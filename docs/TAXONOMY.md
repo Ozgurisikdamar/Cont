@@ -1,6 +1,6 @@
 # Taxonomy — 8 general topics, 28 subtopics
 
-Source of truth: [`configs/taxonomy.json`](../configs/taxonomy.json) (version 1.0.0).
+Source of truth: [`configs/taxonomy.json`](../configs/taxonomy.json) (version 1.1.0 — 1.0.0 also seeded *quantum_computing* with Quantum information science@0; removed because it labelled entanglement physics as Technology, [DATASET_CARD.md §9](DATASET_CARD.md)).
 Everything below is read from that file at runtime; nothing about the taxonomy is
 hard-coded in Python. `contextlens.taxonomy.load_taxonomy()` validates it
 (unique ids, every `broader` refers to an existing topic).
@@ -43,7 +43,7 @@ questions come from: `site[tag]`, or the whole site when no tag is given.
 | chemistry | `organic_chemistry` | Organic Chemistry | organic chemistry | Organic chemistry@2 | 1 | chemistry[organic-chemistry] |
 | chemistry | `chemical_reactions` | Chemical Reactions | chemical reactions | Chemical reactions@2 | 1 | chemistry[reaction-mechanism], chemistry[reaction-control] |
 | chemistry | `periodic_table` | Periodic Table | periodic table of elements | Periodic table@2, Chemical elements@0 | 2 | chemistry[periodic-trends], chemistry[periodic-table], chemistry[elements] |
-| technology | `quantum_computing` | Quantum Computing | quantum computing | Quantum computing@2, Quantum gates@1, Quantum information science@0 | 2 | quantumcomputing |
+| technology | `quantum_computing` | Quantum Computing | quantum computing | Quantum computing@2, Quantum gates@1 | 2 | quantumcomputing |
 | technology | `artificial_intelligence` | Artificial Intelligence | artificial intelligence | Artificial intelligence@2, Machine learning@1 | 2 | ai |
 | technology | `software` | Software | software | Software engineering@2, Software@1 | 1 | softwareengineering |
 | technology | `hardware` | Hardware | computer hardware | Computer hardware@2 | 1 | superuser[cpu], superuser[motherboard] |

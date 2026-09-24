@@ -1,6 +1,6 @@
 {
   "shape": [
-    43260,
+    42942,
     9
   ],
   "columns": {
@@ -25,11 +25,11 @@
     "text_source": 0,
     "text": 0
   },
-  "articles": 11154,
+  "articles": 11073,
   "passages_per_article": {
-    "count": 11154.0,
+    "count": 11073.0,
     "mean": 3.878,
-    "std": 0.489,
+    "std": 0.49,
     "min": 1.0,
     "25%": 4.0,
     "50%": 4.0,
@@ -37,14 +37,14 @@
     "max": 4.0
   },
   "split_passages": {
-    "train": 30266,
-    "val": 6515,
-    "test": 6479
+    "train": 30051,
+    "val": 6464,
+    "test": 6427
   },
   "split_articles": {
-    "test": 1671,
-    "train": 7810,
-    "val": 1673
+    "test": 1658,
+    "train": 7755,
+    "val": 1660
   },
   "general_distribution": {
     "biology": {
@@ -68,9 +68,9 @@
       "val": 702
     },
     "physics": {
-      "test": 961,
-      "train": 4518,
-      "val": 975
+      "test": 1005,
+      "train": 4646,
+      "val": 999
     },
     "science": {
       "test": 681,
@@ -83,26 +83,26 @@
       "val": 716
     },
     "technology": {
-      "test": 836,
-      "train": 3953,
-      "val": 841
+      "test": 740,
+      "train": 3610,
+      "val": 766
     }
   },
-  "general_imbalance_ratio": 1.561,
+  "general_imbalance_ratio": 1.589,
   "subtopic_distribution": {
     "scientific_research": 2051,
+    "quantum_mechanics": 1966,
     "evolution": 1837,
     "genetics": 1812,
-    "quantum_mechanics": 1782,
-    "astrophysics": 1780,
-    "classical_mechanics": 1774,
+    "astrophysics": 1792,
+    "classical_mechanics": 1778,
     "chemical_reactions": 1726,
     "ecology": 1724,
     "relativity": 1713,
     "cell_biology": 1694,
     "organic_chemistry": 1682,
-    "hardware": 1666,
-    "software": 1654,
+    "hardware": 1674,
+    "software": 1666,
     "scientific_method": 1652,
     "history_of_science": 1651,
     "poetry": 1647,
@@ -117,26 +117,26 @@
     "basketball": 1556,
     "artificial_intelligence": 1440,
     "periodic_table": 1145,
-    "quantum_computing": 1077
+    "quantum_computing": 539
   },
-  "subtopic_imbalance_ratio": 1.904,
+  "subtopic_imbalance_ratio": 3.805,
   "labels_per_passage": {
-    "1": 40613,
+    "1": 40295,
     "2": 2596,
     "3": 51
   },
   "depth_distribution": {
-    "0": 17942,
-    "1": 23406,
-    "2": 1912
+    "0": 17360,
+    "1": 23642,
+    "2": 1940
   },
   "text": {
-    "n": 43260,
+    "n": 42942,
     "words": {
       "min": 12,
       "p5": 13.0,
       "median": 23.0,
-      "mean": 25.51,
+      "mean": 25.52,
       "p95": 47.0,
       "max": 60
     },
@@ -153,8 +153,8 @@
       "emoji": 1,
       "mojibake": 0,
       "replacement_char": 0,
-      "non_ascii": 4902,
-      "latex": 16
+      "non_ascii": 4889,
+      "latex": 15
     },
     "empty": 0,
     "exact_duplicates": 0
@@ -164,8 +164,8 @@
       "min": 12,
       "p5": 13.0,
       "median": 24.0,
-      "mean": 26.05,
-      "p95": 48.0,
+      "mean": 26.07,
+      "p95": 48.54999999999927,
       "max": 60
     },
     "biology": {
@@ -188,8 +188,8 @@
       "min": 12,
       "p5": 13.0,
       "median": 23.0,
-      "mean": 25.16,
-      "p95": 47.0,
+      "mean": 25.09,
+      "p95": 46.0,
       "max": 60
     },
     "science": {
@@ -225,40 +225,40 @@
       "max": 60
     }
   },
-  "vocabulary_size_train": 46904,
+  "vocabulary_size_train": 46819,
   "top_tokens_by_general": {
     "physics": [
       [
         "quantum",
-        900
+        1057
       ],
       [
         "physics",
-        565
+        578
       ],
       [
         "theory",
-        547
+        563
       ],
       [
         "mechanics",
-        520
+        538
       ],
       [
         "field",
-        500
+        510
       ],
       [
         "time",
-        479
+        486
       ],
       [
         "space",
-        464
+        471
       ],
       [
         "energy",
-        456
+        465
       ],
       [
         "relativity",
@@ -266,27 +266,27 @@
       ],
       [
         "used",
-        376
+        385
       ],
       [
         "mass",
-        361
+        362
       ],
       [
         "general",
-        332
+        335
+      ],
+      [
+        "state",
+        309
       ],
       [
         "light",
-        306
+        308
       ],
       [
         "motion",
-        302
-      ],
-      [
-        "equations",
-        297
+        304
       ]
     ],
     "biology": [
@@ -415,64 +415,64 @@
     ],
     "technology": [
       [
-        "quantum",
-        1130
-      ],
-      [
         "software",
-        784
+        779
       ],
       [
         "computer",
-        705
+        676
       ],
       [
-        "used",
-        549
+        "quantum",
+        654
       ],
       [
         "data",
-        546
+        539
+      ],
+      [
+        "used",
+        520
       ],
       [
         "learning",
-        425
+        424
       ],
       [
         "systems",
-        421
+        405
       ],
       [
         "machine",
-        325
-      ],
-      [
-        "information",
-        319
+        324
       ],
       [
         "computing",
-        295
-      ],
-      [
-        "development",
         240
       ],
       [
-        "set",
-        233
+        "development",
+        237
       ],
       [
-        "using",
-        230
+        "set",
+        228
       ],
       [
         "testing",
-        226
+        225
       ],
       [
-        "state",
-        226
+        "hardware",
+        216
+      ],
+      [
+        "information",
+        215
+      ],
+      [
+        "test",
+        214
       ]
     ],
     "science": [
@@ -900,20 +900,20 @@
     "se_titles_in_corpus": 0,
     "acceptance_sentences_in_corpus": 0,
     "near_duplicates_test_vs_train": {
-      "n": 6479,
-      "max_cosine": 0.869,
-      "p99_cosine": 0.5768,
+      "n": 6427,
+      "max_cosine": 0.8691,
+      "p99_cosine": 0.5783,
       "count_cosine_ge_0.9": 0,
       "closest_pairs": [
         {
           "text": "Ab\u00edeta (Ancient Greek: \u1f08\u03b2\u03af\u03b7\u03c4\u03b1) was an ancient city mentioned by Ptolemy. It was located between the Middle Danube and the Tisza River, in what was considered the territory of Metanasian Iazyges.",
           "nearest_train": "Bormanum (Ancient Greek: \u0392\u03cc\u03c1\u03bc\u03b1\u03bd\u03bf\u03bd) was an ancient city mentioned by Ptolemy. It was located between the Middle Danube and the Tisza River, in what was considered the territory of the Iazyges Metanast\u00e6.",
-          "cosine": 0.869
+          "cosine": 0.8691
         },
         {
           "text": "When World War I was declared in 1914, it had a negative effect on association football; in some countries competitions were suspended and players signed up to fight, resulting in the deaths of many players.",
           "nearest_train": "When World War II was declared in 1939, it had a negative effect on association football; competitions were suspended and players signed up to fight, resulting in the deaths of many players.",
-          "cosine": 0.8652
+          "cosine": 0.8653
         },
         {
           "text": "A practitioner of the discipline is a Thracologist. Thracology investigates the range of ancient Thracian culture (language, literature, history, religion, art, economics and ethics) from 1000 BC up to the end of Roman rule in the 4th\u20137th centuries AD.",
@@ -923,19 +923,19 @@
         {
           "text": "It first aired on the Fox network in the United States on May 16, 2004.",
           "nearest_train": "It first aired on the Fox network in the United States on May 13, 2001.",
-          "cosine": 0.853
+          "cosine": 0.8531
         },
         {
           "text": "When, the set of all such locations is called a one-dimensional space.",
           "nearest_train": "When n = 8, the set of all such locations is called 8-dimensional space.",
-          "cosine": 0.8488
+          "cosine": 0.8487
         }
       ]
     },
     "near_duplicates_val_vs_train": {
-      "n": 6515,
+      "n": 6464,
       "max_cosine": 0.8841,
-      "p99_cosine": 0.623,
+      "p99_cosine": 0.6167,
       "count_cosine_ge_0.9": 0,
       "closest_pairs": [
         {
@@ -951,12 +951,12 @@
         {
           "text": "The series of all H\u00f9ng kings following Th\u1eeba V\u00e2n Lang took that same regnal name of H\u00f9ng V\u1ef9 V\u01b0\u01a1ng to rule over V\u0103n Lang until approximately 1332 B.C.",
           "nearest_train": "The series of all H\u00f9ng kings following B\u1eedu Lang took that same regnal name of H\u00f9ng Di\u1ec7p V\u01b0\u01a1ng to rule over V\u0103n Lang until approximately 1913 B.C.",
-          "cosine": 0.8716
+          "cosine": 0.8715
         },
         {
           "text": "Nitrogen is the chemical element with the symbol N and atomic number 7.",
           "nearest_train": "Oxygen is the chemical element with the symbol O and atomic number 8.",
-          "cosine": 0.8663
+          "cosine": 0.8664
         },
         {
           "text": "This is a list of the Estonia men's national basketball team results from 2020 to present.",

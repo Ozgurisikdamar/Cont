@@ -1,4 +1,4 @@
-# Dataset card — ContextLens topic corpus v1
+# Dataset card — ContextLens topic corpus v1.1
 
 Why this data was chosen over existing datasets: [DATASET_RESEARCH.md](DATASET_RESEARCH.md).
 Numbers below come from `data/manifest/crawl_stats.json`, `reports/eda.json` and
@@ -11,7 +11,7 @@ Numbers below come from `data/manifest/crawl_stats.json`, `reports/eda.json` and
 | language | English |
 | task | hierarchical topic classification: 1 of 8 general topics + 1–3 of 28 subtopics (multi-label, always children of the general topic) |
 | unit | passage (12–60 words) from the lead and first sections of a Wikipedia article |
-| size | **43,260 passages from 11,154 articles** — train 30,266 · validation 6,515 · test 6,479 |
+| size | **42,942 passages from 11,073 articles** — train 30,051 · validation 6,464 · test 6,427 (v1.1; v1.0 had 43,260 from 11,154, see §9) |
 | labels | distant supervision from Wikipedia's category graph (via DBpedia) |
 | text | Wikipedia dumps pinned on the Hugging Face Hub (see §3) |
 | external test sets | Stack Exchange questions (general + subtopic), out-of-taxonomy Wikipedia passages and Stack Exchange questions |
@@ -75,20 +75,21 @@ Grouped by article (no article has passages in two splits), stratified by
 
 | general topic | train | val | test |
 |---|---:|---:|---:|
-| Physics | 4,518 | 975 | 961 |
+| Physics | 4,646 | 999 | 1,005 |
 | Biology | 4,507 | 961 | 967 |
 | Chemistry | 2,912 | 643 | 630 |
-| Technology | 3,953 | 841 | 836 |
+| Technology | 3,610 | 766 | 740 |
 | Science | 3,229 | 688 | 681 |
 | Books | 4,561 | 989 | 984 |
 | Sports | 3,296 | 716 | 705 |
 | History | 3,290 | 702 | 715 |
 
-* General-topic imbalance (largest / smallest, all splits): **1.56**; subtopic
-  imbalance: **1.90** (smallest: quantum computing and periodic table, whose
-  category trees are small). Handled with `class_weight="balanced"`.
-* Labels per passage: 1 subtopic 40,613 · 2 subtopics 2,596 · 3 subtopics 51.
-* Crawl depth of the label: depth 0 17,942 · depth 1 23,406 · depth 2 1,912 passages.
+* General-topic imbalance (largest / smallest, all splits): **1.59**; subtopic
+  imbalance: **3.81** (smallest: quantum computing 539 passages after the v1.1
+  fix, then periodic table 1,145; largest 2,051). Handled with
+  `class_weight="balanced"`.
+* Labels per passage: 1 subtopic 40,295 · 2 subtopics 2,596 · 3 subtopics 51.
+* Crawl depth of the label: depth 0 17,360 · depth 1 23,642 · depth 2 1,940 passages.
 * Every general topic and every subtopic occurs in every split
   (`tests/test_leakage.py`).
 
@@ -153,3 +154,32 @@ reachable from any taxonomy seed excluded.
 * **Science is a hard class by design**: it covers *science about science*
   (method, history, research practice), which overlaps lexically with every
   natural science.
+
+## 9. Version 1.1 — label fix found by error analysis
+
+The first trained model classified the brief's acceptance sentence *"In quantum
+entanglement, the wave functions of particles can change together."* as
+Technology > Quantum Computing. The cause was a label rule, not the model: the
+seed `Quantum_information_science@0` of *quantum_computing* contains
+foundational physics (Quantum entanglement, Bell's theorem, Bell states,
+cat states…) at depth 0, where the Quantum-mechanics tree reaches them only at
+depth ≥ 1, so the minimum-depth rule labelled them Technology.
+
+Taxonomy 1.1.0 removes that seed. `scripts/relabel_corpus.py` re-ran the label
+rules on the cached crawl and applied them to the existing articles, keeping
+each article's split (`reports/relabel.json`):
+
+| change | articles |
+|---|---:|
+| Technology → Physics (e.g. Quantum entanglement, Bell's theorem, Bell state) | 49 |
+| Technology → Technology, other subtopic (hardware) | 6 |
+| removed (only reached through the dropped seed; e.g. Density matrix, LOCC) | 81 |
+| total (train 91 · val 19 · test 26) | 136 of 11,154 |
+
+The acceptance sentence itself was **not** added to the data. Articles that a
+from-scratch build with taxonomy 1.1 would additionally select (previously
+ambiguous physics/technology ties) were not added — that needs the full dump
+download; a rebuild with `download_data.py --all` may therefore differ from the
+committed corpus by those articles. The frozen-encoder benchmark (E-0 … E-9)
+was run on v1.0 labels; the fine-tuned encoder, the production model and every
+number in `reports/evaluation.json` use v1.1.

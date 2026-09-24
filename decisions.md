@@ -253,3 +253,20 @@ float16 encoder, metadata with checksums) is in the repository.
 shipped model is exactly the evaluated one.
 **Alternatives.** Git LFS or a release asset (extra tooling for users);
 download from the Hub (only possible for frozen encoders).
+
+## D-27 · Fix the label rule behind the failed quantum test, not the test
+**Decision.** Taxonomy 1.1.0 drops the seed `Quantum_information_science@0`
+from *quantum_computing*; `scripts/relabel_corpus.py` re-labels the corpus
+(136 of 11,154 articles: 49 Technology → Physics, 6 → Hardware, 81 removed),
+keeping every article's split; the encoder is fine-tuned again and the model
+retrained on v1.1.
+**Why.** The first production model answered Technology > Quantum Computing for
+the entanglement sentence of the brief. Error analysis showed the training data
+said so: "Quantum entanglement", "Bell's theorem" and ~50 similar articles were
+labelled Technology because that category holds them at depth 0.
+**Alternatives.** Adding the sentence or paraphrases to training (forbidden by
+the brief, and it would hide the real cause); a keyword rule for "entanglement"
+(hard-coding); tie-breaking by hand for single articles (not reproducible).
+**Consequence.** Quantum computing is now the smallest subtopic (539
+passages); the benchmark tables E-0 … E-9 were measured on v1.0 labels
+(DATASET_CARD §9).

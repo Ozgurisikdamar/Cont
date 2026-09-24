@@ -88,8 +88,8 @@ therefore **built from English Wikipedia**:
 | | |
 |---|---|
 | source | English Wikipedia text (`wikimedia/wikipedia` 20231101.en, fallback `legacy-datasets/wikipedia` 20220301.en — both pinned) labelled through Wikipedia's own **category graph** (DBpedia SPARQL) from curated seed categories |
-| size | **43,260 passages** from **11,154 articles** (train 30,266 · val 6,515 · test 6,479), split by article (grouped, stratified) |
-| labels | 8 general topics (imbalance ratio 1.56), 28 subtopics (1.90), 6.1% of passages carry 2–3 subtopics |
+| size | **42,942 passages** from **11,073 articles** (train 30,051 · val 6,464 · test 6,427), split by article (grouped, stratified) |
+| labels | 8 general topics (imbalance ratio 1.59), 28 subtopics (3.81), 6.2% of passages carry 2–3 subtopics; one label rule fixed after error analysis (136 quantum articles, [DATASET_CARD §9](docs/DATASET_CARD.md)) |
 | label quality | manual audit of 48 training passages: 89.6% correct, 6.2% weak passage, 4.2% wrong label |
 | leakage | 0 shared articles, 0 exact duplicates, 0 near-duplicates (TF-IDF cosine ≥ 0.9) between splits; acceptance sentences absent |
 | external evaluation | **Stack Exchange question titles** (never trained on): 10,124 / 10,087 in-taxonomy + 6,000 / 6,000 off-topic (ext_dev / ext_test); a 25-subtopic set of 1,630 / 1,642 questions |

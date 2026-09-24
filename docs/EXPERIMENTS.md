@@ -9,7 +9,7 @@ and where the raw output is. Result tables are generated from the JSON files by
 
 | rule | detail |
 |---|---|
-| data | Wikipedia passages (train 30,266 · val 6,515 · test 6,479), Stack Exchange questions (general: ext_dev 10,124 · ext_test 10,087; subtopic: ext_dev 1,630 · ext_test 1,642), OOD (Wikipedia categories, 15 Stack Exchange sites) — [DATASET_CARD.md](DATASET_CARD.md) |
+| data | Wikipedia passages — labels v1.0 for E-0 … E-9 (train 30,266 · val 6,515 · test 6,479), labels v1.1 for E-5 (final run), E-10, E-11 (train 30,051 · val 6,464 · test 6,427; DATASET_CARD §9), Stack Exchange questions (general: ext_dev 10,124 · ext_test 10,087; subtopic: ext_dev 1,630 · ext_test 1,642), OOD (Wikipedia categories, 15 Stack Exchange sites) — [DATASET_CARD.md](DATASET_CARD.md) |
 | preprocessing | `contextlens.preprocessing.text.normalize` for every split and at runtime (no lower-casing for encoders; TF-IDF lower-cases itself) |
 | fitting | featurizers and heads are fitted on **train only** |
 | selection | hyper-parameters: Wikipedia **val**; model families: **val + Stack Exchange ext_dev** |

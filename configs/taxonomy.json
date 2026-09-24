@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "ContextLens topic taxonomy: 8 general topics, 28 subtopics. Labels are stable snake_case ids; display names are for the UI. 'seeds' are Wikipedia categories written as 'Category_name@max_depth' (DBpedia 'dbc:' names) used to build the training corpus; 'stackexchange' lists (site, tag) pairs used only for the external evaluation set. See docs/TAXONOMY.md.",
   "global_exclude_category_patterns": [
     "(?i)stubs?$",
@@ -295,8 +295,7 @@
           "phrase": "quantum computing",
           "seeds": [
             "Quantum_computing@2",
-            "Quantum_gates@1",
-            "Quantum_information_science@0"
+            "Quantum_gates@1"
           ],
           "exclude": [
             "science_person"

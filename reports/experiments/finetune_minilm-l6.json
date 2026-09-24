@@ -6,7 +6,9 @@
     "lr": 5e-05,
     "batch": 32,
     "max_len": 64,
-    "save": false
+    "save": false,
+    "export": "models/finetuned/minilm-l6",
+    "export_float32": false
   },
   "history": [
     {
@@ -14,24 +16,24 @@
       "train_loss": 0.9212,
       "val_accuracy": 0.8365,
       "val_macro_f1": 0.8326,
-      "epoch_seconds": 1061.0
+      "epoch_seconds": 705.1
     },
     {
       "epoch": 2,
       "train_loss": 0.4824,
       "val_accuracy": 0.8413,
       "val_macro_f1": 0.8381,
-      "epoch_seconds": 621.8
+      "epoch_seconds": 594.5
     },
     {
       "epoch": 3,
       "train_loss": 0.3556,
       "val_accuracy": 0.8445,
       "val_macro_f1": 0.8428,
-      "epoch_seconds": 1391.2
+      "epoch_seconds": 602.6
     }
   ],
-  "train_seconds": 3074.1,
+  "train_seconds": 1902.2,
   "device": "cpu",
   "subtopic_threshold": 0.3,
   "val": {
@@ -162,6 +164,7 @@
       "recall_at_3": 0.8752
     }
   },
-  "latency_single_ms_median": 13.0,
-  "size_mb": 90.9
+  "latency_single_ms_median": 12.76,
+  "size_mb": 90.9,
+  "exported_to": "models/finetuned/minilm-l6"
 }
