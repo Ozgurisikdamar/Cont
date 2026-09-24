@@ -7,7 +7,7 @@
     "encoder": "minilm-l6-ft",
     "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
   },
-  "load_seconds": 3.52,
+  "load_seconds": 2.72,
   "wiki_test": {
     "general": {
       "n": 6427,
@@ -357,8 +357,8 @@
       "samples_f1": 0.7809878844361603,
       "hamming_loss": 0.017015044601251497,
       "subset_accuracy": 0.7161230195712954,
-      "precision_at_1": 0.3054986020503262,
-      "recall_at_3": 0.5345138241689965,
+      "precision_at_1": 0.7908667287977633,
+      "recall_at_3": 0.9748990369680024,
       "per_label": {
         "quantum_mechanics": {
           "precision": 0.7053571428571429,
@@ -1541,8 +1541,8 @@
       "samples_f1": 0.7983125288950532,
       "hamming_loss": 0.01597483653655637,
       "subset_accuracy": 0.7288488210818308,
-      "precision_at_1": 0.35714285714285715,
-      "recall_at_3": 0.5617198335644937,
+      "precision_at_1": 0.811373092926491,
+      "recall_at_3": 0.9802357836338419,
       "per_label": {
         "quantum_mechanics": {
           "precision": 0.7727272727272727,
@@ -1888,104 +1888,16 @@
       }
     },
     "wiki_test_accuracy_by_label_count": {
-      "16 subtopic(s)": {
-        "n": 8,
-        "rate": 0.25
-      },
-      "38 subtopic(s)": {
-        "n": 24,
-        "rate": 0.375
-      },
-      "13 subtopic(s)": {
-        "n": 251,
-        "rate": 0.6853
-      },
-      "31 subtopic(s)": {
-        "n": 4,
-        "rate": 0.75
-      },
-      "37 subtopic(s)": {
-        "n": 56,
-        "rate": 0.7679
-      },
-      "18 subtopic(s)": {
-        "n": 483,
-        "rate": 0.7702
-      },
-      "7 subtopic(s)": {
-        "n": 456,
-        "rate": 0.7763
-      },
-      "17 subtopic(s)": {
-        "n": 741,
-        "rate": 0.7854
-      },
-      "19 subtopic(s)": {
-        "n": 455,
-        "rate": 0.7912
-      },
-      "23 subtopic(s)": {
-        "n": 196,
-        "rate": 0.8061
-      },
-      "10 subtopic(s)": {
-        "n": 663,
+      "1 subtopic(s)": {
+        "n": 6050,
         "rate": 0.8326
       },
-      "12 subtopic(s)": {
-        "n": 456,
-        "rate": 0.8399
+      "2 subtopic(s)": {
+        "n": 365,
+        "rate": 0.8658
       },
-      "15 subtopic(s)": {
-        "n": 466,
-        "rate": 0.8541
-      },
-      "9 subtopic(s)": {
-        "n": 184,
-        "rate": 0.8587
-      },
-      "32 subtopic(s)": {
-        "n": 45,
-        "rate": 0.8889
-      },
-      "6 subtopic(s)": {
-        "n": 492,
-        "rate": 0.9045
-      },
-      "8 subtopic(s)": {
-        "n": 1148,
-        "rate": 0.9103
-      },
-      "36 subtopic(s)": {
-        "n": 49,
-        "rate": 0.9388
-      },
-      "14 subtopic(s)": {
-        "n": 171,
-        "rate": 0.9591
-      },
-      "21 subtopic(s)": {
-        "n": 27,
-        "rate": 1.0
-      },
-      "26 subtopic(s)": {
-        "n": 20,
-        "rate": 1.0
-      },
-      "28 subtopic(s)": {
-        "n": 8,
-        "rate": 1.0
-      },
-      "30 subtopic(s)": {
-        "n": 16,
-        "rate": 1.0
-      },
-      "41 subtopic(s)": {
-        "n": 4,
-        "rate": 1.0
-      },
-      "50 subtopic(s)": {
-        "n": 4,
+      "3 subtopic(s)": {
+        "n": 12,
         "rate": 1.0
       }
     },
@@ -2309,9 +2221,9 @@
     }
   },
   "latency": {
-    "single_ms_median": 19.89,
-    "single_ms_p95": 30.07,
-    "batch_ms_per_text": 5.94,
+    "single_ms_median": 19.9,
+    "single_ms_p95": 28.26,
+    "batch_ms_per_text": 5.541,
     "python_heap_peak_mb_during_batch": 2.7
   },
   "acceptance": {

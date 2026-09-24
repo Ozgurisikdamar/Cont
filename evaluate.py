@@ -53,8 +53,9 @@ def evaluate_split(model, space: LabelSpace, texts: list[str], yg: np.ndarray, Y
         )
         # hierarchy-conditional view: subtopic metrics only where the general topic was right
         right = gp.argmax(1) == yg
+        joint = joint_subtopic_probs(gp, cond, space.parent_col)
         out["subtopics_given_correct_general"] = multilabel_report(
-            Ys[right], dec[right], cond[right], space.subtopic_ids
+            Ys[right], dec[right], joint[right], space.subtopic_ids
         )
     out["deployed_gate"] = gate_summary(model, texts, gp, ood, yg)
     out["_gp"] = gp
@@ -296,7 +297,7 @@ def main() -> int:
             res_test["_gp"].argmax(1) == yg_test, [length_bucket(t, (15, 25, 40)) for t in t_texts]
         ),
         "wiki_test_accuracy_by_label_count": by_group(
-            res_test["_gp"].argmax(1) == yg_test, [f"{len(s)} subtopic(s)" for s in test.subtopics]
+            res_test["_gp"].argmax(1) == yg_test, [f"{len(s.split('|'))} subtopic(s)" for s in test.subtopics]
         ),
         "wiki_test_confusion_pairs": confusion_pairs(yg_test, res_test["_gp"], space.general_ids),
         "se_ext_test_accuracy_by_words": by_group(

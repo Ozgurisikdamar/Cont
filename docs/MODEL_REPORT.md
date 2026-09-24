@@ -25,7 +25,13 @@ Tie-breakers: latency, size, calibration.
 | bge-small-en-v1.5 (frozen) + LR | 0.823 | 0.735 | 27.9 | 133.4 |
 | e5-small-v2 (frozen) + LR | 0.823 | 0.743 | 27.1 | 133.4 |
 | all-mpnet-base-v2 (frozen) + LR | 0.836 | 0.737 | 66.7 | 437.9 |
-| **all-MiniLM-L6-v2 fine-tuned (two heads)** | **0.843** | **0.752** | **13.0** | **90.9** |
+| **all-MiniLM-L6-v2 fine-tuned (two heads)** ¹ | **0.843** | **0.752** | **13.0** | **90.9** |
+
+¹ labels v1.0, like every other row (`finetune_minilm-l6.labels-v1.0.json`).
+After the label fix of D-27 (v1.1) the same recipe gives 0.837 / 0.758 with its
+own head and 0.840 / 0.756 with the production LR head (`general_ft.json`) —
+the two label versions have slightly different validation sets, so the rows are
+not directly comparable.
 
 (latency: median single-text prediction on the reference CPU; MB: encoder +
 head in memory. Full tables with accuracy, weighted-F1, ECE, test columns and
@@ -101,4 +107,44 @@ texts): on Wikipedia val passages, or on Stack Exchange ext_dev questions.
 
 ## 6. Final model
 
-⟪FINAL⟫
+| | |
+|---|---|
+| encoder | all-MiniLM-L6-v2 fine-tuned 3 epochs on the v1.1 training split (30.5 min on 4 vCPU), exported without its heads, float16 on disk (45 MB) |
+| head | `flat_softmax`: multinomial LR (C = 8, class-weighted) over the 28 subtopics on the encoder's embeddings; temperature T = 1.431 fitted on the general-topic NLL of val |
+| subtopic rule | best child of the predicted general topic + siblings with P(sub \| general) ≥ τ = 0.40 (val sweep 0.20–0.70), at most 3 shown |
+| uncertain | centroid cosine < 0.705 (keeps 95% of ext_dev questions) **or** confidence < 0.50 (coverage rule, D-25) **or** not English (D-29) |
+| training | `train.py` 218 s (encoding + heads), `configs/model.json` |
+
+**Held-out results** (`reports/evaluation.json`; nothing here was used for a
+decision):
+
+| set | n | accuracy | macro-F1 | weighted-F1 | ECE |
+|---|---:|---:|---:|---:|---:|
+| Wikipedia test (general) | 6,427 | 0.835 | 0.834 | 0.835 | 0.031 |
+| Stack Exchange ext_test (general) | 10,087 | 0.775 | 0.756 | 0.773 | 0.067 |
+| Stack Exchange subtopic ext_test (general) | 1,642 | 0.878 | 0.862 | 0.879 | 0.028 |
+
+| subtopics | macro-F1 | micro-F1 | samples-F1 | Hamming | subset acc | P@1 | R@3 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Wikipedia test | 0.647 | 0.647 | 0.652 | 0.027 | 0.598 | 0.666 | 0.862 |
+| … when the general topic is right | 0.775 | 0.775 | 0.781 | 0.017 | 0.716 | 0.791 | 0.975 |
+| Stack Exchange ext_test (25 labels) | 0.701 | 0.694 | 0.701 | 0.023 | 0.640 | 0.717 | 0.902 |
+
+**The uncertain answer in use** (deployed rule, test sets):
+
+| set | answered "uncertain" | accuracy of answered | accuracy of uncertain |
+|---|---:|---:|---:|
+| Wikipedia test | 6.8% | 0.868 | 0.378 |
+| Stack Exchange ext_test | 9.2% | 0.812 | 0.402 |
+| out-of-taxonomy Wikipedia (675) | 33.3% | – | – |
+| off-topic Stack Exchange (6,000) | 43.6% | – | – |
+
+The gate removes mostly wrong answers (accuracy of the flagged ones 0.38–0.40),
+but it catches only a third to a half of off-topic texts at the chosen 95%
+in-domain operating point (AUROC 0.850 / 0.845) — see KNOWN_ISSUES.md.
+
+**Cost.** Median 19.9 ms per message (p95 28.3 ms), 5.5 ms per text in batches,
+model load 2.8 s, 45 MB on disk — on a 4-vCPU CPU, no GPU.
+
+**Acceptance.** All five brief sentences, the quantum pair, the pizza sentence
+and the three-message conversation pass (docs/TEST_REPORT.md).

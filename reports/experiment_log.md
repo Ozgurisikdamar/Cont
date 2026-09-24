@@ -197,7 +197,7 @@ One card per trained general-topic model, in the format of the project brief. Pr
 | Notes | val macro-F1 by epoch: 0.8288, 0.8349, 0.8368 |
 | Decision | The fine-tuned encoder is exported and used with logistic-regression heads (row minilm-l6-ft above), which keeps the artifact format, temperature scaling and OOD gate of the frozen encoders. |
 
-### E-5 · `finetune_minilm-l6.run1`
+### E-5 · `finetune_minilm-l6.labels-v1.0`
 
 | field | value |
 |---|---|

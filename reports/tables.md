@@ -64,12 +64,12 @@ history: [{"epoch": 1, "train_loss": 0.918, "val_accuracy": 0.8326, "val_macro_f
 
 | model | split | general acc | general macro-F1 | subtopic macro-F1 |
 |---|---|---|---|---|
-| `finetune_minilm-l6.run1` | val | 0.845 | 0.843 | 0.489 |
-| `finetune_minilm-l6.run1` | se_ext_dev | 0.770 | 0.752 | – |
-| `finetune_minilm-l6.run1` | sesub_ext_dev | 0.869 | 0.855 | 0.499 |
-| `finetune_minilm-l6.run1` | test | 0.830 | 0.829 | 0.482 |
-| `finetune_minilm-l6.run1` | se_ext_test | 0.772 | 0.752 | – |
-| `finetune_minilm-l6.run1` | sesub_ext_test | 0.877 | 0.861 | 0.502 |
+| `finetune_minilm-l6.labels-v1.0` | val | 0.845 | 0.843 | 0.489 |
+| `finetune_minilm-l6.labels-v1.0` | se_ext_dev | 0.770 | 0.752 | – |
+| `finetune_minilm-l6.labels-v1.0` | sesub_ext_dev | 0.869 | 0.855 | 0.499 |
+| `finetune_minilm-l6.labels-v1.0` | test | 0.830 | 0.829 | 0.482 |
+| `finetune_minilm-l6.labels-v1.0` | se_ext_test | 0.772 | 0.752 | – |
+| `finetune_minilm-l6.labels-v1.0` | sesub_ext_test | 0.877 | 0.861 | 0.502 |
 
 history: [{"epoch": 1, "train_loss": 0.9212, "val_accuracy": 0.8365, "val_macro_f1": 0.8326, "epoch_seconds": 1061.0}, {"epoch": 2, "train_loss": 0.4824, "val_accuracy": 0.8413, "val_macro_f1": 0.8381, "epoch_seconds": 621.8}, {"epoch": 3, "train_loss": 0.3556, "val_accuracy": 0.8445, "val_macro_f1": 0.8428, "epoch_seconds": 1391.2}]
 

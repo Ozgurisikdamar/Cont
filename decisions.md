@@ -270,3 +270,26 @@ the brief, and it would hide the real cause); a keyword rule for "entanglement"
 **Consequence.** Quantum computing is now the smallest subtopic (539
 passages); the benchmark tables E-0 … E-9 were measured on v1.0 labels
 (DATASET_CARD §9).
+
+## D-28 · Conversation decay 0.7, theme share 0.2
+**Decision.** `decay = 0.7`, `theme_min_share = 0.2` (defaults in `Settings`).
+**Why.** `scripts/tune_decay.py` on simulated conversations from the
+validation split (400 conversations per setting, grid decay × share): best
+theme accuracy (0.757) among the settings that keep a Books → Science →
+Biology style 3-topic theme ≥ 80% of the time (0.825), with 0.54 spurious
+theme topics per turn and a 1.3-turn lag after a topic switch
+(`reports/experiments/decay.json`; test split: 0.760 / 0.80).
+**Note.** The first probe drew any passage of the topic, so its ceiling was
+the classifier's accuracy³ (~0.67) whatever the decay; it now draws correctly
+and confidently classified passages — it measures the decay, not the model.
+
+## D-29 · Language gate
+**Decision.** A text of ≥ 3 words of which < 40% are known English words
+(training vocabulary + stop words) is answered *uncertain*.
+**Why.** The centroid gate did not catch non-English text (a Turkish sentence
+was classified with confidence). Threshold from development data: it flags
+0.05% of Wikipedia validation passages and 0.10% of English Stack Exchange
+ext_dev questions; Turkish, German, Spanish and French example sentences score
+0.00–0.33.
+**Alternatives.** A language-identification model (another dependency for a
+one-language system); character n-gram heuristics (less transparent).
