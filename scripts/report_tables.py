@@ -440,17 +440,32 @@ def main() -> None:
             [
                 split,
                 f(r["decay"], 1),
+                f(r.get("min_share"), 2),
                 f(r["theme_accuracy"]),
                 f(r["switch_lag"], 2),
                 f(r["tangent_robust"]),
                 f(r["accumulation_3"]),
+                f(r.get("spurious_topics")),
             ]
             for split, rs in d["results"].items()
             for r in rs
         ]
         parts += [
-            f"## Conversation decay (selected: {d['selected_decay']}; rule: {d['selection_rule']})",
-            table(["split", "decay", "theme acc", "switch lag", "tangent robust", "3-topic accumulation"], rows),
+            f"## Conversation decay (selected: decay {d['selected_decay']}, theme_min_share "
+            f"{d.get('selected_min_share')}; rule: {d['selection_rule']}; constraint met: {d.get('constraint_met')})",
+            table(
+                [
+                    "split",
+                    "decay",
+                    "min share",
+                    "theme acc",
+                    "switch lag",
+                    "tangent robust",
+                    "3-topic accumulation",
+                    "spurious topics",
+                ],
+                rows,
+            ),
         ]
     out = PATHS.reports / "tables.md"
     out.write_text("\n\n".join(parts) + "\n", encoding="utf-8")

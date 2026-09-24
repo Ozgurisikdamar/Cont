@@ -16,6 +16,14 @@ Metrics per decay value:
   tangent_robust   share of tangent turns where the theme stays on the segment topic
   accumulation_3   P(all three topics of a Books -> Science -> Biology style
                    3-message sequence of distinct topics are in the theme)
+  spurious_topics  mean number of theme topics that are neither the current nor
+                   the previous segment topic (noise let in by a low share)
+
+Grid: decay x theme_min_share (the share a topic needs to be part of the
+theme). Rule: maximise validation theme_accuracy among settings with
+accumulation_3 >= 0.80, ties -> fewer spurious topics. If no setting meets the
+constraint this is recorded (constraint_met = false) and the setting with the
+highest accumulation is taken.
 
 Selection uses conversations built from the validation split; the test split
 only reports. Output: reports/experiments/decay.json
@@ -41,6 +49,7 @@ from contextlens.services.tracker import ConversationTracker
 from contextlens.taxonomy import load_taxonomy
 
 DECAYS = [0.0, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9]
+MIN_SHARES = [0.1, 0.15, 0.2, 0.25]
 N_CONVERSATIONS = 400
 P_TANGENT, P_OOD = 0.15, 0.10
 
@@ -65,7 +74,7 @@ def simulate(
 ) -> dict:
     rng = np.random.default_rng(seed)
     n_classes = len(pools)
-    hits = total = tangent_hits = tangents = 0
+    hits = total = tangent_hits = tangents = spurious = 0
     lags: list[int] = []
     for _ in range(N_CONVERSATIONS):
         tracker = ConversationTracker(decay=decay, min_share=min_share)
@@ -95,6 +104,8 @@ def simulate(
                 if turn > 0:
                     total += 1
                     hits += on_topic
+                    active = {x.id for x in tracker.active_topics(tracker.general_scores, min_share, 3)}
+                    spurious += len(active - {ids[topic], ids[prev] if prev >= 0 else ""})
                 if is_tangent and turn > 0:
                     tangents += 1
                     tangent_hits += on_topic
@@ -113,10 +124,12 @@ def simulate(
         acc_hits += all(ids[int(t)] in active for t in topics)
     return {
         "decay": decay,
+        "min_share": min_share,
         "theme_accuracy": round(hits / total, 4),
         "switch_lag": round(float(np.mean(lags)), 3),
         "tangent_robust": round(tangent_hits / max(tangents, 1), 4),
         "accumulation_3": round(acc_hits / N_CONVERSATIONS, 4),
+        "spurious_topics": round(spurious / total, 4),
     }
 
 
@@ -136,21 +149,27 @@ def main() -> None:
         confident = {c: np.where((y == c) & ~unc)[0] for c in range(len(space.general_ids))}
         ood_gp, ood_unc = predictions(model, [normalize(t) for t in ood[ood.split == split].text])
         rows = [
-            simulate(
-                d, pools, confident, gp, unc, ood_gp, ood_unc, space.general_ids, settings.theme_min_share, RANDOM_SEED
-            )
+            simulate(d, pools, confident, gp, unc, ood_gp, ood_unc, space.general_ids, m, RANDOM_SEED)
             for d in DECAYS
+            for m in MIN_SHARES
         ]
         out["results"][split] = rows
         for r in rows:
             print(split, r)
     val = out["results"]["val"]
     # Primary: theme accuracy; must keep a 3-topic theme (the Books/Science/Biology use case) >= 80% of the time.
-    eligible = [r for r in val if r["accumulation_3"] >= 0.8] or val
-    best = max(eligible, key=lambda r: (r["theme_accuracy"], -abs(r["decay"] - 0.7)))
+    eligible = [r for r in val if r["accumulation_3"] >= 0.8]
+    if eligible:
+        best = max(eligible, key=lambda r: (r["theme_accuracy"], -r["spurious_topics"]))
+    else:
+        best = max(val, key=lambda r: (r["accumulation_3"], r["theme_accuracy"]))
     out["selected_decay"] = best["decay"]
-    out["selection_rule"] = "max validation theme_accuracy subject to accumulation_3 >= 0.80"
-    print("selected decay:", best["decay"])
+    out["selected_min_share"] = best["min_share"]
+    out["constraint_met"] = bool(eligible)
+    out["selection_rule"] = (
+        "max validation theme_accuracy subject to accumulation_3 >= 0.80 (ties: fewer spurious topics)"
+    )
+    print("selected:", best, "constraint met:", bool(eligible))
     target = PATHS.reports / "experiments" / "decay.json"
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(out, indent=2), encoding="utf-8")
