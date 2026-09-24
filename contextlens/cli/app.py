@@ -51,19 +51,19 @@ def render_turn(result: TurnResult, tax_display: Callable[[str], str], print_: C
     if pred.status == "non_english":
         print_("Language      : not English - ContextLens analyses English text only.")
         print_("                This message was not added to the conversation theme.")
-        print_("\n[Conversation]")
-        print_(f"Theme         : {result.theme.label}")
-        return
-    print_(f"General topic : {tax_display(pred.general or '')}")
-    print_(f"Confidence    : {pct(pred.confidence)}")
-    print_("Subtopics     :")
-    for s in pred.subtopics:
-        print_(f"  - {tax_display(s.id)} ({pct(s.probability)})")
-    if pred.uncertain:
-        print_("Note          : uncertain - " + "; ".join(pred.reasons) + ".")
-        print_("                This message was not added to the conversation theme.")
+    else:
+        print_(f"General topic : {tax_display(pred.general or '')}")
+        print_(f"Confidence    : {pct(pred.confidence)}")
+        print_("Subtopics     :")
+        for s in pred.subtopics:
+            print_(f"  - {tax_display(s.id)} ({pct(s.probability)})")
+        if pred.uncertain:
+            print_("Note          : uncertain - " + "; ".join(pred.reasons) + ".")
+            print_("                This message was not added to the conversation theme.")
     print_("\n[Conversation]")
     print_(f"Theme         : {result.theme.label}")
+    if result.context_expired:
+        print_("                (the previous theme expired after several messages without a topic)")
     if result.theme.phrase:
         print_(f"In words      : {result.theme.phrase}")
     if result.search is not None:

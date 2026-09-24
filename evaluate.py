@@ -161,7 +161,11 @@ def acceptance(model, tax) -> dict:
         )
     settings = load_settings()
     tracker = ConversationTracker(
-        decay=settings.decay, min_share=settings.theme_min_share, max_topics=settings.max_theme_topics
+        decay=settings.decay,
+        min_share=settings.theme_min_share,
+        max_topics=settings.max_theme_topics,
+        expire_after=settings.theme_expire_after,
+        confirm_turns=settings.theme_confirm_turns,
     )
     children = {g: tax.children_of(g) for g in tax.general_ids}
     turns = []

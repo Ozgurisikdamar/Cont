@@ -327,3 +327,41 @@ short text; its package pins numpy ≥ 2, which conflicts with the pinned 1.26),
 a per-word dictionary vote (no source of foreign vocabulary without new data).
 **Limits.** Single words are only half caught; "guten tag" (German 0.49) passes
 the gate. The locked Tatoeba half is evaluated once after the model freeze.
+
+## D-31 · Conversation context expires; the dominant topic switches only on agreement (amends D-28)
+**Decision.** On top of the decay (0.7, share 0.2, unchanged): (1) the
+context is cleared after **3** consecutive turns without a confident topical
+message (uncertain, off-topic or non-English); (2) the **dominant** theme topic
+changes only when **2** consecutive confident messages agree on the same new
+topic (`switch_rule = "votes"`). A single tangent still enters the theme as a
+secondary topic (a Books → Science → Biology run still composes "science books
+about biology"), but it no longer takes over the conversation.
+**Why.** The audit was right on both counts. Decay multiplies every score by the
+same factor, so the *shares* — and the theme — survived any number of
+uncertain turns (stale-theme rate after 10 uncertain turns: **1.00**). And 50%
+of one-message tangents made the tangent topic the top of the theme. Grid over
+decay × share × confirm × expiry × switch rule (360 settings) on validation
+conversations (`reports/experiments/decay.json`, `scripts/tune_decay.py`):
+
+| | v1.0 | selected |
+|---|---:|---:|
+| theme accuracy (dominant = segment topic) | 0.756 | 0.716 |
+| switch lag (turns) | 1.34 | 1.96 |
+| tangent robustness | 0.456 | 0.863 |
+| false switch rate after a tangent | 0.498 | 0.118 |
+| stale theme after 10 uncertain turns | 1.000 | 0.000 |
+| premature expiry after 2 uncertain turns | 0.000 | 0.000 |
+| 3-topic accumulation | 0.820 | 0.820 |
+
+**Trade-off (not hidden).** Theme accuracy drops by 0.04 and a real switch is
+followed about 0.6 turns later: one message cannot tell a tangent from a
+switch, so the rule waits for the second. Theme accuracy alone always prefers
+switching on every message, which is why the rule now also requires a false
+switch rate ≤ 0.15. The "votes" rule beat waiting for the accumulated-score
+leader (0.716 vs 0.655 theme accuracy at the same robustness).
+**Alternatives.** An absolute mass floor (equivalent to the streak rule here,
+since only uncertain turns lower the mass); time-based decay (the console has
+no meaningful inter-message time); a KL/embedding change-point detector (needs
+labelled conversations to tune).
+**Test split.** No longer used by the tuning script; conversation metrics on
+held-out data are reported once by the locked evaluation.

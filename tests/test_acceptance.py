@@ -130,3 +130,38 @@ def test_single_message_latency_on_cpu(model):
         model.predict(t)
         times.append(time.perf_counter() - t0)
     assert statistics.median(times) < 0.5  # seconds; measured values are in docs/TEST_REPORT.md
+
+
+# --- conversation: tangents, switches, expiry (decisions.md D-31) -----------
+
+
+def _session(model, taxonomy):
+    return ConversationSession(model, taxonomy, load_settings(), db=None, searcher=None)
+
+
+def test_one_books_message_is_a_tangent_in_a_physics_conversation(model, taxonomy):
+    session = _session(model, taxonomy)
+    phys, books = CASES["physics"], CASES["books"]
+    for text in [phys[0], phys[1], phys[2], books[0], phys[3]]:
+        session.process(text)
+    assert session.tracker.dominant == "physics"
+    assert session.current_theme().generals[0] == "physics"
+
+
+def test_a_sustained_books_run_switches_the_theme(model, taxonomy):
+    session = _session(model, taxonomy)
+    phys, books = CASES["physics"], CASES["books"]
+    for text in [phys[0], phys[1], books[0], books[1], books[2]]:
+        session.process(text)
+    assert session.tracker.dominant == "books"
+    assert session.current_theme().generals[0] == "books"
+
+
+def test_an_old_theme_expires_after_unrelated_messages(model, taxonomy):
+    session = _session(model, taxonomy)
+    session.process(CASES["physics"][0])
+    assert session.current_theme().generals == ("physics",)
+    unrelated = [c["text"] for c in CASES["ood_conversational"]] + [c["text"] for c in CASES["ood"]]
+    for text in (unrelated * 2)[:10]:
+        session.process(text)
+    assert session.current_theme().generals == ()

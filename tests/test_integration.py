@@ -393,3 +393,19 @@ def test_encoder_directory_without_manifest_is_refused(fake_model, tmp_path, mon
     _stub_encoder(monkeypatch)
     with pytest.raises(ArtifactError, match="no encoder manifest"):
         load_artifact(out)
+
+
+def test_pipeline_reports_when_the_context_expires(fake_model, taxonomy, settings):
+    from contextlens.services.pipeline import ConversationSession
+
+    session = ConversationSession(
+        fake_model, taxonomy, dataclasses.replace(settings, theme_expire_after=2), db=None, searcher=None
+    )
+    confident = session.process("poem poetry verse rhyme stanza poet sonnet")
+    assert confident.prediction.status == "ok" and session.current_theme().generals == ("books",)
+    strict = dataclasses.replace(fake_model, ood_threshold=2.0)  # every message is now "uncertain"
+    session.model = strict
+    first = session.process("Quantum processors can speed up certain algorithms by using qubits.")
+    second = session.process("Quantum processors can speed up certain algorithms by using qubits.")
+    assert not first.context_expired and second.context_expired
+    assert session.current_theme().generals == ()

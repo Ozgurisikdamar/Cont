@@ -10,7 +10,7 @@ It is filled in as the work proceeds; every item has its own commit.
 | 2 | no untouched final holdout | – | – | open |
 | 3 | off-topic detection 33–44% | – | – | open |
 | 4 | Science class weak | – | – | open |
-| 5 | theme never expires; tangents | – | – | open |
+| 5 | theme never expires; tangents | expiry after 3 turns without a confident topic; dominant topic switches only when 2 consecutive confident messages agree; tuned on validation conversations with new metrics (false switch rate, stale-theme rate, premature expiry); CLI says when the theme expired | D-31, `reports/experiments/decay.json`, `contextlens/services/tracker.py`, `tests/test_tracker.py`, `tests/test_acceptance.py` (tangent, switch, expiry with the real model) | done; theme accuracy 0.756 → 0.716 is the price (reported) |
 | 6 | language gate skips short texts | fastText lid.176 + training lexicon, per-length reject thresholds chosen on the Tatoeba dev half + in-domain English; new `non_english` status; runs before the informativeness check (other scripts are no longer "uninformative") | D-30, `reports/experiments/language_gate.json`, `contextlens/models/language.py`, `tests/test_acceptance.py` (short-text cases) | done; "guten tag" not caught by this gate (xfail until H7) |
 | 7 | no CI; network test cannot fail | network tests split: `network` (resilience, passes on a clean offline state) and `network_live` (a deterministic query must return a valid HTTPS result on an allow-listed host from at least one provider); both deselected by default. CI: see below | `tests/test_network.py`, `reports/tests/pytest_network_live.xml` (2 passed) | network done; CI open |
 | 8 | label audit of 48 passages | – | – | open |

@@ -36,6 +36,7 @@ class TurnResult:
     query: SearchQuery | None
     search: SearchOutcome | None
     warnings: list[str] = field(default_factory=list)
+    context_expired: bool = False  # this turn cleared the theme (uncertain streak, decisions.md D-31)
 
 
 class ConversationSession:
@@ -66,7 +67,13 @@ class ConversationSession:
     # -- lifecycle -------------------------------------------------------
     def _new_tracker(self) -> ConversationTracker:
         s = self.settings
-        return ConversationTracker(decay=s.decay, min_share=s.theme_min_share, max_topics=s.max_theme_topics)
+        return ConversationTracker(
+            decay=s.decay,
+            min_share=s.theme_min_share,
+            max_topics=s.max_theme_topics,
+            expire_after=s.theme_expire_after,
+            confirm_turns=s.theme_confirm_turns,
+        )
 
     def _db_call(self, what: str, method: str, *args: Any, **kwargs: Any) -> Any:
         """Call ``Database.<method>``; a database failure becomes a warning, never a crash."""
@@ -162,7 +169,7 @@ class ConversationSession:
                     outcome.provider,
                     [asdict(r) for r in outcome.results],
                 )
-        return TurnResult(pred, theme, query, outcome, list(self._warnings))
+        return TurnResult(pred, theme, query, outcome, list(self._warnings), self.tracker.expired)
 
     def current_theme(self) -> ComposedTheme:
         theme = self.tracker.theme(self.children)

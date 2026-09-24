@@ -100,4 +100,4 @@ def test_evaluate_and_decay_scripts_run(tmp_path, monkeypatch):
     monkeypatch.setattr(tune_decay, "N_CONVERSATIONS", 20)
     tune_decay.main()
     decay = json.loads((tmp_path / "reports" / "experiments" / "decay.json").read_text())
-    assert "selected_decay" in decay
+    assert {"decay", "confirm_turns", "expire_after"} <= set(decay["selected"])

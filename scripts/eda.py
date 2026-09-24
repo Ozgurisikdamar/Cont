@@ -21,7 +21,13 @@ from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS, TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
 
 from contextlens.config import PATHS
-from contextlens.data.dataset import load_ood_passages, load_passages, load_se_general, load_se_subtopic
+from contextlens.data.dataset import (
+    acceptance_texts,
+    load_ood_passages,
+    load_passages,
+    load_se_general,
+    load_se_subtopic,
+)
 from contextlens.evaluation.plots import plot_bars
 from contextlens.taxonomy import load_taxonomy
 
@@ -146,7 +152,7 @@ def main() -> None:
         "se_titles_in_corpus": int(seg.text.str.lower().isin(set(df.text.str.lower())).sum()),
     }
     acc = json.loads((PATHS.root / "tests" / "acceptance_cases.json").read_text(encoding="utf-8"))
-    probe_texts = [c["text"].lower() for c in acc["single"] + acc["ood"]]
+    probe_texts = [t.lower() for t in acceptance_texts(acc)]
     corpus_lower = df.text.str.lower()
     leakage["acceptance_sentences_in_corpus"] = int(
         sum(corpus_lower.str.contains(re.escape(p)).any() for p in probe_texts)

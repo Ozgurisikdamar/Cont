@@ -1,29 +1,135 @@
 {
-  "comment": "Acceptance cases from the project brief (translated to English). They are NEVER added to training data; tests/test_leakage.py asserts that none of them occurs in the corpus.",
-  "single": [
-    {"id": "quantum_physics", "text": "In quantum entanglement, the wave functions of particles can change together.",
-     "general": "physics", "subtopic": "quantum_mechanics"},
-    {"id": "quantum_technology", "text": "Quantum processors can speed up certain algorithms by using qubits.",
-     "general": "technology", "subtopic": "quantum_computing"},
-    {"id": "test_a_books", "text": "I read the novel I borrowed from the library; the author's narration was very fluent.",
-     "general": "books"},
-    {"id": "test_b_science", "text": "Scientists test their hypotheses using experiments and observation.",
-     "general": "science"},
-    {"id": "test_c_biology", "text": "Cells carry DNA and living things diversify through evolution.",
-     "general": "biology"}
-  ],
-  "ood": [
-    {"id": "pizza", "text": "I'm going to order pizza tonight."}
-  ],
-  "conversation": {
-    "messages": [
-      "I read the novel I borrowed from the library; the author's narration was very fluent.",
-      "Scientists test their hypotheses using experiments and observation.",
-      "Cells carry DNA and living things diversify through evolution."
-    ],
-    "expected_after": [
-      {"after_turn": 2, "generals": ["books", "science"], "phrase": "science books"},
-      {"after_turn": 3, "generals": ["books", "science", "biology"], "phrase": "science books about biology"}
-    ]
+ "comment": "Acceptance cases from the project brief (translated to English). They are NEVER added to training data; tests/test_leakage.py asserts that none of them occurs in the corpus.",
+ "single": [
+  {
+   "id": "quantum_physics",
+   "text": "In quantum entanglement, the wave functions of particles can change together.",
+   "general": "physics",
+   "subtopic": "quantum_mechanics"
+  },
+  {
+   "id": "quantum_technology",
+   "text": "Quantum processors can speed up certain algorithms by using qubits.",
+   "general": "technology",
+   "subtopic": "quantum_computing"
+  },
+  {
+   "id": "test_a_books",
+   "text": "I read the novel I borrowed from the library; the author's narration was very fluent.",
+   "general": "books"
+  },
+  {
+   "id": "test_b_science",
+   "text": "Scientists test their hypotheses using experiments and observation.",
+   "general": "science"
+  },
+  {
+   "id": "test_c_biology",
+   "text": "Cells carry DNA and living things diversify through evolution.",
+   "general": "biology"
   }
+ ],
+ "ood": [
+  {
+   "id": "pizza",
+   "text": "I'm going to order pizza tonight."
+  }
+ ],
+ "conversation": {
+  "messages": [
+   "I read the novel I borrowed from the library; the author's narration was very fluent.",
+   "Scientists test their hypotheses using experiments and observation.",
+   "Cells carry DNA and living things diversify through evolution."
+  ],
+  "expected_after": [
+   {
+    "after_turn": 2,
+    "generals": [
+     "books",
+     "science"
+    ],
+    "phrase": "science books"
+   },
+   {
+    "after_turn": 3,
+    "generals": [
+     "books",
+     "science",
+     "biology"
+    ],
+    "phrase": "science books about biology"
+   }
+  ]
+ },
+ "ood_conversational": [
+  {
+   "id": "pizza_want",
+   "text": "I want to order pizza tonight."
+  },
+  {
+   "id": "flight",
+   "text": "My flight leaves tomorrow morning."
+  },
+  {
+   "id": "weather",
+   "text": "What is the weather in London?"
+  },
+  {
+   "id": "relationship",
+   "text": "I need relationship advice."
+  },
+  {
+   "id": "jazz",
+   "text": "Play some jazz music."
+  },
+  {
+   "id": "car_engine",
+   "text": "My car engine is making a strange noise."
+  }
+ ],
+ "in_taxonomy_shopping": {
+  "id": "laptop",
+  "text": "Which laptop should I buy?",
+  "general": "technology",
+  "subtopic": "hardware",
+  "note": "listed as off-topic in the hardening brief, but laptops are Technology > Hardware in this taxonomy (docs/TAXONOMY.md); the model answers Technology > Hardware and that is treated as correct"
+ },
+ "physics": [
+  "Newton's second law relates the force on a body to its acceleration.",
+  "Light bends near a massive star because spacetime is curved.",
+  "Friction converts the kinetic energy of a sliding block into heat.",
+  "The period of a pendulum depends on its length and on gravity."
+ ],
+ "books": [
+  "The poet published a collection of sonnets about the sea.",
+  "Her new novel follows three generations of a family in Dublin.",
+  "The author wrote the first draft of the novel in a single winter."
+ ],
+ "multi_label": [
+  {
+   "id": "dna_book",
+   "text": "This book explains how DNA mutations influence evolution.",
+   "expected_generals_any": [
+    "books",
+    "biology"
+   ],
+   "expected_subtopics_any": [
+    "science_books",
+    "genetics",
+    "evolution"
+   ]
+  },
+  {
+   "id": "ottoman_novel",
+   "text": "The history of the Ottoman Empire is told in this long novel.",
+   "expected_generals_any": [
+    "history",
+    "books"
+   ],
+   "expected_subtopics_any": [
+    "ottoman_history",
+    "novels"
+   ]
+  }
+ ]
 }

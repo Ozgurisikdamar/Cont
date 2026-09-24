@@ -436,36 +436,19 @@ def main() -> None:
     if (o := load("ood")) is not None:
         parts += ["## Out-of-taxonomy detection", ood_table(o)]
     if (d := load("decay")) is not None:
-        rows = [
-            [
-                split,
-                f(r["decay"], 1),
-                f(r.get("min_share"), 2),
-                f(r["theme_accuracy"]),
-                f(r["switch_lag"], 2),
-                f(r["tangent_robust"]),
-                f(r["accumulation_3"]),
-                f(r.get("spurious_topics")),
-            ]
-            for split, rs in d["results"].items()
-            for r in rs
-        ]
+        cols = ["decay", "min_share", "switch_rule", "confirm_turns", "expire_after"]
+        mets = ["theme_accuracy", "switch_lag", "tangent_robust", "false_switch_rate", "accumulation_3",
+                "spurious_topics", "stale_theme_rate", "premature_expiry"]  # fmt: skip
+
+        def row(label: str, r: dict) -> list[str]:
+            return [label, *[str(r.get(c, "")) for c in cols], *[f(r.get(m)) for m in mets]]
+
+        rows = [row("v1.0 baseline", d["baseline_v1_0"]), row("**selected**", d["selected_metrics"])]
+        rows += [row("", r) for r in sorted(d["results"], key=lambda r: -r["theme_accuracy"])[:15]]
         parts += [
-            f"## Conversation decay (selected: decay {d['selected_decay']}, theme_min_share "
-            f"{d.get('selected_min_share')}; rule: {d['selection_rule']}; constraint met: {d.get('constraint_met')})",
-            table(
-                [
-                    "split",
-                    "decay",
-                    "min share",
-                    "theme acc",
-                    "switch lag",
-                    "tangent robust",
-                    "3-topic accumulation",
-                    "spurious topics",
-                ],
-                rows,
-            ),
+            f"## Conversation tracker (validation conversations; rule: {d['selection_rule']}; "
+            f"constraints met: {d.get('constraints_met')}) - top 15 of {len(d['results'])} by theme accuracy",
+            table(["", *cols, *mets], rows),
         ]
     out = PATHS.reports / "tables.md"
     out.write_text("\n\n".join(parts) + "\n", encoding="utf-8")
