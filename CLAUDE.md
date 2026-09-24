@@ -48,7 +48,8 @@ python train.py && python scripts/tune_decay.py && python evaluate.py
 ruff check . && ruff format --check . && mypy contextlens project.py train.py evaluate.py
 pytest -q                               # offline suite (fake encoder, no downloads)
 pytest -q -m model                      # needs the trained artifact
-pytest -q -m network                    # needs internet
+pytest -q -m network                    # resilience against the real internet (passes offline)
+pytest -q -m network_live               # live search smoke (fails if search is broken)
 ```
 
 ## Layout

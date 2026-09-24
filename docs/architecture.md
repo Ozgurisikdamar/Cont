@@ -15,7 +15,7 @@ flowchart LR
     end
     subgraph Conversation["services/"]
         pipe["pipeline.ConversationSession"]
-        trk["tracker.ConversationTracker<br/>score = score·decay + weight·p"]
+        trk["tracker.ConversationTracker<br/>score = score·decay + weight·p<br/>expiry · hysteresis"]
         comp["composer.compose<br/>(taxonomy metadata)"]
         qry["query.build_query<br/>theme + ≤2 vocabulary keywords"]
         web["websearch.WebSearcher<br/>Wikipedia → DuckDuckGo"]
@@ -24,7 +24,8 @@ flowchart LR
         tm["topic_model.TopicModel"]
         enc["encoders.SentenceEncoder"]
         heads["heads: general softmax + T,<br/>P(subtopic | general)"]
-        ood["OOD gate: centroid cosine<br/>+ min confidence"]
+        lang["language gate<br/>fastText lid.176 + lexicon"]
+        ood["off-topic gate: Mahalanobis<br/>+ min confidence"]
         art["artifact.load_artifact<br/>checksums · trusted types"]
     end
     subgraph Storage["database/"]
@@ -35,7 +36,7 @@ flowchart LR
 
     loop --> pipe
     pipe --> tm
-    tm --> pre --> enc --> heads --> ood
+    tm --> pre --> lang --> enc --> heads --> ood
     art -. loads once .-> tm
     pipe --> trk --> comp --> qry --> web
     tax -.-> comp
@@ -52,10 +53,12 @@ flowchart LR
 | `contextlens/preprocessing/text.py` | normalisation (NFKC, HTML, URLs, mentions, control chars, length cap), informativeness test | — |
 | `contextlens/models/encoders.py` | pinned sentence encoders, embedding cache | torch, sentence-transformers |
 | `contextlens/models/heads.py` | logistic-regression heads, temperature scaling, hierarchical subtopic heads, subtopic decision rule | scikit-learn |
-| `contextlens/models/topic_model.py` | `TopicModel.predict` → `Prediction` (ok / uncertain / uninformative) | encoders, heads |
+| `contextlens/models/topic_model.py` | `TopicModel.predict` → `Prediction` (ok / uncertain / non_english / uninformative) | encoders, heads, ood, language |
+| `contextlens/models/ood.py` | off-topic detectors (centroid, MSP, energy, Mahalanobis, kNN, binary, "other" class); production uses Mahalanobis (D-34) | scikit-learn |
+| `contextlens/models/language.py` | language gate: fastText lid.176 + training lexicon, per-length reject thresholds (D-30) | fasttext |
 | `contextlens/models/training.py` | fit heads, tune temperature / threshold / OOD threshold on validation | heads |
-| `contextlens/models/artifact.py` | save/load artifact (skops, checksums, trusted types) | skops |
-| `contextlens/services/tracker.py` | decayed conversation scores, active topics | — |
+| `contextlens/models/artifact.py` | save/load artifact (skops, checksums, encoder manifest, trusted types) | skops |
+| `contextlens/services/tracker.py` | decayed conversation scores, context expiry, dominant-topic hysteresis, active topics | — |
 | `contextlens/services/composer.py` | active topics → one theme phrase | taxonomy |
 | `contextlens/services/query.py` | theme phrase → search query (privacy filter) | — |
 | `contextlens/services/websearch.py` | key-less search, fallback, cache, parsing, URL safety | net, database (cache) |
@@ -81,10 +84,11 @@ sequenceDiagram
     M-->>S: Prediction(general, conf, subtopics, status, ood_score)
     alt status == uninformative
         S-->>C: nothing to analyse (no turn, nothing stored)
-    else ok / uncertain
+    else ok / uncertain / non_english
         S->>D: INSERT texts (turn, labels, probabilities, status)
         S->>T: update(probs, weight = 0 if uncertain else 1)
-        T-->>S: theme label + phrase
+        Note over T: 4 turns without a confident topic clear the context;<br/>the dominant topic changes after 2 agreeing messages
+        T-->>S: theme label + phrase (+ context_expired)
         S->>W: search([theme+keywords, theme])
         W->>D: cache lookup (TTL 72 h)
         W-->>S: results | offline | no_results
@@ -96,9 +100,10 @@ sequenceDiagram
 
 ## 3. Model
 
-Production configuration (`configs/model.json`, decisions D-22…D-25, D-29): encoder
-**all-MiniLM-L6-v2 fine-tuned** on the training split, head type
-**`flat_softmax`**.
+Production configuration (`configs/model.json`, decisions D-22, D-30, D-33,
+D-34): encoder **all-MiniLM-L6-v2 fine-tuned** on the training split, head
+type **`flat_softmax`** (primary subtopic + secondary sibling suggestions),
+off-topic gate **Mahalanobis**, language gate **fastText lid.176 + lexicon**.
 
 ```mermaid
 flowchart LR
@@ -106,9 +111,9 @@ flowchart LR
     e --> s["softmax over 28 subtopics<br/>LR logits / T"]
     s --> pg["P(general) = Σ P(children)"]
     s --> pc["P(sub | general) = share in parent"]
-    e --> o["max cosine to the 8<br/>training centroids"] --> od{"ood ≥ τ_ood<br/>and conf ≥ min_conf<br/>and ≥ 40% known words?"}
+    n --> lg{"language gate:<br/>confidently not English<br/>and a word not in the lexicon?"} -->|yes| ne["status non_english"]
+    e --> o["−min Mahalanobis distance<br/>to the 8 general-topic means"] --> od{"score ≥ τ_ood<br/>and conf ≥ min_conf?"}
     pg --> od
-    n --> lg["share of known English words<br/>(vocabulary + stop words)"] --> od
     pc --> dec["best child of predicted general +<br/>siblings ≥ τ_sub (max 3)"]
     od -->|yes| ok["status ok"]
     od -->|no| unc["status uncertain"]
@@ -118,28 +123,38 @@ flowchart LR
   subtopics, subtopics are only chosen among the children of the predicted
   general topic, and the joint score is `P(general) · P(subtopic | general)`.
 * The alternative `head_type = hierarchical` (separate general LR head + one
-  one-vs-rest head per general topic) is still supported and tested; the
-  benchmark chose `flat_softmax` (docs/MODEL_REPORT.md §3).
+  one-vs-rest head per general topic) is still supported and tested. The
+  flat softmax, a flat one-vs-rest sigmoid head and the hierarchical sigmoid
+  head were compared on development data (D-33): the softmax won, and the
+  objective is described as *primary subtopic + secondary sibling
+  suggestions*, not true multi-label classification.
 * **Calibration:** logits are divided by a temperature fitted on the validation
   split (NLL of the general topic).
-* **Thresholds:** subtopic τ_sub on Wikipedia val; OOD τ_ood keeps 95% of
-  Stack Exchange ext_dev questions; min_conf by the coverage rule (D-25).
-* **Language gate (D-29):** a text of at least 3 words of which fewer than
-  40% are known English words (training vocabulary + stop words) is answered
-  *uncertain* — the model covers English only.
+* **Thresholds:** subtopic τ_sub on Wikipedia val; off-topic τ_ood keeps 95%
+  of Stack Exchange ext_dev questions; min_conf by the coverage rule (D-25).
+* **Off-topic gate (D-34):** Mahalanobis distance to the general-topic means
+  with a shared Ledoit–Wolf covariance; chosen over centroid cosine, MSP,
+  energy, kNN, a binary classifier and an "other" class on development data.
+* **Language gate (D-30):** fastText lid.176 identifies the language; a text
+  is *non_english* when the identifier is confident (per-length thresholds
+  chosen on the Tatoeba dev half) **and** it contains a word outside the
+  training lexicon. It runs before the informativeness check, so text in
+  another script is never reported as "nothing to analyse".
   All values are stored in the artifact metadata.
 
 ### Artifact (`models/contextlens-topic/`)
 
 | file | content |
 |---|---|
-| `metadata.json` | name, version, training time, dataset fingerprint, encoder, head type, thresholds, temperature, validation and test metrics, min_confidence sweep, encoder fingerprint (probe embedding), SHA-256 of the files below |
-| `heads.skops` | head type + heads (skops, loaded with an explicit trusted-type allowlist — no pickle) |
-| `centroids.npy` | 8 × d class centroids for the OOD gate |
+| `metadata.json` | name, version, training time, dataset fingerprint, encoder, head type, thresholds, temperature, validation and test metrics, min_confidence sweep, encoder fingerprint (probe embedding), SHA-256 of the files below, `encoder_manifest` (path, size, SHA-256 of every encoder file) |
+| `heads.skops` | head type + heads + off-topic detector (skops, loaded with an explicit trusted-type allowlist — no pickle) |
+| `centroids.npy` | 8 × d class centroids (v1.0 gate; used when no detector is stored) |
+| `langid.ftz`, `lexicon.txt` | language identifier and training lexicon (checksummed) |
 | `vocabulary.json` | word → IDF from the training split (query keyword filter) |
 | `encoder/` | the fine-tuned sentence encoder (float16 safetensors + tokenizer), committed |
 
-`load_artifact` verifies every checksum, re-encodes a probe sentence to check
+`load_artifact` verifies every checksum — including each encoder file against
+`encoder_manifest`, refusing missing, changed or extra files — re-encodes a probe sentence to check
 the encoder (D-18) and refuses to load a modified or mismatched artifact;
 a missing artifact produces an error that says how to build it. The model is
 **never retrained at start-up**.
@@ -159,8 +174,9 @@ flowchart TB
     se["Stack Exchange API + MTEB titles"] --> ext[("se_*_eval.jsonl<br/>ext_dev / ext_test")]
     pq --> bench["run_experiments.py<br/>selection on val + ext_dev"]
     ext --> bench
-    bench --> cfg["configs/model.json"] --> train["train.py"] --> art[("artifact")]
-    art --> ev["evaluate.py<br/>test + ext_test + OOD"]
+    bench --> cfg["configs/model.json"] --> train["train.py<br/>train / val / ext_dev only"] --> art[("artifact")]
+    art --> dev["evaluate.py --stage dev"]
+    art --> frz["scripts/freeze.py<br/>SHA-256 fingerprint"] --> lock["evaluate.py --stage locked<br/>once: unseen Wikipedia, 2026 SE,<br/>CLINC150 test, Tatoeba locked"]
 ```
 
 ## 5. Storage
@@ -195,5 +211,6 @@ erDiagram
 | network down, timeout, HTTP 429/5xx | bounded retries with back-off and `Retry-After`; then `status=offline`, no results; cache used when fresh |
 | malformed JSON / oversize response | treated as a failed provider; next provider tried |
 | empty / symbol-only / stop-word-only input | `uninformative`: not a turn, nothing stored |
-| off-topic input | `uncertain`: stored, ages the context, adds no topic, adds no query keywords |
+| off-topic input | `uncertain`: stored, ages the context, adds no topic, adds no query keywords; 4 in a row clear the context |
+| non-English input | `non_english`: stored, handled like an uncertain turn |
 | Ctrl+C / EOF | session closed cleanly, exit code 0 |

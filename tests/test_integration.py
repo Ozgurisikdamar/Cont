@@ -281,12 +281,131 @@ def test_empty_batch_is_handled(fake_model):
     assert fake_model.predict_many([]) == []
 
 
+class _FakeLangId:
+    """fastText stand-in: Turkish when a word ends in -iyor/-ecegim, else English."""
+
+    def predict(self, text, k=1):
+        tr = any(w.endswith(("iyor", "ecegim", "cegim")) for w in text.lower().split())
+        return (["__label__tr"], [0.95]) if tr else (["__label__en"], [0.9])
+
+
+def _gate(lexicon=("quantum", "qubits", "processors")):
+    from contextlens.models.language import LanguageGate
+
+    return LanguageGate(_FakeLangId(), frozenset(lexicon), {"1": 0.5, "2": 0.5, "3": 0.3, "4+": 0.3})
+
+
 def test_language_gate_flags_non_english_text(fake_model):
-    words = frozenset("quantum processors can speed up certain algorithms by using qubits the a of".split())
-    model = dataclasses.replace(fake_model, known_words=words)
+    model = dataclasses.replace(fake_model, language_gate=_gate())
     assert model.looks_english("Quantum processors can speed up certain algorithms by using qubits.")
-    assert not model.looks_english("bu aksam arkadaslarimla sinemaya gidecegim")
-    assert model.looks_english("qubit")  # fewer than three words: gate does not apply
-    p = model.predict("bu aksam arkadaslarimla sinemaya gidecegim")
-    assert p.status == "uncertain" and any("English" in r for r in p.reasons)
-    assert dataclasses.replace(fake_model, known_words=frozenset()).looks_english("bu aksam sinemaya")
+    assert not model.looks_english("bu aksam sinemaya gidecegim")
+    p = model.predict("bu aksam sinemaya gidecegim")
+    assert p.status == "non_english" and p.uncertain and p.general is None
+    assert any("English" in r for r in p.reasons)
+    assert dataclasses.replace(fake_model, language_gate=None).looks_english("bu aksam sinemaya gidecegim")
+
+
+def test_language_gate_trusts_the_lexicon_over_the_identifier(fake_model):
+    model = dataclasses.replace(fake_model, language_gate=_gate(lexicon=("geliyor",)))
+    assert model.looks_english("geliyor")  # every word is a known English-corpus word
+
+
+def test_text_in_another_script_is_non_english_not_uninformative(fake_model):
+    class Cyrillic:
+        def predict(self, text, k=1):
+            return (["__label__ru"], [0.99])
+
+    from contextlens.models.language import LanguageGate
+
+    model = dataclasses.replace(fake_model, language_gate=LanguageGate(Cyrillic(), frozenset(), {"4+": 0.3, "2": 0.5}))
+    assert model.predict("привет мир").status == "non_english"
+    assert model.predict("the and of").status == "uninformative"  # English stop words only
+
+
+def test_language_gate_round_trips_through_the_artifact(fake_model, tmp_path):
+    from contextlens.models.language import FASTTEXT_MODEL
+
+    if not FASTTEXT_MODEL.exists():
+        pytest.skip("fastText lid.176.ftz not downloaded")
+    from contextlens.models.language import LanguageGate, load_fasttext
+
+    gate = LanguageGate(load_fasttext(FASTTEXT_MODEL), frozenset({"qubit"}), {"1": 0.5, "2": 0.5, "3": 0.3, "4+": 0.3})
+    out = tmp_path / "model"
+    save_artifact(dataclasses.replace(fake_model, language_gate=gate), out, {}, save_encoder=False)
+    loaded = load_artifact(out, encoder=FakeEncoder())
+    assert loaded.language_gate.reject_confidence == gate.reject_confidence
+    assert loaded.language_gate.lexicon == frozenset({"qubit"})
+    (out / "lexicon.txt").write_text("qubit\nmerhaba\n")
+    with pytest.raises(ArtifactError, match="checksum mismatch"):
+        load_artifact(out, encoder=FakeEncoder())
+
+
+def _artifact_with_encoder_dir(fake_model, tmp_path):
+    """An artifact whose encoder/ directory holds two small files, as save_artifact writes it."""
+    out = tmp_path / "model"
+    enc = out / "encoder"
+    enc.mkdir(parents=True)
+    (enc / "config.json").write_text('{"hidden_size": 8}')
+    (enc / "model.safetensors").write_bytes(b"\x00" * 64)
+    save_artifact(fake_model, out, {}, save_encoder=False)
+    meta = json.loads((out / "metadata.json").read_text())
+    meta["encoder"] = "minilm-l6-ft"
+    (out / "metadata.json").write_text(json.dumps(meta))
+    return out, enc
+
+
+def _stub_encoder(monkeypatch):
+    from contextlens.models import artifact
+
+    monkeypatch.setattr(artifact, "SentenceEncoder", lambda *a, **k: FakeEncoder())
+
+
+def test_encoder_manifest_lists_every_file(fake_model, tmp_path, monkeypatch):
+    out, _ = _artifact_with_encoder_dir(fake_model, tmp_path)
+    manifest = json.loads((out / "metadata.json").read_text())["encoder_manifest"]
+    assert [e["path"] for e in manifest] == ["config.json", "model.safetensors"]
+    assert all(len(e["sha256"]) == 64 and e["size"] > 0 for e in manifest)
+    _stub_encoder(monkeypatch)
+    assert load_artifact(out).general_ids  # untouched artifact loads
+
+
+@pytest.mark.parametrize(
+    "tamper, message",
+    [
+        (lambda enc: (enc / "model.safetensors").write_bytes(b"\x01" * 64), "checksum mismatch"),
+        (lambda enc: (enc / "config.json").unlink(), "encoder files missing"),
+        (lambda enc: (enc / "extra.py").write_text("import os"), "unexpected files"),
+    ],
+)
+def test_encoder_files_are_verified(fake_model, tmp_path, monkeypatch, tamper, message):
+    out, enc = _artifact_with_encoder_dir(fake_model, tmp_path)
+    tamper(enc)
+    _stub_encoder(monkeypatch)
+    with pytest.raises(ArtifactError, match=message):
+        load_artifact(out)
+
+
+def test_encoder_directory_without_manifest_is_refused(fake_model, tmp_path, monkeypatch):
+    out, _ = _artifact_with_encoder_dir(fake_model, tmp_path)
+    meta = json.loads((out / "metadata.json").read_text())
+    del meta["encoder_manifest"]
+    (out / "metadata.json").write_text(json.dumps(meta))
+    _stub_encoder(monkeypatch)
+    with pytest.raises(ArtifactError, match="no encoder manifest"):
+        load_artifact(out)
+
+
+def test_pipeline_reports_when_the_context_expires(fake_model, taxonomy, settings):
+    from contextlens.services.pipeline import ConversationSession
+
+    session = ConversationSession(
+        fake_model, taxonomy, dataclasses.replace(settings, theme_expire_after=2), db=None, searcher=None
+    )
+    confident = session.process("poem poetry verse rhyme stanza poet sonnet")
+    assert confident.prediction.status == "ok" and session.current_theme().generals == ("books",)
+    strict = dataclasses.replace(fake_model, ood_threshold=2.0)  # every message is now "uncertain"
+    session.model = strict
+    first = session.process("Quantum processors can speed up certain algorithms by using qubits.")
+    second = session.process("Quantum processors can speed up certain algorithms by using qubits.")
+    assert not first.context_expired and second.context_expired
+    assert session.current_theme().generals == ()

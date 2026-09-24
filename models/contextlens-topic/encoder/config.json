@@ -1,5 +1,5 @@
 {
-  "_name_or_path": "/home/user/Cont/models/contextlens-topic/encoder",
+  "_name_or_path": "/home/user/Cont/models/finetuned/minilm-l6",
   "architectures": [
     "BertModel"
   ],

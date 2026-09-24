@@ -84,7 +84,32 @@ def test_very_long_input_is_handled(model):
 
 
 def test_non_english_input_is_not_confidently_classified(model):
-    assert model.predict("Bu akşam arkadaşlarımla sinemaya gideceğim.").status == "uncertain"
+    for text in (
+        "Bu akşam arkadaşlarımla sinemaya gideceğim.",
+        "Der Roman, den ich aus der Bibliothek geliehen habe, war sehr flüssig erzählt.",
+        "Привет, как дела?",
+    ):
+        assert model.predict(text).status == "non_english", text
+
+
+@pytest.mark.parametrize("text", ["merhaba", "merhaba dünya", "bonjour", "bonjour monde", "hola amigo"])
+def test_short_non_english_input_is_rejected_by_the_language_gate(model, text):
+    assert model.predict(text).status == "non_english"
+
+
+def test_guten_tag_is_not_answered_with_a_topic(model):
+    # The language gate is NOT confident on "guten tag" (fastText: German 0.49,
+    # below the 2-word threshold 0.5 chosen on dev data). With the v1.0 centroid
+    # gate it was answered "Sports 0.58" (xfail); the Mahalanobis gate (D-34)
+    # flags it as far from every topic, so the brief's expectation
+    # "non-English / uncertain" is met by the topic gates, not the language gate.
+    assert model.predict("guten tag").status in {"non_english", "uncertain"}
+
+
+@pytest.mark.parametrize("text", ["hello", "hello world", "quantum", "quantum physics", "titration", "photosynthesis"])
+def test_short_english_input_passes_the_language_gate(model, text):
+    assert model.looks_english(text)
+    assert model.predict(text).status != "non_english"
 
 
 def test_probabilities_are_well_formed(model):
@@ -103,3 +128,38 @@ def test_single_message_latency_on_cpu(model):
         model.predict(t)
         times.append(time.perf_counter() - t0)
     assert statistics.median(times) < 0.5  # seconds; measured values are in docs/TEST_REPORT.md
+
+
+# --- conversation: tangents, switches, expiry (decisions.md D-31) -----------
+
+
+def _session(model, taxonomy):
+    return ConversationSession(model, taxonomy, load_settings(), db=None, searcher=None)
+
+
+def test_one_books_message_is_a_tangent_in_a_physics_conversation(model, taxonomy):
+    session = _session(model, taxonomy)
+    phys, books = CASES["physics"], CASES["books"]
+    for text in [phys[0], phys[1], phys[2], books[0], phys[3]]:
+        session.process(text)
+    assert session.tracker.dominant == "physics"
+    assert session.current_theme().generals[0] == "physics"
+
+
+def test_a_sustained_books_run_switches_the_theme(model, taxonomy):
+    session = _session(model, taxonomy)
+    phys, books = CASES["physics"], CASES["books"]
+    for text in [phys[0], phys[1], books[0], books[1], books[2]]:
+        session.process(text)
+    assert session.tracker.dominant == "books"
+    assert session.current_theme().generals[0] == "books"
+
+
+def test_an_old_theme_expires_after_unrelated_messages(model, taxonomy):
+    session = _session(model, taxonomy)
+    session.process(CASES["physics"][0])
+    assert session.current_theme().generals == ("physics",)
+    unrelated = [c["text"] for c in CASES["ood_conversational"]] + [c["text"] for c in CASES["ood"]]
+    for text in (unrelated * 2)[:10]:
+        session.process(text)
+    assert session.current_theme().generals == ()

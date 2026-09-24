@@ -1,0 +1,472 @@
+{"text": "Why is the moon higher and lower in the sky in certain seasons", "gold": "physics", "pred": "physics", "confidence": 0.688, "ood_score": -3132.61523, "uncertain": false}
+{"text": "Calculating the altitude of a satellite in polar orbit for a given distance between successive ground tracks", "gold": "physics", "pred": "physics", "confidence": 0.9417, "ood_score": -723.29053, "uncertain": false}
+{"text": "How do you Calculate the Apparent Magnitude of an Occluded Body (i.e. the setting or eclipsed Sun)?", "gold": "physics", "pred": "physics", "confidence": 0.9603, "ood_score": -416.65146, "uncertain": false}
+{"text": "Why does Mars show greater retrograde arc amplitude when farther from Earth (2012) than when closer (2003)?", "gold": "physics", "pred": "physics", "confidence": 0.9583, "ood_score": -748.4574, "uncertain": false}
+{"text": "How do you age-date meteorites using the elements Samarium and Neodymium?", "gold": "physics", "pred": "physics", "confidence": 0.8089, "ood_score": -2049.30127, "uncertain": false}
+{"text": "Satellite or something else?", "gold": "physics", "pred": "physics", "confidence": 0.4226, "ood_score": -7362.87451, "uncertain": true}
+{"text": "Is there a term to describe the direction of a planet's axial tilt?", "gold": "physics", "pred": "physics", "confidence": 0.9266, "ood_score": -615.11707, "uncertain": false}
+{"text": "Bothering consequence of particle horizon calculation independent from the scale factor definition for the present cosmic time", "gold": "physics", "pred": "physics", "confidence": 0.9701, "ood_score": -135.52933, "uncertain": false}
+{"text": "If the scale factor is defined to be unity at a different epoch, how is the radius of the observable universe changed?", "gold": "physics", "pred": "physics", "confidence": 0.9759, "ood_score": -276.44598, "uncertain": false}
+{"text": "Impossible, linear expansion of \"empty universe\"", "gold": "physics", "pred": "physics", "confidence": 0.9413, "ood_score": -748.41003, "uncertain": false}
+{"text": "Why does Mars return to conjunction with fixed stars alternating sequences of regular intervals punctuated by much shorter intervals?", "gold": "physics", "pred": "physics", "confidence": 0.9364, "ood_score": -758.08154, "uncertain": false}
+{"text": "Possible explanations for why majority of spiral galaxies were observed to have similar rotation", "gold": "physics", "pred": "physics", "confidence": 0.9101, "ood_score": -472.42615, "uncertain": false}
+{"text": "Minkowski vs FLRW coordinate time", "gold": "physics", "pred": "physics", "confidence": 0.977, "ood_score": -484.73743, "uncertain": false}
+{"text": "What is the difference between two types of active galaxy?", "gold": "physics", "pred": "physics", "confidence": 0.98, "ood_score": -675.17639, "uncertain": false}
+{"text": "How do I select the correct frame for computing stellar aberration?", "gold": "physics", "pred": "physics", "confidence": 0.9747, "ood_score": -608.90698, "uncertain": false}
+{"text": "Which Survey has recorded the radial motion of Pleiades (M45)?", "gold": "physics", "pred": "physics", "confidence": 0.8675, "ood_score": -612.39935, "uncertain": false}
+{"text": "How close could a star get to our solar system without disrupting the planets' orbits?", "gold": "physics", "pred": "physics", "confidence": 0.9794, "ood_score": -603.50189, "uncertain": false}
+{"text": "Would a planet's obliquity be stable if it is tidally locked to its moon?", "gold": "physics", "pred": "physics", "confidence": 0.8639, "ood_score": -892.74963, "uncertain": false}
+{"text": "How do I definitively determine if the anti-tail of 3I/ATLAS is a perspective effect?", "gold": "physics", "pred": "physics", "confidence": 0.7695, "ood_score": -1179.99292, "uncertain": false}
+{"text": "comet 3i/Atlas Larson-Sekanina Rotational Gradient Filter", "gold": "physics", "pred": "physics", "confidence": 0.8309, "ood_score": -561.74664, "uncertain": false}
+{"text": "Hubble portal search name for comets", "gold": "physics", "pred": "physics", "confidence": 0.9696, "ood_score": -1749.0592, "uncertain": false}
+{"text": "How is numerical precision/accuracy determined when converting RA/Dec in sexagesimal format to decimal degrees for angular separation calculations?", "gold": "physics", "pred": "physics", "confidence": 0.9079, "ood_score": -690.18604, "uncertain": false}
+{"text": "How can one quickly screen a disk galaxy dataset for large-scale asymmetry?", "gold": "physics", "pred": "physics", "confidence": 0.5666, "ood_score": -1012.71002, "uncertain": false}
+{"text": "Delta v in gravity assistance with impact parameter", "gold": "physics", "pred": "physics", "confidence": 0.9711, "ood_score": -333.61182, "uncertain": false}
+{"text": "Profile of energy production CNO vs pp-chain - MESA simulation", "gold": "physics", "pred": "physics", "confidence": 0.7981, "ood_score": -645.41724, "uncertain": false}
+{"text": "Options to improve current visual filter", "gold": "physics", "pred": "technology", "confidence": 0.9765, "ood_score": -1941.60803, "uncertain": false}
+{"text": "How we detect umbral contact in total lunar eclipse visually without using any besselian or astronomical calculation aids?", "gold": "physics", "pred": "physics", "confidence": 0.9755, "ood_score": -580.67517, "uncertain": false}
+{"text": "When do NLTE and 3D atmosphere effects bias metallicity estimates in extremely metal-poor stars?", "gold": "physics", "pred": "physics", "confidence": 0.957, "ood_score": -232.05191, "uncertain": false}
+{"text": "How to get the brightest stars in astropy?", "gold": "physics", "pred": "physics", "confidence": 0.9949, "ood_score": -1182.02222, "uncertain": false}
+{"text": "How does relativistic kinetic energy affect orbital motion in strong gravitational fields?", "gold": "physics", "pred": "physics", "confidence": 0.9622, "ood_score": -146.59756, "uncertain": false}
+{"text": "Why is Atria moving so fast, or is it?", "gold": "physics", "pred": "physics", "confidence": 0.4568, "ood_score": -4425.31836, "uncertain": true}
+{"text": "What is the correct way to perform background subtraction from NICER lightcurves?", "gold": "physics", "pred": "technology", "confidence": 0.8451, "ood_score": -2770.75, "uncertain": false}
+{"text": "Could a tidally heated habitable world exist?", "gold": "physics", "pred": "science", "confidence": 0.5428, "ood_score": -1334.49805, "uncertain": false}
+{"text": "How much will Voyager 1’s trajectory diverge from a straight-line extrapolation over 100–1000 years?", "gold": "physics", "pred": "physics", "confidence": 0.9589, "ood_score": -398.37299, "uncertain": false}
+{"text": "Get Mean Orbital Elements of Jovian Moons", "gold": "physics", "pred": "physics", "confidence": 0.9412, "ood_score": -765.53223, "uncertain": false}
+{"text": "Human Eye Limit Width Visibility using Resolution Angle?", "gold": "physics", "pred": "technology", "confidence": 0.9071, "ood_score": -3746.61279, "uncertain": false}
+{"text": "Delta T Changing on Determining Leap Gregorian Year", "gold": "physics", "pred": "books", "confidence": 0.4315, "ood_score": -5525.90674, "uncertain": true}
+{"text": "Why does sodium exist in space as free atoms/ions while chlorine as HCl?", "gold": "physics", "pred": "chemistry", "confidence": 0.9443, "ood_score": -363.16626, "uncertain": false}
+{"text": "Negligible Correction of Parallax in Azimuth", "gold": "physics", "pred": "physics", "confidence": 0.9203, "ood_score": -626.1969, "uncertain": false}
+{"text": "The Saros cycle: obtaining eclipse periodicity from Newton's laws", "gold": "physics", "pred": "physics", "confidence": 0.9482, "ood_score": -273.65848, "uncertain": false}
+{"text": "Do we see (many) duplicate objects / galaxies?", "gold": "physics", "pred": "physics", "confidence": 0.8989, "ood_score": -1310.13037, "uncertain": false}
+{"text": "Is the following configuration possible in the three-body problem?", "gold": "physics", "pred": "physics", "confidence": 0.9583, "ood_score": -685.38361, "uncertain": false}
+{"text": "What state of matter is a black hole?", "gold": "physics", "pred": "physics", "confidence": 0.9691, "ood_score": -573.9809, "uncertain": false}
+{"text": "How do I query Gaia DR3 for stars within 25 pc of HIP 11915", "gold": "physics", "pred": "technology", "confidence": 0.6962, "ood_score": -3569.62012, "uncertain": false}
+{"text": "How to measure a year without relying on the Earth's tilted axis?", "gold": "physics", "pred": "physics", "confidence": 0.7162, "ood_score": -3264.78564, "uncertain": false}
+{"text": "What constellation is above my coordinates", "gold": "physics", "pred": "physics", "confidence": 0.9531, "ood_score": -2156.83496, "uncertain": false}
+{"text": "What's the distribution of the difference between the ecclesiastical and astronomical date of Easter?", "gold": "physics", "pred": "history", "confidence": 0.5747, "ood_score": -2264.77246, "uncertain": false}
+{"text": "Asteroid discoveries in the second half of January 2015", "gold": "physics", "pred": "physics", "confidence": 0.783, "ood_score": -1466.38257, "uncertain": false}
+{"text": "Can someone please give me good text/books/articles recommendations to study GR or Cosmology or anything in this realm?", "gold": "physics", "pred": "science", "confidence": 0.4248, "ood_score": -1191.54321, "uncertain": true}
+{"text": "What is the best indicator for asteroid's orbit accuracy", "gold": "physics", "pred": "physics", "confidence": 0.9652, "ood_score": -847.70117, "uncertain": false}
+{"text": "Is there a website containing lists of transits/eclipses/occultations similar to this one?", "gold": "physics", "pred": "science", "confidence": 0.6538, "ood_score": -2291.06055, "uncertain": false}
+{"text": "Absence of Pressure in the relativistic stress energy tensor", "gold": "physics", "pred": "physics", "confidence": 0.963, "ood_score": -181.64572, "uncertain": false}
+{"text": "What major theories regarding the nature of \"little red dots\" have been postulated?", "gold": "physics", "pred": "technology", "confidence": 0.3972, "ood_score": -3113.69653, "uncertain": true}
+{"text": "If the universe is expanding equally in all directions at the same rate, why does redshift only stretch the wavelength and not the amplitude as well?", "gold": "physics", "pred": "physics", "confidence": 0.9682, "ood_score": -357.59235, "uncertain": false}
+{"text": "Error in calculating Lagrange point L1", "gold": "physics", "pred": "physics", "confidence": 0.9577, "ood_score": -1722.55957, "uncertain": false}
+{"text": "How does one determine distances by parallax when line of sight between the Sun and the celestial object and the Earth's orbit are not perpendicular?", "gold": "physics", "pred": "physics", "confidence": 0.9682, "ood_score": -285.95197, "uncertain": false}
+{"text": "Are the most massive stars still expected to shed the entire H envelope through winds?", "gold": "physics", "pred": "physics", "confidence": 0.9765, "ood_score": -384.58063, "uncertain": false}
+{"text": "Are there exotic objects that can only form through stellar collisions?", "gold": "physics", "pred": "physics", "confidence": 0.9603, "ood_score": -470.07693, "uncertain": false}
+{"text": "Why don’t globular clusters and elliptical galaxies use mass lost by low-mass stars to make new stars?", "gold": "physics", "pred": "physics", "confidence": 0.9698, "ood_score": -267.25586, "uncertain": false}
+{"text": "If mass kept being removed from a red dwarf, at what mass would it stop fusing?", "gold": "physics", "pred": "physics", "confidence": 0.9638, "ood_score": -216.13992, "uncertain": false}
+{"text": "Can elliptical galaxies start forming stars again?", "gold": "physics", "pred": "physics", "confidence": 0.9702, "ood_score": -493.14282, "uncertain": false}
+{"text": "How can I reconstruct all artificial satelites in a point of the past?", "gold": "physics", "pred": "technology", "confidence": 0.9117, "ood_score": -762.89026, "uncertain": false}
+{"text": "Is the habitable zone of a moon the same as that of a planet?", "gold": "physics", "pred": "physics", "confidence": 0.6724, "ood_score": -1093.81409, "uncertain": false}
+{"text": "At what distance from Sagittarius A* would an astronaut receive a lethal dose of radiation?", "gold": "physics", "pred": "physics", "confidence": 0.9247, "ood_score": -3256.91187, "uncertain": false}
+{"text": "Measuring the Mars Earth Parallax", "gold": "physics", "pred": "physics", "confidence": 0.9343, "ood_score": -1663.85095, "uncertain": false}
+{"text": "Why can't lunar regolith support plant growth in the same way as Earth's soil?", "gold": "physics", "pred": "biology", "confidence": 0.895, "ood_score": -1248.87012, "uncertain": false}
+{"text": "Are these filters reasonable for selecting promising host stars for exoplanet searches in TESS data?", "gold": "physics", "pred": "physics", "confidence": 0.9686, "ood_score": -472.78607, "uncertain": false}
+{"text": "Which Public Datasets Are Best for Finding Long Period Transiting Exoplanets?", "gold": "physics", "pred": "physics", "confidence": 0.9474, "ood_score": -859.81189, "uncertain": false}
+{"text": "Understanding Section 8.4 of \"Structure formation in the Universe\" by T. Padmanabhan", "gold": "physics", "pred": "physics", "confidence": 0.8679, "ood_score": -806.7619, "uncertain": false}
+{"text": "Can an external observer always rescue a freely falling observer near a black hole?", "gold": "physics", "pred": "physics", "confidence": 0.9735, "ood_score": -241.3766, "uncertain": false}
+{"text": "Is it possible for Earth's Moon to simultaneously occult three or more planets?", "gold": "physics", "pred": "physics", "confidence": 0.9527, "ood_score": -2521.98145, "uncertain": false}
+{"text": "Type Ia supernovae as standard candles at high redshifts - possible influence of progenitor age?", "gold": "physics", "pred": "physics", "confidence": 0.9849, "ood_score": -300.56326, "uncertain": false}
+{"text": "Why do black holes not produce Big Bangs?", "gold": "physics", "pred": "physics", "confidence": 0.9838, "ood_score": -437.42007, "uncertain": false}
+{"text": "Host star mass dependance on planet frequency (KEPLER data)", "gold": "physics", "pred": "physics", "confidence": 0.981, "ood_score": -243.68813, "uncertain": false}
+{"text": "In mutual planetary events, why can a smaller planet appear to have a larger size when viewed from Earth?", "gold": "physics", "pred": "physics", "confidence": 0.9613, "ood_score": -716.31445, "uncertain": false}
+{"text": "Why is it that Lacaille 8760 and Kepler 442 have approximately the same mass, but the former is a red dwarf and the latter is an orange dwarf?", "gold": "physics", "pred": "physics", "confidence": 0.9751, "ood_score": -265.60907, "uncertain": false}
+{"text": "Did Mangalyaan of ISRO actually photograph the comet C/2013 A1 Siding Spring?", "gold": "physics", "pred": "science", "confidence": 0.764, "ood_score": -2036.34119, "uncertain": false}
+{"text": "Would a planet hypothetically be able to create/maintain its own heat source, rather than using its sun?", "gold": "physics", "pred": "physics", "confidence": 0.6003, "ood_score": -1278.61414, "uncertain": false}
+{"text": "Are younger stars more metal rich?", "gold": "physics", "pred": "books", "confidence": 0.7495, "ood_score": -2507.30688, "uncertain": false}
+{"text": "Can planets recycle the nutrients needed for life without volcanism?", "gold": "physics", "pred": "biology", "confidence": 0.7555, "ood_score": -1169.29395, "uncertain": false}
+{"text": "Could the Milky Way be hiding our neighbors?", "gold": "physics", "pred": "physics", "confidence": 0.924, "ood_score": -1633.55652, "uncertain": false}
+{"text": "How do N-body simulations initialize millions of asteroids?", "gold": "physics", "pred": "physics", "confidence": 0.9612, "ood_score": -411.57629, "uncertain": false}
+{"text": "Can the gravitational wave background be studied with just one millisecond pulsar?", "gold": "physics", "pred": "physics", "confidence": 0.974, "ood_score": -342.19955, "uncertain": false}
+{"text": "Atypical Milky Way?", "gold": "physics", "pred": "physics", "confidence": 0.9718, "ood_score": -2035.68054, "uncertain": false}
+{"text": "Where can I find reference spectra for the Sun's atmosphere?", "gold": "physics", "pred": "physics", "confidence": 0.9679, "ood_score": -694.47748, "uncertain": false}
+{"text": "What was Jupiter like, shortly after it formed?", "gold": "physics", "pred": "physics", "confidence": 0.8732, "ood_score": -1372.33179, "uncertain": false}
+{"text": "Can Sirius be occulted by a planet?", "gold": "physics", "pred": "physics", "confidence": 0.9907, "ood_score": -1263.25012, "uncertain": false}
+{"text": "Will be, or were, there any solar eclipses with a duration very close to the theoretical maximum?", "gold": "physics", "pred": "physics", "confidence": 0.8725, "ood_score": -947.11621, "uncertain": false}
+{"text": "What's wrong with CDs as eclipse glasses?", "gold": "physics", "pred": "technology", "confidence": 0.8138, "ood_score": -7820.24365, "uncertain": true}
+{"text": "Black hole universe", "gold": "physics", "pred": "physics", "confidence": 0.9886, "ood_score": -1082.94849, "uncertain": false}
+{"text": "Could Theia plausibly have retained a large moon before its collision with Earth?", "gold": "physics", "pred": "physics", "confidence": 0.936, "ood_score": -1539.22998, "uncertain": false}
+{"text": "How can there be no moon rise one day?", "gold": "physics", "pred": "physics", "confidence": 0.8863, "ood_score": -4235.37744, "uncertain": false}
+{"text": "If black hole stars exist, can they produce heavier elements like regular stars?", "gold": "physics", "pred": "physics", "confidence": 0.962, "ood_score": -547.88208, "uncertain": false}
+{"text": "How should GMST0 be calculated in the Stjarnhimlen solar-position algorithm?", "gold": "physics", "pred": "technology", "confidence": 0.7476, "ood_score": -1106.62634, "uncertain": false}
+{"text": "When was the last time when a planet occulted Aldebaran?", "gold": "physics", "pred": "physics", "confidence": 0.8238, "ood_score": -2456.30933, "uncertain": false}
+{"text": "Can a chlorine atmosphere exist over a water ocean?", "gold": "physics", "pred": "chemistry", "confidence": 0.6934, "ood_score": -1255.3634, "uncertain": false}
+{"text": "Is it possible to estimate star distance using naked eye and human body only?", "gold": "physics", "pred": "physics", "confidence": 0.9616, "ood_score": -956.17645, "uncertain": false}
+{"text": "Is the measured ICM rest frame used when computing ram pressure for cluster galaxies, or is the galaxy’s cluster-frame velocity still standard?", "gold": "physics", "pred": "physics", "confidence": 0.74, "ood_score": -371.54547, "uncertain": false}
+{"text": "What is hiding in the darkness of Mercury’s polar craters?", "gold": "physics", "pred": "physics", "confidence": 0.8258, "ood_score": -1449.34766, "uncertain": false}
+{"text": "When was the last time that Jupiter occulted Saturn, Uranus or Neptune?", "gold": "physics", "pred": "physics", "confidence": 0.9391, "ood_score": -1153.31799, "uncertain": false}
+{"text": "Why is the cracked border of my nail white?", "gold": "biology", "pred": "history", "confidence": 0.4004, "ood_score": -9213.12793, "uncertain": true}
+{"text": "Error checking by viral RNA-dependent RNA polymerases?", "gold": "biology", "pred": "biology", "confidence": 0.9725, "ood_score": -150.55087, "uncertain": false}
+{"text": "Charge added to a peptide when subjected to Electrospray Ionization", "gold": "biology", "pred": "chemistry", "confidence": 0.5201, "ood_score": -834.04004, "uncertain": false}
+{"text": "Why do so many species from the Global Diversity Information Facility have the epithet \"spec\"?", "gold": "biology", "pred": "biology", "confidence": 0.9495, "ood_score": -350.20679, "uncertain": false}
+{"text": "Can you identify this bug found in London UK", "gold": "biology", "pred": "technology", "confidence": 0.7486, "ood_score": -3438.87354, "uncertain": false}
+{"text": "What is the species of this seed?", "gold": "biology", "pred": "biology", "confidence": 0.8713, "ood_score": -1814.06104, "uncertain": false}
+{"text": "Improvement in detection of oxidative hair treatment?", "gold": "biology", "pred": "chemistry", "confidence": 0.6408, "ood_score": -869.27368, "uncertain": false}
+{"text": "\"declined\" versus \"ascending\" in technical botanical description", "gold": "biology", "pred": "biology", "confidence": 0.9087, "ood_score": -4038.38794, "uncertain": false}
+{"text": "Why is allose not more abundant in living organisms?", "gold": "biology", "pred": "biology", "confidence": 0.7804, "ood_score": -500.76544, "uncertain": false}
+{"text": "What is the species of this tree?", "gold": "biology", "pred": "biology", "confidence": 0.9417, "ood_score": -1447.06958, "uncertain": false}
+{"text": "Does hyperphosphorylated tau reactivate latent HSV1 infections in Alzheimer’s?", "gold": "biology", "pred": "biology", "confidence": 0.9571, "ood_score": -361.51569, "uncertain": false}
+{"text": "American Ermine - Coat color", "gold": "biology", "pred": "history", "confidence": 0.2722, "ood_score": -8250.55176, "uncertain": true}
+{"text": "Primase and RNA polymerase", "gold": "biology", "pred": "biology", "confidence": 0.9661, "ood_score": -283.57159, "uncertain": false}
+{"text": "What is the animal that makes this sound in the early morning?", "gold": "biology", "pred": "biology", "confidence": 0.3747, "ood_score": -6409.59277, "uncertain": true}
+{"text": "Black solid colonies of microorganisms on plastics", "gold": "biology", "pred": "biology", "confidence": 0.8474, "ood_score": -612.29669, "uncertain": false}
+{"text": "Self replicating vaccine dose regulation", "gold": "biology", "pred": "biology", "confidence": 0.5562, "ood_score": -1429.99658, "uncertain": false}
+{"text": "PCR primer validation: amplification in NTC near expected amplicon size (192 bp)", "gold": "biology", "pred": "technology", "confidence": 0.6962, "ood_score": -1912.8136, "uncertain": false}
+{"text": "What range of distances do compound eyes (e.g. of a fly) have a focused picture on?", "gold": "biology", "pred": "biology", "confidence": 0.8743, "ood_score": -1567.91211, "uncertain": false}
+{"text": "C. Elegans Infection Question", "gold": "biology", "pred": "biology", "confidence": 0.9096, "ood_score": -732.80396, "uncertain": false}
+{"text": "How to analyze the genetics of phenotypes that involve two people? – marriage, divorce?", "gold": "biology", "pred": "biology", "confidence": 0.9635, "ood_score": -474.98401, "uncertain": false}
+{"text": "Algae identification", "gold": "biology", "pred": "biology", "confidence": 0.8831, "ood_score": -1580.04272, "uncertain": false}
+{"text": "How to identify the nucleus of the shell spire in gastropods?", "gold": "biology", "pred": "physics", "confidence": 0.4707, "ood_score": -925.771, "uncertain": true}
+{"text": "Where does UQH2 (Ubiquinol) receive protons from in Complex I of the ETS?", "gold": "biology", "pred": "chemistry", "confidence": 0.9072, "ood_score": -205.85999, "uncertain": false}
+{"text": "Found on a Normandy beach: from which species is this (partial?) bone and what kind of bone is it?", "gold": "biology", "pred": "biology", "confidence": 0.6692, "ood_score": -1558.14661, "uncertain": false}
+{"text": "Why is transcription of the proviral DNA of HIV inefficient without tat?", "gold": "biology", "pred": "biology", "confidence": 0.9619, "ood_score": -553.69507, "uncertain": false}
+{"text": "Identifying precambrian aspiculate sponge/porifera fossils", "gold": "biology", "pred": "biology", "confidence": 0.9279, "ood_score": -624.82214, "uncertain": false}
+{"text": "Rock or Fossil Vertebrae?", "gold": "biology", "pred": "biology", "confidence": 0.9444, "ood_score": -1221.15894, "uncertain": false}
+{"text": "Is human eyes receptors' de-excitation highly nonlinear?", "gold": "biology", "pred": "biology", "confidence": 0.8964, "ood_score": -1422.11768, "uncertain": false}
+{"text": "Does the left lobe of liver extend into the left hypochondriac region?", "gold": "biology", "pred": "biology", "confidence": 0.97, "ood_score": -611.94025, "uncertain": false}
+{"text": "What minimal checks do you run on FASTQ files before starting a long sequencing pipeline?", "gold": "biology", "pred": "technology", "confidence": 0.8475, "ood_score": -1841.9436, "uncertain": false}
+{"text": "Why is yeast extract and spent yeast so seemingly disproportionately much more nutritious than regular yeast?", "gold": "biology", "pred": "chemistry", "confidence": 0.7829, "ood_score": -1266.88721, "uncertain": false}
+{"text": "What's the meaning of ? and in the Catalogue of Life dataset?", "gold": "biology", "pred": "biology", "confidence": 0.4517, "ood_score": -2959.89673, "uncertain": true}
+{"text": "What's the mechanism behind bird wing feathers spreading when the wing unfolds?", "gold": "biology", "pred": "biology", "confidence": 0.7531, "ood_score": -2798.13965, "uncertain": false}
+{"text": "Natto at room temperature; what is it about certain fermentations or bacteria that leads them to smell like ammonia while others don't?", "gold": "biology", "pred": "chemistry", "confidence": 0.8583, "ood_score": -937.59033, "uncertain": false}
+{"text": "Why doesn’t lichen cover absolutely everything?", "gold": "biology", "pred": "biology", "confidence": 0.8056, "ood_score": -1750.7002, "uncertain": false}
+{"text": "Resource recommendation: The beginning of the path in neuroscience", "gold": "biology", "pred": "science", "confidence": 0.3502, "ood_score": -1610.51147, "uncertain": true}
+{"text": "Is Maternal Immunity for Pertussis Passed to Fetus without Pre-Natal Vaccination?", "gold": "biology", "pred": "biology", "confidence": 0.8136, "ood_score": -1178.28198, "uncertain": false}
+{"text": "Can peptides be secondary metabolites in animals?", "gold": "biology", "pred": "chemistry", "confidence": 0.8465, "ood_score": -265.3576, "uncertain": false}
+{"text": "The difference between variety and origin", "gold": "biology", "pred": "physics", "confidence": 0.8498, "ood_score": -3936.90747, "uncertain": false}
+{"text": "Simulating cellular signaling pathways to predict phenotypic differences in costimulatory domains for CAR-T Therapy", "gold": "biology", "pred": "biology", "confidence": 0.9648, "ood_score": -183.46854, "uncertain": false}
+{"text": "Are there any animals with both a prehensile tail and a prehensile tongue?", "gold": "biology", "pred": "biology", "confidence": 0.9436, "ood_score": -1407.51599, "uncertain": false}
+{"text": "Why does this Eastern Cattle Egret have one of its claw digits up in flight?", "gold": "biology", "pred": "history", "confidence": 0.5069, "ood_score": -1507.57922, "uncertain": false}
+{"text": "Why does a downy woodpecker wipe its beak around its nest", "gold": "biology", "pred": "biology", "confidence": 0.9263, "ood_score": -1442.69019, "uncertain": false}
+{"text": "What drives the leveling-off of post-pubertal craniofacial development?", "gold": "biology", "pred": "biology", "confidence": 0.8665, "ood_score": -622.02673, "uncertain": false}
+{"text": "Are there theories addressing the mechanisms by which large groups of migratory tuna adjust their movement to small temperature changes?", "gold": "biology", "pred": "biology", "confidence": 0.9504, "ood_score": -403.04959, "uncertain": false}
+{"text": "What wall color is generally preferred for the testing room in Morris water maze test?", "gold": "biology", "pred": "books", "confidence": 0.4652, "ood_score": -9529.02148, "uncertain": true}
+{"text": "Where is this plant from and its name?", "gold": "biology", "pred": "biology", "confidence": 0.9469, "ood_score": -1491.11694, "uncertain": false}
+{"text": "Which is more common: sporadic or familial fatal insomnia?", "gold": "biology", "pred": "books", "confidence": 0.6313, "ood_score": -3031.76587, "uncertain": false}
+{"text": "Can the two strands of one blunt end be attached to different linkers?", "gold": "biology", "pred": "chemistry", "confidence": 0.9432, "ood_score": -1536.47925, "uncertain": false}
+{"text": "What's this insect/spider seen in an urban environment in Serbia?", "gold": "biology", "pred": "biology", "confidence": 0.7857, "ood_score": -2527.34106, "uncertain": false}
+{"text": "Can a natural pregnancy occur in space?", "gold": "biology", "pred": "physics", "confidence": 0.3769, "ood_score": -1992.6626, "uncertain": true}
+{"text": "Set of Lecture Notes", "gold": "biology", "pred": "books", "confidence": 0.8993, "ood_score": -1396.93579, "uncertain": false}
+{"text": "Identifing Tall Tree with Cotton-Like Seeds", "gold": "biology", "pred": "biology", "confidence": 0.8461, "ood_score": -1540.73755, "uncertain": false}
+{"text": "Has ultrasound-triggered co-delivery of LRAs and autophagy-flux modulators been tested in HIV latency models?", "gold": "biology", "pred": "biology", "confidence": 0.8933, "ood_score": -549.10785, "uncertain": false}
+{"text": "Have shark VNAR single-domain antibodies been screened against HIV Env or latency-relevant HIV proteins?", "gold": "biology", "pred": "biology", "confidence": 0.9272, "ood_score": -446.72958, "uncertain": false}
+{"text": "Why two, three or four types of cone cell? Why not, like, five thousand types of cone cell?", "gold": "biology", "pred": "biology", "confidence": 0.9672, "ood_score": -424.01904, "uncertain": false}
+{"text": "Is the problem of immunogenicity for drug delivery vehicles (eg. liposomes for HIV cure) practically solved?", "gold": "biology", "pred": "biology", "confidence": 0.8782, "ood_score": -618.00098, "uncertain": false}
+{"text": "Why is the astaxanthin yield from Phaffia rhodozyma extraction inconsistent among replicate samples?", "gold": "biology", "pred": "biology", "confidence": 0.757, "ood_score": -421.79987, "uncertain": false}
+{"text": "Can someone please help me identify this little spider?", "gold": "biology", "pred": "biology", "confidence": 0.6643, "ood_score": -6731.55371, "uncertain": true}
+{"text": "Quantity of protons released by hydrolysis of ATP", "gold": "biology", "pred": "biology", "confidence": 0.8233, "ood_score": -397.17743, "uncertain": false}
+{"text": "Identify Northern Poland / Masuria region molt or a dead insect", "gold": "biology", "pred": "biology", "confidence": 0.7054, "ood_score": -1678.49548, "uncertain": false}
+{"text": "How male and female characters develop in organisms with XO sex-determination system?", "gold": "biology", "pred": "biology", "confidence": 0.9319, "ood_score": -438.67401, "uncertain": false}
+{"text": "Which RNA Extraction Method Works Best for Extracellular Vesicles?", "gold": "biology", "pred": "biology", "confidence": 0.9785, "ood_score": -211.51004, "uncertain": false}
+{"text": "Universality of the redox couple NADPH/NADP", "gold": "biology", "pred": "biology", "confidence": 0.5917, "ood_score": -739.92767, "uncertain": false}
+{"text": "To what extent can the hyoid morphology of Smilodon fatalis support inferences about its vocalizations?", "gold": "biology", "pred": "biology", "confidence": 0.9159, "ood_score": -438.97977, "uncertain": false}
+{"text": "Why do thrombi propagate towards the heart?", "gold": "biology", "pred": "biology", "confidence": 0.9421, "ood_score": -680.81445, "uncertain": false}
+{"text": "Plants sending shoots into darkness", "gold": "biology", "pred": "biology", "confidence": 0.962, "ood_score": -1278.4519, "uncertain": false}
+{"text": "Infraorders and the suffix -aria", "gold": "biology", "pred": "physics", "confidence": 0.7771, "ood_score": -2327.11914, "uncertain": false}
+{"text": "Fuzzy shrub with compound leaves and red stems", "gold": "biology", "pred": "biology", "confidence": 0.6825, "ood_score": -5484.31445, "uncertain": true}
+{"text": "Allometric Relationships of Avian and Reptile Eggs", "gold": "biology", "pred": "biology", "confidence": 0.9516, "ood_score": -405.5329, "uncertain": false}
+{"text": "Why is ecosystem energy flow strictly unidirectional? Are there no tiny energy feedback loops?", "gold": "biology", "pred": "biology", "confidence": 0.9777, "ood_score": -378.19031, "uncertain": false}
+{"text": "Why does syphilis cause diseases in a complex way?", "gold": "biology", "pred": "biology", "confidence": 0.9187, "ood_score": -1713.40503, "uncertain": false}
+{"text": "Calculating osmotic pressure", "gold": "chemistry", "pred": "biology", "confidence": 0.9118, "ood_score": -1011.60681, "uncertain": false}
+{"text": "How was mass of the proton measured?", "gold": "chemistry", "pred": "physics", "confidence": 0.856, "ood_score": -844.854, "uncertain": false}
+{"text": "Is it possible for 2 or more molecular graphs to be isospectral?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.5101, "ood_score": -513.88898, "uncertain": false}
+{"text": "Why is ammonia used in the dimethylglyoxime test for Ni(II) ion?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9087, "ood_score": -365.50967, "uncertain": false}
+{"text": "Why use 1 bar as standard pressure instead of 1 atm?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.7486, "ood_score": -4131.84766, "uncertain": false}
+{"text": "Does N4 molecule exist?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9428, "ood_score": -372.04898, "uncertain": false}
+{"text": "How pure is supermarket baking soda?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9577, "ood_score": -1127.50232, "uncertain": false}
+{"text": "What does “Gm. Moles per 1000 gms. H2O” mean?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.8467, "ood_score": -385.25836, "uncertain": false}
+{"text": "Oxidation of SnCl2 to SnO2 using a hydrothermal route", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9285, "ood_score": -146.2049, "uncertain": false}
+{"text": "What determines the stability of inorganic chloride-based acids?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9329, "ood_score": -167.79689, "uncertain": false}
+{"text": "Are there “rubber bands” (elastomers) at extreme temperatures?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.5663, "ood_score": -2110.40234, "uncertain": false}
+{"text": "Is thermal decomposition a suitable method for assigning the formula of a coordination complex?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.5035, "ood_score": -562.66394, "uncertain": false}
+{"text": "Recovery of Platinum from Sediment After Hydrogen Peroxide Exposure of Platinized Titanium Anodes", "gold": "chemistry", "pred": "chemistry", "confidence": 0.7169, "ood_score": -360.60934, "uncertain": false}
+{"text": "Why does Le Chatelier’s principle work for pressure and temperature?", "gold": "chemistry", "pred": "physics", "confidence": 0.7021, "ood_score": -1414.51855, "uncertain": false}
+{"text": "Is the r derived/defined analytically the same r that is reported in rate laws?", "gold": "chemistry", "pred": "physics", "confidence": 0.5971, "ood_score": -1039.15039, "uncertain": false}
+{"text": "What do the temperatures in a VLE-diagram represent and does the region between the curves have meaning?", "gold": "chemistry", "pred": "physics", "confidence": 0.8723, "ood_score": -1313.20581, "uncertain": false}
+{"text": "Why are almost all chemical elements opaque in their solid and liquid states?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.919, "ood_score": -386.16751, "uncertain": false}
+{"text": "How is assuming standard hydrogen potential zero at all temperatures correct?", "gold": "chemistry", "pred": "physics", "confidence": 0.9114, "ood_score": -419.65176, "uncertain": false}
+{"text": "Liquids which can self-ionise", "gold": "chemistry", "pred": "chemistry", "confidence": 0.8363, "ood_score": -1085.34814, "uncertain": false}
+{"text": "How many atoms are coplanar in Zeise’s salt?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9315, "ood_score": -580.2821, "uncertain": false}
+{"text": "Why does this disinfectant/cleaner contain three different types of alcohol?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.8699, "ood_score": -1291.08594, "uncertain": false}
+{"text": "What assumptions underlie \"thermodynamic\" energy balances (example using CSTR) and what form does the balance take?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.7124, "ood_score": -456.26968, "uncertain": false}
+{"text": "What does a 0 (zero) superscript mean in a chemical formula?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9415, "ood_score": -471.76749, "uncertain": false}
+{"text": "What does it mean to be more electron dense and also slightly positively charged?", "gold": "chemistry", "pred": "physics", "confidence": 0.7813, "ood_score": -401.58331, "uncertain": false}
+{"text": "Difference between molecular geometry and shape in VSEPR", "gold": "chemistry", "pred": "physics", "confidence": 0.4638, "ood_score": -1955.92004, "uncertain": true}
+{"text": "Deriving helium atom wavefunction", "gold": "chemistry", "pred": "physics", "confidence": 0.9276, "ood_score": -523.54852, "uncertain": false}
+{"text": "How does one decompose hydrogen peroxide in a nitric acid solution so that it can be disposed of with out generating oxygen gas later?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9373, "ood_score": -222.92854, "uncertain": false}
+{"text": "What is the solubility of sodium sulfite in methanol?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9463, "ood_score": -464.45056, "uncertain": false}
+{"text": "Could tetrachloronickelate(II) ion be formed in aqueous media?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9445, "ood_score": -166.98285, "uncertain": false}
+{"text": "Does phenolphthalein’s orange coloration in concentrated H2SO4 arise from extreme acidity or medium-specific effects?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.7182, "ood_score": -278.33691, "uncertain": false}
+{"text": "Why is sulfur with three single bonds so stable in molybdenum disulfide, and yet doesn't form stable molecules with three bonds?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9527, "ood_score": -101.30156, "uncertain": false}
+{"text": "On the definition of Hartree-Fock ground state in Szabo & Ostlund", "gold": "chemistry", "pred": "physics", "confidence": 0.9005, "ood_score": -333.70972, "uncertain": false}
+{"text": "Elecrophilic Aromatic Substitution in a Naphthalene Ring System", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9618, "ood_score": -105.69514, "uncertain": false}
+{"text": "Oxidation number method not being able to balance a redox reaction", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9667, "ood_score": -251.22581, "uncertain": false}
+{"text": "Reaction of dichromate with hydrogen peroxide in presence of cat. H", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9379, "ood_score": -174.88931, "uncertain": false}
+{"text": "Is potassium chloropentafluorocobaltate(III) low spin or high spin?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9415, "ood_score": -170.16345, "uncertain": false}
+{"text": "What would be good, initial temperature and composition guesses for a MESH distillation column simulation?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.4475, "ood_score": -1687.76941, "uncertain": true}
+{"text": "Are molecular orbitals a linear or a nonlinear combination of atomic orbitals?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.6575, "ood_score": -384.53806, "uncertain": false}
+{"text": "What are the characteristic points in this current-voltage (I-V) chart for water?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.4451, "ood_score": -1196.99158, "uncertain": true}
+{"text": "What software produces 3D ball-and-stick molecular rendering with depth shading, ambient occlusion, and edge outlining?", "gold": "chemistry", "pred": "technology", "confidence": 0.7063, "ood_score": -866.67151, "uncertain": false}
+{"text": "Preparation of Methyl Orange Indicator Solution from Powder", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9481, "ood_score": -300.53009, "uncertain": false}
+{"text": "How much of a chemical hazard do car tires pose in everyday life?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.7571, "ood_score": -5737.91113, "uncertain": true}
+{"text": "Why band gap decreases as the anions are changed in ABX3 lattice?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.5758, "ood_score": -520.67041, "uncertain": false}
+{"text": "Will iodine vapor stratify from air in equilibrium?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9318, "ood_score": -266.59821, "uncertain": false}
+{"text": "What is the maximum lifetime of PET plastic?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.5511, "ood_score": -4536.12891, "uncertain": false}
+{"text": "What could explain equivalence volume shift in a polyprotic acid titration curve?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9153, "ood_score": -407.93542, "uncertain": false}
+{"text": "Why is formic acid stronger than acetic acid?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9513, "ood_score": -303.17133, "uncertain": false}
+{"text": "How can I determine whether the 700-800 nm region of my reflectance spectra is too noisy to use?", "gold": "chemistry", "pred": "physics", "confidence": 0.8972, "ood_score": -864.18005, "uncertain": false}
+{"text": "What is the most powerful instant gelling agent that is non-toxic?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.8044, "ood_score": -1152.61304, "uncertain": false}
+{"text": "How to produce silver chloride by electrolysis of aqueous sodium chloride", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9496, "ood_score": -356.39111, "uncertain": false}
+{"text": "Why is acid needed in hydrogen-copper galvanic cell?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.8525, "ood_score": -456.77527, "uncertain": false}
+{"text": "Chemical (engineering) thermodynamics — how do we define the component fugacity?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.8866, "ood_score": -366.43567, "uncertain": false}
+{"text": "Is Zippo lighter fuel no longer windproof in the EU UK?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.8968, "ood_score": -2814.98682, "uncertain": false}
+{"text": "How stable is hexavalent chromium?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9651, "ood_score": -270.39252, "uncertain": false}
+{"text": "What is the exact meaning of Fe@C as a catalyst?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9479, "ood_score": -297.83035, "uncertain": false}
+{"text": "How many valence electrons does an iron atom give to the electron sea in a lattice?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.858, "ood_score": -463.08493, "uncertain": false}
+{"text": "I can't find the rule allowing the name \"ethenyl group\" in IUPAC Blue Book", "gold": "chemistry", "pred": "chemistry", "confidence": 0.95, "ood_score": -912.74426, "uncertain": false}
+{"text": "Carbocation stability vs steric factor in rearrangements", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9746, "ood_score": -215.45633, "uncertain": false}
+{"text": "Using a Microscope Horizontally", "gold": "chemistry", "pred": "biology", "confidence": 0.7222, "ood_score": -3224.479, "uncertain": false}
+{"text": "Complexes between a metal atom (oxidation number 0) and a Lewis acid (like AlCl3 or BF3)?", "gold": "chemistry", "pred": "chemistry", "confidence": 0.9442, "ood_score": -81.9821, "uncertain": false}
+{"text": "Electrodeposition with the presence of organic additive (glucose)", "gold": "chemistry", "pred": "chemistry", "confidence": 0.8901, "ood_score": -841.96313, "uncertain": false}
+{"text": "Did the widely-reported espionage story involving kefir really happen?", "gold": "history", "pred": "books", "confidence": 0.5981, "ood_score": -1787.64282, "uncertain": false}
+{"text": "Was Islamic law (Sharia) ever historically reinterpreted or modified to permit bacha bazi–like practices?", "gold": "history", "pred": "history", "confidence": 0.8905, "ood_score": -649.88049, "uncertain": false}
+{"text": "Did Nazi leaders express intent to eliminate Christianity?", "gold": "history", "pred": "history", "confidence": 0.9212, "ood_score": -516.19177, "uncertain": false}
+{"text": "How common was the belief in early British India that crossing the sea led to loss of caste?", "gold": "history", "pred": "history", "confidence": 0.7923, "ood_score": -825.82263, "uncertain": false}
+{"text": "Was the criminalization of suicide in India inherited from British colonial law, or did it exist in pre-colonial Indian legal traditions?", "gold": "history", "pred": "history", "confidence": 0.9117, "ood_score": -707.60962, "uncertain": false}
+{"text": "Was it true that the LTTE carried out 80% of suicide bombings between its founding in 1976 and 9/11?", "gold": "history", "pred": "history", "confidence": 0.5275, "ood_score": -1401.97546, "uncertain": false}
+{"text": "What was the context around John Quincy Adams's quote about the \"art of making love\" with \"the thermometer at Zero\"?", "gold": "history", "pred": "books", "confidence": 0.7547, "ood_score": -1082.14697, "uncertain": false}
+{"text": "What is the meaning of this road sign: upside-down black triangle inside yellow circle?", "gold": "history", "pred": "books", "confidence": 0.2748, "ood_score": -5721.10938, "uncertain": true}
+{"text": "Why does the English, French and Dutch speaking Caribbean speak Creole languages while the Spanish speaking part speaks largely standard Spanish?", "gold": "history", "pred": "history", "confidence": 0.6805, "ood_score": -2666.18408, "uncertain": false}
+{"text": "How do paleontologists know when they're missing a tailbone in a dinosaur fossil?", "gold": "history", "pred": "biology", "confidence": 0.9438, "ood_score": -1033.36035, "uncertain": false}
+{"text": "Was Rurik of noble birth?", "gold": "history", "pred": "history", "confidence": 0.498, "ood_score": -1064.73682, "uncertain": true}
+{"text": "Why are there apparently old craters at Hamadan airbase in Iran?", "gold": "history", "pred": "physics", "confidence": 0.6953, "ood_score": -2702.79199, "uncertain": false}
+{"text": "What is Marx's conception of science in the labor theory of value?", "gold": "history", "pred": "science", "confidence": 0.9624, "ood_score": -747.23755, "uncertain": false}
+{"text": "How to identify the source of a quote in Henry Wharton's 'Anglia Sacra'?", "gold": "history", "pred": "books", "confidence": 0.8191, "ood_score": -1430.09375, "uncertain": false}
+{"text": "What do we know about the woman in a white dress in Manet's A Bar at the Folies-Bergère?", "gold": "history", "pred": "history", "confidence": 0.4233, "ood_score": -1685.25415, "uncertain": true}
+{"text": "What rank is the man in this picture? What year?", "gold": "history", "pred": "history", "confidence": 0.4528, "ood_score": -1914.54004, "uncertain": true}
+{"text": "How did Banshees go from wailing fairy women to evil ghosts attacking people with screams?", "gold": "history", "pred": "books", "confidence": 0.9494, "ood_score": -1168.78003, "uncertain": false}
+{"text": "How did the crew of HMS Challenger measure ocean floor depth with rope?", "gold": "history", "pred": "history", "confidence": 0.3744, "ood_score": -3643.01416, "uncertain": true}
+{"text": "Was gassing of pet dogs on the Chagos Islands in the 1960s/1970s an intimidation tactic?", "gold": "history", "pred": "science", "confidence": 0.4229, "ood_score": -3766.11475, "uncertain": true}
+{"text": "When did \"Florida man\" first start getting used in headlines?", "gold": "history", "pred": "sports", "confidence": 0.4998, "ood_score": -1401.68091, "uncertain": true}
+{"text": "Did medieval tables have raised edges?", "gold": "history", "pred": "history", "confidence": 0.9493, "ood_score": -1262.15259, "uncertain": false}
+{"text": "How did Iceland enforce its dog ban initially?", "gold": "history", "pred": "history", "confidence": 0.9239, "ood_score": -1429.5437, "uncertain": false}
+{"text": "What did it mean when a 19th century UK man was a \"blocker\"", "gold": "history", "pred": "sports", "confidence": 0.7325, "ood_score": -4921.44482, "uncertain": true}
+{"text": "How did Saint-Pierre come to be in time zone UTC-3 rather than in time zone UTC-4?", "gold": "history", "pred": "history", "confidence": 0.4906, "ood_score": -3852.61353, "uncertain": true}
+{"text": "Is it plausible that Disney’s Agrabah is an Indian city?", "gold": "history", "pred": "history", "confidence": 0.3617, "ood_score": -2773.91357, "uncertain": true}
+{"text": "Did British colonial legal codification projects of 1860s have a mechanism for updating codes when English law evolved after codification?", "gold": "history", "pred": "history", "confidence": 0.6126, "ood_score": -1068.72107, "uncertain": false}
+{"text": "Why did the Adjutant-General's Office create \"A list of Christian names\" and similar texts in the 1920s?", "gold": "history", "pred": "history", "confidence": 0.8592, "ood_score": -267.8656, "uncertain": false}
+{"text": "Why didn't the USA want the Confederacy to secede?", "gold": "history", "pred": "history", "confidence": 0.9623, "ood_score": -361.80023, "uncertain": false}
+{"text": "Is there evidence of someone in the Fujiwara clan killing another Fujiwara in the Heian period?", "gold": "history", "pred": "history", "confidence": 0.8656, "ood_score": -1310.31787, "uncertain": false}
+{"text": "Have armed forces ever transfused their wounded soldiers with blood forcibly collected from enemy fighters or occupied civilian populations?", "gold": "history", "pred": "history", "confidence": 0.9474, "ood_score": -848.47168, "uncertain": false}
+{"text": "Is Philippe Sands correct in claiming that the ICC has only prosecuted Africans?", "gold": "history", "pred": "history", "confidence": 0.8362, "ood_score": -959.3479, "uncertain": false}
+{"text": "Would ranked choice voting have been logistically plausible at the time the USA was founded?", "gold": "history", "pred": "science", "confidence": 0.6931, "ood_score": -1563.20435, "uncertain": false}
+{"text": "Were the Ashoka inscriptions dated by any other scientific methods?", "gold": "history", "pred": "history", "confidence": 0.9645, "ood_score": -325.58234, "uncertain": false}
+{"text": "Who was in charge on cattle drives? (Cowboys)", "gold": "history", "pred": "sports", "confidence": 0.8219, "ood_score": -2125.2124, "uncertain": false}
+{"text": "What did a Zenata javelin look like?", "gold": "history", "pred": "sports", "confidence": 0.3953, "ood_score": -4192.64453, "uncertain": true}
+{"text": "Whose signature is on this painting?", "gold": "history", "pred": "history", "confidence": 0.5039, "ood_score": -1945.68909, "uncertain": false}
+{"text": "Who was this Italian aristocrat around 1920-1930?", "gold": "history", "pred": "history", "confidence": 0.8575, "ood_score": -644.44391, "uncertain": false}
+{"text": "What is this rider doing?", "gold": "history", "pred": "sports", "confidence": 0.8963, "ood_score": -4675.32031, "uncertain": true}
+{"text": "Was there a historical event that prompted the 2nd Amendment?", "gold": "history", "pred": "history", "confidence": 0.5091, "ood_score": -1735.79712, "uncertain": false}
+{"text": "What was the cause of 10 British warships disappearing, that Pierre Denys de Montfort attributed to colossal octopuses?", "gold": "history", "pred": "history", "confidence": 0.8738, "ood_score": -394.12784, "uncertain": false}
+{"text": "Did German radios in Nazi era have a tag \"By listening to enemies you betray the Führer\"?", "gold": "history", "pred": "history", "confidence": 0.9697, "ood_score": -695.51501, "uncertain": false}
+{"text": "What does this R.A.O.B. symbol mean?", "gold": "history", "pred": "chemistry", "confidence": 0.8544, "ood_score": -5518.81201, "uncertain": true}
+{"text": "While shipping Titanic survivors to New York, why was RMS Carpathia escorted by USS Chester and USS Salem?", "gold": "history", "pred": "history", "confidence": 0.9677, "ood_score": -1429.03125, "uncertain": false}
+{"text": "What bell was Civil War diarist Mary Chesnut talking about when she mentioned Secessia?", "gold": "history", "pred": "history", "confidence": 0.848, "ood_score": -537.9856, "uncertain": false}
+{"text": "Was there food and fuel remaining in the wrecks of Erebus and Terror on the Franklin expedition?", "gold": "history", "pred": "history", "confidence": 0.6133, "ood_score": -1451.11914, "uncertain": false}
+{"text": "When is the earliest unambiguous evidence of a pizza with both tomato sauce and cheese?", "gold": "history", "pred": "science", "confidence": 0.926, "ood_score": -2978.2771, "uncertain": false}
+{"text": "How common were American food ingredients (Colombian Exchange) in 17th century South India?", "gold": "history", "pred": "history", "confidence": 0.7072, "ood_score": -2249.55127, "uncertain": false}
+{"text": "What routes did early humans take to reach Australia, and what maritime technology enabled them?", "gold": "history", "pred": "science", "confidence": 0.5881, "ood_score": -1937.73499, "uncertain": false}
+{"text": "Was poisonous honey used in warfare?", "gold": "history", "pred": "history", "confidence": 0.7365, "ood_score": -1732.19873, "uncertain": false}
+{"text": "Are there trusworthy explanations why a certain kind of Danish pastry came to be called \"Spandauer\"?", "gold": "history", "pred": "history", "confidence": 0.8266, "ood_score": -1846.98315, "uncertain": false}
+{"text": "Did the Ming destroy Chương Sơn pagoda in 1407 for dirt/land to build Cổ Lộng citadel?", "gold": "history", "pred": "history", "confidence": 0.972, "ood_score": -343.27356, "uncertain": false}
+{"text": "Was the amentum used from horseback?", "gold": "history", "pred": "history", "confidence": 0.9122, "ood_score": -1250.39062, "uncertain": false}
+{"text": "Did Leonardo da Vinci actually write \"He who controls the weather controls the world\"?", "gold": "history", "pred": "books", "confidence": 0.5547, "ood_score": -924.15442, "uncertain": false}
+{"text": "What is the earliest source for the claim that Leonardo da Vinci advised the city of Verona to fire mortars at hailstorms?", "gold": "history", "pred": "science", "confidence": 0.7297, "ood_score": -1103.2041, "uncertain": false}
+{"text": "What thrown weapons were historically used from horseback?", "gold": "history", "pred": "history", "confidence": 0.943, "ood_score": -440.81525, "uncertain": false}
+{"text": "What was the first \"how-to\" film?", "gold": "history", "pred": "technology", "confidence": 0.3632, "ood_score": -7271.14648, "uncertain": true}
+{"text": "Prior to 9/11 were there any laws and regulations against information sharing between the FBI and the CIA?", "gold": "history", "pred": "history", "confidence": 0.4849, "ood_score": -2219.7876, "uncertain": true}
+{"text": "What's the origin of this symbol on a railway bridge?", "gold": "history", "pred": "history", "confidence": 0.9112, "ood_score": -2397.58936, "uncertain": false}
+{"text": "Who was the first person(s) eligible for a U.S. Presidential pardon?", "gold": "history", "pred": "history", "confidence": 0.9062, "ood_score": -2148.08154, "uncertain": false}
+{"text": "What is the statistical distribution of merchant ship ages around 1435 for shipping in Florence?", "gold": "history", "pred": "history", "confidence": 0.9674, "ood_score": -1939.60828, "uncertain": false}
+{"text": "Are there any biographical accounts of the condition of exiles in Patmos in the reign of Domitian (51-96 AD)?", "gold": "history", "pred": "books", "confidence": 0.5362, "ood_score": -503.58368, "uncertain": false}
+{"text": "Is there a feminine version of Fitz?", "gold": "history", "pred": "books", "confidence": 0.9473, "ood_score": -1842.08032, "uncertain": false}
+{"text": "What is this monument on the bank of Obra in Poland?", "gold": "history", "pred": "history", "confidence": 0.9195, "ood_score": -731.68298, "uncertain": false}
+{"text": "What employment opportunities attracted Americans to South America in the 1920s?", "gold": "history", "pred": "history", "confidence": 0.887, "ood_score": -1562.08484, "uncertain": false}
+{"text": "What are the \"dope checks\" mentioned in USA Fair Labor law?", "gold": "history", "pred": "sports", "confidence": 0.5764, "ood_score": -6118.43848, "uncertain": true}
+{"text": "What factors did 15th-century marine insurers consider when pricing insurance policies?", "gold": "history", "pred": "history", "confidence": 0.7346, "ood_score": -3797.5625, "uncertain": false}
+{"text": "How was Dreyfus' sword broken in his degradation ceremony?", "gold": "history", "pred": "books", "confidence": 0.6284, "ood_score": -1310.41895, "uncertain": false}
+{"text": "Could shifts in the Mississippi river have possibly emancipated slaves?", "gold": "history", "pred": "history", "confidence": 0.8254, "ood_score": -843.27197, "uncertain": false}
+{"text": "Why does RS 17.109 have Boğazköy script instead of the domestic ductus from Ugaritic Scribes?", "gold": "history", "pred": "history", "confidence": 0.8976, "ood_score": -664.76691, "uncertain": false}
+{"text": "Were barrels as depicted in the Bayeux Tapestry and barrels as depicted in the Qingming Scroll independent inventions?", "gold": "history", "pred": "history", "confidence": 0.8753, "ood_score": -788.41992, "uncertain": false}
+{"text": "When were ancient Greek texts lost?", "gold": "history", "pred": "history", "confidence": 0.8581, "ood_score": -2694.36963, "uncertain": false}
+{"text": "What's the original source and form of the \"I believe in the sun\" poem?", "gold": "history", "pred": "books", "confidence": 0.9465, "ood_score": -567.02356, "uncertain": false}
+{"text": "Was it normal in the 18th century to invest in the stocks of companies that transported slaves?", "gold": "history", "pred": "history", "confidence": 0.8241, "ood_score": -884.78052, "uncertain": false}
+{"text": "Why did peasants go to work in factories in the early Industrial Revolution?", "gold": "history", "pred": "history", "confidence": 0.9381, "ood_score": -2051.78564, "uncertain": false}
+{"text": "In 1972, why did the Chinese secretly salvage a British submarine launched 44 years prior in 1929?", "gold": "history", "pred": "history", "confidence": 0.9731, "ood_score": -624.22839, "uncertain": false}
+{"text": "What does it mean to menace someone with Remembrance of Things Past?", "gold": "books", "pred": "books", "confidence": 0.782, "ood_score": -1981.93884, "uncertain": false}
+{"text": "How can a grin be \"like a phalanx\" in Gravity's Rainbow?", "gold": "books", "pred": "books", "confidence": 0.6143, "ood_score": -3454.66162, "uncertain": false}
+{"text": "Whom is Arendt quoting here?", "gold": "books", "pred": "books", "confidence": 0.6577, "ood_score": -2476.02637, "uncertain": false}
+{"text": "What are the differences between the 1994 and 2003 editions of the Penguin Book of Gay Short Stories?", "gold": "books", "pred": "books", "confidence": 0.9388, "ood_score": -471.50119, "uncertain": false}
+{"text": "What are the proper names of Charo, Biscuter, and Bromide in the Carvalho series?", "gold": "books", "pred": "chemistry", "confidence": 0.9415, "ood_score": -822.60138, "uncertain": false}
+{"text": "In what orientation were scrolls in classical Greece read?", "gold": "books", "pred": "history", "confidence": 0.4855, "ood_score": -741.30219, "uncertain": true}
+{"text": "German versions of Eric Carle's books", "gold": "books", "pred": "books", "confidence": 0.8705, "ood_score": -474.97412, "uncertain": false}
+{"text": "In Regeneration, is Burns hallucinating this horrifying sight?", "gold": "books", "pred": "biology", "confidence": 0.409, "ood_score": -1625.66528, "uncertain": true}
+{"text": "Is it possible to figure out what New York novel Stephen King is referring to here?", "gold": "books", "pred": "books", "confidence": 0.9584, "ood_score": -653.06348, "uncertain": false}
+{"text": "What were the powers of the women police workers in London during World War I?", "gold": "books", "pred": "history", "confidence": 0.957, "ood_score": -665.87799, "uncertain": false}
+{"text": "Does this practice of omitting an initial quotation mark have precedent?", "gold": "books", "pred": "technology", "confidence": 0.8115, "ood_score": -3339.3208, "uncertain": false}
+{"text": "What exactly is a \"reverse book\"?", "gold": "books", "pred": "books", "confidence": 0.8364, "ood_score": -6082.20898, "uncertain": true}
+{"text": "What is the origin of the name Biscuter for Carvalho's assistant?", "gold": "books", "pred": "history", "confidence": 0.431, "ood_score": -1911.89148, "uncertain": true}
+{"text": "What book did Zhenia Podobna write about woman fighters?", "gold": "books", "pred": "books", "confidence": 0.8616, "ood_score": -880.81787, "uncertain": false}
+{"text": "Who speaks the final paragraph of chapter 26 in \"Uncle Tom's Cabin\"?", "gold": "books", "pred": "books", "confidence": 0.7442, "ood_score": -671.69214, "uncertain": false}
+{"text": "What would it mean for the name \"Sartre\" to be prophetic?", "gold": "books", "pred": "books", "confidence": 0.56, "ood_score": -1808.03857, "uncertain": false}
+{"text": "Are these American references in Murakami's original, or are they translator's interpolations?", "gold": "books", "pred": "books", "confidence": 0.5392, "ood_score": -2384.83984, "uncertain": false}
+{"text": "Why is the font-size changing randomly per-line in this book printed after 2015?", "gold": "books", "pred": "books", "confidence": 0.8631, "ood_score": -2327.73413, "uncertain": false}
+{"text": "Why does Murakami attribute the song \"South of the Border\" to Nat King Cole?", "gold": "books", "pred": "books", "confidence": 0.9248, "ood_score": -627.51929, "uncertain": false}
+{"text": "What is the evidence that Aristophanes did not finish revising The Clouds?", "gold": "books", "pred": "science", "confidence": 0.5444, "ood_score": -883.68585, "uncertain": false}
+{"text": "What is the difference between \"library binding\" and \"hardcover\"?", "gold": "books", "pred": "books", "confidence": 0.8306, "ood_score": -3685.69531, "uncertain": false}
+{"text": "Kids spy book with a specific sequence of numbers", "gold": "books", "pred": "books", "confidence": 0.9835, "ood_score": -1236.40515, "uncertain": false}
+{"text": "Mary Renault's describing the island of Keos as \"a stern land\" in \"The Praise Singer\"", "gold": "books", "pred": "books", "confidence": 0.7036, "ood_score": -1144.81885, "uncertain": false}
+{"text": "How does Arthur Hastings end up with the other Duveen twin?", "gold": "books", "pred": "books", "confidence": 0.9605, "ood_score": -1206.64624, "uncertain": false}
+{"text": "Who is the murderer thinking of?", "gold": "books", "pred": "books", "confidence": 0.9496, "ood_score": -4274.02148, "uncertain": false}
+{"text": "Short Story about a carefully planned murder", "gold": "books", "pred": "books", "confidence": 0.9305, "ood_score": -1103.37134, "uncertain": false}
+{"text": "A humorous Czech (?) short story about a murder at a watermill", "gold": "books", "pred": "books", "confidence": 0.9187, "ood_score": -936.97241, "uncertain": false}
+{"text": "How did the views of the brothers Grimm change in later editions of their fairy tale collections?", "gold": "books", "pred": "books", "confidence": 0.8897, "ood_score": -846.46539, "uncertain": false}
+{"text": "In Maidu stories, why does Coyote ask his excrement for advice?", "gold": "books", "pred": "books", "confidence": 0.9171, "ood_score": -1772.94202, "uncertain": false}
+{"text": "Hitler Youth through to Front Lines action. Young adult novel ID", "gold": "books", "pred": "books", "confidence": 0.9467, "ood_score": -226.88789, "uncertain": false}
+{"text": "What are migratory legends?", "gold": "books", "pred": "biology", "confidence": 0.5514, "ood_score": -1399.17407, "uncertain": false}
+{"text": "Source for Spenser’s story of Ptolemy and his lover Phao in “The Faerie Queene”", "gold": "books", "pred": "books", "confidence": 0.843, "ood_score": -872.45319, "uncertain": false}
+{"text": "Why does the Professor reverse syllables instead of words or letters?", "gold": "books", "pred": "books", "confidence": 0.8937, "ood_score": -2777.24634, "uncertain": false}
+{"text": "Why does the Professor writing Euler's identity convince his sister-in-law?", "gold": "books", "pred": "physics", "confidence": 0.5035, "ood_score": -1765.43896, "uncertain": false}
+{"text": "What is an \"atomic irony\"?", "gold": "books", "pred": "books", "confidence": 0.9665, "ood_score": -3852.20679, "uncertain": false}
+{"text": "Interpretation of certain clauses in The Ones Who Walk Away from Omelas by Ursula K. LeGuin", "gold": "books", "pred": "books", "confidence": 0.916, "ood_score": -1376.51892, "uncertain": false}
+{"text": "Why was the series title for \"The 39 Clues\" transliterated instead of translated into Japanese?", "gold": "books", "pred": "books", "confidence": 0.9527, "ood_score": -926.94141, "uncertain": false}
+{"text": "What is the meaning behind the story \"Vision\" by Osama Alomar?", "gold": "books", "pred": "books", "confidence": 0.8942, "ood_score": -885.33398, "uncertain": false}
+{"text": "What does \"he got plucked\" mean in \"Jane Eyre\"?", "gold": "books", "pred": "books", "confidence": 0.9404, "ood_score": -822.29755, "uncertain": false}
+{"text": "Why does the arrogance melt in the pocket?", "gold": "books", "pred": "sports", "confidence": 0.923, "ood_score": -2689.896, "uncertain": false}
+{"text": "Why does the woman Humanity drop dead at the end of \"Do Not Forget the Poor\"?", "gold": "books", "pred": "books", "confidence": 0.965, "ood_score": -614.08282, "uncertain": false}
+{"text": "Are \"very short stories\" common in Arabic literature, or specifically an Alomar thing?", "gold": "books", "pred": "books", "confidence": 0.9371, "ood_score": -689.03351, "uncertain": false}
+{"text": "How to repair torn dust jackets or pages?", "gold": "books", "pred": "technology", "confidence": 0.2906, "ood_score": -11418.78125, "uncertain": true}
+{"text": "Identify a financially themed card game mentioned in \"Whose Body?\"", "gold": "books", "pred": "sports", "confidence": 0.7569, "ood_score": -2730.10156, "uncertain": false}
+{"text": "What's the mattress with Fridays?", "gold": "books", "pred": "sports", "confidence": 0.8414, "ood_score": -7200.4209, "uncertain": true}
+{"text": "How long is ‘The Faerie Queene’ by Edmund Spenser?", "gold": "books", "pred": "books", "confidence": 0.9028, "ood_score": -654.88013, "uncertain": false}
+{"text": "How is “sallow for the mill” in ‘The Faerie Queene’ by Edmund Spenser?", "gold": "books", "pred": "books", "confidence": 0.9136, "ood_score": -919.04248, "uncertain": false}
+{"text": "Are there any math changes between the Project Hail Mary print and audio editions?", "gold": "books", "pred": "books", "confidence": 0.441, "ood_score": -3478.08057, "uncertain": true}
+{"text": "What are \"clowns\" (as opposed to \"fools\") in Shakespeare?", "gold": "books", "pred": "books", "confidence": 0.9767, "ood_score": -2494.44995, "uncertain": false}
+{"text": "Did Goethe have a child named Kathinka, as claimed by Christoph Hein in \"Das Narrenschiff\"?", "gold": "books", "pred": "books", "confidence": 0.4484, "ood_score": -1285.68823, "uncertain": true}
+{"text": "Trying to ID song - similar music to Loch Lomond but different words", "gold": "books", "pred": "books", "confidence": 0.8959, "ood_score": -1007.29767, "uncertain": false}
+{"text": "Was Wuthering Heights ever really advertised as \"by the author of Jane Eyre\"?", "gold": "books", "pred": "books", "confidence": 0.9486, "ood_score": -395.90131, "uncertain": false}
+{"text": "Why does Caesar refer to himself in the third person?", "gold": "books", "pred": "books", "confidence": 0.785, "ood_score": -2562.31177, "uncertain": false}
+{"text": "Could Bilbo and company actually have seen the Lonely Mountain from where they were deposited by the eagles?", "gold": "books", "pred": "science", "confidence": 0.6668, "ood_score": -2457.29541, "uncertain": false}
+{"text": "short story ID (old farmer at college, has a bull session, got what he came for). Probably school anthology, written pre WW2", "gold": "books", "pred": "books", "confidence": 0.8798, "ood_score": -347.07861, "uncertain": false}
+{"text": "Short story where woman drowns due to gold in her life jacket", "gold": "books", "pred": "books", "confidence": 0.9224, "ood_score": -859.81873, "uncertain": false}
+{"text": "Was \"I, Claudius\" the first novel with an \"I, ___\" title?", "gold": "books", "pred": "books", "confidence": 0.9059, "ood_score": -332.26996, "uncertain": false}
+{"text": "What is a bowla?", "gold": "books", "pred": "sports", "confidence": 0.8452, "ood_score": -4894.4873, "uncertain": true}
+{"text": "An ugly woman on holiday in Venice", "gold": "books", "pred": "books", "confidence": 0.973, "ood_score": -1608.86475, "uncertain": false}
+{"text": "Did the latter half of the 1920's really have a bunch of giant insect short stories?", "gold": "books", "pred": "books", "confidence": 0.8578, "ood_score": -585.49121, "uncertain": false}
+{"text": "Is Gulliver's reference about there being nothing so irrational that philosophers won't believe it based on a real source?", "gold": "books", "pred": "science", "confidence": 0.684, "ood_score": -706.16931, "uncertain": false}
+{"text": "Richard Crowe's last words in \"That Hideous Strength\" by C. S. Lewis", "gold": "books", "pred": "books", "confidence": 0.8923, "ood_score": -594.7796, "uncertain": false}
+{"text": "How does this quote from Pratchett sum up the Cynics, the Stoics and the Epicureans?", "gold": "books", "pred": "books", "confidence": 0.8534, "ood_score": -322.37048, "uncertain": false}
+{"text": "How would Aeneas's account of the Underworld be \"Roman propaganda\"?", "gold": "books", "pred": "books", "confidence": 0.8767, "ood_score": -924.86426, "uncertain": false}
+{"text": "How do we find April, May and June in the following text from Finnegans Wake?", "gold": "books", "pred": "books", "confidence": 0.8894, "ood_score": -1430.86133, "uncertain": false}
+{"text": "What math problem is Nabokov trying to describe?", "gold": "books", "pred": "physics", "confidence": 0.5208, "ood_score": -1434.87854, "uncertain": false}
+{"text": "Tale of Wills and word play (e.g. man mishears fiance's profession of \"none\" as \"nun\")", "gold": "books", "pred": "books", "confidence": 0.9479, "ood_score": -241.49469, "uncertain": false}
+{"text": "Literary origin of parrots being called Polly?", "gold": "books", "pred": "books", "confidence": 0.7504, "ood_score": -1886.57202, "uncertain": false}
+{"text": "In Tess of the d'Urbervilles what is the context of the Hardys being listed as a great family?", "gold": "books", "pred": "books", "confidence": 0.9497, "ood_score": -572.41437, "uncertain": false}
+{"text": "Why \"Long John's earrings\"?", "gold": "books", "pred": "books", "confidence": 0.7524, "ood_score": -5548.79395, "uncertain": true}
+{"text": "What is, or was, \"Quag's\" in 1974 London?", "gold": "books", "pred": "books", "confidence": 0.4717, "ood_score": -1997.32849, "uncertain": true}
+{"text": "Short story where an illiterate housewife learns how to read and gets obsessed", "gold": "books", "pred": "books", "confidence": 0.9167, "ood_score": -304.57498, "uncertain": false}
+{"text": "A comic novel about a young woman au pair to a wealthy family with lots of kids and a lecherous father", "gold": "books", "pred": "books", "confidence": 0.9633, "ood_score": -184.55598, "uncertain": false}
+{"text": "Why does Petruchio make a bee pun on \"should be\" in \"The Taming of the Shrew\"?", "gold": "books", "pred": "books", "confidence": 0.9314, "ood_score": -2803.51074, "uncertain": false}
+{"text": "Meaning of 'carelessness of opinion' in Jane Austen's \"Pride and Prejudice\"", "gold": "books", "pred": "books", "confidence": 0.9348, "ood_score": -742.40649, "uncertain": false}
+{"text": "Did Robert Frost once score poorly on a Creativity Test", "gold": "books", "pred": "books", "confidence": 0.8486, "ood_score": -1135.86853, "uncertain": false}
+{"text": "What does \"penetrated rampart after rampart of brick\" mean in A Fragment of Life?", "gold": "books", "pred": "biology", "confidence": 0.5419, "ood_score": -4742.28613, "uncertain": true}
+{"text": "Scifi short story in which the military asks a young man to duplicate an anti-gravity drive", "gold": "books", "pred": "books", "confidence": 0.899, "ood_score": -982.62317, "uncertain": false}
+{"text": "\"When a mate brings a slip on his cable\" - meaning and background of this phrase?", "gold": "books", "pred": "books", "confidence": 0.7871, "ood_score": -3797.24561, "uncertain": false}
+{"text": "Scifi short story about a city of people whose brains are card catalogues", "gold": "books", "pred": "books", "confidence": 0.9155, "ood_score": -646.59912, "uncertain": false}
+{"text": "What does \"the man in the chains got everywhere more water than was down in the chart\" mean?", "gold": "books", "pred": "books", "confidence": 0.8824, "ood_score": -1998.23547, "uncertain": false}
+{"text": "Short story about conman trying to sell the Lincoln Tunnel", "gold": "books", "pred": "books", "confidence": 0.8339, "ood_score": -1180.6001, "uncertain": false}
+{"text": "ID a play that's a mistaken-identity comedy of errors and manners", "gold": "books", "pred": "books", "confidence": 0.9305, "ood_score": -284.89435, "uncertain": false}
+{"text": "Piezoelectric microphone element is activated by green or 405nm UV laser light but not 650nm red light. Why?", "gold": "physics", "pred": "chemistry", "confidence": 0.417, "ood_score": -1157.4718, "uncertain": true}
+{"text": "Why can't bubble chambers be triggered like cloud chambers?", "gold": "physics", "pred": "physics", "confidence": 0.6367, "ood_score": -2699.1731, "uncertain": false}
+{"text": "Why does skin-sparing occur in photon travel through material?", "gold": "physics", "pred": "physics", "confidence": 0.9148, "ood_score": -828.68213, "uncertain": false}
+{"text": "Fermion determinant with Hurwitz Zeta function", "gold": "physics", "pred": "physics", "confidence": 0.5851, "ood_score": -557.28821, "uncertain": false}
+{"text": "Why does wind-blown snow form these patterns?", "gold": "physics", "pred": "physics", "confidence": 0.4189, "ood_score": -4193.65039, "uncertain": true}
+{"text": "Looking for an old physics lab meme (early 2000s)", "gold": "physics", "pred": "books", "confidence": 0.5775, "ood_score": -2437.12427, "uncertain": false}
+{"text": "Why vegetables are always at the top and rice at the bottom in a pressure cooker when opened?", "gold": "physics", "pred": "history", "confidence": 0.3326, "ood_score": -7207.08496, "uncertain": true}
+{"text": "Why should we expect the brachistochrone problem to be solvable?", "gold": "physics", "pred": "physics", "confidence": 0.8462, "ood_score": -1299.08716, "uncertain": false}
+{"text": "Why is the Big Rip scenario of the end of Universe only possible if \"phantom energy\" exists?", "gold": "physics", "pred": "physics", "confidence": 0.9732, "ood_score": -413.57925, "uncertain": false}
+{"text": "High-pitched \"dog whistles\" exist; what about high-pitched \"dog bells\"?", "gold": "physics", "pred": "books", "confidence": 0.9205, "ood_score": -1315.62476, "uncertain": false}
+{"text": "When does the moment of inertia have an irrational coefficient?", "gold": "physics", "pred": "physics", "confidence": 0.9407, "ood_score": -362.24719, "uncertain": false}
+{"text": "How closely related are chaotic and analytically unsolvable systems?", "gold": "physics", "pred": "physics", "confidence": 0.6749, "ood_score": -538.53912, "uncertain": false}
+{"text": "Why can we add up the internal energy of a moving gas and its kinetic energy due to flow velocity?", "gold": "physics", "pred": "physics", "confidence": 0.9238, "ood_score": -257.1427, "uncertain": false}
+{"text": "Can the beat frequency of two slightly different tones cause a room to resonate?", "gold": "physics", "pred": "books", "confidence": 0.7553, "ood_score": -1088.3877, "uncertain": false}
+{"text": "Upper bound conjecture for quantum fidelity", "gold": "physics", "pred": "physics", "confidence": 0.811, "ood_score": -578.23547, "uncertain": false}
+{"text": "Is it possible to turn hydrogen gas into a liquid using a home set up?", "gold": "physics", "pred": "chemistry", "confidence": 0.9066, "ood_score": -575.09894, "uncertain": false}
+{"text": "Why are the convex sections of the fundamental relation replaced by a straight line?", "gold": "physics", "pred": "physics", "confidence": 0.8129, "ood_score": -953.79565, "uncertain": false}
+{"text": "Why are electrons in the top band of an insulator immobile?", "gold": "physics", "pred": "physics", "confidence": 0.8789, "ood_score": -519.17767, "uncertain": false}
+{"text": "Isotope composition of uranium slugs after they were ejected from the Hanford piles in 1945?", "gold": "physics", "pred": "chemistry", "confidence": 0.8536, "ood_score": -1046.54211, "uncertain": false}
+{"text": "Why is mass coupled to inertia but the other fundamental charges aren't?", "gold": "physics", "pred": "physics", "confidence": 0.9575, "ood_score": -159.30234, "uncertain": false}
+{"text": "Why do superconducting quantum computers need helium-3?", "gold": "physics", "pred": "technology", "confidence": 0.6721, "ood_score": -542.80566, "uncertain": false}
+{"text": "Where can I optimally place a cup of coffee in a microwave?", "gold": "physics", "pred": "chemistry", "confidence": 0.4822, "ood_score": -5789.62305, "uncertain": true}
+{"text": "Physics behind pyrite's metallic shine?", "gold": "physics", "pred": "chemistry", "confidence": 0.8746, "ood_score": -1752.67603, "uncertain": false}
+{"text": "Air pressure on Noah's Ark", "gold": "physics", "pred": "science", "confidence": 0.7529, "ood_score": -3601.82031, "uncertain": false}
+{"text": "Why we can have fields without sources?", "gold": "physics", "pred": "science", "confidence": 0.5581, "ood_score": -2015.99719, "uncertain": false}
+{"text": "Why doesn't Earth's atmosphere glow?", "gold": "physics", "pred": "physics", "confidence": 0.952, "ood_score": -1431.45837, "uncertain": false}
+{"text": "What is the temperature of light?", "gold": "physics", "pred": "physics", "confidence": 0.8714, "ood_score": -2368.13672, "uncertain": false}
+{"text": "What is the physics behind how welding works?", "gold": "physics", "pred": "physics", "confidence": 0.5219, "ood_score": -4140.60107, "uncertain": false}
+{"text": "How far does a submarine need to dive to not feel a storm?", "gold": "physics", "pred": "physics", "confidence": 0.5752, "ood_score": -7770.93555, "uncertain": true}
+{"text": "How does pupil shape affect vision?", "gold": "physics", "pred": "biology", "confidence": 0.8057, "ood_score": -4472.68115, "uncertain": false}
+{"text": "Microscope Resolution vs Telescope Resolution", "gold": "physics", "pred": "physics", "confidence": 0.7826, "ood_score": -2796.43042, "uncertain": false}
+{"text": "Faraday's Ice Pail Experiment with Large Hole", "gold": "physics", "pred": "physics", "confidence": 0.9444, "ood_score": -448.76422, "uncertain": false}
+{"text": "Has anyone ever considered the possibility that antimatter has negative *active* gravitational mass?", "gold": "physics", "pred": "physics", "confidence": 0.9101, "ood_score": -394.79337, "uncertain": false}
+{"text": "Does the geometric picture of Yang-Mills fields survives the path integral?", "gold": "physics", "pred": "physics", "confidence": 0.9464, "ood_score": -268.08151, "uncertain": false}
+{"text": "Why does LIGO use an IR laser?", "gold": "physics", "pred": "physics", "confidence": 0.888, "ood_score": -3606.34351, "uncertain": false}
+{"text": "Why is water blue?", "gold": "physics", "pred": "chemistry", "confidence": 0.823, "ood_score": -4685.65576, "uncertain": true}
+{"text": "Is it possible to split a single light beam into two beams where split beams are colinear and perpendicular to the incident beam", "gold": "physics", "pred": "physics", "confidence": 0.9442, "ood_score": -545.29553, "uncertain": false}
+{"text": "At what size of a nucleus would the electrons have a 50% probability to be inside it?", "gold": "physics", "pred": "physics", "confidence": 0.8984, "ood_score": -384.03015, "uncertain": false}
+{"text": "How would a fourth-generation charged lepton interact with a proton?", "gold": "physics", "pred": "physics", "confidence": 0.9018, "ood_score": -451.61856, "uncertain": false}
+{"text": "Is time reversal in physics equal to a film playing backwards?", "gold": "physics", "pred": "physics", "confidence": 0.9622, "ood_score": -522.91284, "uncertain": false}
+{"text": "How can I self-study physics without lab classes for someone with a pure math background?", "gold": "physics", "pred": "science", "confidence": 0.3065, "ood_score": -2170.72266, "uncertain": true}
+{"text": "Finding the depth of sea very close to shore with a phone", "gold": "physics", "pred": "science", "confidence": 0.5419, "ood_score": -4991.25195, "uncertain": true}
+{"text": "Why does the definition of spinor require a metric?", "gold": "physics", "pred": "physics", "confidence": 0.9294, "ood_score": -569.16284, "uncertain": false}
+{"text": "Are quark fields represented by vectors inside vectors?", "gold": "physics", "pred": "physics", "confidence": 0.9212, "ood_score": -474.04987, "uncertain": false}
+{"text": "Why do fingers grip smooth surfaces better when they are slightly wet?", "gold": "physics", "pred": "physics", "confidence": 0.6159, "ood_score": -5157.69336, "uncertain": true}
+{"text": "Minimal example to understand the advantage of Hamiltonian mechanics over Lagrangian mechanics", "gold": "physics", "pred": "physics", "confidence": 0.9699, "ood_score": -350.43341, "uncertain": false}
+{"text": "How much does the CMB temperature drop in one year?", "gold": "physics", "pred": "biology", "confidence": 0.6351, "ood_score": -1987.88477, "uncertain": false}
+{"text": "Can we observe and have we observed 'time-refraction'?", "gold": "physics", "pred": "physics", "confidence": 0.929, "ood_score": -385.91809, "uncertain": false}
+{"text": "Was Carl Sagan correct to say that meteor entry is \"completely silent\"?", "gold": "physics", "pred": "science", "confidence": 0.5429, "ood_score": -1965.39319, "uncertain": false}
+{"text": "When partially viewing a ruler through a magnifying glass, are the apparently missing ruler intervals excluded from the image or remapped within it?", "gold": "physics", "pred": "books", "confidence": 0.4565, "ood_score": -6018.85449, "uncertain": true}
+{"text": "How loud is paint drying?", "gold": "physics", "pred": "science", "confidence": 0.3335, "ood_score": -20316.46875, "uncertain": true}
+{"text": "Is the Sun highest in the sky when it crosses the local meridian?", "gold": "physics", "pred": "physics", "confidence": 0.732, "ood_score": -2455.05444, "uncertain": false}
+{"text": "Is it a coincidence that the heaviest element (so far) oganesson is a \"noble gas\"?", "gold": "physics", "pred": "chemistry", "confidence": 0.954, "ood_score": -251.9267, "uncertain": false}
+{"text": "Why does gravity produce different structural shapes (spheres, disks, and filaments) depending on the cosmic scale?", "gold": "physics", "pred": "physics", "confidence": 0.9483, "ood_score": -355.25311, "uncertain": false}
+{"text": "Circularly Polarized Light Angular Momentum Paradox", "gold": "physics", "pred": "physics", "confidence": 0.9497, "ood_score": -267.96835, "uncertain": false}
+{"text": "Does the Newton Shell Theorem apply to inside an ellipsoid?", "gold": "physics", "pred": "physics", "confidence": 0.9735, "ood_score": -532.68201, "uncertain": false}
+{"text": "Why is \"the amount of heat inside a body\" a meaningless quantity?", "gold": "physics", "pred": "physics", "confidence": 0.5775, "ood_score": -1529.0791, "uncertain": false}
+{"text": "What is the material property of paper that makes it maintain its Gaussian curvature?", "gold": "physics", "pred": "physics", "confidence": 0.9075, "ood_score": -738.32959, "uncertain": false}
+{"text": "Is it more natural to think of the current density differential form J as a 1-form or a (D-1)-form?", "gold": "physics", "pred": "physics", "confidence": 0.8706, "ood_score": -571.36731, "uncertain": false}
+{"text": "Are material strains additive or multiplicative?", "gold": "physics", "pred": "physics", "confidence": 0.8963, "ood_score": -768.03937, "uncertain": false}
+{"text": "What is the fastest way to cool a pot of boiling water using ice and water?", "gold": "physics", "pred": "chemistry", "confidence": 0.8756, "ood_score": -1975.57812, "uncertain": false}
+{"text": "What does the blowup solution to Navier–Stokes mean for real-life liquids?", "gold": "physics", "pred": "chemistry", "confidence": 0.6353, "ood_score": -818.67914, "uncertain": false}
+{"text": "What are ways that AI is affecting physics similar to how it is affecting mathematics?", "gold": "physics", "pred": "technology", "confidence": 0.9652, "ood_score": -402.13596, "uncertain": false}
+{"text": "Would a bird get fried if it stood on a microwave-frequency power line?", "gold": "physics", "pred": "science", "confidence": 0.9477, "ood_score": -4071.62671, "uncertain": false}
+{"text": "Was there really an ejection against National Champion BYU in the 1984 Holiday Bowl?", "gold": "sports", "pred": "sports", "confidence": 0.9752, "ood_score": -344.44498, "uncertain": false}
+{"text": "In American Football, why don't players get their pants pulled down during the game?", "gold": "sports", "pred": "sports", "confidence": 0.9817, "ood_score": -389.44843, "uncertain": false}
+{"text": "8-ball: Hit the 8 and pocket the opponent's ball", "gold": "sports", "pred": "sports", "confidence": 0.973, "ood_score": -242.82559, "uncertain": false}
+{"text": "Should beach volleyball warm-ups include sand-specific movement drills, or only general activation?", "gold": "sports", "pred": "sports", "confidence": 0.9729, "ood_score": -629.91254, "uncertain": false}
+{"text": "Why do pickleballs and wiffleballs fly the way they do?", "gold": "sports", "pred": "biology", "confidence": 0.3016, "ood_score": -3820.37109, "uncertain": true}
+{"text": "How long was Virat Kohli able to maintain 50 Avg. in all 3 formats of test, ODI and T20 I &Did any other international player maintained such record?", "gold": "sports", "pred": "sports", "confidence": 0.9566, "ood_score": -290.05246, "uncertain": false}
+{"text": "Did 7 year old Archie Schiller take part in fielding, bowling or anything in the cricket match for Australia against India?", "gold": "sports", "pred": "sports", "confidence": 0.9579, "ood_score": -182.95367, "uncertain": false}
+{"text": "Why does Detroit have a blank \"over .500\" stat?", "gold": "sports", "pred": "sports", "confidence": 0.987, "ood_score": -552.53442, "uncertain": false}
+{"text": "Besides cricket, which team sports in South Africa have introduced representation quotas for race/ethnicity?", "gold": "sports", "pred": "sports", "confidence": 0.9648, "ood_score": -193.60822, "uncertain": false}
+{"text": "What are the typical measures of match closeness in tennis?", "gold": "sports", "pred": "sports", "confidence": 0.9503, "ood_score": -580.22345, "uncertain": false}
+{"text": "Why are swimming jammers so long?", "gold": "sports", "pred": "sports", "confidence": 0.5716, "ood_score": -4228.2002, "uncertain": false}
+{"text": "Does any cricket rule say a helmet or cap cannot be thrown in air to change direction or stop the ball?", "gold": "sports", "pred": "sports", "confidence": 0.9796, "ood_score": -439.16446, "uncertain": false}
+{"text": "Why are these Dutch 800m times so fast?", "gold": "sports", "pred": "technology", "confidence": 0.5787, "ood_score": -9861.20898, "uncertain": true}
+{"text": "Why would wheelchair racing be faster than bicycle racing?", "gold": "sports", "pred": "sports", "confidence": 0.7551, "ood_score": -2749.68311, "uncertain": false}
+{"text": "Is there a \"normalized speed\" or similar multi-dimension score in running?", "gold": "sports", "pred": "technology", "confidence": 0.6656, "ood_score": -1862.77979, "uncertain": false}
+{"text": "Team need 1 run for win the take single fielder throw the ball it's over throw 4 score?", "gold": "sports", "pred": "sports", "confidence": 0.9779, "ood_score": -173.29807, "uncertain": false}
+{"text": "Best methods to retrieve a goalball for throwing practice without vision", "gold": "sports", "pred": "sports", "confidence": 0.9885, "ood_score": -457.10193, "uncertain": false}

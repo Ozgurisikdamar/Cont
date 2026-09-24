@@ -1,0 +1,50 @@
+# Continuous integration (docs/HARDENING.md item 7, decisions.md D-35).
+#
+# Triggered manually (workflow_dispatch). Automatic push / pull_request
+# triggers are deliberately not enabled: GitHub Actions on this account ends
+# every run in "startup_failure" (billing), so an automatic trigger would only
+# paint every commit red without running anything. The same steps run locally
+# with scripts/ci.sh; enable the triggers below once Actions minutes are
+# available:
+#
+#   push:
+#     branches: [main, "claude/**"]
+#   pull_request:
+name: ci
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fast:
+    name: lint, types, offline tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: mypy contextlens project.py train.py evaluate.py
+      # offline suite: fake encoder, no downloads; network tests are deselected by pyproject addopts
+      - run: pytest -q -m "not model"
+
+  model:
+    name: tests with the trained artifact
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: fast
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -q -m model

@@ -2,6 +2,7 @@
 
     pytest --junitxml=reports/tests/pytest_offline_and_model.xml
     pytest -m network --junitxml=reports/tests/pytest_network.xml
+    pytest -m network_live --junitxml=reports/tests/pytest_network_live.xml
     python scripts/test_table.py            # -> reports/tests/results.md
 
 docs/TEST_REPORT.md links to the output, so the list of passed tests is never typed by hand.

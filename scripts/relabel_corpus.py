@@ -1,6 +1,6 @@
 """Re-apply the labelling rules to the committed corpus after a taxonomy fix.
 
-    python scripts/relabel_corpus.py            # writes data/, reports/relabel.json
+    python scripts/relabel_corpus.py            # writes data/, reports/relabel_taxonomy_<version>.json
 
 Taxonomy 1.1.0 removed the seed ``Quantum_information_science@0`` from the
 subtopic *quantum_computing*: that category holds foundational physics
@@ -77,7 +77,7 @@ def main() -> int:
         "passages_after": len(pas),
         "changes": changes,
     }
-    out = PATHS.reports / "relabel.json"
+    out = PATHS.reports / f"relabel_taxonomy_{tax.version}.json"
     out.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print({k: v for k, v in summary.items() if k != "changes"})
     return 0

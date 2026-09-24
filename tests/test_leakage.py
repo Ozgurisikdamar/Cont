@@ -7,6 +7,7 @@ import pandas as pd
 import pytest
 
 from contextlens.config import PATHS
+from contextlens.data.dataset import acceptance_texts
 
 PASSAGES = PATHS.data_processed / "passages.parquet"
 CASES = json.loads((Path(__file__).parent / "acceptance_cases.json").read_text(encoding="utf-8"))
@@ -21,7 +22,8 @@ def corpus() -> pd.DataFrame:
 
 def test_acceptance_sentences_are_not_training_data(corpus):
     texts = corpus.text.str.lower()
-    probes = [c["text"] for c in CASES["single"] + CASES["ood"]] + CASES["conversation"]["messages"]
+    probes = acceptance_texts(CASES)
+    assert len(probes) >= 25  # every section is collected
     for probe in probes:
         assert not texts.str.contains(probe.lower(), regex=False).any(), probe
 

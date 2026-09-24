@@ -41,7 +41,7 @@ class TrainConfig:
     encoder: str
     general_C: float
     subtopic_C: float
-    thresholds: tuple[float, ...] = tuple(round(x, 2) for x in np.arange(0.20, 0.71, 0.05))
+    thresholds: tuple[float, ...] = tuple(round(x, 2) for x in np.arange(0.20, 0.96, 0.05))
     ood_keep_quantile: float = 0.05  # 5% of in-distribution calibration texts fall below the gate
     min_confidence: float = 0.40
     vocabulary_size: int = 40000

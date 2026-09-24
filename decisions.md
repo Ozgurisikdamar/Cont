@@ -283,7 +283,7 @@ theme topics per turn and a 1.3-turn lag after a topic switch
 the classifier's accuracy³ (~0.67) whatever the decay; it now draws correctly
 and confidently classified passages — it measures the decay, not the model.
 
-## D-29 · Language gate
+## D-29 · Language gate (superseded by D-30)
 **Decision.** A text of ≥ 3 words of which < 40% are known English words
 (training vocabulary + stop words) is answered *uncertain*.
 **Why.** The centroid gate did not catch non-English text (a Turkish sentence
@@ -293,3 +293,260 @@ ext_dev questions; Turkish, German, Spanish and French example sentences score
 0.00–0.33.
 **Alternatives.** A language-identification model (another dependency for a
 one-language system); character n-gram heuristics (less transparent).
+
+## D-30 · Language gate: fastText lid.176 + training lexicon, per-length thresholds (replaces D-29)
+**Decision.** A text is *non-English* (new status `non_english`, reported as
+"not English", never classified) when fastText lid.176's top language is not
+English with probability ≥ c(n) **and** at least one of its words is outside
+the lexicon of the Wikipedia training split (46,488 word types). c = 0.5 for
+1–2 words, 0.3 for 3 and more. The check runs before the informativeness
+check, so a text in another script is reported as non-English rather than
+"nothing to analyse"; a text of English stop words only stays uninformative.
+**Why.** D-29's gate skipped texts of fewer than 3 words and rejected only
+39.6% of non-English dev texts. On the dev half of a Tatoeba set (18
+languages, full sentences and 1/2/3-word cuts) plus 2,000 in-domain English
+texts, `reports/experiments/language_gate.json`:
+
+| words | English accepted (Tatoeba / in-domain) | non-English rejected, D-29 → D-30 |
+|---|---|---|
+| 1 | 0.998 / 0.993 | 0.000 → 0.505 |
+| 2 | 0.997 / 0.991 | 0.000 → 0.755 |
+| 3 | 0.996 / 0.991 | 0.790 → 0.932 |
+| ≥ 4 | 0.999 / 1.000 | 0.866 → 0.986 |
+| all | 0.997 / 0.994 | 0.396 → 0.788 |
+
+Selection rule: per length bucket, highest balanced accuracy subject to ≥ 0.99
+English acceptance on both English sets. Plain classifiers could not meet the
+English constraint at every length (best balanced accuracy: fastText 0.938,
+py3langid 0.867, lingua 0.850 — but in-domain one-word English acceptance
+0.63 or lower): one or two words are often ambiguous ("Tom", "La", "Die"),
+and rare English terms ("titration": French 0.998) are what a character
+n-gram model gets wrong and a lexicon gets right. 0.015 ms per text, 0.9 MB.
+**Alternatives.** lingua (96 MB, weaker on short text), py3langid (weak on
+short text; its package pins numpy ≥ 2, which conflicts with the pinned 1.26),
+a per-word dictionary vote (no source of foreign vocabulary without new data).
+**Limits.** Single words are only half caught; "guten tag" (German 0.49) passes
+the gate. The locked Tatoeba half is evaluated once after the model freeze.
+
+## D-31 · Conversation context expires; the dominant topic switches only on agreement (amends D-28)
+**Decision.** On top of the decay (0.7, share 0.2, unchanged): (1) the
+context is cleared after **3** consecutive turns without a confident topical
+message (uncertain, off-topic or non-English); (2) the **dominant** theme topic
+changes only when **2** consecutive confident messages agree on the same new
+topic (`switch_rule = "votes"`). A single tangent still enters the theme as a
+secondary topic (a Books → Science → Biology run still composes "science books
+about biology"), but it no longer takes over the conversation.
+**Why.** The audit was right on both counts. Decay multiplies every score by the
+same factor, so the *shares* — and the theme — survived any number of
+uncertain turns (stale-theme rate after 10 uncertain turns: **1.00**). And 50%
+of one-message tangents made the tangent topic the top of the theme. Grid over
+decay × share × confirm × expiry × switch rule (360 settings) on validation
+conversations (`reports/experiments/decay.json`, `scripts/tune_decay.py`):
+
+| | v1.0 | selected |
+|---|---:|---:|
+| theme accuracy (dominant = segment topic) | 0.756 | 0.716 |
+| switch lag (turns) | 1.34 | 1.96 |
+| tangent robustness | 0.456 | 0.863 |
+| false switch rate after a tangent | 0.498 | 0.118 |
+| stale theme after 10 uncertain turns | 1.000 | 0.000 |
+| premature expiry after 2 uncertain turns | 0.000 | 0.000 |
+| 3-topic accumulation | 0.820 | 0.820 |
+
+**Trade-off (not hidden).** Theme accuracy drops by 0.04 and a real switch is
+followed about 0.6 turns later: one message cannot tell a tangent from a
+switch, so the rule waits for the second. Theme accuracy alone always prefers
+switching on every message, which is why the rule now also requires a false
+switch rate ≤ 0.15. The "votes" rule beat waiting for the accumulated-score
+leader (0.716 vs 0.655 theme accuracy at the same robustness).
+**Alternatives.** An absolute mass floor (equivalent to the streak rule here,
+since only uncertain turns lower the mass); time-based decay (the console has
+no meaningful inter-message time); a KL/embedding change-point detector (needs
+labelled conversations to tune).
+**Test split.** No longer used by the tuning script; conversation metrics on
+held-out data are reported once by the locked evaluation.
+
+## D-32 · Science means the scientific enterprise itself; audit-driven label fixes (taxonomy 1.2.0)
+**Decision.** The general topic *Science* covers science as an activity —
+method, philosophy of science, research practice and publishing, misconduct,
+the history of science *as such* — and no longer anything a science-history
+category happens to contain. Taxonomy 1.2.0:
+* `history_of_science`: seed `History_of_science@1` (was @2) with exclusions for
+  per-discipline histories, natural history, naturalists, hoaxes, museums,
+  libraries, expeditions, instruments, timelines, measurement, organisations and
+  books;
+* `scientific_research`: drops `Research_and_development@0` and
+  `Academic_publishing@0` (business R&D and publishing-industry articles);
+* audit fixes (categories located with the cached crawl, one per systematic
+  error): global `recipients_of` (politicians reached through the Olympic Order),
+  `relativity` excludes `…critics` and the category `Dimension` (algebraic
+  geometry), `scientific_method` excludes `Research_methods` and
+  `Scientific_observation` sub-categories (instruments, cell-biology
+  techniques, Euler's laws), `world_wars` excludes
+  `Science_and_technology_during_…` (radar articles), `ancient_history`
+  excludes `Historians_of_…` (modern scholars).
+
+**Why.** Root cause of the weak Science class (dev data only: val recall 0.688;
+ext_dev hsm recall 0.324, its false negatives going to Physics): the depth-2
+crawl under `History_of_science` pulled in the history of physics, biology,
+chemistry, astronomy and mathematics, so "Science" was trained as a mixture of
+every other class. The 310-passage stratified audit
+(`reports/label_audit_v2.json`, `scripts/label_audit_v2.py`) measured the rest:
+correct 74.5% [69.4, 79.1], weak 20.3% [16.2, 25.2], incorrect **5.2% [3.2,
+8.2]** (Wilson 95%); Science was the worst general topic (8/45 incorrect,
+[9.3%, 31.3%]). Each incorrect item was traced to the category that brought it
+in; the fixes above remove 7 of the 16. The 9 left are single articles filed
+directly in a seed category (Supersymmetry, "Ice age" and an ornithological
+collection sit in `Category:History_of_science` itself; a judicial institute in
+`Category:Research`) and cannot be removed by a category rule without dropping
+the seed. `Research_methods@0` was kept for *scientific_research*: removing it
+also removed literature reviews, cross-sectional studies, grounded theory and
+research synthesis (68 articles, most of them in scope), which is worse than the
+two instruments it contained.
+
+**Effect on the corpus** (`reports/relabel_taxonomy_1.2.0.json`, relabelled
+from the committed 1.1 corpus, splits kept): 883 articles changed, 730 removed
+(Science 313, Sports 207, History 125, Physics 85), 10,358 articles / 40,112
+passages left; Science keeps 2,388 / 463 / 465 train / val / test passages.
+
+**Evaluation rule for Stack Exchange.** The general external set labels every
+`hsm` question *Science*, but hsm is "history of science **and mathematics**"
+and most of its questions ask about a specific field. It is therefore reported
+twice from now on: the legacy number (all sites) and the number without hsm;
+Science on questions is measured on the subtopic set (hsm tagged
+scientific-method / philosophy-of-science, philosophy scientific-method,
+academia research-process). Test sets are not re-cut by this rule — the same
+rule applies to dev and test.
+**Not done.** The auditor is the agent that built the corpus, not an
+independent annotator; the audit is a lower bound on disagreement.
+
+## D-35 · CI: one workflow, manual trigger on this account; the same steps locally
+**Decision.** `.github/workflows/ci.yml` has two jobs — *fast* (ruff check,
+ruff format --check, mypy, the offline pytest suite with `-m "not model"`) and
+*model* (the tests that need the committed artifact) — and is triggered by
+`workflow_dispatch` only. `scripts/ci.sh` runs exactly the same steps locally
+(`bash scripts/ci.sh fast` for the first job). Network tests stay out of CI
+(`network` / `network_live`, run before releases).
+**Why not push / pull_request.** GitHub Actions on this account ends every run
+in `startup_failure` before a runner starts (billing; measured on the
+account's other repositories, 55 of 55 runs). An automatic trigger would mark
+every commit red without running a single step, which is worse than no badge:
+it trains readers to ignore red. The trigger lines are in the workflow as a
+comment; enabling them is a two-line change once Actions minutes exist.
+**Consequence (not hidden).** The audit asked for CI on every push; on this
+account that is not achievable today. What is guaranteed is that the CI
+definition exists, is correct, and passes locally (`reports/tests/`).
+
+## D-33 · Subtopic head: flat softmax kept, objective renamed "primary subtopic + secondary sibling suggestions"
+**Decision.** The subtopic head stays a 28-way softmax over the *primary*
+subtopic (C = 16 on the 1.2.0 corpus). The product claim changes: ContextLens
+does **primary subtopic classification with secondary sibling suggestions**
+(siblings whose share of the parent mass passes τ = 0.40), not true
+multi-label classification. README, model card, model report, architecture
+and final report use this wording.
+**Comparison** (`scripts/head_comparison.py`, `reports/experiments/head_comparison.json`;
+fine-tuned MiniLM embeddings; C and τ chosen per head on val; dev data only;
+rule fixed before running: mean of val subtopic macro-F1 and ext_dev subtopic
+macro-F1, heads within 0.005 broken by multi-label behaviour):
+
+| head | val sub macro-F1 | val micro-F1 | ext_dev sub macro-F1 | multi-label passages with ≥2 gold found | single-label passages given extra labels | head latency |
+|---|---:|---:|---:|---:|---:|---:|
+| flat softmax (primary label) | **0.660** | 0.669 | **0.691** | 5.7% | 5.3% | 0.13 ms |
+| one-vs-rest sigmoid, 28 labels | 0.649 | 0.657 | 0.678 | **11.8%** | 9.4% | 1.7 ms |
+| hierarchical sigmoid (per general topic) | 0.657 | 0.666 | 0.685 | 0.0% | 0.0% | 1.8 ms |
+
+General-topic macro-F1 is within 0.003 across heads (val 0.848–0.850, ext_dev
+0.741–0.747). The softmax wins on score; the hierarchical sigmoid ties within
+tolerance but never predicts a second label.
+**What the data says about multi-label.** Only 6% of passages have more than
+one subtopic, and every sigmoid head's macro-F1 optimum is the highest
+threshold on the grid (0.95): the best-scoring decision is to predict one
+label. The genuine multi-label head (one-vs-rest) does find a second gold label
+twice as often as the softmax (11.8% vs 5.7% of multi-label passages) but pays
+with 1–1.4 points of macro-F1 and more false extra labels. With these labels
+a second subtopic is a suggestion, not a prediction, and the documentation
+says so.
+**Process note (not hidden).** The first run capped the threshold grid at
+0.70; both sigmoid heads chose the cap, and on that run the rule picked the
+hierarchical sigmoid (`reports/experiments/head_comparison_grid070.json`).
+The grid was widened to 0.95 in both the experiment and production training
+before any other decision, and the rerun is the one used.
+
+## D-34 · Off-topic gate: Mahalanobis distance, thresholds on dev, conversational data added
+**Decision.** The out-of-taxonomy gate uses the Mahalanobis distance to the
+nearest general-topic mean (shared Ledoit–Wolf covariance) on the fine-tuned
+embeddings, threshold = 5th percentile of the in-domain Stack Exchange ext_dev
+questions (95% kept), combined with the unchanged confidence and language
+gates. Implemented in `contextlens/models/ood.py`, stored in the artifact.
+**Data.** CLINC150 assistant chat (in-scope intents minus six that can be
+topical; CLINC's own `oos` class excluded because it contains physics, biology
+and sports questions — `scripts/build_ood_conversational.py`) joins the
+Wikipedia out-of-taxonomy categories and the Stack Exchange off-topic sites.
+**Comparison** (`scripts/ood_experiment.py`, `reports/experiments/ood_detectors.json`,
+dev data only; rule fixed before running: highest mean AUROC over three
+in-domain/off-topic pairs):
+
+| detector | mean AUROC | FPR@95TPR chat | off-topic recall at the deployed point: wiki / SE sites / chat | SE questions answered |
+|---|---:|---:|---|---:|
+| centroid cosine (v1.0) | 0.867 | 0.466 | 0.27 / 0.45 / 0.58 | 0.902 |
+| max softmax probability | 0.785 | 0.723 | 0.23 / 0.29 / 0.35 | 0.924 |
+| energy | 0.771 | 0.689 | 0.32 / 0.35 / 0.43 | 0.907 |
+| **Mahalanobis** | **0.922** | 0.234 | 0.24 / 0.56 / 0.79 | 0.891 |
+| kNN (k = 10) | 0.904 | 0.340 | 0.27 / 0.53 / 0.69 | 0.896 |
+| binary in/off-topic classifier | 0.840 | 0.048 | 0.23 / 0.63 / 0.96 | 0.883 |
+| "other" class | 0.864 | 0.037 | 0.23 / 0.63 / 0.97 | 0.886 |
+
+**Why Mahalanobis, and what it does not fix.** It is best on all three pairs
+together and needs no off-topic training data. The two detectors trained on
+CLINC chat catch almost all chat (0.96–0.97) but they learned the chat style:
+on Wikipedia out-of-taxonomy passages they are the worst (AUROC 0.65–0.70),
+i.e. they would miss off-topic text that does not look like an assistant
+command. Wikipedia out-of-taxonomy passages remain the weak spot for every
+detector (recall ≤ 0.32 at this operating point): an encyclopedia paragraph
+about cooking or cars sits close to the training passages in style and the
+threshold is set on short questions. This is reported, not tuned away.
+**Cost.** 1.1 points fewer in-domain questions answered (0.902 → 0.891), and
+accuracy on the answered ones is unchanged (0.815 vs 0.815).
+
+**D-31 update (model v1.1.0, same rule and grid).** Re-tuned on the relabelled
+corpus with the retrained model (`reports/experiments/decay.json`): expiry
+**4** idle turns (was 3), confirm 2, votes, decay 0.7, share 0.2. Versus the
+v1.0 tracker on the same simulated conversations: theme accuracy 0.767 → 0.729,
+switch lag 1.34 → 1.92 turns, tangent robustness 0.460 → 0.874, false switch
+rate 0.488 → 0.104, stale theme after 10 uncertain turns 1.00 → 0.00,
+premature expiry 0.00, 3-topic accumulation 0.80 → 0.80.
+
+## D-36 · Locked final holdout: built before any decision, evaluated after a freeze — twice, disclosed
+**Decision.** The v1.0 `test` / `ext_test` splits were computed during
+development and are no longer blind; they are reported as *legacy (seen)*.
+The final numbers come from data no development script reads
+(`scripts/build_locked_sets.py`, `data/locked/MANIFEST.json`): 374 Wikipedia
+passages from articles in no corpus version, 2,713 Stack Exchange questions
+created 2026-01-01..2026-09-20 (15 already known were dropped), the CLINC150
+test utterances and the locked half of the Tatoeba set. `train.py` and every
+tuning script read only `train` / `val` / `ext_dev`; `scripts/freeze.py`
+records the SHA-256 of the model config, taxonomy, runtime config, training
+passages, locked manifest and artifact metadata; `evaluate.py --stage locked`
+refuses to run if any of them changed and refuses a silent second run.
+
+**Run 1 had a data bug, and there is a run 2.** Run 1
+(`reports/locked/results_run1_partition_bug.json`, raw predictions kept) showed
+a general Stack Exchange view with only 472 questions and no Technology or
+Science site. Cause: `build_locked_sets.py` stored an exclusive `set` field and
+moved every general-view question that a subtopic (site, tag) query also
+returned into the subtopic view — for the Technology and Science sites that
+was all of them. The fix is mechanical and changes no question, no label rule
+and nothing in the model: independent view flags (`assign_views`), the general
+view labelled by site exactly like the v1 general set; re-derived offline from
+the saved file (`--repair`, no network). The configuration was re-frozen (only
+the locked manifest changed) and the locked evaluation run a second time with
+the reason recorded in the results. Both runs are committed; the model was not
+changed between them, so no decision could use the locked numbers.
+**Run 2 results** (`reports/locked/results.json`, raw predictions in
+`reports/locked/raw/`): Wikipedia locked passages accuracy 0.848, macro-F1
+0.838, ECE 0.058; Stack Exchange 2026 questions accuracy 0.804, macro-F1 0.730
+(0.843 / 0.818 without hsm over the 7 other topics; hsm accuracy 0.19 — the
+D-32 scope decision, visible and not tuned away); off-topic AUROC 0.887 (SE
+off-topic sites) and 0.961 (CLINC chat), flagged 48.5% and 78.1% of them;
+9.3% of in-domain questions marked uncertain, accuracy on the answered ones
+0.844. Run 1 differed only in the Stack Exchange general view.

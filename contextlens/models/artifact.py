@@ -8,9 +8,14 @@ Layout of ``models/contextlens-topic/``::
     heads.skops        general head + subtopic heads (skops, not pickle)
     centroids.npy      class centroids for the OOD gate (allow_pickle=False)
     vocabulary.json    word -> IDF, used to pick query keywords
-    encoder/           local copy of the sentence encoder (safetensors)
+    lexicon.txt        English word types of the training split (language gate)
+    langid.ftz         fastText lid.176 language identifier (language gate)
+    encoder/           local copy of the sentence encoder (safetensors); every
+                       file is listed in metadata.json -> encoder_manifest
+                       (relative path, size, SHA-256)
 
 Loading refuses to continue when a file is missing, a checksum does not match,
+an encoder file is missing, changed or unexpected,
 the skops file contains types outside an explicit allow-list, or the encoder
 does not reproduce the fingerprint recorded at training time (the embedding of
 a fixed probe sentence) - a corrupt, tampered or mismatched artifact never runs
@@ -22,6 +27,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -30,6 +36,8 @@ import skops.io as sio
 
 from contextlens.models.encoders import ENCODERS, SentenceEncoder
 from contextlens.models.heads import FlatSubtopicSoftmax, HierarchicalSubtopics, MultiLabelHead
+from contextlens.models.language import LanguageGate, load_fasttext, read_lexicon, write_lexicon
+from contextlens.models.ood import DETECTORS, OODDetector
 from contextlens.models.topic_model import TopicModel
 
 log = logging.getLogger(__name__)
@@ -38,6 +46,7 @@ TRUSTED_TYPES = {
     "contextlens.models.heads.FlatSubtopicSoftmax",
     "contextlens.models.heads.HierarchicalSubtopics",
     "contextlens.models.heads.MultiLabelHead",
+    "contextlens.models.ood.OODDetector",
     "sklearn.linear_model._logistic.LogisticRegression",
     "numpy.dtype",
     "builtins.dict",
@@ -45,6 +54,7 @@ TRUSTED_TYPES = {
     "builtins.str",
 }
 CHECKSUMMED_FILES = ("heads.skops", "centroids.npy", "vocabulary.json")
+LANGUAGE_FILES = ("lexicon.txt", "langid.ftz")  # checksummed when present
 
 # Encoder fingerprint: the heads only make sense on the embeddings they were
 # trained on. Loading a different encoder (e.g. the Hub base model instead of the
@@ -71,6 +81,38 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def encoder_manifest(directory: Path) -> list[dict[str, Any]]:
+    """Relative path, size and SHA-256 of every file below ``directory``, sorted by path."""
+    return [
+        {"path": p.relative_to(directory).as_posix(), "size": p.stat().st_size, "sha256": sha256_file(p)}
+        for p in sorted(directory.rglob("*"))
+        if p.is_file()
+    ]
+
+
+def verify_encoder_files(directory: Path, manifest: Any) -> None:
+    """Raise ArtifactError unless the encoder directory matches ``manifest`` exactly.
+
+    The embedding fingerprint (verify_encoder) proves the encoder is *compatible*;
+    this check proves the files are the ones written at training time - including
+    files the fingerprint cannot see (e.g. tokenizer settings used only for rare
+    inputs, or an unexpected extra module)."""
+    if not isinstance(manifest, list) or not manifest:
+        raise ArtifactError(f"the artifact has no encoder manifest; retrain it.\n{HOW_TO_BUILD}")
+    expected = {str(e["path"]): e for e in manifest}
+    present = {p.relative_to(directory).as_posix(): p for p in directory.rglob("*") if p.is_file()}
+    missing = sorted(set(expected) - set(present))
+    extra = sorted(set(present) - set(expected))
+    if missing:
+        raise ArtifactError(f"encoder files missing: {missing}\n{HOW_TO_BUILD}")
+    if extra:
+        raise ArtifactError(f"unexpected files in {directory}: {extra}; the encoder was modified")
+    for rel, entry in expected.items():
+        path = present[rel]
+        if path.stat().st_size != int(entry["size"]) or sha256_file(path) != entry["sha256"]:
+            raise ArtifactError(f"checksum mismatch for {path}; the encoder is corrupt or was modified")
 
 
 def encoder_probe(encoder: Any) -> list[float]:
@@ -104,12 +146,20 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
     heads: dict[str, Any] = {"head_type": model.head_type, "general_head": model.general_head}
     if model.subtopic_heads is not None:
         heads["subtopic_heads"] = model.subtopic_heads
+    if model.ood_detector is not None:
+        heads["ood_detector"] = model.ood_detector
     sio.dump(heads, directory / "heads.skops")
     np.save(directory / "centroids.npy", model.centroids.astype(np.float32), allow_pickle=False)
     (directory / "vocabulary.json").write_text(json.dumps(vocabulary, sort_keys=True), encoding="utf-8")
+    gate = model.language_gate
+    if gate is not None:
+        write_lexicon(gate.lexicon, directory / "lexicon.txt")
+        shutil.copyfile(gate.source, directory / "langid.ftz")
     if save_encoder:
         model.encoder.save(directory / "encoder")
     meta = dict(model.metadata)
+    if (directory / "encoder").is_dir():
+        meta["encoder_manifest"] = encoder_manifest(directory / "encoder")
     meta.update(
         {
             "general_ids": model.general_ids,
@@ -119,10 +169,14 @@ def save_artifact(model: TopicModel, directory: Path, vocabulary: dict[str, floa
             "temperature": model.temperature,
             "subtopic_threshold": model.subtopic_threshold,
             "ood_threshold": model.ood_threshold,
+            "ood_method": "centroid" if model.ood_detector is None else model.ood_detector.method,
             "min_confidence": model.min_confidence,
-            "min_known_word_share": model.min_known_word_share,
+            "language_gate": None if gate is None else {"reject_confidence": gate.reject_confidence},
             "encoder_probe": encoder_probe(model.encoder),
-            "checksums": {name: sha256_file(directory / name) for name in CHECKSUMMED_FILES},
+            "checksums": {
+                name: sha256_file(directory / name)
+                for name in (*CHECKSUMMED_FILES, *(LANGUAGE_FILES if gate is not None else ()))
+            },
         }
     )
     (directory / "metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
@@ -149,6 +203,9 @@ def _load_heads(path: Path) -> dict[str, Any]:
             raise ArtifactError(f"{path} has unexpected subtopic head types")
     else:
         raise ArtifactError(f"{path} has an unknown head_type {head_type!r}")
+    detector = heads.setdefault("ood_detector", None)
+    if detector is not None and (not isinstance(detector, OODDetector) or detector.method not in DETECTORS):
+        raise ArtifactError(f"{path} has an unexpected OOD detector")
     return heads
 
 
@@ -162,7 +219,8 @@ def load_artifact(
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         raise ArtifactError(f"cannot read {meta_path}: {exc}") from exc
-    for name in CHECKSUMMED_FILES:
+    gate_meta = meta.get("language_gate")
+    for name in (*CHECKSUMMED_FILES, *(LANGUAGE_FILES if gate_meta else ())):
         path = directory / name
         if not path.exists():
             raise ArtifactError(f"artifact file missing: {path}\n{HOW_TO_BUILD}")
@@ -174,6 +232,9 @@ def load_artifact(
         key = meta.get("encoder")
         if key not in ENCODERS:
             raise ArtifactError(f"unknown encoder {key!r} in metadata")
+        encoder_dir = directory / "encoder"
+        if encoder_dir.is_dir():
+            verify_encoder_files(encoder_dir, meta.get("encoder_manifest"))
         try:
             encoder = SentenceEncoder(key, local_path=directory / "encoder")
         except (OSError, ValueError) as exc:  # FileNotFoundError is an OSError
@@ -194,8 +255,24 @@ def load_artifact(
         metadata=meta,
         max_subtopics=max_subtopics,
         head_type=heads["head_type"],
-        known_words=known_words(directory),
-        min_known_word_share=float(meta.get("min_known_word_share", 0.4)),
+        language_gate=_load_language_gate(directory, gate_meta),
+        ood_detector=heads["ood_detector"],
+    )
+
+
+def _load_language_gate(directory: Path, gate_meta: Any) -> LanguageGate | None:
+    if not gate_meta:
+        log.warning("the artifact has no language gate; non-English text will be classified")
+        return None
+    try:
+        model = load_fasttext(directory / "langid.ftz")
+    except (OSError, ValueError, ImportError) as exc:
+        raise ArtifactError(f"cannot load the language identifier: {exc}\n{HOW_TO_BUILD}") from exc
+    return LanguageGate(
+        model,
+        read_lexicon(directory / "lexicon.txt"),
+        {str(k): float(v) for k, v in gate_meta["reject_confidence"].items()},
+        source=directory / "langid.ftz",
     )
 
 

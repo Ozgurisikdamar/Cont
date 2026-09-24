@@ -1,0 +1,3276 @@
+{
+  "auditor": "corpus builder (agent), not an independent annotator",
+  "taxonomy_version": "1.2.0",
+  "items": [
+    {
+      "passage_id": "23534980-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Phrourarch",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "1471955-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Silk Road transmission of Buddhism",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "5035598-1",
+      "verdict": "weak",
+      "note": "passage has no topical content",
+      "title": "Hagrite",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "2794623-3",
+      "verdict": "weak",
+      "note": "acupuncture passage; medicine rather than history",
+      "title": "Huangdi Neijing",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "67630314-2",
+      "verdict": "weak",
+      "note": "passage about 19th-century Turin",
+      "title": "Pauli Gerrei trilingual inscription",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "2370704-3",
+      "verdict": "weak",
+      "note": "passage covers 15th-17th century, not ancient history",
+      "title": "Bafour",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "32950263-2",
+      "verdict": "incorrect",
+      "note": "modern biblical scholar; biography, not history",
+      "title": "Jane Schaberg",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "521555-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Ancient Rome",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "32112994-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Yin Yang Shiyi Mai Jiujing",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "3415043-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Proto-Euphratean language",
+      "general": "history",
+      "subtopics": "ancient_history",
+      "stratum": "ancient_history"
+    },
+    {
+      "passage_id": "59067677-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "MLOps",
+      "general": "technology",
+      "subtopics": "artificial_intelligence",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "5721403-2",
+      "verdict": "weak",
+      "note": "passage about publishing policy",
+      "title": "Machine Learning (journal)",
+      "general": "technology",
+      "subtopics": "artificial_intelligence",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "33998310-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Mountain car problem",
+      "general": "technology",
+      "subtopics": "artificial_intelligence",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "63718197-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Intrinsic motivation (artificial intelligence)",
+      "general": "technology",
+      "subtopics": "artificial_intelligence",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "1499475-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "K-line (artificial intelligence)",
+      "general": "technology",
+      "subtopics": "artificial_intelligence",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "938663-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Multi-task learning",
+      "general": "technology",
+      "subtopics": "artificial_intelligence",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "16598232-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Progress in artificial intelligence",
+      "general": "technology",
+      "subtopics": "artificial_intelligence",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "37394465-0",
+      "verdict": "weak",
+      "note": "policy framework; AI only loosely",
+      "title": "KAoS",
+      "general": "technology",
+      "subtopics": "artificial_intelligence",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "69664162-1",
+      "verdict": "weak",
+      "note": "mathematical modelling framework, AI subtopic borderline",
+      "title": "Empirical dynamic modeling",
+      "general": "technology",
+      "subtopics": "artificial_intelligence",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "63918219-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Artificial Intelligence for IT Operations",
+      "general": "technology",
+      "subtopics": "artificial_intelligence|software",
+      "stratum": "artificial_intelligence"
+    },
+    {
+      "passage_id": "14457354-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Zeeman–Doppler imaging",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "2223114-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Baryon asymmetry",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "16733372-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Astro-comb",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "48782005-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Astrophysical fluid dynamics",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "10673638-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Solar-like oscillations",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "8559787-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Nucleogenic",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "46884197-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Chaotic rotation",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "22615385-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Firehose instability",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "3259030-1",
+      "verdict": "weak",
+      "note": "optics/optical activity, not astrophysics",
+      "title": "Polarimeter",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "30841427-2",
+      "verdict": "weak",
+      "note": "optics, not astrophysics",
+      "title": "Polarization rotator",
+      "general": "physics",
+      "subtopics": "astrophysics",
+      "stratum": "astrophysics"
+    },
+    {
+      "passage_id": "43491506-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Umm Al-Kiram",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "2042595-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Qurayshi al-Shirazi",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "7831366-2",
+      "verdict": "weak",
+      "note": "bibliographic fragment",
+      "title": "David ibn Merwan al-Mukkamas",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "62683392-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Nicholas Buamah",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "5884532-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Elizabeth Enright",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "69710703-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Al-Muhibbi",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "5241699-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "International Affiliation of Writers Guilds",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "8722088-3",
+      "verdict": "weak",
+      "note": "family details only",
+      "title": "Abu Mikhnaf",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "42244409-2",
+      "verdict": "weak",
+      "note": "birth and childhood only",
+      "title": "Mbulelo Mzamane",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "344968-0",
+      "verdict": "incorrect",
+      "note": "political activist; not an author article",
+      "title": "Charles Bradlaugh",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "65840342-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Yann ar Floc'h",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "65059760-3",
+      "verdict": "weak",
+      "note": "passage on Ottoman administration; author status not shown",
+      "title": "Al-Khalidi al-Safadi",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "46658202-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Pan African Writers' Association",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "196578-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Mozi",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "98217-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Shel Silverstein",
+      "general": "books",
+      "subtopics": "authors",
+      "stratum": "authors"
+    },
+    {
+      "passage_id": "2964112-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Water basketball",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "22867899-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Hotshot (basketball)",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "8845623-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Offensive rating",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "1100642-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Personal foul (basketball)",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "972630-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Shootaround",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "55331230-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "FIBA EuroBasket All-time leading scorers in total points scored",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "7732906-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Three seconds rule",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "72571890-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Glass basketball court",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "31477675-0",
+      "verdict": "weak",
+      "note": "\"American educator\"; basketball link not shown",
+      "title": "John Miller Cooper",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "4390282-3",
+      "verdict": "weak",
+      "note": "charity foundation passage",
+      "title": "Starbury",
+      "general": "sports",
+      "subtopics": "basketball",
+      "stratum": "basketball"
+    },
+    {
+      "passage_id": "44405111-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Nanoinjection",
+      "general": "biology",
+      "subtopics": "cell_biology",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "5523586-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Progenitor cell",
+      "general": "biology",
+      "subtopics": "cell_biology|genetics",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "54629293-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Single cell epigenomics",
+      "general": "biology",
+      "subtopics": "cell_biology|genetics",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "15375808-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Basophilia",
+      "general": "biology",
+      "subtopics": "cell_biology",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "28352410-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Plasmid-mediated resistance",
+      "general": "biology",
+      "subtopics": "cell_biology",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "479385-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Extracellular fluid",
+      "general": "biology",
+      "subtopics": "cell_biology",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "28352410-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Plasmid-mediated resistance",
+      "general": "biology",
+      "subtopics": "cell_biology",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "2592262-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Protein subcellular localization prediction",
+      "general": "biology",
+      "subtopics": "cell_biology",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "10585-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Flagellate",
+      "general": "biology",
+      "subtopics": "cell_biology",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "6587682-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Cytoplast",
+      "general": "biology",
+      "subtopics": "cell_biology",
+      "stratum": "cell_biology"
+    },
+    {
+      "passage_id": "184881-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Reducing agent",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "44849610-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Catellani reaction",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "52343712-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Chain scission",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "3797013-3",
+      "verdict": "weak",
+      "note": "climatology passage",
+      "title": "Black carbon",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions|periodic_table",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "74022038-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Hydrocupration",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "3180547-1",
+      "verdict": "weak",
+      "note": "generic concept, not specific to chemistry",
+      "title": "Homogeneity and heterogeneity",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "1747735-0",
+      "verdict": "weak",
+      "note": "photosynthesis enzyme; biology/chemistry borderline",
+      "title": "Oxygen-evolving complex",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "39488712-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Arens–van Dorp synthesis",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions|organic_chemistry",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "8162786-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Nicholas reaction",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "14054801-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Koch reaction",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions",
+      "stratum": "chemical_reactions"
+    },
+    {
+      "passage_id": "46455334-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Trochoidal wave",
+      "general": "physics",
+      "subtopics": "classical_mechanics",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "383479-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Binary system",
+      "general": "physics",
+      "subtopics": "astrophysics|classical_mechanics",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "2430317-3",
+      "verdict": "weak",
+      "note": "engineering material, not mechanics as physics",
+      "title": "Anti-vibration compound",
+      "general": "physics",
+      "subtopics": "classical_mechanics",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "23813473-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Arnold diffusion",
+      "general": "physics",
+      "subtopics": "classical_mechanics",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "46606054-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Sitnikov problem",
+      "general": "physics",
+      "subtopics": "classical_mechanics",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "607686-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Palatini variation",
+      "general": "physics",
+      "subtopics": "classical_mechanics|relativity",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "25975488-1",
+      "verdict": "weak",
+      "note": "anecdote about the book series",
+      "title": "Course of Theoretical Physics",
+      "general": "physics",
+      "subtopics": "classical_mechanics|quantum_mechanics",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "38093020-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Hamilton–Jacobi–Einstein equation",
+      "general": "physics",
+      "subtopics": "classical_mechanics|relativity",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "39139834-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Relativistic angular momentum",
+      "general": "physics",
+      "subtopics": "classical_mechanics|relativity",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "54594383-1",
+      "verdict": "incorrect",
+      "note": "algebraic geometry (mathematics), not physics",
+      "title": "Perfect obstruction theory",
+      "general": "physics",
+      "subtopics": "classical_mechanics",
+      "stratum": "classical_mechanics"
+    },
+    {
+      "passage_id": "42940-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Biostasis",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "32086658-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Nutrient cycle",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "8461948-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Ecosystem approach",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "213008-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Carrion",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "36908659-3",
+      "verdict": "weak",
+      "note": "statistical definition of mountain areas",
+      "title": "Mountain research",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "11336837-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Global hectare",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "580067-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Ecoinformatics",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "19633010-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Beneficial acclimation hypothesis",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "27064677-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Occupancy frequency distribution",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "36875918-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Taxonomic impediment",
+      "general": "biology",
+      "subtopics": "ecology",
+      "stratum": "ecology"
+    },
+    {
+      "passage_id": "5457540-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Ka/Ks ratio",
+      "general": "biology",
+      "subtopics": "evolution|genetics",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "10788899-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Lek paradox",
+      "general": "biology",
+      "subtopics": "evolution",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "15441422-1",
+      "verdict": "weak",
+      "note": "physical description of an animal",
+      "title": "Hybrid iguana",
+      "general": "biology",
+      "subtopics": "evolution",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "60583126-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Assisted evolution",
+      "general": "biology",
+      "subtopics": "evolution",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "416954-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Viral evolution",
+      "general": "biology",
+      "subtopics": "evolution",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "48471703-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "GNC hypothesis",
+      "general": "biology",
+      "subtopics": "evolution|genetics",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "8942458-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Hill–Robertson effect",
+      "general": "biology",
+      "subtopics": "evolution",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "67140927-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Pollinator-mediated selection",
+      "general": "biology",
+      "subtopics": "evolution",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "26276222-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Bateman's principle",
+      "general": "biology",
+      "subtopics": "ecology|evolution",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "40041053-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Genetic purging",
+      "general": "biology",
+      "subtopics": "evolution|genetics",
+      "stratum": "evolution"
+    },
+    {
+      "passage_id": "36081378-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Cap-tied",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "5278652-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Penalty card",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "16867569-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Long ball",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "9688870-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Cruyff turn",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "16366820-1",
+      "verdict": "weak",
+      "note": "charity project passage",
+      "title": "Opportunitas aequa",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "24668740-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Co-ownership (association football)",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "71877446-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Media football",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "39121452-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Italian Law 91/1981, Article 18B",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "8192330-3",
+      "verdict": "weak",
+      "note": "foot hockey is not association football",
+      "title": "Foot hockey",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "28995031-0",
+      "verdict": "weak",
+      "note": "generic governance test",
+      "title": "Fit-and-proper-person test",
+      "general": "sports",
+      "subtopics": "football",
+      "stratum": "football"
+    },
+    {
+      "passage_id": "12008564-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Tre recombinase",
+      "general": "biology",
+      "subtopics": "genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "5117528-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Recombineering",
+      "general": "biology",
+      "subtopics": "genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "1248929-2",
+      "verdict": "weak",
+      "note": "FASD is not a genetic disorder; medicine",
+      "title": "Fetal alcohol spectrum disorder",
+      "general": "biology",
+      "subtopics": "genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "34656547-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Staggered extension process",
+      "general": "biology",
+      "subtopics": "genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "24219329-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Neurogenomics",
+      "general": "biology",
+      "subtopics": "genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "1200773-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Midparent",
+      "general": "biology",
+      "subtopics": "genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "12360129-3",
+      "verdict": "weak",
+      "note": "mimicry is evolution/ecology, not genetics",
+      "title": "Aggressive mimicry",
+      "general": "biology",
+      "subtopics": "genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "8960415-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Exonic splicing enhancer",
+      "general": "biology",
+      "subtopics": "genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "10807783-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Allotype (immunology)",
+      "general": "biology",
+      "subtopics": "genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "4530419-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Genomic island",
+      "general": "biology",
+      "subtopics": "cell_biology|genetics",
+      "stratum": "genetics"
+    },
+    {
+      "passage_id": "68181-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Workstation",
+      "general": "technology",
+      "subtopics": "hardware",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "30919632-3",
+      "verdict": "weak",
+      "note": "business data practice",
+      "title": "Product intelligence",
+      "general": "technology",
+      "subtopics": "hardware",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "13414189-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Automated X-ray inspection",
+      "general": "technology",
+      "subtopics": "hardware",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "24948768-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "General-Purpose Serial Interface",
+      "general": "technology",
+      "subtopics": "hardware",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "924635-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Advanced Computing Environment",
+      "general": "technology",
+      "subtopics": "hardware",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "4496518-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Topological quantum computer",
+      "general": "technology",
+      "subtopics": "hardware|quantum_computing",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "52742-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Desktop computer",
+      "general": "technology",
+      "subtopics": "hardware",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "1583648-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Smart Battery System",
+      "general": "technology",
+      "subtopics": "hardware",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "293396-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Flat-panel display",
+      "general": "technology",
+      "subtopics": "hardware",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "44509394-3",
+      "verdict": "weak",
+      "note": "database benchmark is software, not hardware",
+      "title": "YCSB",
+      "general": "technology",
+      "subtopics": "hardware",
+      "stratum": "hardware"
+    },
+    {
+      "passage_id": "17912788-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Science in the Age of Enlightenment",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "14115101-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Darwin Industry",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "382251-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Natural philosophy",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "224636-1",
+      "verdict": "incorrect",
+      "note": "particle physics theory, not history of science",
+      "title": "Supersymmetry",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "57537760-2",
+      "verdict": "incorrect",
+      "note": "natural-history collection (biology)",
+      "title": "William Phelps Ornithological Collection",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "31657115-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Oral History of British Science",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "53613989-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Homoeomeria (philosophy)",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "28712146-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Department of History and Philosophy of Science, University of Cambridge",
+      "general": "science",
+      "subtopics": "history_of_science|scientific_method",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "35308606-3",
+      "verdict": "weak",
+      "note": "genealogy passage",
+      "title": "Welbeck Academy",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "49535-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Thought experiment",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "1217056-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Organicism",
+      "general": "science",
+      "subtopics": "history_of_science|scientific_method",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "2582448-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Cosmic pluralism",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "15361-2",
+      "verdict": "incorrect",
+      "note": "ice ages are geology/climate",
+      "title": "Ice age",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "2202274-1",
+      "verdict": "weak",
+      "note": "spiritualism; history of science only via debunking",
+      "title": "Table-turning",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "958988-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "History of astrology",
+      "general": "science",
+      "subtopics": "history_of_science",
+      "stratum": "history_of_science"
+    },
+    {
+      "passage_id": "64560814-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Converts (novel)",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "21703018-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "The Divided Lady",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "11860490-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Merry Christmas, Mr. Baxter",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "61715140-2",
+      "verdict": "weak",
+      "note": "passage about a documentary",
+      "title": "Schmidt Happens",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "4092240-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Frozen Assets (novel)",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "31853437-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Mini Shopaholic",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "68735263-2",
+      "verdict": "weak",
+      "note": "reviews list",
+      "title": "The Watch That Ends the Night (Wolf novel)",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "43649120-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Apples (novel)",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "71460734-3",
+      "verdict": "weak",
+      "note": "manga adaptation",
+      "title": "Sweet Reincarnation",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "5539996-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Bull Run (novel)",
+      "general": "books",
+      "subtopics": "novels",
+      "stratum": "novels"
+    },
+    {
+      "passage_id": "9216088-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Paul Anspach",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "8919736-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Rudolf Kárpáti",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "40628-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Hayley Wickenheiser",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "262226-1",
+      "verdict": "incorrect",
+      "note": "mayor of Montreal; politics, not sports",
+      "title": "Jean Drapeau",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "36574656-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Olympic route network",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "9197146-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Association of National Olympic Committees",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "258685-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Katarina Witt",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "1020-2",
+      "verdict": "weak",
+      "note": "chess champion; not an Olympic sport article",
+      "title": "Anatoly Karpov",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "756418-2",
+      "verdict": "incorrect",
+      "note": "Moscow mayor; politics, not sports",
+      "title": "Yury Luzhkov",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "2708398-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Pierre Harvey",
+      "general": "sports",
+      "subtopics": "olympics",
+      "stratum": "olympics"
+    },
+    {
+      "passage_id": "27694210-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Asymmetric nucleophilic epoxidation",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions|organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "1246718-3",
+      "verdict": "weak",
+      "note": "soil organic matter; environmental science",
+      "title": "Organic matter",
+      "general": "chemistry",
+      "subtopics": "organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "54437604-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Pivaloyl chloride",
+      "general": "chemistry",
+      "subtopics": "organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "5617879-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Aziridines",
+      "general": "chemistry",
+      "subtopics": "organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "3419165-2",
+      "verdict": "weak",
+      "note": "physical chemistry rather than organic chemistry",
+      "title": "Marcus theory",
+      "general": "chemistry",
+      "subtopics": "organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "18469959-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "George S. Hammond",
+      "general": "chemistry",
+      "subtopics": "organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "2057361-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Nitrosation and nitrosylation",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions|organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "37329-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Aldehyde",
+      "general": "chemistry",
+      "subtopics": "organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "518902-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Glycoside",
+      "general": "chemistry",
+      "subtopics": "organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "27806798-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Reductions with hydrosilanes",
+      "general": "chemistry",
+      "subtopics": "chemical_reactions|organic_chemistry",
+      "stratum": "organic_chemistry"
+    },
+    {
+      "passage_id": "1773710-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Russian post offices in the Ottoman Empire",
+      "general": "history",
+      "subtopics": "ottoman_history",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "43630976-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Tafas massacre",
+      "general": "history",
+      "subtopics": "ottoman_history",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "68728080-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "İyd-i Millî",
+      "general": "history",
+      "subtopics": "ottoman_history",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "4247648-1",
+      "verdict": "weak",
+      "note": "UNESCO listing passage",
+      "title": "Turkish archery",
+      "general": "history",
+      "subtopics": "ottoman_history",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "166317-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Ottoman military reforms",
+      "general": "history",
+      "subtopics": "ottoman_history",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "1056100-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Eastern question",
+      "general": "history",
+      "subtopics": "ottoman_history",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "34079771-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Mahmud Celaleddin Efendi",
+      "general": "history",
+      "subtopics": "ottoman_history",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "3093486-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Caucasus campaign",
+      "general": "history",
+      "subtopics": "ottoman_history|world_wars",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "1056100-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Eastern question",
+      "general": "history",
+      "subtopics": "ottoman_history",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "7118632-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Temporary Law of Deportation",
+      "general": "history",
+      "subtopics": "ottoman_history",
+      "stratum": "ottoman_history"
+    },
+    {
+      "passage_id": "27119-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Silver",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "60104132-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Fullerene whiskers",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "7691765-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Cyclopropatriene",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "487518-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Group 10 element",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "22303-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Oxygen",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "3507240-2",
+      "verdict": "weak",
+      "note": "chemical safety; periodic table only loosely",
+      "title": "Water-reactive substances",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "39126009-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Cliftonite",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "222685-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Dilithium",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "5705194-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Magnesium",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "23053-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Periodic table",
+      "general": "chemistry",
+      "subtopics": "periodic_table",
+      "stratum": "periodic_table"
+    },
+    {
+      "passage_id": "362920-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Struwwelpeter",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "681433-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Death poem",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "65295185-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "As Due By Many Titles",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "40796823-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Drinkers Mass",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "34032047-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Political poetry",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "71573775-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Cantiga de amor",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "5390068-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Rhyming recipe",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "2707946-0",
+      "verdict": "weak",
+      "note": "mythological motif rather than poetry",
+      "title": "Katabasis",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "436407-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Sound poetry",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "61710-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Light poetry",
+      "general": "books",
+      "subtopics": "poetry",
+      "stratum": "poetry"
+    },
+    {
+      "passage_id": "62549019-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Andrea Morello",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "69644269-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Cross-entropy benchmarking",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "62082492-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Clifford gates",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "12485744-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Quantum walk",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "62185912-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Sycamore processor",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "343286-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Toffoli gate",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "8729-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "David Deutsch",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "55836896-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Quil (instruction set architecture)",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "65382329-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Quantum artificial life",
+      "general": "technology",
+      "subtopics": "artificial_intelligence|quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "63840940-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Hidden linear function problem",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "28676005-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Quantum cryptography",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "66143346-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Jiuzhang (quantum computer)",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "67036263-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Electron-on-helium qubit",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "68149028-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Parity measurement",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "55204104-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "QuintessenceLabs",
+      "general": "technology",
+      "subtopics": "quantum_computing",
+      "stratum": "quantum_computing"
+    },
+    {
+      "passage_id": "16907616-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Electromagnetically induced grating",
+      "general": "physics",
+      "subtopics": "classical_mechanics|quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "19092774-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "No-deleting theorem",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "40428588-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Dynamical pictures",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "6432722-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Photon polarization",
+      "general": "physics",
+      "subtopics": "astrophysics|quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "34205013-0",
+      "verdict": "weak",
+      "note": "representation theory (mathematics) framed as physics",
+      "title": "Oscillator representation",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "428513-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Many-body problem",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "30329560-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Berry connection and curvature",
+      "general": "physics",
+      "subtopics": "classical_mechanics|quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "22863481-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Composite fermion",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "74030200-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Non-invertible symmetry",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "72476496-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Hegerfeldt's theorem",
+      "general": "physics",
+      "subtopics": "quantum_mechanics|relativity",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "72614183-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Permutationally invariant quantum state tomography",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "9396720-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Objective-collapse theory",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "24731079-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Observer (quantum physics)",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "16711283-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "BKS theory",
+      "general": "physics",
+      "subtopics": "quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "8667-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Double-slit experiment",
+      "general": "physics",
+      "subtopics": "classical_mechanics|quantum_mechanics",
+      "stratum": "quantum_mechanics"
+    },
+    {
+      "passage_id": "56058842-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Édouard Guillaume",
+      "general": "physics",
+      "subtopics": "relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "50226212-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Breit frame",
+      "general": "physics",
+      "subtopics": "classical_mechanics|relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "9556706-3",
+      "verdict": "incorrect",
+      "note": "politician, not relativity",
+      "title": "Arthur Lynch (politician)",
+      "general": "physics",
+      "subtopics": "relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "1836629-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Autodynamics",
+      "general": "physics",
+      "subtopics": "relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "8482068-1",
+      "verdict": "weak",
+      "note": "family passage, no physics signal",
+      "title": "Stjepan Mohorovičić",
+      "general": "physics",
+      "subtopics": "relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "25369256-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Peres metric",
+      "general": "physics",
+      "subtopics": "relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "253251-0",
+      "verdict": "incorrect",
+      "note": "algebraic geometry, mathematics not physics",
+      "title": "Dimension of an algebraic variety",
+      "general": "physics",
+      "subtopics": "relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "69844-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Herbert Dingle",
+      "general": "physics",
+      "subtopics": "relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "2962357-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Relativistic electromagnetism",
+      "general": "physics",
+      "subtopics": "relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "20916902-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Relativistic heat conduction",
+      "general": "physics",
+      "subtopics": "relativity",
+      "stratum": "relativity"
+    },
+    {
+      "passage_id": "67330454-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "The God Equation",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "6875598-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "The Republican War on Science",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "719120-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Life and Energy",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "46644935-3",
+      "verdict": "weak",
+      "note": "sociology/marketing book",
+      "title": "Microtrends",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "339300-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "The Dragons of Eden",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "31904942-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Categories: On the Beauty of Physics",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "20230427-2",
+      "verdict": "weak",
+      "note": "social science book",
+      "title": "Outliers (book)",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "31716539-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Atlas Coelestis",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "5934705-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Wholeness and the Implicate Order",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "66390562-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "The Idiot Brain",
+      "general": "books",
+      "subtopics": "science_books",
+      "stratum": "science_books"
+    },
+    {
+      "passage_id": "27222803-0",
+      "verdict": "weak",
+      "note": "data storage tag, weak signal",
+      "title": "Data storage tag",
+      "general": "science",
+      "subtopics": "scientific_method|scientific_research",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "2871407-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Positivism",
+      "general": "science",
+      "subtopics": "scientific_method",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "47296524-2",
+      "verdict": "weak",
+      "note": "health assessment",
+      "title": "Model for assessment of telemedicine",
+      "general": "science",
+      "subtopics": "scientific_method|scientific_research",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "18654276-3",
+      "verdict": "incorrect",
+      "note": "cell biology technique",
+      "title": "Electric cell-substrate impedance sensing",
+      "general": "science",
+      "subtopics": "scientific_method|scientific_research",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "21142899-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Pasteur's quadrant",
+      "general": "science",
+      "subtopics": "scientific_method",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "6044476-1",
+      "verdict": "weak",
+      "note": "medical/psychology",
+      "title": "Disease theory of alcoholism",
+      "general": "science",
+      "subtopics": "scientific_method",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "57740853-3",
+      "verdict": "weak",
+      "note": "",
+      "title": "Network-based diffusion analysis",
+      "general": "science",
+      "subtopics": "scientific_method|scientific_research",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "9979202-1",
+      "verdict": "weak",
+      "note": "business concept",
+      "title": "Mature technology",
+      "general": "science",
+      "subtopics": "scientific_method",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "35201597-0",
+      "verdict": "weak",
+      "note": "",
+      "title": "Force matching",
+      "general": "science",
+      "subtopics": "scientific_method|scientific_research",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "14222722-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Explanandum and explanans",
+      "general": "science",
+      "subtopics": "scientific_method",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "30930441-1",
+      "verdict": "incorrect",
+      "note": "instrument, astronomy",
+      "title": "PERISCOP",
+      "general": "science",
+      "subtopics": "scientific_method|scientific_research",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "9190286-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Protocol (science)",
+      "general": "science",
+      "subtopics": "scientific_method|scientific_research",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "423727-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Scientific consensus",
+      "general": "science",
+      "subtopics": "scientific_method",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "22222481-0",
+      "verdict": "incorrect",
+      "note": "classical mechanics, physics",
+      "title": "Euler's laws of motion",
+      "general": "science",
+      "subtopics": "scientific_method",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "1690921-3",
+      "verdict": "weak",
+      "note": "nursing",
+      "title": "Nursing process",
+      "general": "science",
+      "subtopics": "scientific_method",
+      "stratum": "scientific_method"
+    },
+    {
+      "passage_id": "1827237-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Factorial experiment",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "13180029-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Covert participant observation",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "65080450-0",
+      "verdict": "weak",
+      "note": "business foresight",
+      "title": "Customer foresight",
+      "general": "science",
+      "subtopics": "scientific_method|scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "16264545-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Challenge–dechallenge–rechallenge",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "37066395-3",
+      "verdict": "weak",
+      "note": "company",
+      "title": "Science Exchange (company)",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "6994353-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Fractional factorial design",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "56223-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Piltdown Man",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "38751-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "ArXiv",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "51016820-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "OpenNeuro",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "10306262-2",
+      "verdict": "correct",
+      "note": "",
+      "title": "Replication (statistics)",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "17378587-1",
+      "verdict": "weak",
+      "note": "drug fraud, medicine",
+      "title": "Trixolan",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "1765791-0",
+      "verdict": "incorrect",
+      "note": "meteorite, astronomy/geology",
+      "title": "Orgueil (meteorite)",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "6326483-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Observational study",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "966255-1",
+      "verdict": "weak",
+      "note": "design method",
+      "title": "Participatory design",
+      "general": "science",
+      "subtopics": "scientific_method|scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "4754475-3",
+      "verdict": "incorrect",
+      "note": "judicial institute",
+      "title": "New York State Judicial Institute",
+      "general": "science",
+      "subtopics": "scientific_research",
+      "stratum": "scientific_research"
+    },
+    {
+      "passage_id": "13090391-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "SETEDIT",
+      "general": "technology",
+      "subtopics": "software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "45124802-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Software intelligence",
+      "general": "technology",
+      "subtopics": "software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "4437430-1",
+      "verdict": "weak",
+      "note": "video games",
+      "title": "Grand Theft Auto clone",
+      "general": "technology",
+      "subtopics": "software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "44529980-1",
+      "verdict": "weak",
+      "note": "games company",
+      "title": "Inkle (company)",
+      "general": "technology",
+      "subtopics": "software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "15771320-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "ReplicaNet",
+      "general": "technology",
+      "subtopics": "software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "4715-3",
+      "verdict": "weak",
+      "note": "theoretical computer science",
+      "title": "Boolean satisfiability problem",
+      "general": "technology",
+      "subtopics": "software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "27319186-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "MK II FPA",
+      "general": "technology",
+      "subtopics": "software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "2443683-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "B-Method",
+      "general": "technology",
+      "subtopics": "software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "49223421-2",
+      "verdict": "weak",
+      "note": "",
+      "title": "Weissman score",
+      "general": "technology",
+      "subtopics": "hardware|software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "954216-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Skeleton (computer programming)",
+      "general": "technology",
+      "subtopics": "software",
+      "stratum": "software"
+    },
+    {
+      "passage_id": "918783-1",
+      "verdict": "weak",
+      "note": "politics",
+      "title": "National Democratic and Labour Party",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    },
+    {
+      "passage_id": "1358178-0",
+      "verdict": "incorrect",
+      "note": "radar technology",
+      "title": "Pulse-Doppler radar",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    },
+    {
+      "passage_id": "16121532-1",
+      "verdict": "correct",
+      "note": "",
+      "title": "Anzac Day Act (New Zealand)",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    },
+    {
+      "passage_id": "67114453-0",
+      "verdict": "correct",
+      "note": "",
+      "title": "Ordinance of 9 August 1944",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    },
+    {
+      "passage_id": "421709-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Occupation of Czechoslovakia (1938–1945)",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    },
+    {
+      "passage_id": "5627720-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "National Council of the Resistance",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    },
+    {
+      "passage_id": "30257422-3",
+      "verdict": "weak",
+      "note": "interwar politics",
+      "title": "League to Enforce Peace",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    },
+    {
+      "passage_id": "193806-3",
+      "verdict": "correct",
+      "note": "",
+      "title": "Atlantic Charter",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    },
+    {
+      "passage_id": "59092992-2",
+      "verdict": "weak",
+      "note": "Cold War",
+      "title": "North Atlantic Council Fifth Session",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    },
+    {
+      "passage_id": "66471651-3",
+      "verdict": "weak",
+      "note": "post-war",
+      "title": "Genocides in history (1946 to 1999)",
+      "general": "history",
+      "subtopics": "world_wars",
+      "stratum": "world_wars"
+    }
+  ],
+  "summary": {
+    "n": 310,
+    "overall_unweighted": {
+      "correct": {
+        "n": 231,
+        "rate": 0.7452,
+        "ci95": [
+          0.6939,
+          0.7905
+        ]
+      },
+      "weak": {
+        "n": 63,
+        "rate": 0.2032,
+        "ci95": [
+          0.1622,
+          0.2515
+        ]
+      },
+      "incorrect": {
+        "n": 16,
+        "rate": 0.0516,
+        "ci95": [
+          0.032,
+          0.0822
+        ]
+      }
+    },
+    "general": {
+      "biology": {
+        "n": 40,
+        "correct": 36,
+        "weak": 4,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.0876
+        ]
+      },
+      "books": {
+        "n": 45,
+        "correct": 34,
+        "weak": 10,
+        "incorrect": 1,
+        "incorrect_ci95": [
+          0.0039,
+          0.1157
+        ]
+      },
+      "chemistry": {
+        "n": 30,
+        "correct": 24,
+        "weak": 6,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.1135
+        ]
+      },
+      "history": {
+        "n": 30,
+        "correct": 19,
+        "weak": 9,
+        "incorrect": 2,
+        "incorrect_ci95": [
+          0.0185,
+          0.2132
+        ]
+      },
+      "physics": {
+        "n": 45,
+        "correct": 36,
+        "weak": 6,
+        "incorrect": 3,
+        "incorrect_ci95": [
+          0.0229,
+          0.1786
+        ]
+      },
+      "science": {
+        "n": 45,
+        "correct": 24,
+        "weak": 13,
+        "incorrect": 8,
+        "incorrect_ci95": [
+          0.0929,
+          0.3133
+        ]
+      },
+      "sports": {
+        "n": 30,
+        "correct": 22,
+        "weak": 6,
+        "incorrect": 2,
+        "incorrect_ci95": [
+          0.0185,
+          0.2132
+        ]
+      },
+      "technology": {
+        "n": 45,
+        "correct": 36,
+        "weak": 9,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          0.0,
+          0.0787
+        ]
+      }
+    },
+    "stratum": {
+      "ancient_history": {
+        "n": 10,
+        "correct": 5,
+        "weak": 4,
+        "incorrect": 1,
+        "incorrect_ci95": [
+          0.0179,
+          0.4042
+        ]
+      },
+      "artificial_intelligence": {
+        "n": 10,
+        "correct": 7,
+        "weak": 3,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "astrophysics": {
+        "n": 10,
+        "correct": 8,
+        "weak": 2,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "authors": {
+        "n": 15,
+        "correct": 10,
+        "weak": 4,
+        "incorrect": 1,
+        "incorrect_ci95": [
+          0.0119,
+          0.2982
+        ]
+      },
+      "basketball": {
+        "n": 10,
+        "correct": 8,
+        "weak": 2,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "cell_biology": {
+        "n": 10,
+        "correct": 10,
+        "weak": 0,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "chemical_reactions": {
+        "n": 10,
+        "correct": 7,
+        "weak": 3,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "classical_mechanics": {
+        "n": 10,
+        "correct": 7,
+        "weak": 2,
+        "incorrect": 1,
+        "incorrect_ci95": [
+          0.0179,
+          0.4042
+        ]
+      },
+      "ecology": {
+        "n": 10,
+        "correct": 9,
+        "weak": 1,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "evolution": {
+        "n": 10,
+        "correct": 9,
+        "weak": 1,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "football": {
+        "n": 10,
+        "correct": 7,
+        "weak": 3,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "genetics": {
+        "n": 10,
+        "correct": 8,
+        "weak": 2,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "hardware": {
+        "n": 10,
+        "correct": 8,
+        "weak": 2,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "history_of_science": {
+        "n": 15,
+        "correct": 10,
+        "weak": 2,
+        "incorrect": 3,
+        "incorrect_ci95": [
+          0.0705,
+          0.4519
+        ]
+      },
+      "novels": {
+        "n": 10,
+        "correct": 7,
+        "weak": 3,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "olympics": {
+        "n": 10,
+        "correct": 7,
+        "weak": 1,
+        "incorrect": 2,
+        "incorrect_ci95": [
+          0.0567,
+          0.5098
+        ]
+      },
+      "organic_chemistry": {
+        "n": 10,
+        "correct": 8,
+        "weak": 2,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "ottoman_history": {
+        "n": 10,
+        "correct": 9,
+        "weak": 1,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "periodic_table": {
+        "n": 10,
+        "correct": 9,
+        "weak": 1,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "poetry": {
+        "n": 10,
+        "correct": 9,
+        "weak": 1,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "quantum_computing": {
+        "n": 15,
+        "correct": 15,
+        "weak": 0,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2039
+        ]
+      },
+      "quantum_mechanics": {
+        "n": 15,
+        "correct": 14,
+        "weak": 1,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2039
+        ]
+      },
+      "relativity": {
+        "n": 10,
+        "correct": 7,
+        "weak": 1,
+        "incorrect": 2,
+        "incorrect_ci95": [
+          0.0567,
+          0.5098
+        ]
+      },
+      "science_books": {
+        "n": 10,
+        "correct": 8,
+        "weak": 2,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "scientific_method": {
+        "n": 15,
+        "correct": 5,
+        "weak": 7,
+        "incorrect": 3,
+        "incorrect_ci95": [
+          0.0705,
+          0.4519
+        ]
+      },
+      "scientific_research": {
+        "n": 15,
+        "correct": 9,
+        "weak": 4,
+        "incorrect": 2,
+        "incorrect_ci95": [
+          0.0374,
+          0.3788
+        ]
+      },
+      "software": {
+        "n": 10,
+        "correct": 6,
+        "weak": 4,
+        "incorrect": 0,
+        "incorrect_ci95": [
+          -0.0,
+          0.2775
+        ]
+      },
+      "world_wars": {
+        "n": 10,
+        "correct": 5,
+        "weak": 4,
+        "incorrect": 1,
+        "incorrect_ci95": [
+          0.0179,
+          0.4042
+        ]
+      }
+    },
+    "incorrect_after_fixes": {
+      "fixed": 7,
+      "remaining": 9,
+      "items": [
+        {
+          "title": "Jane Schaberg",
+          "was": "history/ancient_history",
+          "now": "removed"
+        },
+        {
+          "title": "Charles Bradlaugh",
+          "was": "books/authors",
+          "now": "unchanged"
+        },
+        {
+          "title": "Perfect obstruction theory",
+          "was": "physics/classical_mechanics",
+          "now": "unchanged"
+        },
+        {
+          "title": "Supersymmetry",
+          "was": "science/history_of_science",
+          "now": "unchanged"
+        },
+        {
+          "title": "William Phelps Ornithological Collection",
+          "was": "science/history_of_science",
+          "now": "unchanged"
+        },
+        {
+          "title": "Ice age",
+          "was": "science/history_of_science",
+          "now": "unchanged"
+        },
+        {
+          "title": "Jean Drapeau",
+          "was": "sports/olympics",
+          "now": "removed"
+        },
+        {
+          "title": "Yury Luzhkov",
+          "was": "sports/olympics",
+          "now": "removed"
+        },
+        {
+          "title": "Arthur Lynch (politician)",
+          "was": "physics/relativity",
+          "now": "removed"
+        },
+        {
+          "title": "Dimension of an algebraic variety",
+          "was": "physics/relativity",
+          "now": "removed"
+        },
+        {
+          "title": "Electric cell-substrate impedance sensing",
+          "was": "science/scientific_method|scientific_research",
+          "now": "relabelled science/scientific_research"
+        },
+        {
+          "title": "PERISCOP",
+          "was": "science/scientific_method|scientific_research",
+          "now": "relabelled science/scientific_research"
+        },
+        {
+          "title": "Euler's laws of motion",
+          "was": "science/scientific_method",
+          "now": "relabelled physics/classical_mechanics"
+        },
+        {
+          "title": "Orgueil (meteorite)",
+          "was": "science/scientific_research",
+          "now": "unchanged"
+        },
+        {
+          "title": "New York State Judicial Institute",
+          "was": "science/scientific_research",
+          "now": "unchanged"
+        },
+        {
+          "title": "Pulse-Doppler radar",
+          "was": "history/world_wars",
+          "now": "removed"
+        }
+      ]
+    }
+  },
+  "corpus": "taxonomy 1.2.0 first pass (before the audit fixes of D-32); labels stored per item"
+}

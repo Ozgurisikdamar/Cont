@@ -7,6 +7,7 @@ import logging
 import time
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 
@@ -168,3 +169,21 @@ def cached_encode(encoder: SentenceEncoder, texts: list[str], cache_dir: Path, n
     log.info("encoded %d texts (%s, %s) in %.0fs", len(texts), encoder.key, name, time.perf_counter() - t0)
     np.save(path, emb)
     return emb
+
+
+@dataclass
+class CachingEncoder:
+    """Development-script wrapper: ``encode`` goes through :func:`cached_encode`.
+
+    Lets experiment scripts reuse the production training code
+    (``fit_topic_model``) without re-encoding the corpus on every run. Never
+    saved into an artifact.
+    """
+
+    inner: Any  # a SentenceEncoder (anything with encode(); cached only when it has a cache_tag)
+    cache_dir: Path
+
+    def encode(self, texts: list[str], show_progress: bool = False) -> np.ndarray:
+        if not texts or getattr(self.inner, "cache_tag", None) is None:  # e.g. the test suite's fake encoder
+            return self.inner.encode(texts)
+        return cached_encode(self.inner, texts, self.cache_dir, "texts")

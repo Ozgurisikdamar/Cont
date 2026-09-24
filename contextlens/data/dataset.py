@@ -107,3 +107,25 @@ class BenchmarkData:
             self.yg[f"sesub_{s}"] = self.space.encode_general(part.general)
             self.ys[f"sesub_{s}"] = self.space.encode_subtopics(part.subtopics)
         log.info("sizes: %s", {k: len(v) for k, v in self.text.items()})
+
+
+def acceptance_texts(cases: dict) -> list[str]:
+    """Every sentence of tests/acceptance_cases.json (none may be training data)."""
+    out: list[str] = []
+
+    def walk(node: object) -> None:
+        if isinstance(node, dict):
+            if isinstance(node.get("text"), str):
+                out.append(node["text"])
+            for key, value in node.items():
+                if key not in {"text", "comment", "note", "id"}:
+                    walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                if isinstance(item, str) and " " in item:
+                    out.append(item)
+                else:
+                    walk(item)
+
+    walk(cases)
+    return out

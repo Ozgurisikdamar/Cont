@@ -18,7 +18,7 @@ RANDOM_SEED = 42
 
 # User agent sent to every third-party HTTP service (Wikimedia policy requires a
 # descriptive UA with contact information).
-USER_AGENT = "ContextLensNLP/1.0 (https://github.com/Ozgurisikdamar/Cont)"
+USER_AGENT = "ContextLensNLP/1.0 (https://github.com/Ozgurisikdamar/ContexLens-NLP)"
 
 
 @dataclass(frozen=True)
@@ -56,6 +56,11 @@ class Settings:
     # accumulated mass is at least this value.
     theme_min_share: float = 0.2
     max_theme_topics: int = 3
+    # Clear the context after this many consecutive messages without a confident
+    # topic (0 = never), and switch the dominant topic only after this many
+    # consecutive confident messages agree on a new one (decisions.md D-31).
+    theme_expire_after: int = 4
+    theme_confirm_turns: int = 2
     # --- web search ------------------------------------------------------
     web_enabled: bool = True
     web_timeout: float = 6.0
