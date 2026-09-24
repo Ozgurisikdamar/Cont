@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0B1020"/>
+    <stop offset="1" stop-color="#121A30"/>
+  </linearGradient>
+  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#06B6D4"/>
+    <stop offset="1" stop-color="#3B82F6"/>
+  </linearGradient>
+  <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#6366F1"/>
+    <stop offset="1" stop-color="#8B5CF6"/>
+  </linearGradient>
+  <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#14B8A6"/>
+    <stop offset="1" stop-color="#22C55E"/>
+  </linearGradient>
+  <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#F59E0B"/>
+    <stop offset="1" stop-color="#FB7185"/>
+  </linearGradient>
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="8" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <style>
+    .title{font:700 42px Inter,Segoe UI,Arial,sans-serif;fill:#F8FAFC}
+    .subtitle{font:400 19px Inter,Segoe UI,Arial,sans-serif;fill:#9FB0C6}
+    .lane{font:700 15px Inter,Segoe UI,Arial,sans-serif;fill:#8FA2BA;letter-spacing:2px}
+    .cardTitle{font:700 22px Inter,Segoe UI,Arial,sans-serif;fill:#F8FAFC}
+    .cardText{font:400 16px Inter,Segoe UI,Arial,sans-serif;fill:#B8C4D4}
+    .tiny{font:600 14px Inter,Segoe UI,Arial,sans-serif;fill:#D2DCE8}
+    .accent{font:700 14px Inter,Segoe UI,Arial,sans-serif;fill:#67E8F9;letter-spacing:1.4px}
+    .accentMint{font:700 14px Inter,Segoe UI,Arial,sans-serif;fill:#6EE7B7;letter-spacing:1.4px}
+    .accentAmber{font:700 14px Inter,Segoe UI,Arial,sans-serif;fill:#FDBA74;letter-spacing:1.4px}
+  </style>
+</defs>
+
+<rect width="1600" height="1040" rx="30" fill="url(#bg)"/>
+<circle cx="1430" cy="90" r="250" fill="#06B6D4" opacity=".05"/>
+<circle cx="180" cy="900" r="290" fill="#7C3AED" opacity=".06"/>
+
+<text x="800" y="60" text-anchor="middle" class="title">ContextLens Runtime Architecture</text>
+<text x="800" y="96" text-anchor="middle" class="subtitle">Classify the message, reject weak evidence, maintain conversation context, search, and persist — without letting optional systems stop classification.</text>
+
+<!-- lane labels -->
+<text x="76" y="148" class="lane">INPUT &amp; GATES</text>
+<text x="410" y="148" class="lane">TOPIC INTELLIGENCE</text>
+<text x="820" y="148" class="lane">CONVERSATION CONTEXT</text>
+<text x="1210" y="148" class="lane">SEARCH &amp; OUTPUT</text>
+
+<!-- lane backgrounds -->
+<rect x="58" y="168" width="300" height="700" rx="26" fill="#0E1728" stroke="#24344C" stroke-width="2"/>
+<rect x="392" y="168" width="370" height="700" rx="26" fill="#0E1728" stroke="#24344C" stroke-width="2"/>
+<rect x="796" y="168" width="350" height="700" rx="26" fill="#0E1728" stroke="#24344C" stroke-width="2"/>
+<rect x="1180" y="168" width="360" height="700" rx="26" fill="#0E1728" stroke="#24344C" stroke-width="2"/>
+
+<!-- INPUT -->
+<g transform="translate(86 210)">
+  <rect width="244" height="118" rx="20" fill="#121C30" stroke="#06B6D4" stroke-width="2"/>
+  <text x="22" y="34" class="accent">MESSAGE</text>
+  <text x="22" y="68" class="cardTitle">User text</text>
+  <text x="22" y="96" class="cardText">CLI / one-shot / scripted input</text>
+</g>
+
+<g transform="translate(86 374)">
+  <rect width="244" height="132" rx="20" fill="#121C30" stroke="#3B82F6" stroke-width="2"/>
+  <text x="22" y="34" class="accent">PREPROCESS</text>
+  <text x="22" y="68" class="cardTitle">Normalize &amp; validate</text>
+  <text x="22" y="96" class="cardText">NFKC · URLs · mentions</text>
+  <text x="22" y="119" class="cardText">uninformative-input check</text>
+</g>
+
+<g transform="translate(86 552)">
+  <rect width="244" height="148" rx="20" fill="#17172A" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="22" y="34" class="accent">LANGUAGE GATE</text>
+  <text x="22" y="68" class="cardTitle">English?</text>
+  <text x="22" y="96" class="cardText">fastText lid.176 + lexicon</text>
+  <text x="22" y="119" class="cardText">non-English → weight 0</text>
+  <text x="22" y="140" class="tiny">classification path stops here</text>
+</g>
+
+<g transform="translate(86 742)">
+  <rect width="244" height="92" rx="20" fill="#221817" stroke="#F59E0B" stroke-width="2"/>
+  <text x="22" y="34" class="accentAmber">SAFE EXIT</text>
+  <text x="22" y="68" class="cardText">uninformative / non_english</text>
+</g>
+
+<!-- INTELLIGENCE -->
+<g transform="translate(422 210)">
+  <rect width="310" height="128" rx="20" fill="#17172A" stroke="url(#violet)" stroke-width="2.5"/>
+  <text x="22" y="34" class="accent">ENCODER</text>
+  <text x="22" y="68" class="cardTitle">Fine-tuned MiniLM</text>
+  <text x="22" y="96" class="cardText">384-d L2-normalized embedding</text>
+</g>
+
+<g transform="translate(422 382)">
+  <rect width="310" height="146" rx="20" fill="#121C30" stroke="#6366F1" stroke-width="2"/>
+  <text x="22" y="34" class="accent">TOPIC HEAD</text>
+  <text x="22" y="68" class="cardTitle">28-way softmax</text>
+  <text x="22" y="96" class="cardText">temperature-scaled probabilities</text>
+  <text x="22" y="119" class="cardText">8 general topics = child sums</text>
+  <text x="22" y="140" class="tiny">primary + sibling suggestions</text>
+</g>
+
+<g transform="translate(422 572)">
+  <rect width="310" height="138" rx="20" fill="#121C30" stroke="#A855F7" stroke-width="2"/>
+  <text x="22" y="34" class="accent">OOD GATE</text>
+  <text x="22" y="68" class="cardTitle">Mahalanobis distance</text>
+  <text x="22" y="96" class="cardText">distance to 8 topic means</text>
+  <text x="22" y="119" class="cardText">+ minimum confidence rule</text>
+</g>
+
+<g transform="translate(422 752)">
+  <rect width="310" height="82" rx="20" fill="#21162D" stroke="#C084FC" stroke-width="2"/>
+  <text x="22" y="34" class="accent">DECISION</text>
+  <text x="22" y="63" class="cardTitle">confident / uncertain</text>
+</g>
+
+<!-- CONTEXT -->
+<g transform="translate(826 210)">
+  <rect width="290" height="158" rx="20" fill="#10231F" stroke="#14B8A6" stroke-width="2"/>
+  <text x="22" y="34" class="accentMint">TRACKER</text>
+  <text x="22" y="68" class="cardTitle">Conversation state</text>
+  <text x="22" y="96" class="cardText">decay = 0.7</text>
+  <text x="22" y="119" class="cardText">hysteresis on dominant topic</text>
+  <text x="22" y="142" class="cardText">expiry after 4 weak turns</text>
+</g>
+
+<g transform="translate(826 414)">
+  <rect width="290" height="144" rx="20" fill="#10231F" stroke="#22C55E" stroke-width="2"/>
+  <text x="22" y="34" class="accentMint">THEME COMPOSER</text>
+  <text x="22" y="68" class="cardTitle">Topics → one theme</text>
+  <text x="22" y="96" class="cardText">taxonomy-driven roles</text>
+  <text x="22" y="119" class="cardText">no hard-coded topic pairs</text>
+</g>
+
+<g transform="translate(826 604)">
+  <rect width="290" height="122" rx="20" fill="#10231F" stroke="#2DD4BF" stroke-width="2"/>
+  <text x="22" y="34" class="accentMint">QUERY BUILDER</text>
+  <text x="22" y="68" class="cardTitle">Privacy-aware query</text>
+  <text x="22" y="96" class="cardText">theme + ≤2 public-vocabulary words</text>
+</g>
+
+<g transform="translate(826 770)">
+  <rect width="290" height="64" rx="18" fill="#191923" stroke="#64748B" stroke-width="2"/>
+  <text x="145" y="40" text-anchor="middle" class="tiny">uncertain turns add no topic weight</text>
+</g>
+
+<!-- SEARCH -->
+<g transform="translate(1210 210)">
+  <rect width="300" height="132" rx="20" fill="#102033" stroke="#06B6D4" stroke-width="2"/>
+  <text x="22" y="34" class="accent">WEB SEARCH</text>
+  <text x="22" y="68" class="cardTitle">Wikipedia first</text>
+  <text x="22" y="96" class="cardText">DuckDuckGo fallback</text>
+  <text x="22" y="119" class="cardText">no API keys required</text>
+</g>
+
+<g transform="translate(1210 388)">
+  <rect width="300" height="136" rx="20" fill="#102033" stroke="#3B82F6" stroke-width="2"/>
+  <text x="22" y="34" class="accent">RESILIENCE</text>
+  <text x="22" y="68" class="cardTitle">Search stays optional</text>
+  <text x="22" y="96" class="cardText">72 h cache · retries · backoff</text>
+  <text x="22" y="119" class="cardText">circuit breaker · HTTPS allow-list</text>
+</g>
+
+<g transform="translate(1210 570)">
+  <rect width="300" height="152" rx="20" fill="#0B2630" stroke="url(#blue)" stroke-width="2.5" filter="url(#glow)"/>
+  <text x="22" y="34" class="accent">TURN RESULT</text>
+  <text x="22" y="68" class="cardTitle">Analysis + context</text>
+  <text x="22" y="96" class="cardText">topic · confidence · subtopics</text>
+  <text x="22" y="119" class="cardText">theme · query · web results</text>
+  <text x="22" y="142" class="cardText">warnings never hide classification</text>
+</g>
+
+<g transform="translate(1210 766)">
+  <rect width="300" height="68" rx="18" fill="#241A17" stroke="#F59E0B" stroke-width="2"/>
+  <text x="150" y="42" text-anchor="middle" class="tiny">network failure → no results, not no answer</text>
+</g>
+
+<!-- Flow arrows -->
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M208 328v46" stroke="#06B6D4" stroke-width="3"/>
+  <path d="M200 362l8 12 8-12" stroke="#06B6D4" stroke-width="3"/>
+  <path d="M208 506v46" stroke="#3B82F6" stroke-width="3"/>
+  <path d="M200 540l8 12 8-12" stroke="#3B82F6" stroke-width="3"/>
+
+  <path d="M330 626 H422" stroke="#8B5CF6" stroke-width="3"/>
+  <path d="M410 618l12 8-12 8" stroke="#8B5CF6" stroke-width="3"/>
+
+  <path d="M577 338v44" stroke="#6366F1" stroke-width="3"/>
+  <path d="M569 370l8 12 8-12" stroke="#6366F1" stroke-width="3"/>
+  <path d="M577 528v44" stroke="#A855F7" stroke-width="3"/>
+  <path d="M569 560l8 12 8-12" stroke="#A855F7" stroke-width="3"/>
+  <path d="M577 710v42" stroke="#C084FC" stroke-width="3"/>
+  <path d="M569 740l8 12 8-12" stroke="#C084FC" stroke-width="3"/>
+
+  <path d="M732 793 H790 V289 H826" stroke="#14B8A6" stroke-width="3"/>
+  <path d="M814 281l12 8-12 8" stroke="#14B8A6" stroke-width="3"/>
+
+  <path d="M971 368v46" stroke="#14B8A6" stroke-width="3"/>
+  <path d="M963 402l8 12 8-12" stroke="#14B8A6" stroke-width="3"/>
+  <path d="M971 558v46" stroke="#22C55E" stroke-width="3"/>
+  <path d="M963 592l8 12 8-12" stroke="#22C55E" stroke-width="3"/>
+
+  <path d="M1116 665 H1210" stroke="#06B6D4" stroke-width="3"/>
+  <path d="M1198 657l12 8-12 8" stroke="#06B6D4" stroke-width="3"/>
+  <path d="M1360 342v46" stroke="#3B82F6" stroke-width="3"/>
+  <path d="M1352 376l8 12 8-12" stroke="#3B82F6" stroke-width="3"/>
+  <path d="M1360 524v46" stroke="#06B6D4" stroke-width="3"/>
+  <path d="M1352 558l8 12 8-12" stroke="#06B6D4" stroke-width="3"/>
+</g>
+
+<!-- persistence / artifact bar -->
+<rect x="58" y="892" width="1482" height="108" rx="22" fill="#0D1422" stroke="#475569" stroke-width="2"/>
+<text x="88" y="926" class="lane">PERSISTENCE &amp; MODEL SAFETY</text>
+
+<rect x="88" y="944" width="650" height="38" rx="12" fill="#131B29" stroke="#64748B"/>
+<text x="413" y="969" text-anchor="middle" class="tiny">SQLite · texts · predictions · conversation themes · queries · search results · 72 h cache</text>
+
+<rect x="776" y="944" width="734" height="38" rx="12" fill="#17172A" stroke="#8B5CF6"/>
+<text x="1143" y="969" text-anchor="middle" class="tiny">Artifact loaded once · skops allow-list · SHA-256 files + encoder manifest · no startup retraining</text>
+
+<!-- persistence connectors -->
+<path d="M577 834v58" stroke="#64748B" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
+<path d="M971 834v58" stroke="#64748B" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
+<path d="M1360 722v170" stroke="#64748B" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
+</svg>

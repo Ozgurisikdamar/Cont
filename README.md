@@ -101,53 +101,73 @@ Everything — data, input, output, documentation — is English.
 
 ## 3. Architecture
 
-```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, ui-sans-serif, system-ui","lineColor":"#64748B","primaryTextColor":"#FFFFFF"}}}%%
-flowchart LR
-    U["💬 User message"] --> P["✨ Preprocess"]
-    P --> L{"🌍 Language gate"}
-    L -->|"not English"| NE["🚫 non_english<br/>weight = 0"]
-    L --> E["🧠 Fine-tuned MiniLM"]
+<div align="center">
 
-    subgraph INT["INTELLIGENCE"]
-      direction TB
-      E --> S["28-way subtopic softmax<br/>+ temperature"]
-      S --> G["General topic<br/>= sum of children"]
-      E --> O["Off-topic gate<br/>Mahalanobis"]
-      G --> D{"Decision"}
-      O --> D
-    end
+<img src="docs/contextlens-architecture.svg" alt="ContextLens runtime architecture" width="100%"/>
 
-    D -->|"confident"| T["🧭 Conversation tracker<br/>decay · hysteresis · expiry"]
-    D -->|"uncertain"| X["⚠️ Show uncertainty<br/>weight = 0"]
+</div>
 
-    T --> C["🧩 Theme composer"]
-    C --> Q["🔎 Query builder"]
-    Q --> W["🌐 Wikipedia<br/>↳ DuckDuckGo fallback"]
+The runtime is deliberately split into **four independent concerns**: input gates, topic intelligence, conversation context, and search/output. Classification is the core capability; storage and web search are allowed to degrade without taking classification down.
 
-    D --> DB[("🗃️ SQLite")]
-    C --> DB
-    Q --> DB
-    W --> DB
+<table>
+<tr>
+<td width="50%" valign="top">
 
-    classDef input fill:#0F172A,stroke:#38BDF8,color:#FFFFFF,stroke-width:2px;
-    classDef intelligence fill:#312E81,stroke:#818CF8,color:#FFFFFF,stroke-width:2px;
-    classDef decision fill:#7C3AED,stroke:#C4B5FD,color:#FFFFFF,stroke-width:2px;
-    classDef context fill:#0F766E,stroke:#5EEAD4,color:#FFFFFF,stroke-width:2px;
-    classDef retrieval fill:#075985,stroke:#7DD3FC,color:#FFFFFF,stroke-width:2px;
-    classDef warn fill:#7C2D12,stroke:#FDBA74,color:#FFFFFF,stroke-width:2px;
-    classDef db fill:#111827,stroke:#94A3B8,color:#FFFFFF,stroke-width:2px;
+### 🧠 Topic intelligence
 
-    class U,P input;
-    class L,E,G,S,O intelligence;
-    class D decision;
-    class T,C context;
-    class Q,W retrieval;
-    class X,NE warn;
-    class DB db;
+A fine-tuned **MiniLM** encoder feeds a calibrated 28-way subtopic softmax. General-topic probability is derived from child subtopics, while the Mahalanobis gate and minimum-confidence rule decide whether the system should answer or explicitly return **uncertain**.
+
+</td>
+<td width="50%" valign="top">
+
+### 🧭 Conversation context
+
+Only confident predictions contribute topic weight. The tracker applies **decay, dominant-topic hysteresis and expiry**, then the taxonomy-driven composer turns active topics into one readable conversation theme.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🔎 Retrieval
+
+The query builder combines the theme with at most two safe public-vocabulary words. Search uses **Wikipedia first**, then DuckDuckGo as a fallback, with cache, retries, back-off and a circuit breaker.
+
+</td>
+<td width="50%" valign="top">
+
+### 🗃️ Persistence & failure isolation
+
+SQLite stores messages, predictions, themes, queries and results. A database or network failure produces a warning or missing search results — **not a failed classification turn**.
+
+</td>
+</tr>
+</table>
+
+### Runtime decision path
+
+```text
+message
+  ↓
+normalize
+  ↓
+language gate ───────────────→ non_english
+  ↓
+fine-tuned MiniLM
+  ↓
+28-way calibrated subtopic probabilities
+  ↓
+general-topic aggregation + Mahalanobis OOD gate
+  ↓
+confident ─→ tracker ─→ theme ─→ query ─→ Wikipedia / DuckDuckGo
+uncertain ─→ no topic weight
+  ↓
+SQLite history + TurnResult
 ```
 
-Details, the sequence of one turn and the database schema:
+The trained artifact is loaded once with a **skops trusted-type allow-list, SHA-256 validation for model and encoder files, and an encoder fingerprint**. The application never retrains the model during startup.
+
+Details, the full per-turn sequence, model internals, offline data flow and database schema:
 [docs/architecture.md](docs/architecture.md). CLI, settings and Python API:
 [docs/api.md](docs/api.md).
 
