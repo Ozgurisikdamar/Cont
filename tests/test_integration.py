@@ -273,3 +273,9 @@ def test_artifact_with_unknown_head_type_is_refused(fake_model, tmp_path):
     (out / "metadata.json").write_text(json.dumps(meta))
     with pytest.raises(ArtifactError, match="unknown head_type"):
         load_artifact(out, encoder=FakeEncoder())
+
+
+def test_empty_batch_is_handled(fake_model):
+    gp, cond, ood = fake_model.predict_proba([])
+    assert gp.shape == (0, len(fake_model.general_ids)) and cond.shape[0] == 0 and ood.shape == (0,)
+    assert fake_model.predict_many([]) == []

@@ -79,6 +79,9 @@ class TopicModel:
 
     def predict_proba(self, texts: list[str]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         """Batch probabilities: (P(general), P(sub | general), ood_scores). Texts must be normalised."""
+        if not texts:
+            n_gen, n_sub = len(self.general_ids), len(self.subtopic_ids)
+            return np.zeros((0, n_gen)), np.zeros((0, n_sub)), np.zeros(0)
         X = self.encoder.encode(texts)
         if self.head_type == "flat_softmax":
             assert isinstance(self.general_head, FlatSubtopicSoftmax)
