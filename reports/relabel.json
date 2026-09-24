@@ -1,0 +1,1408 @@
+{
+  "taxonomy_version": "1.1.0",
+  "articles_changed": 136,
+  "articles_removed": 81,
+  "transitions": {
+    "technology -> removed": 81,
+    "technology -> physics": 49,
+    "technology -> technology": 6
+  },
+  "by_split": {
+    "train": 91,
+    "test": 26,
+    "val": 19
+  },
+  "articles_after": 11088,
+  "passages_after": 42942,
+  "changes": [
+    {
+      "title": "AQUA@home",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Absolutely maximally entangled state",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Alexander Holevo",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Algorithmic cooling",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Amplitude damping channel",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Ancilla bit",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bekenstein bound",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "astrophysics"
+      ]
+    },
+    {
+      "title": "Bell diagonal state",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Bell state",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Bell's theorem",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Boson sampling",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bound entanglement",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bra\u2013ket notation",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Bures metric",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "CSS code",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cat state",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Cavity quantum electrodynamics",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Center for Quantum Information Science & Technology",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Centre for Nanoscience and Quantum Information",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Centre for Quantum Technologies",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Charge qubit",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Circuit quantum electrodynamics",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Classical information channel",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Cluster state",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Concurrence (quantum computing)",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Continuous-time quantum walk",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Continuous-variable quantum information",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Counterfactual quantum computation",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "D-Wave Two",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "technology",
+        "hardware"
+      ]
+    },
+    {
+      "title": "Decoherence-free subspaces",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Density matrix",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Dephasing",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "classical_mechanics|quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Dynamical decoupling",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Elitzur\u2013Vaidman bomb tester",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Entanglement depth",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Entanglement distillation",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Entanglement-assisted classical capacity",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Entropy exchange",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Fidelity of quantum states",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Flux qubit",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Fundamental Fysiks Group",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Georgia Tech Quantum Institute",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Germanium-vacancy center in diamond",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Gnu code",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "technology",
+        "hardware"
+      ]
+    },
+    {
+      "title": "Gottesman\u2013Knill theorem",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Graph state",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Hamiltonian simulation",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Holographic principle",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "astrophysics"
+      ]
+    },
+    {
+      "title": "Information causality",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Institute for Quantum Computing",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "LOCC",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Leggett inequality",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Leggett\u2013Garg inequality",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "M-Labs",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Mike & Ophelia Lazaridis Quantum-Nano Centre",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Monogamy of entanglement",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Multipartite entanglement",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "NOON state",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Negativity (quantum mechanics)",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "No-broadcasting theorem",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "No-cloning theorem",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "No-communication theorem",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "No-deleting theorem",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Noiseless subsystems",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Nuclear magnetic resonance quantum computer",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "One-way quantum computer",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "technology",
+        "software"
+      ]
+    },
+    {
+      "title": "Optical cluster state",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Pauli group",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Phase factor",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Phase qubit",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Physical Review A",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pockels effect",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "astrophysics"
+      ]
+    },
+    {
+      "title": "Pulse programming",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Pusey\u2013Barrett\u2013Rudolph theorem",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum Byzantine agreement",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum Communications Hub",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum Cram\u00e9r\u2013Rao bound",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum Experiments at Space Scale",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum Fisher information",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum LC circuit",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum Markov chain",
+      "split": "test",
+      "old": [
+        "technology",
+        "artificial_intelligence|quantum_computing"
+      ],
+      "new": [
+        "technology",
+        "artificial_intelligence"
+      ]
+    },
+    {
+      "title": "Quantum Theory: Concepts and Methods",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum bus",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum catalyst",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum cellular automaton",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum circuit",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "technology",
+        "software"
+      ]
+    },
+    {
+      "title": "Quantum cloning",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum convolutional code",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum digital signature",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum discord",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum dot cellular automaton",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum entanglement",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum finance",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum fingerprinting",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum game theory",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum illumination",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum imaging",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum information science",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum lithography",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum logic clock",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum memory",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum metrology",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum pseudo-telepathy",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum radar",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Quantum random circuits",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "technology",
+        "software"
+      ]
+    },
+    {
+      "title": "Quantum refereed game",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum register",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum sensor",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Quantum t-design",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "QxBranch",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Range criterion",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Reduced dynamics",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Reduction criterion",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Rigetti Computing",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Separable state",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Silicon-vacancy center in diamond",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Spin model",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Spin qubit quantum computer",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Spin squeezing",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Squashed entanglement",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "State-merging",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Steane code",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Superconducting quantum computing",
+      "split": "val",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Superdense coding",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Symmetric logarithmic derivative",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Threshold theorem",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Time-bin encoding",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Toric code",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Trace distance",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Transmon",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Trapped-ion quantum computer",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "USC-Lockheed Martin Quantum Computing Center",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Uncomputation",
+      "split": "train",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Waterloo Institute for Nanotechnology",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": null
+    },
+    {
+      "title": "Weak measurement",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    },
+    {
+      "title": "Weak value",
+      "split": "test",
+      "old": [
+        "technology",
+        "quantum_computing"
+      ],
+      "new": [
+        "physics",
+        "quantum_mechanics"
+      ]
+    }
+  ]
+}

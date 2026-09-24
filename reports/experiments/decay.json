@@ -1,0 +1,517 @@
+{
+  "protocol": "Choose the conversation decay on simulated conversations (docs/EXPERIMENTS.md, E-DECAY).\n\nConversations are simulated from held-out passages with the trained model's\nreal predictions:\n\n* a conversation has 3 segments; each segment has a true topic and lasts 3-6\n  turns; 75% of turns are on-topic, 15% are tangents (another topic) and 10%\n  are out-of-taxonomy passages;\n* the tracker sees exactly what the app would see (calibrated general\n  probabilities, weight 0 for uncertain turns); on-topic turns are drawn from\n  all passages of the topic, including ones the model is unsure about.\n\nMetrics per decay value:\n  theme_accuracy   top theme topic == segment topic (turns after the first of a segment)\n  switch_lag       turns needed after a topic switch until the theme follows\n  tangent_robust   share of tangent turns where the theme stays on the segment topic\n  accumulation_3   P(all three topics of a Books -> Science -> Biology style\n                   3-message sequence of distinct topics are in the theme), with\n                   messages the model classified correctly and confidently\n  spurious_topics  mean number of theme topics that are neither the current nor\n                   the previous segment topic (noise let in by a low share)\n\nGrid: decay x theme_min_share (the share a topic needs to be part of the\ntheme). Rule: maximise validation theme_accuracy among settings with\naccumulation_3 >= 0.80, ties -> fewer spurious topics. If no setting meets the\nconstraint this is recorded (constraint_met = false) and the setting with the\nhighest accumulation is taken.\n\nSelection uses conversations built from the validation split; the test split\nonly reports. Output: reports/experiments/decay.json\n\n    python scripts/tune_decay.py\n",
+  "results": {
+    "val": [
+      {
+        "decay": 0.0,
+        "min_share": 0.1,
+        "theme_accuracy": 0.6329,
+        "switch_lag": 0.51,
+        "tangent_robust": 0.0162,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.4138
+      },
+      {
+        "decay": 0.0,
+        "min_share": 0.15,
+        "theme_accuracy": 0.6329,
+        "switch_lag": 0.51,
+        "tangent_robust": 0.0162,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.356
+      },
+      {
+        "decay": 0.0,
+        "min_share": 0.2,
+        "theme_accuracy": 0.6329,
+        "switch_lag": 0.51,
+        "tangent_robust": 0.0162,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.3222
+      },
+      {
+        "decay": 0.0,
+        "min_share": 0.25,
+        "theme_accuracy": 0.6329,
+        "switch_lag": 0.51,
+        "tangent_robust": 0.0162,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.3
+      },
+      {
+        "decay": 0.3,
+        "min_share": 0.1,
+        "theme_accuracy": 0.6804,
+        "switch_lag": 0.562,
+        "tangent_robust": 0.0501,
+        "accumulation_3": 0.0475,
+        "spurious_topics": 0.6789
+      },
+      {
+        "decay": 0.3,
+        "min_share": 0.15,
+        "theme_accuracy": 0.6804,
+        "switch_lag": 0.562,
+        "tangent_robust": 0.0501,
+        "accumulation_3": 0.0025,
+        "spurious_topics": 0.576
+      },
+      {
+        "decay": 0.3,
+        "min_share": 0.2,
+        "theme_accuracy": 0.6804,
+        "switch_lag": 0.562,
+        "tangent_robust": 0.0501,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.4551
+      },
+      {
+        "decay": 0.3,
+        "min_share": 0.25,
+        "theme_accuracy": 0.6804,
+        "switch_lag": 0.562,
+        "tangent_robust": 0.0501,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.3187
+      },
+      {
+        "decay": 0.5,
+        "min_share": 0.1,
+        "theme_accuracy": 0.7094,
+        "switch_lag": 0.623,
+        "tangent_robust": 0.0854,
+        "accumulation_3": 0.9625,
+        "spurious_topics": 0.8128
+      },
+      {
+        "decay": 0.5,
+        "min_share": 0.15,
+        "theme_accuracy": 0.7094,
+        "switch_lag": 0.623,
+        "tangent_robust": 0.0854,
+        "accumulation_3": 0.1625,
+        "spurious_topics": 0.6138
+      },
+      {
+        "decay": 0.5,
+        "min_share": 0.2,
+        "theme_accuracy": 0.7094,
+        "switch_lag": 0.623,
+        "tangent_robust": 0.0854,
+        "accumulation_3": 0.005,
+        "spurious_topics": 0.517
+      },
+      {
+        "decay": 0.5,
+        "min_share": 0.25,
+        "theme_accuracy": 0.7094,
+        "switch_lag": 0.623,
+        "tangent_robust": 0.0854,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.4101
+      },
+      {
+        "decay": 0.6,
+        "min_share": 0.1,
+        "theme_accuracy": 0.7436,
+        "switch_lag": 0.938,
+        "tangent_robust": 0.2077,
+        "accumulation_3": 0.9925,
+        "spurious_topics": 0.8532
+      },
+      {
+        "decay": 0.6,
+        "min_share": 0.15,
+        "theme_accuracy": 0.7436,
+        "switch_lag": 0.938,
+        "tangent_robust": 0.2077,
+        "accumulation_3": 0.9425,
+        "spurious_topics": 0.6733
+      },
+      {
+        "decay": 0.6,
+        "min_share": 0.2,
+        "theme_accuracy": 0.7436,
+        "switch_lag": 0.938,
+        "tangent_robust": 0.2077,
+        "accumulation_3": 0.0575,
+        "spurious_topics": 0.5279
+      },
+      {
+        "decay": 0.6,
+        "min_share": 0.25,
+        "theme_accuracy": 0.7436,
+        "switch_lag": 0.938,
+        "tangent_robust": 0.2077,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.4034
+      },
+      {
+        "decay": 0.7,
+        "min_share": 0.1,
+        "theme_accuracy": 0.7571,
+        "switch_lag": 1.343,
+        "tangent_robust": 0.3343,
+        "accumulation_3": 1.0,
+        "spurious_topics": 0.9089
+      },
+      {
+        "decay": 0.7,
+        "min_share": 0.15,
+        "theme_accuracy": 0.7571,
+        "switch_lag": 1.343,
+        "tangent_robust": 0.3343,
+        "accumulation_3": 0.9875,
+        "spurious_topics": 0.7177
+      },
+      {
+        "decay": 0.7,
+        "min_share": 0.2,
+        "theme_accuracy": 0.7571,
+        "switch_lag": 1.343,
+        "tangent_robust": 0.3343,
+        "accumulation_3": 0.825,
+        "spurious_topics": 0.5371
+      },
+      {
+        "decay": 0.7,
+        "min_share": 0.25,
+        "theme_accuracy": 0.7571,
+        "switch_lag": 1.343,
+        "tangent_robust": 0.3343,
+        "accumulation_3": 0.01,
+        "spurious_topics": 0.3676
+      },
+      {
+        "decay": 0.8,
+        "min_share": 0.1,
+        "theme_accuracy": 0.7295,
+        "switch_lag": 1.785,
+        "tangent_robust": 0.38,
+        "accumulation_3": 1.0,
+        "spurious_topics": 0.9681
+      },
+      {
+        "decay": 0.8,
+        "min_share": 0.15,
+        "theme_accuracy": 0.7295,
+        "switch_lag": 1.785,
+        "tangent_robust": 0.38,
+        "accumulation_3": 0.995,
+        "spurious_topics": 0.7401
+      },
+      {
+        "decay": 0.8,
+        "min_share": 0.2,
+        "theme_accuracy": 0.7295,
+        "switch_lag": 1.785,
+        "tangent_robust": 0.38,
+        "accumulation_3": 0.9325,
+        "spurious_topics": 0.4955
+      },
+      {
+        "decay": 0.8,
+        "min_share": 0.25,
+        "theme_accuracy": 0.7295,
+        "switch_lag": 1.785,
+        "tangent_robust": 0.38,
+        "accumulation_3": 0.56,
+        "spurious_topics": 0.2984
+      },
+      {
+        "decay": 0.9,
+        "min_share": 0.1,
+        "theme_accuracy": 0.6265,
+        "switch_lag": 2.493,
+        "tangent_robust": 0.352,
+        "accumulation_3": 1.0,
+        "spurious_topics": 1.0253
+      },
+      {
+        "decay": 0.9,
+        "min_share": 0.15,
+        "theme_accuracy": 0.6265,
+        "switch_lag": 2.493,
+        "tangent_robust": 0.352,
+        "accumulation_3": 1.0,
+        "spurious_topics": 0.7807
+      },
+      {
+        "decay": 0.9,
+        "min_share": 0.2,
+        "theme_accuracy": 0.6265,
+        "switch_lag": 2.493,
+        "tangent_robust": 0.352,
+        "accumulation_3": 0.9475,
+        "spurious_topics": 0.4823
+      },
+      {
+        "decay": 0.9,
+        "min_share": 0.25,
+        "theme_accuracy": 0.6265,
+        "switch_lag": 2.493,
+        "tangent_robust": 0.352,
+        "accumulation_3": 0.8025,
+        "spurious_topics": 0.2802
+      }
+    ],
+    "test": [
+      {
+        "decay": 0.0,
+        "min_share": 0.1,
+        "theme_accuracy": 0.6277,
+        "switch_lag": 0.532,
+        "tangent_robust": 0.025,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.4176
+      },
+      {
+        "decay": 0.0,
+        "min_share": 0.15,
+        "theme_accuracy": 0.6277,
+        "switch_lag": 0.532,
+        "tangent_robust": 0.025,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.3532
+      },
+      {
+        "decay": 0.0,
+        "min_share": 0.2,
+        "theme_accuracy": 0.6277,
+        "switch_lag": 0.532,
+        "tangent_robust": 0.025,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.31
+      },
+      {
+        "decay": 0.0,
+        "min_share": 0.25,
+        "theme_accuracy": 0.6277,
+        "switch_lag": 0.532,
+        "tangent_robust": 0.025,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.289
+      },
+      {
+        "decay": 0.3,
+        "min_share": 0.1,
+        "theme_accuracy": 0.6827,
+        "switch_lag": 0.568,
+        "tangent_robust": 0.0766,
+        "accumulation_3": 0.0425,
+        "spurious_topics": 0.6683
+      },
+      {
+        "decay": 0.3,
+        "min_share": 0.15,
+        "theme_accuracy": 0.6827,
+        "switch_lag": 0.568,
+        "tangent_robust": 0.0766,
+        "accumulation_3": 0.02,
+        "spurious_topics": 0.5588
+      },
+      {
+        "decay": 0.3,
+        "min_share": 0.2,
+        "theme_accuracy": 0.6827,
+        "switch_lag": 0.568,
+        "tangent_robust": 0.0766,
+        "accumulation_3": 0.0125,
+        "spurious_topics": 0.4313
+      },
+      {
+        "decay": 0.3,
+        "min_share": 0.25,
+        "theme_accuracy": 0.6827,
+        "switch_lag": 0.568,
+        "tangent_robust": 0.0766,
+        "accumulation_3": 0.0,
+        "spurious_topics": 0.3128
+      },
+      {
+        "decay": 0.5,
+        "min_share": 0.1,
+        "theme_accuracy": 0.7115,
+        "switch_lag": 0.647,
+        "tangent_robust": 0.1281,
+        "accumulation_3": 0.935,
+        "spurious_topics": 0.789
+      },
+      {
+        "decay": 0.5,
+        "min_share": 0.15,
+        "theme_accuracy": 0.7115,
+        "switch_lag": 0.647,
+        "tangent_robust": 0.1281,
+        "accumulation_3": 0.1625,
+        "spurious_topics": 0.6036
+      },
+      {
+        "decay": 0.5,
+        "min_share": 0.2,
+        "theme_accuracy": 0.7115,
+        "switch_lag": 0.647,
+        "tangent_robust": 0.1281,
+        "accumulation_3": 0.02,
+        "spurious_topics": 0.5024
+      },
+      {
+        "decay": 0.5,
+        "min_share": 0.25,
+        "theme_accuracy": 0.7115,
+        "switch_lag": 0.647,
+        "tangent_robust": 0.1281,
+        "accumulation_3": 0.0125,
+        "spurious_topics": 0.3935
+      },
+      {
+        "decay": 0.6,
+        "min_share": 0.1,
+        "theme_accuracy": 0.7446,
+        "switch_lag": 0.93,
+        "tangent_robust": 0.2489,
+        "accumulation_3": 0.9925,
+        "spurious_topics": 0.8324
+      },
+      {
+        "decay": 0.6,
+        "min_share": 0.15,
+        "theme_accuracy": 0.7446,
+        "switch_lag": 0.93,
+        "tangent_robust": 0.2489,
+        "accumulation_3": 0.885,
+        "spurious_topics": 0.6608
+      },
+      {
+        "decay": 0.6,
+        "min_share": 0.2,
+        "theme_accuracy": 0.7446,
+        "switch_lag": 0.93,
+        "tangent_robust": 0.2489,
+        "accumulation_3": 0.0675,
+        "spurious_topics": 0.5177
+      },
+      {
+        "decay": 0.6,
+        "min_share": 0.25,
+        "theme_accuracy": 0.7446,
+        "switch_lag": 0.93,
+        "tangent_robust": 0.2489,
+        "accumulation_3": 0.015,
+        "spurious_topics": 0.39
+      },
+      {
+        "decay": 0.7,
+        "min_share": 0.1,
+        "theme_accuracy": 0.7599,
+        "switch_lag": 1.317,
+        "tangent_robust": 0.3682,
+        "accumulation_3": 0.9975,
+        "spurious_topics": 0.8855
+      },
+      {
+        "decay": 0.7,
+        "min_share": 0.15,
+        "theme_accuracy": 0.7599,
+        "switch_lag": 1.317,
+        "tangent_robust": 0.3682,
+        "accumulation_3": 0.9575,
+        "spurious_topics": 0.699
+      },
+      {
+        "decay": 0.7,
+        "min_share": 0.2,
+        "theme_accuracy": 0.7599,
+        "switch_lag": 1.317,
+        "tangent_robust": 0.3682,
+        "accumulation_3": 0.8,
+        "spurious_topics": 0.5276
+      },
+      {
+        "decay": 0.7,
+        "min_share": 0.25,
+        "theme_accuracy": 0.7599,
+        "switch_lag": 1.317,
+        "tangent_robust": 0.3682,
+        "accumulation_3": 0.025,
+        "spurious_topics": 0.3584
+      },
+      {
+        "decay": 0.8,
+        "min_share": 0.1,
+        "theme_accuracy": 0.7332,
+        "switch_lag": 1.785,
+        "tangent_robust": 0.4286,
+        "accumulation_3": 1.0,
+        "spurious_topics": 0.9478
+      },
+      {
+        "decay": 0.8,
+        "min_share": 0.15,
+        "theme_accuracy": 0.7332,
+        "switch_lag": 1.785,
+        "tangent_robust": 0.4286,
+        "accumulation_3": 0.9925,
+        "spurious_topics": 0.7271
+      },
+      {
+        "decay": 0.8,
+        "min_share": 0.2,
+        "theme_accuracy": 0.7332,
+        "switch_lag": 1.785,
+        "tangent_robust": 0.4286,
+        "accumulation_3": 0.89,
+        "spurious_topics": 0.4863
+      },
+      {
+        "decay": 0.8,
+        "min_share": 0.25,
+        "theme_accuracy": 0.7332,
+        "switch_lag": 1.785,
+        "tangent_robust": 0.4286,
+        "accumulation_3": 0.5425,
+        "spurious_topics": 0.2906
+      },
+      {
+        "decay": 0.9,
+        "min_share": 0.1,
+        "theme_accuracy": 0.6379,
+        "switch_lag": 2.464,
+        "tangent_robust": 0.3962,
+        "accumulation_3": 1.0,
+        "spurious_topics": 1.0066
+      },
+      {
+        "decay": 0.9,
+        "min_share": 0.15,
+        "theme_accuracy": 0.6379,
+        "switch_lag": 2.464,
+        "tangent_robust": 0.3962,
+        "accumulation_3": 1.0,
+        "spurious_topics": 0.7632
+      },
+      {
+        "decay": 0.9,
+        "min_share": 0.2,
+        "theme_accuracy": 0.6379,
+        "switch_lag": 2.464,
+        "tangent_robust": 0.3962,
+        "accumulation_3": 0.93,
+        "spurious_topics": 0.4731
+      },
+      {
+        "decay": 0.9,
+        "min_share": 0.25,
+        "theme_accuracy": 0.6379,
+        "switch_lag": 2.464,
+        "tangent_robust": 0.3962,
+        "accumulation_3": 0.735,
+        "spurious_topics": 0.2741
+      }
+    ]
+  },
+  "selected_decay": 0.7,
+  "selected_min_share": 0.2,
+  "constraint_met": true,
+  "selection_rule": "max validation theme_accuracy subject to accumulation_3 >= 0.80 (ties: fewer spurious topics)"
+}

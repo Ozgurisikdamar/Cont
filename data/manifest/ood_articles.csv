@@ -1,0 +1,670 @@
+title,wiki_id,url,category,split,text_sha256
+Washing meat,67579838,https://en.wikipedia.org/wiki/Washing%20meat,Cooking_techniques,val,d4fd999c96a6b744e1e7ffd8c95f1ebe08fc55ab8d346f8d29116bf240500421
+Infusion,3639992,https://en.wikipedia.org/wiki/Infusion,Cooking_techniques,val,9ce52c623bd3f36ed6a75082919bb8ffdc8422ca290723ce43d1c4488f083764
+Low-temperature cooking,9461357,https://en.wikipedia.org/wiki/Low-temperature%20cooking,Cooking_techniques,val,6d229949c944f88c8897020ac96d8cf176fd45616ca1b96a9f9a76daa5de83ac
+Discada,26762330,https://en.wikipedia.org/wiki/Discada,Cooking_techniques,val,43e7301571813e1b97a2c980b0310bc1f968d6e70853daff844f695abee6ca21
+Smoke ring (cooking),54417758,https://en.wikipedia.org/wiki/Smoke%20ring%20%28cooking%29,Cooking_techniques,val,a46d50cc98855a6732b8b74e1c49bdc6b46f764c0f0c82bc4dc8bbf8487c9d35
+Pressure frying,97841,https://en.wikipedia.org/wiki/Pressure%20frying,Cooking_techniques,val,1025a1190338855d5e8860b507c35f3bdd9d2f5b7d61d22e7bca41fccd0b61c1
+Braising,52869,https://en.wikipedia.org/wiki/Braising,Cooking_techniques,val,f403f229e9dfd308799f1daf2b7eaa7ebbf644541ea751922d8db9367d4990ea
+Rendering (animal products),885462,https://en.wikipedia.org/wiki/Rendering%20%28animal%20products%29,Cooking_techniques,val,4085d29b8815af6342b33899f5940d6471bfec2ad703ac763b48c80d3f08e152
+Outdoor cooking,261250,https://en.wikipedia.org/wiki/Outdoor%20cooking,Cooking_techniques,val,f137e77b370d493401452dcfff49d7e7c5329057885db7561da459ab2435cbf9
+Robatayaki,36500195,https://en.wikipedia.org/wiki/Robatayaki,Cooking_techniques,val,e16ea0026a99e7270070d8d95e14f33690a676b3238c7197715a4f327cb8b4a6
+Steeping,1035742,https://en.wikipedia.org/wiki/Steeping,Cooking_techniques,val,18f940d9fa09ed5f70f72a1b71ef636bbc551fd7c220a634cf31a5073aa6c644
+Boiling,52636,https://en.wikipedia.org/wiki/Boiling,Cooking_techniques,val,9f2090ade7938b71dc0a068acca53a80eb9fd0f1064fc9c4e924140cc6bda6cd
+Stone boiling,58451340,https://en.wikipedia.org/wiki/Stone%20boiling,Cooking_techniques,val,07dcf78d4bf080f4dad3315ca4dfc50583094372fb63ac68cd7df35d79511ae4
+Frying,26301130,https://en.wikipedia.org/wiki/Frying,Cooking_techniques,val,74d8aea79742cb25f8a3714125c3f1bd44c3fcfaa730ae3ed88ff972a7a0ea82
+Flambé,1028618,https://en.wikipedia.org/wiki/Flamb%C3%A9,Cooking_techniques,val,94e9394b458bd99e406bc318ea53cdd357462c67c00b9e7dad48cf46ef734427
+Concasse,9326866,https://en.wikipedia.org/wiki/Concasse,Cooking_techniques,val,d18dc0e9d973db63ab997f19505a29da164ecd5bc3531a8002f4d84bef7fc8ab
+Pickling,2259607,https://en.wikipedia.org/wiki/Pickling,Cooking_techniques,val,bc78d2848cbd83da2cfd604219caded61a3608ddd1f10b8e879a258e7ed375a0
+Food drying,158573,https://en.wikipedia.org/wiki/Food%20drying,Cooking_techniques,val,8e718a38067d3f5e261d7436150d1283180d40d327ba6fa6d7682a50c1c121c6
+Reduction (cooking),865170,https://en.wikipedia.org/wiki/Reduction%20%28cooking%29,Cooking_techniques,val,88ffc47739677e39997fcc30ed29c756e608425263b8d90a9fb343836304763b
+Pan frying,52985,https://en.wikipedia.org/wiki/Pan%20frying,Cooking_techniques,val,e42bae94fb4dde361a15866c1a71932f0b65786aebe4c73c5ebed38477a1bc83
+Jugging,2458852,https://en.wikipedia.org/wiki/Jugging,Cooking_techniques,val,169b65b20279ebde1f56743985221c5a91d3bc6cf4b3f8e4c813acb308f8f340
+Brining,52865,https://en.wikipedia.org/wiki/Brining,Cooking_techniques,val,137c18e5cfe911b080bdc10100d0cb384c5ffac6530dce73979b5f307854170f
+Carryover cooking,3058393,https://en.wikipedia.org/wiki/Carryover%20cooking,Cooking_techniques,val,22bbb5dd7bfc302a977a0c4aeb6dbc1dfa7ca3afa18d8d04ad000e13ea8f35be
+Conching,1247202,https://en.wikipedia.org/wiki/Conching,Cooking_techniques,val,e419f1bff0154142b65933540a90fcd234e134e36660f34e31bdebe926331348
+Kālua,2223897,https://en.wikipedia.org/wiki/K%C4%81lua,Cooking_techniques,val,a8c19080282103931736989f820e4d877fda0c91aa1ce5ba6b57aceb7df3781d
+Proofing (baking technique),6203320,https://en.wikipedia.org/wiki/Proofing%20%28baking%20technique%29,Cooking_techniques,val,98fadcb50145aac358201f407ffa66d5d567968462a9a1462a32f52ab9b6ed48
+Kinpira,1232846,https://en.wikipedia.org/wiki/Kinpira,Cooking_techniques,val,9b0d78a841d7e6a652cc14376c6b7b97bb8c2652ea4edb7bb6bdea7807213c0c
+Charbroiler,37745416,https://en.wikipedia.org/wiki/Charbroiler,Cooking_techniques,val,c0c646325de21e8fc3b3b753f3960ce3da54a0aa27308c5a07941c3d73c7495e
+Dry roasting,23416145,https://en.wikipedia.org/wiki/Dry%20roasting,Cooking_techniques,val,d6da041ffd00ce81936b5db670ce7dbf3a320b360673151156aeabfd20890ec2
+Teriyaki,179359,https://en.wikipedia.org/wiki/Teriyaki,Cooking_techniques,val,7645c822efecb9c1edea925603397d88beb8c83965db51464fe5f43bad5d3bc5
+Thermal cooking,26009047,https://en.wikipedia.org/wiki/Thermal%20cooking,Cooking_techniques,val,6ebd8ac2d0a0d7372e82da489c870da725a7b0bdc5d82ed84d41b1de9675663f
+Sweating (cooking),8576166,https://en.wikipedia.org/wiki/Sweating%20%28cooking%29,Cooking_techniques,val,76a83b11bf7dd19fdb1a22b2c21c9bdeec5d4a072399e461ea05a3f2c3a94a4a
+Ricing (cooking),2110428,https://en.wikipedia.org/wiki/Ricing%20%28cooking%29,Cooking_techniques,val,ee5b7b842926cc6bfa41afbf96a7283550d425b38487d199d9219c748f2958c3
+Confit,2583479,https://en.wikipedia.org/wiki/Confit,Cooking_techniques,val,85c9224a86a09084ab26ef26103cff0ca02aa405b0dca748c2019544470a2c29
+Paste (food),37018026,https://en.wikipedia.org/wiki/Paste%20%28food%29,Cooking_techniques,val,49b186d08ecc912273d00a1c6286a3930e98f2516f1b9581463062d91f80d5a2
+Simmering,180886,https://en.wikipedia.org/wiki/Simmering,Cooking_techniques,val,89c7fbe97595709abd3a6e4f74f8d9e8c275269c0cebdbe0cb56617477a9ab5a
+Seasoning,52863,https://en.wikipedia.org/wiki/Seasoning,Cooking_techniques,val,200850f80cd0672f7380cc77f103898304e6815c48ec1fb863f42fe8715ffb7a
+Spherification,23048632,https://en.wikipedia.org/wiki/Spherification,Cooking_techniques,val,95913ee73a83d79c5d5d883349691871fa49acf823f16483dd41e0b1c398b3ff
+Casserole,764694,https://en.wikipedia.org/wiki/Casserole,Cooking_techniques,val,f6a0ab4f3945d768fca5c48dc66e4e0bc36b9df11fc0da8e7398f2dc104fff47
+Stew,47862723,https://en.wikipedia.org/wiki/Stew,Cooking_techniques,val,4ac5543e2c615fbe7d4aa9d56f042e3870cd144fe13139ccaaf88719663b2f4b
+Amandine (garnish),4431344,https://en.wikipedia.org/wiki/Amandine%20%28garnish%29,Cooking_techniques,val,54a0f783d520ff5dc52497754ec36292986c41bb611c1956da013fa2faf133f7
+Baking,52634,https://en.wikipedia.org/wiki/Baking,Cooking_techniques,val,4f479057aee0eff003875d8d75e2f4fcd6531fc282f0546c05443e6c8ece2c88
+Rotisserie,849675,https://en.wikipedia.org/wiki/Rotisserie,Cooking_techniques,val,ccda436e6dc5b671d989a0c3e0e19cd031013895d19909a8aa194885fdf52283
+Shirred eggs,12311634,https://en.wikipedia.org/wiki/Shirred%20eggs,Cooking_techniques,val,f4b5b34b7ef06e024470116071e4d8e113f9c5e96629853e564d751556e06ece
+Pellicle (cooking),39090106,https://en.wikipedia.org/wiki/Pellicle%20%28cooking%29,Cooking_techniques,val,9c9b97df7a13e3c32b8dd460027cc794e9ca3a0aaa02773d8be365183cf6e81e
+Parboiling,1730629,https://en.wikipedia.org/wiki/Parboiling,Cooking_techniques,val,cddcd1c55a5ff4244c6309da3e2acb45f14ea130c2adfd66ba4cb47d349f59ed
+Salt crust,58830921,https://en.wikipedia.org/wiki/Salt%20crust,Cooking_techniques,val,d1f992dabb5ea8f181b2cf6f6901120dfc43f82c4bed9b4313bf3c24bcf2457e
+Cured fish,11993608,https://en.wikipedia.org/wiki/Cured%20fish,Cooking_techniques,val,33ef805964f28d85e8fedc7918aeb7871611280164370eb91894ae4ef19eaf04
+Straight dough,43681805,https://en.wikipedia.org/wiki/Straight%20dough,Cooking_techniques,val,faee3fb36933718d5295547ecc624a72afcc98d137cc3620c0284980bf300969
+Dredging (cooking),18747269,https://en.wikipedia.org/wiki/Dredging%20%28cooking%29,Cooking_techniques,val,70e8496141ce6891b9aade9240b115ae5bb6f2c050459ed37fadc1649d6b099f
+Steaming,52996,https://en.wikipedia.org/wiki/Steaming,Cooking_techniques,val,a0865d93b9e1a96048dbe1ff4833b37da860f528b3ed76f9b1b9e4882713341f
+Slow cooker,596383,https://en.wikipedia.org/wiki/Slow%20cooker,Cooking_techniques,val,1ec33273b302f2fc249f5a40cccb819fd74cfe9a07120c979d9a7e7d2b2eeb85
+Fondue,707704,https://en.wikipedia.org/wiki/Fondue,Cooking_techniques,val,fb928228667fb9b2b28e3726554df4572fcd9937e71547708e1d0b7cbf24ca27
+Smoking (cooking),52995,https://en.wikipedia.org/wiki/Smoking%20%28cooking%29,Cooking_techniques,val,3f6c7797944221355260ca52a53b52ea8f84f2237f897438e44e5da300afadf6
+Namerō,53081280,https://en.wikipedia.org/wiki/Namer%C5%8D,Cooking_techniques,val,e99e0d0b6fb6494e2c58067abf2f99a11c52c6b7d4fc4af375226afdde1c1c57
+Broaster Company,11441957,https://en.wikipedia.org/wiki/Broaster%20Company,Cooking_techniques,val,186992e67bbd348c3bd9d907d4b66476f2b846e5927811ded26fc44bb241c2da
+Roasting,52993,https://en.wikipedia.org/wiki/Roasting,Cooking_techniques,val,16105cd473f34d4d709d670fe65f66a8b13057114d6b8911b77e331d68009536
+Schwenker,2149920,https://en.wikipedia.org/wiki/Schwenker,Cooking_techniques,val,d52d06c5d7d220f768f8e5eb606907a191e94b2b05940fd1337e83246a3ae092
+Exploito,49105922,https://en.wikipedia.org/wiki/Exploito,Music_genres,val,af285dc5ec89400bcf2efc6502abc0f868e4258fd53cbfbc63d997c4fc0af788
+Humoresque,5075011,https://en.wikipedia.org/wiki/Humoresque,Music_genres,val,afca2b01d4a44440729f3ea889a1003799eda7b0596135bbbd03d03c54ec3cf9
+American fiddle,32235697,https://en.wikipedia.org/wiki/American%20fiddle,Music_genres,val,54d94a87d9ce3e69c80cacd3801e6779cae7aa7e7a0a9215b3bb59946bc34a45
+Genealogy of musical genres,973905,https://en.wikipedia.org/wiki/Genealogy%20of%20musical%20genres,Music_genres,val,73c42322ed09bc702216dd38822cdf1b114f3fa39242b63864a5f294e7102278
+Nòva cançon,11362827,https://en.wikipedia.org/wiki/N%C3%B2va%20can%C3%A7on,Music_genres,val,17b4eb1f5941844c4a0744fdd51f61dcb212b7331eb73ff857080d7b2ebe69ef
+Temperance songs,48213182,https://en.wikipedia.org/wiki/Temperance%20songs,Music_genres,val,226aaa6e06741cc6e35d32e117c817eee56dc83ee7f9a4dacdb4f92d9deafe49
+Music genre,12653094,https://en.wikipedia.org/wiki/Music%20genre,Music_genres,val,94ef8849c4168c8a078ab5690e593e79674d6695bff1025e7b0f760b9c22aca0
+Acoustic music,3628115,https://en.wikipedia.org/wiki/Acoustic%20music,Music_genres,val,343928d67c186f157ce8aa0074acde1881a22bd3bab63250ce463948d92d64cc
+Alternative music,861033,https://en.wikipedia.org/wiki/Alternative%20music,Music_genres,val,d3b6e7e6711392416bbcc2ac6cf251b8cecea789a9f875f47dc02bfe29d846c7
+Visual kei,436607,https://en.wikipedia.org/wiki/Visual%20kei,Music_genres,val,5f402c3130cb6d7fdd27b3254630104250f8c44db449abf7277aa381dcd5b5b8
+Tombeau,5613311,https://en.wikipedia.org/wiki/Tombeau,Music_genres,val,c97848fc46578dbd6d73d23b24293109e9db705d8e0550d1b5815a3ccaa92489
+Mugithi,39618699,https://en.wikipedia.org/wiki/Mugithi,Music_genres,val,f0f543d85b33133e695c743ccb5bb7131d8fd6939b5b30f8635113e8b47d9334
+Folk music,10623,https://en.wikipedia.org/wiki/Folk%20music,Music_genres,val,457b2f128da733b87789fd20a4b0bfc72b78e51f2b1ce84c4bbdd75bf96011b3
+Women's music,3367345,https://en.wikipedia.org/wiki/Women%27s%20music,Music_genres,val,a02c60ad570bb3700fccc90707a05d92ff90a8e50f257a7f866330de4e9f926a
+Pop music,24624,https://en.wikipedia.org/wiki/Pop%20music,Music_genres,val,7abb50641c8fd7588223ccb131555f8168bd9fbfac9ff4df26c1e1cf266141b6
+Contemporary commercial music,14599154,https://en.wikipedia.org/wiki/Contemporary%20commercial%20music,Music_genres,val,0d5e31319ba4ac17e2817cee62b2fec097249631c80fae74ab0f5872a4fec82e
+Wedding music,1361043,https://en.wikipedia.org/wiki/Wedding%20music,Music_genres,val,c36e3fcbdb1fe5c1fa4a4397e583bdadaf85e5532fc6ecb69a3825cddccd13ab
+Famo,22905439,https://en.wikipedia.org/wiki/Famo,Music_genres,val,67f3c4be7851d126114e7bb86b6298a2fc7a1d004af4fa3980827fc51962618c
+Rabiz (music genre),55896368,https://en.wikipedia.org/wiki/Rabiz%20%28music%20genre%29,Music_genres,val,577cbab05a3729d2e4a3e558fc5fd41a3f3dc013220b0a21d6280efd0f1a331d
+Orchestral song,38101213,https://en.wikipedia.org/wiki/Orchestral%20song,Music_genres,val,65ea8930a40a525732d5aacdff7d77adf4e68267fc56deef471acd881d6b05be
+Masonic music,48468131,https://en.wikipedia.org/wiki/Masonic%20music,Music_genres,val,985ceabae94d539b95972183c47105edbc14d3cfa02e63e54f20c3d8aee23b57
+Beach music,2330093,https://en.wikipedia.org/wiki/Beach%20music,Music_genres,val,fee76198ab97963537c7881d54d9195902735f721b6fcb77bda63edea3a741f8
+Comedy music,11560543,https://en.wikipedia.org/wiki/Comedy%20music,Music_genres,val,dea1359b725a32aa8ef1960ebcf05ebe8edba329e6a9b6346b93f4a4a0cd28c8
+R'n'Besk,69540674,https://en.wikipedia.org/wiki/R%27n%27Besk,Music_genres,val,4e5306a5bdbb587363a2f14691cc0b866e26c8842f40b16357649d30273d5109
+Dadakuada,57524221,https://en.wikipedia.org/wiki/Dadakuada,Music_genres,val,7afe1e3bc2fda859afa3afe9be8d93eedacdd4f8b3864d79c4bd55bceddbc5cb
+Jaiva,32276892,https://en.wikipedia.org/wiki/Jaiva,Music_genres,val,c9c257b8aa18cf4bdb3426a37a829cb83a9094c9c66d8d0f41ff7791ee27660d
+Sociomusicology,15316853,https://en.wikipedia.org/wiki/Sociomusicology,Music_genres,val,6a44369f188194e67bcf3a666fa092451a5dc249dcb5939e4118591d8c28f145
+Pastoral,204406,https://en.wikipedia.org/wiki/Pastoral,Music_genres,val,2de604b28018f9d04f55dd3fc86cc6f984795aa8a8a85c0e155f9b37157bf2a8
+Posi music,26412388,https://en.wikipedia.org/wiki/Posi%20music,Music_genres,val,5660930c25a986163a76bfec124d1858c98c5b79bd2a4a6ba56c09809827625f
+Black MIDI,48477270,https://en.wikipedia.org/wiki/Black%20MIDI,Music_genres,val,203fd06dd6cb1293433f24efa275986547a976f40d7f752b59b424351910c6e7
+Hookah rap,70452345,https://en.wikipedia.org/wiki/Hookah%20rap,Music_genres,val,2d7cd2735475813e3e2f5a4b834b3fd4972ba917f045841bc9d80d082b8d9d36
+Singer-songwriter,171052,https://en.wikipedia.org/wiki/Singer-songwriter,Music_genres,val,de79dddbb4689ae67a56f27c33079a9ee706894237a674e2ddded106a3cfae54
+Absolute music,563545,https://en.wikipedia.org/wiki/Absolute%20music,Music_genres,val,ed41dee77d2d8f764c21777528859141d26ff29823ce3c144b39104738003be3
+Logobi,33747633,https://en.wikipedia.org/wiki/Logobi,Music_genres,val,61629632509e7f696a12f2d1218866a626492004cd985d07bfa33db310f5fcdf
+Concert film,5102754,https://en.wikipedia.org/wiki/Concert%20film,Music_genres,val,b79dfa6ec41473f2b941443e10bcf5beefedc1323053db36742453f6f043682f
+Progressive music,24501,https://en.wikipedia.org/wiki/Progressive%20music,Music_genres,val,118817747becab3df34556fb68831b2202c3e0673a2aa5b8818431ca0c106ddd
+Geonjeongayo,72185134,https://en.wikipedia.org/wiki/Geonjeongayo,Music_genres,val,7dcfdf23e157d295ba23910fdb82094f738934f7c2140332885b41521404687c
+Canto livre,32006958,https://en.wikipedia.org/wiki/Canto%20livre,Music_genres,val,24b44873d35f70bbe059198d8667ed0bcd9c4f915962178185a5599567441ad6
+Martial music,11288026,https://en.wikipedia.org/wiki/Martial%20music,Music_genres,val,a6d68d4027c2bf4a94e249ba801846c7b2fed99263384c9bd6e8a67377f5166d
+Popular music,24297671,https://en.wikipedia.org/wiki/Popular%20music,Music_genres,val,6ad4fd04cd1503136a15f3ff7158f3b4f1c002b70defc52e941104b1aeaa6578
+Epadunk,74761091,https://en.wikipedia.org/wiki/Epadunk,Music_genres,val,aa2e225cd922a240c36efdf6fff17adef550d2fcb53340789630847cc7762ce6
+Space-themed music,12252973,https://en.wikipedia.org/wiki/Space-themed%20music,Music_genres,val,2f13127033bd86a5c7f2ac0f8c6de36caca718b7cccb86d642a8a697d669394d
+Weird SoundCloud,53626200,https://en.wikipedia.org/wiki/Weird%20SoundCloud,Music_genres,val,8ce75c237f049156ca854ab0cdf7ef76616bb2bd5aa7cae335508c67dbe88592
+Nightcore,51655201,https://en.wikipedia.org/wiki/Nightcore,Music_genres,val,77526ffe47391277b26042d32a8a062525494f1c6d7952829009da9251f65856
+Perpetuum mobile,250037,https://en.wikipedia.org/wiki/Perpetuum%20mobile,Music_genres,val,ac9abcbbc070b41d7eda0ae407dc3c6087e90ba14059ed38d5cad3adf43fc9f0
+Dueling pianos,20404547,https://en.wikipedia.org/wiki/Dueling%20pianos,Music_genres,val,214a3c4d18ee9d8134e906e2eecf17df3a31f18a4cfe79ed529fa8bdefc1dd32
+Heavy metal music,25298728,https://en.wikipedia.org/wiki/Metal%20rock,Music_genres,val,7bf0d92f4556796112006c83b3fc2750a21df0c672324d8f128a9cd8ef043283
+Tower music,48496349,https://en.wikipedia.org/wiki/Tower%20music,Music_genres,val,e04980064f97daab16b0edbeb63d3609d9cee57e453546fe525d4ca3c125dd09
+Religious music,149840,https://en.wikipedia.org/wiki/Religious%20music,Music_genres,val,4eaf3583d5194478a2f7756e775bbbe1b781307effff0c918da4767b2e7e730f
+Siguiriyas,473426,https://en.wikipedia.org/wiki/Siguiriyas,Music_genres,val,6928ee6719393ef2bab6690d8980098f9944cd95799ce57f6ab3c29ca91c0d63
+Progressive soul,66473622,https://en.wikipedia.org/wiki/Progressive%20soul,Music_genres,val,eeb923b652b3f39614fa34a4dc6c54253521ba1bec4a47c30427b6efa9d5ac67
+World music (term),65218487,https://en.wikipedia.org/wiki/World%20music%20%28term%29,Music_genres,val,2a00f3b7f38f739f8d793c9c49abb835e3c423521b996d0682ea0f051526f960
+Art music,255791,https://en.wikipedia.org/wiki/Art%20music,Music_genres,val,d712a313aba20c2cb8c66aa29284ea0ef1f3efd5402080a64316001c8b95c4a3
+Shaabi,40060752,https://en.wikipedia.org/wiki/Shaabi,Music_genres,val,05bbd0b40b0a5235e07d0076557e81bc9b8784489b21e3f3d5eca48b6da7f1e9
+Church crown,65669416,https://en.wikipedia.org/wiki/Church%20crown,Fashion,val,3e42eb716f4157a544160c8debdfe985561e0c1715e00a288b0854df23f71ca4
+Mass-market theory,21552261,https://en.wikipedia.org/wiki/Mass-market%20theory,Fashion,val,8dbe608851ed357c3ee6f360e2247474d3844368f52f922d1fca6f95fb9eb60b
+Jewelry Television,4350429,https://en.wikipedia.org/wiki/Jewelry%20Television,Fashion,val,60dd8fe8f204f7232f14c60e334891384d035466f2bf1c3b6a6b81bd61d9af57
+Trickle-up fashion,63322196,https://en.wikipedia.org/wiki/Trickle-up%20fashion,Fashion,val,d9b20a023b6549756189b650497681998496a93ea3b5af964aef7addb8e90cb3
+Adornment,153986,https://en.wikipedia.org/wiki/Adornment,Fashion,val,1a7790a18e0ee42833aa6fd601e228c861e514746c9617cd2dfba9d7326d710c
+Skirt-bag,65426784,https://en.wikipedia.org/wiki/Skirt-bag,Fashion,val,31fc61ac273cab400c33d671f3bcc25ccaf404abaa6eac03213f222a1cf91f90
+Corset controversy,22813974,https://en.wikipedia.org/wiki/Corset%20controversy,Fashion,val,bdd71035799ed554c7bdeae8e24b418e201a181d7e66b194370eaa4df2714067
+Neckwear,9853976,https://en.wikipedia.org/wiki/Neckwear,Fashion,val,f58904a8cd09d98e95b0b44cf1f1fb7bba8b8f9dc3dee32b1dfc78d932484b92
+Trashion,12512882,https://en.wikipedia.org/wiki/Trashion,Fashion,val,383162a5195b18ab6a146b3e5853f4156f5af7de98e9ddd906980be04d6f9b73
+Style analysis,31115724,https://en.wikipedia.org/wiki/Style%20analysis,Fashion,val,38b2d44db0f2752487f444fbc6559ada5071ba189b345e23e1da4a06f86a46a7
+Red carpet fashion,36187312,https://en.wikipedia.org/wiki/Red%20carpet%20fashion,Fashion,val,69aaa0eccf67a1ac1289caccb68ddc67e720bd9bf5bac24c45d1657ddf819637
+Fit and flare,65671333,https://en.wikipedia.org/wiki/Fit%20and%20flare,Fashion,val,765065ec86cb9b3e9929a65a28ea1407c7b0b5991f6d69e5652b94efb31f150c
+Sequin,839046,https://en.wikipedia.org/wiki/Sequin,Fashion,val,1d6c78fdee3573fca4692b8815800636344426cf6aea055dc921640d1d097cce
+Quiff,471009,https://en.wikipedia.org/wiki/Quiff,Fashion,val,6f5a140b721cda29607839e8c62eb2d320293524bba60ee18397ecbf4eef1476
+Calceology,24514641,https://en.wikipedia.org/wiki/Calceology,Fashion,val,1ee654b7d980a49f58c36a393a8bdcd92e39d876206ec15ec3b091e257067031
+Sustainable fashion,12675756,https://en.wikipedia.org/wiki/Sustainable%20fashion,Fashion,val,aaa50c28c038b5bcc180b7dfcc116fd71b1d9b393d72485c99e47834603d94cb
+Sari-inspired dress,71794947,https://en.wikipedia.org/wiki/Sari-inspired%20dress,Fashion,val,08775e663fd2a66ada19c9dcc5732c4a28164068a90689ee4ab31b19f14e2be1
+Buyer (fashion),16579290,https://en.wikipedia.org/wiki/Buyer%20%28fashion%29,Fashion,val,04c5701d1fb292fe82eb15691a5c634c435e4dd3496c96304cc38dc77b6ade3a
+Fashion,11657,https://en.wikipedia.org/wiki/Fashion,Fashion,val,20642d25f250cb1c251b9e4bc3ef1b0039fb787836e1684fdcc5c5262be775db
+Tasuki (sash),60450730,https://en.wikipedia.org/wiki/Tasuki%20%28sash%29,Fashion,val,e378f19d10d97d7aa1410b9c26fefc882b8c7439c9236197f12cf946fdbd4e9c
+Fashion influencer,56684417,https://en.wikipedia.org/wiki/Fashion%20influencer,Fashion,val,d11ee3a0a3836e305cf274c4c15177bad75ae3439aa2696018f628dffbb7b243
+Glamour (presentation),20224748,https://en.wikipedia.org/wiki/Glamour%20%28presentation%29,Fashion,val,0f45c5882699db602994812e4d0568e87b489171e2cafdf5537ee8537d3bdf60
+Fashion entrepreneur,28230743,https://en.wikipedia.org/wiki/Fashion%20entrepreneur,Fashion,val,c4c400d9cf54ff1f20edf322ecff8dee877aa7446bf2d6b2c8020c7713594eb3
+Fashion capital,9315917,https://en.wikipedia.org/wiki/Fashion%20capital,Fashion,val,028207893e9889ca36783fe05080d81d6088a752bbefff92d8de326d3603f065
+Beauty,4431,https://en.wikipedia.org/wiki/Beauty,Fashion,val,35feac526d7df518138b02139244546fc45f466cc285021847c16c2cc8df9752
+Fashion activism,54247804,https://en.wikipedia.org/wiki/Fashion%20activism,Fashion,val,0d8a6f8f3bc901b6b0ca59496552f7c5c210299cc8c46f569ae872fb7fe51015
+Low-rise (fashion),24026346,https://en.wikipedia.org/wiki/Low-rise%20%28fashion%29,Fashion,val,7e0e816c1629826449f6460c324e9337070f482058e1f1f8668ba0e6686fcb78
+Fashion merchandising,20886085,https://en.wikipedia.org/wiki/Fashion%20merchandising,Fashion,val,c81be7454b26d809d8a8fe8d869d8ec628f379f4a0b4de3710c8ff6f44427fda
+Fashion tourism,43654761,https://en.wikipedia.org/wiki/Fashion%20tourism,Fashion,val,a0fd19055dd61c10876e5adcc2349856f07bf32e8055b1442593be3eae70e035
+Spornosexual,62413576,https://en.wikipedia.org/wiki/Spornosexual,Fashion,val,2fcd93d738d6d65ce3498b9419e973abb94b78632c243e08c5d31239cc4a6d21
+Swishing,20071599,https://en.wikipedia.org/wiki/Swishing,Fashion,val,d8b9f512695ee64f60f4b87a5ce9377716969b6cc47ece88ee07cb3e01ad9efc
+Jewellery Quarter,2010420,https://en.wikipedia.org/wiki/Jewellery%20Quarter,Fashion,val,881fbb427373ee015f0da5ec78621595363c75f680221b2e07e5ab21adcc0132
+Modelnomics,26790733,https://en.wikipedia.org/wiki/Modelnomics,Fashion,val,9bdbe8865ec548f72d2f2ef88fe88e8b35c1884d4efcbb537e0ce1675ade029f
+Capsule wardrobe,22775152,https://en.wikipedia.org/wiki/Capsule%20wardrobe,Fashion,val,dc6e11c55d564f3517115aeccbd75d296b3d101706137176991794fdfe2171df
+Fashion law,1311923,https://en.wikipedia.org/wiki/Fashion%20law,Fashion,val,c60cc922a103a8e7832f1bd8c4fd06e3bb8e66b99b5c706a4671131dce004bfe
+Color-blocking,48462950,https://en.wikipedia.org/wiki/Color-blocking,Fashion,val,4e6977b1fbe89ce8ab7036a6cd12ea175280337fc54ced7e527a1fd003e8044d
+Fashion psychology,73601823,https://en.wikipedia.org/wiki/Fashion%20psychology,Fashion,val,54da6ee1833b81d7e69573aa10c8823bb4b293f20335a30b679b63c76b39cdd9
+Crocodile skin,60749151,https://en.wikipedia.org/wiki/Crocodile%20skin,Fashion,val,efba75794a4aed5687a2f14e8fcc18e685e03dbf99fc6e06532296440cb7e388
+Color analysis,18193889,https://en.wikipedia.org/wiki/Color%20analysis,Fashion,val,b275836b33efa9dc277e4828b72180805b1c4d21406d292529e0f1467db3f97d
+Pin-up model,274834,https://en.wikipedia.org/wiki/Pin-up%20model,Fashion,val,208fda333c44c55fec6d541a3b992df1e9cd48ca87cc8f3acb418cc7494a4007
+Vegan design,60652839,https://en.wikipedia.org/wiki/Vegan%20design,Fashion,val,bb83f2ceeb776a3d3675e9dd407eb4a66685adece9843ed2847e37ef22609b8c
+Fashion illustration,7757161,https://en.wikipedia.org/wiki/Fashion%20illustration,Fashion,val,65c98a67c626b2d508bb504f8bbf6d60e6f848f9678a165f4402232f96bf578c
+Hip and buttock padding,7768706,https://en.wikipedia.org/wiki/Hip%20and%20buttock%20padding,Fashion,val,f76a5af6825783680a51afce69a9593b0cc6582eeb6079ce0d8eaa1c2663c14c
+Supermodel,49082,https://en.wikipedia.org/wiki/Supermodel,Fashion,val,89395530262857918593e7bf67a4a8761b7a79546c18223d31a623a7474045d9
+Fuyao (fashion),71521497,https://en.wikipedia.org/wiki/Fuyao%20%28fashion%29,Fashion,val,d02df1e6958c1fda1c05ff9c439c9910c4ec09b9fb18a897ac58f0c0092b823b
+Jewellery of the Berber cultures,69672750,https://en.wikipedia.org/wiki/Jewellery%20of%20the%20Berber%20cultures,Fashion,val,9fbfac4037d5442824777eb94568cf6d0d5d6701ead310fbbea03b83a78540f0
+Mod (subculture),810633,https://en.wikipedia.org/wiki/Mod%20%28subculture%29,Fashion,val,b3fc40c8b065630869b65b2e48b1d09555990a881ff1d20d557c5e8547e5314d
+Socks and sandals,40128687,https://en.wikipedia.org/wiki/Socks%20and%20sandals,Fashion,val,6c9a1062984370e92315d19c66c98f9248ff19ed85ca9376cb0e1fddc7e77520
+Line sheet,3435093,https://en.wikipedia.org/wiki/Line%20sheet,Fashion,val,3c722cb2da02eab843f0eac34d476a38cba9e72e1bf778f46d251aa8668af49d
+Human physical appearance,211451,https://en.wikipedia.org/wiki/Human%20physical%20appearance,Fashion,val,0fe897b76dae8f9c88da5deade027e64652e07bf730d90c7e1f5040c070567fb
+Digital fashion,43036911,https://en.wikipedia.org/wiki/Digital%20fashion,Fashion,val,ab6103526e78ae191a486aae88dd024442a4bf87e3e3dba66322eeaf347abb3a
+Beauty salon,1501424,https://en.wikipedia.org/wiki/Beauty%20salon,Fashion,val,adb8fd5879486726a5fc8b9bc112fd5007772e8f4f3368009c978c3f92232f5d
+Designer clothing,5282341,https://en.wikipedia.org/wiki/Designer%20clothing,Fashion,val,bb7512e6450ea067720e94ee2f5a61105b8f275593238d4ab0d26f8a924b989d
+Fast Fit,35646477,https://en.wikipedia.org/wiki/Fast%20Fit,Fashion,val,dbcbf3c9464ddf3226150c09d6efbd11312f5dea6a10447c0eb55ff033a7b3c0
+Fashion brand,73796568,https://en.wikipedia.org/wiki/Fashion%20brand,Fashion,val,930ad655fd815a799c3807205d38e510d54b9756fbe9369aa8038890899019e2
+Overtourism,54607537,https://en.wikipedia.org/wiki/Overtourism,Tourism,val,249f01f5467e4483b3190157ab5fd1af1a6f6863065403adcd4ca723432aeee1
+Leakage effect,8315620,https://en.wikipedia.org/wiki/Leakage%20effect,Tourism,val,629163cb77425b31daeb303a378d34ada80b0751721bd639c1a550aae8cecfd4
+Travel technology,7779220,https://en.wikipedia.org/wiki/Travel%20technology,Tourism,val,8941101ec9fade6e361da6fc6a08b242c2ce319e04b2457c59416083b96405cd
+Travel,155747,https://en.wikipedia.org/wiki/Travel,Tourism,val,8af915d26a59a3891477a8c9efecb3b340f252700e97fbe917fe246a2f6290a7
+Travelers' diarrhea,1045467,https://en.wikipedia.org/wiki/Travelers%27%20diarrhea,Tourism,val,2d651424ed84b18abcee89b50958b2ec5bfd220f7d663b74742a9165aa9503bd
+Tourism improvement district,30899215,https://en.wikipedia.org/wiki/Tourism%20improvement%20district,Tourism,val,6d2172db6ca40a0a60fb88d418751a47834d77248b44cee3725654ee8829dc2a
+Souvenir,5289502,https://en.wikipedia.org/wiki/Omiyage,Tourism,val,79186496e6cd7aa527f33a7abd186823c430441f9121530d49423898691b19db
+Bibliography of tourism,30797312,https://en.wikipedia.org/wiki/Bibliography%20of%20tourism,Tourism,val,494a8e3044adc2ce187b56e0e60bc78b21ddf2545fc3de033e5b1f935d7cead5
+Tourist attraction,99863,https://en.wikipedia.org/wiki/Tourist%20attraction,Tourism,val,c1a7f7f6a01ab09481a02221773946df8127dd9be234a16b6ea376cbb01d02e8
+Heritage commodification,27274829,https://en.wikipedia.org/wiki/Heritage%20commodification,Tourism,val,7eef30a2e4725265c780fb565bb11f59704425bce686ee584a1919b01746ec86
+Impacts of tourism,52466311,https://en.wikipedia.org/wiki/Impacts%20of%20tourism,Tourism,val,1b336cc33466f9557181779479a0697524c6b83f56f47807736b241ed6972914
+Tourism 4.0,61740801,https://en.wikipedia.org/wiki/Tourism%204.0,Tourism,val,a11afc1c8fbefbbd7b6236d963d488fff9d622fcea731fb1e0db3569e3dc4f0b
+Tourism,29789,https://en.wikipedia.org/wiki/Tourism,Tourism,val,be7be95f92a46c3d6cdb44c82c526853b7467da1063962ec472d1476f152e29f
+Touron,11220596,https://en.wikipedia.org/wiki/Touron,Tourism,val,ee27945d3ffa20cf922358064c9faee7c006db5858996b0b01f32bade2a51008
+Luggage label,74830297,https://en.wikipedia.org/wiki/Luggage%20label,Tourism,val,b418846cfeaed3a3bff91ed590032eaf8fed6f683417a99e8722eb2a064eaaf5
+Souvenir spoon,12359435,https://en.wikipedia.org/wiki/Souvenir%20spoon,Tourism,val,e56d85eda93be5dce3195682aaabfffecb4e9822feb0767e3261e2aee26dfc53
+Tourist tax,63743119,https://en.wikipedia.org/wiki/Tourist%20tax,Tourism,val,56f80070a0c76f172e59aa137aa3b17fb2f36c430fa05a4c2452cd6384f4d3c0
+Tour-realism,39289519,https://en.wikipedia.org/wiki/Tour-realism,Tourism,val,84f4f34178f6191f3b215805bd561f7ec93931d8041824e2c74f2ed33c2cd7e0
+Touristification,70816942,https://en.wikipedia.org/wiki/Touristification,Tourism,val,c41ac5117dc866bfa3f99b68d3868aa82d14a03d2f3b2ed906c582c2d86f213f
+Tourist sign,34070203,https://en.wikipedia.org/wiki/Tourist%20sign,Tourism,val,ccb4a01a17a7beaa93042bc7da817fd2cde0f9bf5a3cec048ce955b15521bbb8
+Travel ban,26647363,https://en.wikipedia.org/wiki/Travel%20ban,Tourism,val,ae69041c7d53e839a0f2ad92a1cff677d6ee625c4264b0467a06c557f53934a5
+Bangladesh Parjatan Corporation,25653831,https://en.wikipedia.org/wiki/Bangladesh%20Parjatan%20Corporation,Tourism,val,4b7e5fa417db6f5dd66d6d3f13344df86cb378713ef04cb1659b67aecf64067e
+Destino Argentina,34727241,https://en.wikipedia.org/wiki/Destino%20Argentina,Tourism,val,d978d877e68660469fec1a39b8576f31ecdbf85a3d82d3e5e9562e92f82e032d
+Shark tourism,8026538,https://en.wikipedia.org/wiki/Shark%20tourism,Tourism,val,5704e2245965d2755c13eb2bd34f61969350cb32e5f150edd4af9629629609d0
+Religious tourism,11836131,https://en.wikipedia.org/wiki/Religious%20tourism,Tourism,val,167dc2e9297a34de945bdf1166517455856729d4c5f99854bbdd1798c06ad609
+Yoga tourism,62498012,https://en.wikipedia.org/wiki/Yoga%20tourism,Tourism,val,8b80990d54a440f209730acb40d99204358fdde3f487724a6a2e491c4de70dde
+Ministry of Culture and Tourism (China),56897245,https://en.wikipedia.org/wiki/Ministry%20of%20Culture%20and%20Tourism%20%28China%29,Tourism,val,be9d748c8edf913ad4949b75571c7c52dd46e72d3b7fca141241005d051403a4
+Tourist Association of Ukraine,47862025,https://en.wikipedia.org/wiki/Tourist%20Association%20of%20Ukraine,Tourism,val,590db40992e1e2aeb732b27534adb116c851c3e03cb3d9acf945782b5ce2b4ad
+Pop-culture tourism,5248882,https://en.wikipedia.org/wiki/Pop-culture%20tourism,Tourism,val,18691efb89e268511e3e43aee4bbcd541f222ca00f1a29a8c1e2a01ab7b48b8e
+Sustainable tourism,4036973,https://en.wikipedia.org/wiki/Sustainable%20tourism,Tourism,val,5890caef2b2e1bc44dea585b84ef307bf807eb16abec33eb6f416f5c4a2258e4
+Game drive (Wildlife tourism),58846501,https://en.wikipedia.org/wiki/Game%20drive%20%28Wildlife%20tourism%29,Tourism,val,6d92a858da997b2ff52088bfc7735be02b66e6435b329b301dcc980b44b07417
+Archaeological tourism,2283136,https://en.wikipedia.org/wiki/Archaeological%20tourism,Tourism,val,063f5f26d36ae93d222528d7f038f654acce6f4e7c79bc4183ed15d9c3161713
+Hippie trail,202476,https://en.wikipedia.org/wiki/Hippie%20trail,Tourism,val,ddfd9d414f2a307209bb5934d35c466a5babcff00db52753eb039c19112e0df5
+Honeymoon,13991,https://en.wikipedia.org/wiki/Honeymoon,Tourism,val,93450efb2d8a0fd10453d7d4c1154e3f1845a8dafa26209617c872a39f50b927
+Tourism Malaysia,1115967,https://en.wikipedia.org/wiki/Tourism%20Malaysia,Tourism,val,86139970a9931ea627721219ed6eea933e96835bddb24fdfbcc47149379e6d71
+COVID-19 pandemic on cruise ships,63142870,https://en.wikipedia.org/wiki/COVID-19%20pandemic%20on%20cruise%20ships,Tourism,val,8ed360ba796ebeb3fec0dad95c8d15b122a757b64b3371a044a27a6361a5bb9d
+"Ministry of Culture, Tourism and Civil Aviation",41156206,https://en.wikipedia.org/wiki/Ministry%20of%20Culture%2C%20Tourism%20and%20Civil%20Aviation%20%28Nepal%29,Tourism,val,4b9f49164182531ff7e468e9b5a9d0956c73a7b3a8d27877010851b3d44b27e8
+Tourism British Columbia,9391763,https://en.wikipedia.org/wiki/Tourism%20British%20Columbia,Tourism,val,0a290a6ab43b57467c18cccd12e7a65cf0083e36b981b5124919d3e3c0ee5855
+"Ministry of Culture, Sports and Tourism (Vietnam)",41757968,https://en.wikipedia.org/wiki/Ministry%20of%20Culture%2C%20Sports%20and%20Tourism%20%28Vietnam%29,Tourism,val,8effc20407e9899f3ea317e79f374ad3746008e8081158c3350c567dd18e20d5
+Ministry of Sport and Tourism (Poland),14436667,https://en.wikipedia.org/wiki/Ministry%20of%20Sport%20and%20Tourism%20%28Poland%29,Tourism,val,77502b1cdad342759361ebdaae9e056918d19682114bb0af2e2a19f9b83649db
+Ministry of Tourism and Creative Economy,18689986,https://en.wikipedia.org/wiki/Ministry%20of%20Tourism%20and%20Creative%20Economy,Tourism,val,edfc45c4328b2b513a85f8b0cf1a87bb6a48f6acc9c2ad5cc77a7ce4d1c5b0f9
+Ministry of Tourism and Sports (Croatia),26285568,https://en.wikipedia.org/wiki/Ministry%20of%20Tourism%20and%20Sports%20%28Croatia%29,Tourism,val,36ea0aa14ee0488775f436d8b3e2a319b941df39ac1077d8a825b496b6014dc3
+Bangladesh Tourism Board,52344229,https://en.wikipedia.org/wiki/Bangladesh%20Tourism%20Board,Tourism,val,80adf6388333f84b61d0a2da7d9ad0de4af44bc6b3ea84efe98f2bad6f1fa2ce
+Love is not tourism,68389568,https://en.wikipedia.org/wiki/Love%20is%20not%20tourism,Tourism,val,1b14eb667e52e2dde1bbec11c2c77d279bbde877ecb2f43bb5a673c23e1b22a5
+Ministry of Tourism (Israel),13534825,https://en.wikipedia.org/wiki/Ministry%20of%20Tourism%20%28Israel%29,Tourism,val,c7fc17423cdd5d902e83ab0d0c6dd97144348cc935e1a19d0b3f944a72e5320b
+Tour operator,1114504,https://en.wikipedia.org/wiki/Tour%20operator,Tourism,val,8f2ebe2801f4af6c3d6ebc3e28eaedce5f7c52051a6dab97b07a0557f4b2133d
+"Ministry of Industry, Energy and Tourism (Iceland)",20569148,https://en.wikipedia.org/wiki/Ministry%20of%20Industry%2C%20Energy%20and%20Tourism%20%28Iceland%29,Tourism,val,441956feb57847b3550229a9abde0d4e10cf1256a146eee18f04c98769d3b3d3
+Ministry of Natural Resources and Tourism,21142764,https://en.wikipedia.org/wiki/Ministry%20of%20Natural%20Resources%20and%20Tourism,Tourism,val,a046340de761a6acb66840973bb0d250435c25c00df7874da6bfff777990cdb8
+Adventure travel,1261098,https://en.wikipedia.org/wiki/Adventure%20travel,Tourism,val,8ce24b542f43b0b8e7a8b6557fad1f618160f4feab3d6c3dc997a95928efdfa2
+Escorted tour,5762528,https://en.wikipedia.org/wiki/Escorted%20tour,Tourism,val,ce9cfdcce0de475bfd3f04242662149b10f73fd42871700da52471421f415e1f
+Nepal Tourism Board,64026028,https://en.wikipedia.org/wiki/Nepal%20Tourism%20Board,Tourism,val,bf79027799bbe67fa1bea7f6c11e91539b9b34de1137086ad1e3a16254084029
+Giant dog breed,11351013,https://en.wikipedia.org/wiki/Giant%20dog%20breed,Dog_breeds,val,b0af4b63f3f96282f5e3358bac01a3f499ea994c55998d1359917921ec0ad56a
+Hypoallergenic dog breed,2015873,https://en.wikipedia.org/wiki/Hypoallergenic%20dog%20breed,Dog_breeds,val,f96dbd5e6e9f5a8e976af901cc92ca8f76f40b24a9db6fbf238f1285c65a1468
+Belgian Shepherd,601367,https://en.wikipedia.org/wiki/Belgian%20Shepherd,Dog_breeds,val,570ba4d7f9f9545973c09ebf1880b9c12314819ca5c38a80b96959aff7833ba7
+Dog breed,79676,https://en.wikipedia.org/wiki/Dog%20breed,Dog_breeds,val,27be5df7e0056ebf27badef9afd74195ec8c9a0064ffd0ec4398367552566b70
+Slovak Rough-haired Pointer,11463688,https://en.wikipedia.org/wiki/Slovak%20Rough-haired%20Pointer,Dog_breeds,val,6c4af3a6e8f7d607739867ef775d074af408591f73ee434fb73cf0ae3bb29177
+Romanian Raven Shepherd Dog,33513440,https://en.wikipedia.org/wiki/Romanian%20Raven%20Shepherd%20Dog,Dog_breeds,val,a84ade71610a3b3a485a5162832b44f23dc961419f37a098eefb14896da675ae
+Native American dogs,46668116,https://en.wikipedia.org/wiki/Native%20American%20dogs,Dog_breeds,val,9461e80cfd30c8c8c78dbd5776de0f0a17fb273ea47a5ab4d6675f72044c1caa
+Český fousek,5954991,https://en.wikipedia.org/wiki/%C4%8Cesk%C3%BD%20fousek,Dog_breeds,val,d3d3c0e0019850c3897dcf4bc0e5a2e5b787d10f1eef2a5aac5bb4a47023fda7
+Pointer (dog breed),1024379,https://en.wikipedia.org/wiki/Pointer%20%28dog%20breed%29,Dog_breeds,val,83e103b04f9796d9214366f32ff9df0985e14ceab20fe962afcbd6ba9d68740e
+Gascon Saintongeois,9093948,https://en.wikipedia.org/wiki/Gascon%20Saintongeois,Dog_breeds,val,b499305081fda9d2c9da7a678adf82b159af9eb5b74a20e6a682e009d9621b42
+Rastreador Brasileiro,22133283,https://en.wikipedia.org/wiki/Rastreador%20Brasileiro,Dog_breeds,val,281209cecbf54fc9494794441600274f1e799bb7e5062d06e9e1fedb9ec2dacf
+Lurcher,1009313,https://en.wikipedia.org/wiki/Lurcher,Dog_breeds,val,cf76360bd7ba4b0f6ab440f4256a9e6fe95a2b6b5bb4c5cce7c4ecd91e715693
+German Spitz,1561942,https://en.wikipedia.org/wiki/German%20Spitz,Dog_breeds,val,1a8f244ad8050748b375993885d4dc4c54b2bf0624855e3eb89994131dfae61a
+Braque d'Auvergne,11227947,https://en.wikipedia.org/wiki/Braque%20d%27Auvergne,Dog_breeds,val,7f4aac21b3e3045581cfa48b461ee7c8f999853c3611f9968c8c51e1c7b56bfd
+Spanish Mastiff,2336561,https://en.wikipedia.org/wiki/Spanish%20Mastiff,Dog_breeds,val,7b3b57fccddc3b1cac2b4d3c1ccf4ab1af444227e48bd609bd72eaa29cab74a4
+Wetterhoun,10053121,https://en.wikipedia.org/wiki/Wetterhoun,Dog_breeds,val,5814c7257703b232de6a73820fdc1afdf0ab797419ce4194e9de9653362f415e
+Grand Anglo-Français Tricolore,9094278,https://en.wikipedia.org/wiki/Grand%20Anglo-Fran%C3%A7ais%20Tricolore,Dog_breeds,val,a36fd35cc3f1270d07626e287f32db67b335dff8e714afabc829047fb8564955
+Cur,554645,https://en.wikipedia.org/wiki/Cur,Dog_breeds,val,04463378bb53d9521aaa0b4cce858d64208c316ed2b046b3a33818757e22e4c5
+English Cocker Spaniel,611093,https://en.wikipedia.org/wiki/English%20Cocker%20Spaniel,Dog_breeds,val,35944fcca8162f2910c6153586321a095df233525399f87336d135711efe63ea
+Carpathian Shepherd Dog,18973120,https://en.wikipedia.org/wiki/Carpathian%20Shepherd%20Dog,Dog_breeds,val,c019bbb9761d7c1be5ab5a212d6f808de8a46b767b340df84363c219e5651973
+Polynesian Dog,53488521,https://en.wikipedia.org/wiki/Polynesian%20Dog,Dog_breeds,val,a2fec00a5d99a4ffd908e91c916ffd249194931ab9bafba2cd6683f7c47efffc
+Tibetan spaniel,1005582,https://en.wikipedia.org/wiki/Tibetan%20spaniel,Dog_breeds,val,37854c47a182aff5f3c7dee40b3538a6cf4c2d67ace2ca22f63f25713f093ab0
+Kamchatka Sled Dog,73845527,https://en.wikipedia.org/wiki/Kamchatka%20Sled%20Dog,Dog_breeds,val,9b341cc86367395b6dec22195892d8591192f51455d04a63236cf009aa73975b
+French Spaniel,7376590,https://en.wikipedia.org/wiki/French%20Spaniel,Dog_breeds,val,7530ce83ae1185e3e8ff22bdaaa99e6e2a383da57bde01c3a6e6390280c8c470
+Nova Scotia Duck Tolling Retriever,877914,https://en.wikipedia.org/wiki/Nova%20Scotia%20Duck%20Tolling%20Retriever,Dog_breeds,val,743f0e847496daa9184ad47974e6e551adb4cb444f53be944b2790f756560fd3
+Old Spanish Pointer,49016406,https://en.wikipedia.org/wiki/Old%20Spanish%20Pointer,Dog_breeds,val,0db4f0614cd2327598fea73a13a14193cb19aa3c428a1f78a5103cdc55758079
+Irish Setter,766926,https://en.wikipedia.org/wiki/Irish%20Setter,Dog_breeds,val,8d7e2a87c88473c56eb4372129d1dd59a09b3feaba05156f68aa6ab3d513cdae
+Transylvanian Hound,12733574,https://en.wikipedia.org/wiki/Transylvanian%20Hound,Dog_breeds,val,c7b67388546c16a633b5de5f73a2c4a83e889fcc61bb8c7f0602734e969e0228
+Mackenzie River husky,283833,https://en.wikipedia.org/wiki/Mackenzie%20River%20husky,Dog_breeds,val,0aac15c8f3181ddd0b934c8079b966888853728ee8176ebf019218f873c78703
+Jagdterrier,1254130,https://en.wikipedia.org/wiki/Jagdterrier,Dog_breeds,val,398df4e7c2bba070e6979fcae5bfe9f4e174b358da5de2fd0efa6d7d6d9de663
+Grand Fauve de Bretagne,64177953,https://en.wikipedia.org/wiki/Grand%20Fauve%20de%20Bretagne,Dog_breeds,val,f025fb7882b96105da2ffdf645d18d8e03d5c8c17c02005c8c99b83a96583625
+Braque du Bourbonnais,6027388,https://en.wikipedia.org/wiki/Braque%20du%20Bourbonnais,Dog_breeds,val,a8bcb102b96a9d9f9ed6c9403424154a2fa0ded18b6d0f67aa8341acd90002ad
+Pastore della Lessinia e del Lagorai,60163672,https://en.wikipedia.org/wiki/Pastore%20della%20Lessinia%20e%20del%20Lagorai,Dog_breeds,val,928e1ac70c5f672b8b79f7ae6eb5e821346b8f9804c2eef8ab4803d1354e1174
+Australian Shepherd,514816,https://en.wikipedia.org/wiki/Australian%20Shepherd,Dog_breeds,val,27b6d64c66c0fabe349faa16a589e0b49a170c46d889c1797ac421070e5b4f28
+Segugio Maremmano,26062432,https://en.wikipedia.org/wiki/Segugio%20Maremmano,Dog_breeds,val,1c2eb7aa9f8b7b1f82e65826038d8582240012cb6c061ec4e8a2e7bf87c9ab77
+Bucovina Shepherd Dog,11917414,https://en.wikipedia.org/wiki/Bucovina%20Shepherd%20Dog,Dog_breeds,val,0b73de66d6f8214d6db5857669fa8f65b3d1f458bd748744f9d4a0f92b1fc46f
+Magyar Agár,5552088,https://en.wikipedia.org/wiki/Magyar%20Ag%C3%A1r,Dog_breeds,val,a70a44426cb3beff0ec0a1d02879839890893bb0cab41c93dd00b360d337a6b3
+Havanese dog,1003805,https://en.wikipedia.org/wiki/Havanese%20dog,Dog_breeds,val,40f048aa7a8ddcc84152793863a974122f0025fe10e9a706423252363cfa7129
+Small Münsterländer,1280850,https://en.wikipedia.org/wiki/Small%20M%C3%BCnsterl%C3%A4nder,Dog_breeds,val,98f84997a62810507918f07f9e4e5690b4b1c2c600b0cd665fec39abdfbf1a90
+Chiribaya Dog,25314131,https://en.wikipedia.org/wiki/Chiribaya%20Dog,Dog_breeds,val,03efc9be8d922b48f9b8a8f342f207d63e1c4ccaf9ecbf2cb2892781c805ac80
+Stabyhoun,1469640,https://en.wikipedia.org/wiki/Stabyhoun,Dog_breeds,val,7f711d768f54779391a0b5091c59180ddf6d8db9000d2066564b8b74ac2b87f3
+Toy dog,731386,https://en.wikipedia.org/wiki/Toy%20dog,Dog_breeds,val,c7976d5bca034dacbf237f8e8bb270c7c1ac32da5af53bcadf580f66a55ada41
+Phu Quoc Ridgeback,11432841,https://en.wikipedia.org/wiki/Phu%20Quoc%20Ridgeback,Dog_breeds,val,d848c12ae3a47453c23f671138b9292b2dce73f94f2c7723808ea2088fbd7060
+Bullmastiff,233270,https://en.wikipedia.org/wiki/Bullmastiff,Dog_breeds,val,667451bb16a2041739588f6cce4408cb4d1edc532b802473db2f980bf897dce1
+Miniature Pinscher,952060,https://en.wikipedia.org/wiki/Miniature%20Pinscher,Dog_breeds,val,f758eb6829925022565ce98899fb4fe11b9907de17dcbacbee026ea61ef1b156
+Finnish Hound,16454880,https://en.wikipedia.org/wiki/Finnish%20Hound,Dog_breeds,val,7faa35c9551df69c9c64e963ad96585a13063813ec83ff40f5bca8ef2cd898b6
+Kanni,3087794,https://en.wikipedia.org/wiki/Kanni,Dog_breeds,val,975bfc93efc3231ee80f3c6e854ca1c87cfa963355eef83932a024b91aa0cf6d
+Border Collie,102136,https://en.wikipedia.org/wiki/Border%20Collie,Dog_breeds,val,c5b9eda8fe10272e0fec865fb1d96e26a52b055b9d2a3370d217040c30fa30eb
+Terceira Mastiff,42776700,https://en.wikipedia.org/wiki/Terceira%20Mastiff,Dog_breeds,val,e3593d6900bfb2a21fd579c74833df7f9e8ee0ebf2dce76d46e6a89676568dcb
+Italian Greyhound,15336,https://en.wikipedia.org/wiki/Italian%20Greyhound,Dog_breeds,val,9eb03d9636acabf46865223ce1554470d2c3eec49796abfab8c86f72d4ce1f7f
+Volpino Italiano,1750964,https://en.wikipedia.org/wiki/Volpino%20Italiano,Dog_breeds,val,b724b38813cdec85c40c9ceeec3791adfb1c69ee2543fd5e99f6965f8da796b0
+Bulldog,242068,https://en.wikipedia.org/wiki/Bulldog,Dog_breeds,val,fab2f2aa3a6e0d876c7e01ba4fb3b73604650f498537a7bde55af3ea921129fa
+Kai Ken,5264629,https://en.wikipedia.org/wiki/Kai%20Ken,Dog_breeds,val,e256911f95027ce5356113bf1e59a71dde51f5743878dfc7d6e7cd76b9f6392d
+Drentse Patrijshond,847723,https://en.wikipedia.org/wiki/Drentse%20Patrijshond,Dog_breeds,val,7bd023a3a84e45cccc0688f35f2b26463cea5ca036f5d7447201a0dcedbc2108
+Pomeranian dog,170595,https://en.wikipedia.org/wiki/Pomeranian%20dog,Dog_breeds,val,e736d4ab471970b3c0559b1660f5df9801aafaf0b76ee75fd434b411e8753b0b
+Pudelpointer,54184,https://en.wikipedia.org/wiki/Pudelpointer,Dog_breeds,val,123869157b02feabb310866f68192395f863b5ea356de16e33f00ed2c9449644
+Segugio Italiano,6624330,https://en.wikipedia.org/wiki/Segugio%20Italiano,Dog_breeds,val,dda0280fdfe9bb16d2f04f7bf663830720d1ced8ff8f5d32b4cd937d61f23c4d
+Golden Retriever,21022536,https://en.wikipedia.org/wiki/Golden%20Retriever,Dog_breeds,val,e52dfc4cf8737b43758f52e86aa7fe33aa03ef106af6e00f1e4deeb9e6087e06
+Estonian Hound,13184322,https://en.wikipedia.org/wiki/Estonian%20Hound,Dog_breeds,val,241b0c7e382f6db618c3b9fb470c80356c4d931f899feff18faf31c5602d302d
+Pteridomania,18323472,https://en.wikipedia.org/wiki/Pteridomania,Gardening,val,f6a356397e3a3f86a4213aa91bbb00738029ed82bbe33c1495aedc969b21abcc
+Moss lawn,63241033,https://en.wikipedia.org/wiki/Moss%20lawn,Gardening,val,4c4d84f77cd4b11d73ccf1bb70ee45003d58a127089576ff9251dbe957ed9098
+Grow box,13280577,https://en.wikipedia.org/wiki/Grow%20box,Gardening,val,894207813a34aa256e1f3fd50ec330af105a2b16dd55f0945ab499be79ef69be
+Community gardening,2826867,https://en.wikipedia.org/wiki/Community%20gardening,Gardening,val,49a663209aabea2f6e7725856b3df633369463b089a7675f8c74996da567848c
+Head gardener,1474704,https://en.wikipedia.org/wiki/Head%20gardener,Gardening,val,67ba2fc2854ac77a2dc2de466652d6b9b1041229c47377aeece6a9491930fca8
+Silver sand,45537504,https://en.wikipedia.org/wiki/Silver%20sand,Gardening,val,9cbc8797a519df89d2ef81b0866068c77ccc059ab3cc88bcbce9f969ac83679c
+Spirit of place,1546216,https://en.wikipedia.org/wiki/Spirit%20of%20place,Gardening,val,159fd82e2b20c63542c3632519ab9bb7d656fe778c5f69e27d99edeecdfa237b
+Free-flowering,73861379,https://en.wikipedia.org/wiki/Free-flowering,Gardening,val,2b8caa9e8a07e41bd44eabe559542263125966cebf4ce52700b853bb507a3496
+Deflowering (flowers),57085125,https://en.wikipedia.org/wiki/Deflowering%20%28flowers%29,Gardening,val,1eb5bc306a34a0668465d295b5b334fef3a6692c67d17f7ede4a08cffa9abb20
+Gardening in restricted spaces,33657110,https://en.wikipedia.org/wiki/Gardening%20in%20restricted%20spaces,Gardening,val,2fd34104d8df938757936d82a16474e74067f36100dd50af88095c42cbec073d
+Seed swap,23006744,https://en.wikipedia.org/wiki/Seed%20swap,Gardening,val,fddbb6328f97272e48521485bcaef66575eac3f46338dbc6027caa719777f54b
+Garden design,925631,https://en.wikipedia.org/wiki/Garden%20design,Gardening,val,4d4f381ebb0255e14ad5c5cd73c44808abb2ede6b61f1e35bff48dbb9e44fed1
+Groundskeeping,2079855,https://en.wikipedia.org/wiki/Groundskeeping,Gardening,val,ef0238d0f313cec0eeeca26e473b46b44657c43d09945d5d1ee46212d006fdd6
+Permeable paving,555750,https://en.wikipedia.org/wiki/Permeable%20paving,Gardening,val,f8dbd1e6645d644dd3ee01e65b3484d9b2b7c01da508fd1c60f3c1ca5d558dd7
+Clipping (gardening),1932702,https://en.wikipedia.org/wiki/Clipping%20%28gardening%29,Gardening,val,10c8d1b9f44e227f4992790b31225534197d3f63e08243e4a9d6740500c6d963
+Floristry,496037,https://en.wikipedia.org/wiki/Floristry,Gardening,val,d4f0f800205ba62fe19cc380698bcf8d482944708b7a8bc5c1f104027c4f3753
+Deadheading (flowers),34076480,https://en.wikipedia.org/wiki/Deadheading%20%28flowers%29,Gardening,val,24804dee1124fd6984dc1aa90a013e463e995ceeed1d950dae4167616d928714
+Atomic gardening,15305337,https://en.wikipedia.org/wiki/Atomic%20gardening,Gardening,val,7bc35b996a208c4a16d278a29c09fe6c097e725245f803a824f6a6b6534b7510
+Garden tourism,5402377,https://en.wikipedia.org/wiki/Garden%20tourism,Gardening,val,1a5ec05f51d22ddc9ca1f39e774e3ccc99e5b6ee950d665487de3449da896004
+Double digging,14924747,https://en.wikipedia.org/wiki/Double%20digging,Gardening,val,ec5ebcb23b7a2f8704f52a40c4f9cb307ab754a312ce9d1862ed12adc490ed35
+Miracle-Gro,6575569,https://en.wikipedia.org/wiki/Miracle-Gro,Gardening,val,099aa5596d2c695325a7ac4be18968861f5c1b3191abfe7db67dede7738db8a0
+Garden World Images,4786541,https://en.wikipedia.org/wiki/Garden%20World%20Images,Gardening,val,12703b34fe3747be00301213f7a8d6e83682c114d6490b214885c872fec8bee8
+Garden sanctuary,53320264,https://en.wikipedia.org/wiki/Garden%20sanctuary,Gardening,val,1fecf24f79d7a922be5b79af6a78f9808e655eba437f978f1a2b787a07aa0de1
+Greening,12446018,https://en.wikipedia.org/wiki/Greening,Gardening,val,2ed7b5fe374e85f0927ebf72a6c2978ef79984be828b756e6722ad6c797270d2
+Garden festival,11450984,https://en.wikipedia.org/wiki/Garden%20festival,Gardening,val,d29b40125fdc6d773b8990f0cdb779cee6470fbf105877ef51fb349d1143a66c
+Thatch (lawn),47917067,https://en.wikipedia.org/wiki/Thatch%20%28lawn%29,Gardening,val,bf3ebe6d0b1e250a5fa468094364c467d45b45db13b9c1c74445e7b9f8eb1b3e
+Gardening,11984,https://en.wikipedia.org/wiki/Gardening,Gardening,val,db5825811be4b656762e43c64324a82586c88a9c16314bd9b1b8a540873863c2
+Slow gardening,29295556,https://en.wikipedia.org/wiki/Slow%20gardening,Gardening,val,7be4e8740416c502b6d82a19b5fcf30c980bb0ac6d79d6c17e21063511c9dc01
+Softscape,12321263,https://en.wikipedia.org/wiki/Softscape,Gardening,val,a9a186fdd4c61b2886e286ae37a81618a4f10353479b15587ca06320ebb2c7d2
+Garden waste dumping,50484294,https://en.wikipedia.org/wiki/Garden%20waste%20dumping,Gardening,val,74321cc2a8c46c62ec3450e42c9f10ddf8fee0c1580cf1f84a13ed2e6ed88988
+Triple mix,3497326,https://en.wikipedia.org/wiki/Triple%20mix,Gardening,val,8a986e121418e1252642e814ccc485f149e8f651380121944646e9b042f7b05e
+French intensive gardening,27642756,https://en.wikipedia.org/wiki/French%20intensive%20gardening,Gardening,val,04f1f0573101067ab735a681a4021ddcc2c2d594988ee0fd35cbbfd75113be8d
+Pekarangan,60252696,https://en.wikipedia.org/wiki/Pekarangan,Gardening,val,0ec1bb6739bbd7b6188343bae53af55043843c670ca9215a6bb7451e45f4c138
+Gardener,22835358,https://en.wikipedia.org/wiki/Gardener,Gardening,val,eada4897fa976b344d39abdcccf228ae9f45c5f3e8c1a52b3c6367d95ce324d2
+Organic movement,410942,https://en.wikipedia.org/wiki/Organic%20movement,Gardening,val,d1566cf8507ef93ad74b3884394756181eeafaba88649197036ee08568147f1e
+Fleur-de-lis,96957,https://en.wikipedia.org/wiki/Fleur-de-lis,Gardening,val,6db1cdea1c206a964419b08a77e28788628c6461da4fe50144ca39c62c7b9946
+Polystichum,3678479,https://en.wikipedia.org/wiki/Polystichum,Gardening,val,afed48b1e33d6b0e18c87e4d3844ba4cf5d65c7b1a9f58653d3a893524de7399
+Entada rheedii,9339843,https://en.wikipedia.org/wiki/Entada%20rheedii,Gardening,val,79162def24f401928eafc2a1b338398bde723b333a75a1ad946a909a6db9faec
+Electric fence,1920222,https://en.wikipedia.org/wiki/Electric%20fence,Gardening,val,787bf03478b833e66006274db764bcc2ec06bf44b6806683a1af611f8be7d0c6
+Limbing,2050957,https://en.wikipedia.org/wiki/Limbing,Gardening,val,6fe804839852c9211bce6834d89a3108c812bbc004491d726f5c1c30deab7627
+Zephyranthes robusta,11735061,https://en.wikipedia.org/wiki/Zephyranthes%20robusta,Gardening,val,2d1a6d6df53e2468155027134006418bf7df489b4d877e06cf366a7f4c83f9c1
+Cantera (stone),26217719,https://en.wikipedia.org/wiki/Cantera%20%28stone%29,Gardening,val,647a15009dfa65d19ec70734ad9c7987d21460f6ffb7a7161f543e412d517f4b
+Sagittaria australis,41829107,https://en.wikipedia.org/wiki/Sagittaria%20australis,Gardening,val,336056bbb1d29c7a77bd5d6940d86ef80dbe19b4f8db2079bc540b31f512cbd7
+Iris taochia,49376071,https://en.wikipedia.org/wiki/Iris%20taochia,Gardening,val,6aa34daa594bb53bea409d8117f0b791d34cab1a282f1e16b6c08ca18de109c2
+Areca catechu,1912904,https://en.wikipedia.org/wiki/Areca%20catechu,Gardening,val,d34c0556511ac128381b4459e684d4d5fc8416bc719f440ad0258b3cc9919539
+Cissus discolor,60341980,https://en.wikipedia.org/wiki/Cissus%20javana,Gardening,val,b46ecb0950a79581077f66c5363078a1bd26bae9bbb3a7729389c66109c22c64
+Dracaena surculosa,67574586,https://en.wikipedia.org/wiki/Dracaena%20surculosa,Gardening,val,d6235294147f9af9315aa71909cdbe0979ecf69fe98d4a694f1ab5d75df4a595
+Lamprocapnos,2229900,https://en.wikipedia.org/wiki/Lamprocapnos,Gardening,val,42fe75b9c56886a698578f6243cdb437efa7cfbf34b2d5bc03bbefa02abb8b3f
+Pteris cretica,38601517,https://en.wikipedia.org/wiki/Pteris%20cretica,Gardening,val,a30837d6ad164b4d611847f135964c3fba5369ac674c820541de9125420718ca
+Commelina tuberosa,6799507,https://en.wikipedia.org/wiki/Commelina%20tuberosa,Gardening,val,76f1faf82e451612804a1e1085a7f948ff4802ce429fd8983cd92c3b9bbc13e5
+Stephanotis floribunda,15611394,https://en.wikipedia.org/wiki/Stephanotis%20floribunda,Gardening,val,caea6901ea87094cb4f7c23bc9ae74d09ec998ae8ef102f8764f17bb70840470
+Ornamental plant,216428,https://en.wikipedia.org/wiki/Ornamental%20plant,Gardening,val,48364230ee5f97a789b5e5107b4ac3dd7fd2ab0a6464fc81450b8e2188c73205
+Traditional food,46355870,https://en.wikipedia.org/wiki/Traditional%20food,Cuisine,test,1b26bc9a154b539cf7f29272833ef0d760f747f53a55097310e3922534c53660
+Vegetarian cuisine,32601,https://en.wikipedia.org/wiki/Vegetarian%20cuisine,Cuisine,test,bf3a54d772a3cdc7ad383fb329f20767e3c651af4b24cd2a19242230a3bd4a57
+Cuisine of Menorca,53631891,https://en.wikipedia.org/wiki/Cuisine%20of%20Menorca,Cuisine,test,6b3790ba28736ec785422dd28e932594e5eeaecb47dd88dda4faed6ac6ff24d4
+Signature dish,523496,https://en.wikipedia.org/wiki/Signature%20dish,Cuisine,test,aba73ae6060c04943ebf124a7b536c67cff2bacd41349bcf1bd690f9ec63b441
+Recipe,97845,https://en.wikipedia.org/wiki/Recipe,Cuisine,test,57c8e23090dff76c1779f8bc992a5072c77367e7e3ecf3603911b51dca504f41
+Dark cuisine,69520077,https://en.wikipedia.org/wiki/Dark%20cuisine,Cuisine,test,8ac287e80fd2377ae82424e905fcac41f2f143779acfe02646380a9d3bf4b997
+Global cuisine,32302631,https://en.wikipedia.org/wiki/Global%20cuisine,Cuisine,test,457d5c7a1682fb8deadae5626a79fb5afdbb5c4cb7a868233198b07640f547c7
+Peasant foods,1299938,https://en.wikipedia.org/wiki/Peasant%20foods,Cuisine,test,233f4d6598548b5191264f9a698892ad7dff4334c4d58238e760c5cf84a83c49
+Road food,41232267,https://en.wikipedia.org/wiki/Road%20food,Cuisine,test,6e3ef4980546ad86db6d664cb4537c95b99358a89c42c46f56ae8b87abc957f0
+Regional cuisine,11644740,https://en.wikipedia.org/wiki/Regional%20cuisine,Cuisine,test,3e73023f4ebda368a9300424c4972443b44e550f112f4011f6341996842be11f
+Forager,71053566,https://en.wikipedia.org/wiki/Forager,Cuisine,test,b960cb4d5384315afeef59c241a651e2f3887a92d9b3762368dad5f37809f0f7
+Cuisine in the early modern world,57766788,https://en.wikipedia.org/wiki/Cuisine%20in%20the%20early%20modern%20world,Cuisine,test,f6a5f85b2cd0c7414ea60547012e98d6a78909fc2ad52cd2fbd9a62e8b596fda
+Cuisine,6656,https://en.wikipedia.org/wiki/Cuisine,Cuisine,test,6eaccc558a7af95d8101f45fd9ebc5112e43ed221a7ff25c8dd787ab7b020544
+Delicacy,19208999,https://en.wikipedia.org/wiki/Delicacy,Cuisine,test,ffdd2b56766e5cb1fbd0e1a633aa53d045670519e7374c0b7aaed9460feb3cdc
+Vietnamese cuisine,32546,https://en.wikipedia.org/wiki/Vietnamese%20cuisine,Cuisine,test,4841a2c346eaee3f83f392e318009780079c9c2825fe18a7603720715d4efe25
+Note by Note cuisine,41031835,https://en.wikipedia.org/wiki/Note%20by%20Note%20cuisine,Cuisine,test,1dec9e70f0022d575698a9417ed7a20f70d4696921b3ab34881ed1f817d5397e
+Haute cuisine,334079,https://en.wikipedia.org/wiki/Haute%20cuisine,Cuisine,test,0779b276b906cb622d2410841d11b3641084e03e0e147431d235d91a5fd98fbe
+National dish,1606342,https://en.wikipedia.org/wiki/National%20dish,Cuisine,test,18af189711d50530e669e4fce1b07192b630dba63d1e2cd3060b6ac863303f15
+Foodways,11102649,https://en.wikipedia.org/wiki/Foodways,Cuisine,test,53433bd46e3b48bc94b14bb0c49e147712ccd7a31a380ed28d78b4ae0b207b81
+Finger food,3853687,https://en.wikipedia.org/wiki/Finger%20food,Cuisine,test,871e0429386957a8ba0522fbdb356082b54a84d9eba11b1ef73875bbf06224f1
+Hot dog cart,14091757,https://en.wikipedia.org/wiki/Hot%20dog%20cart,Cuisine,test,10644a97575cedbbd3abe42020bc72782e166b7dfd6ae3a102aa13fb795ce828
+Paratha,47862905,https://en.wikipedia.org/wiki/Paratha,Cuisine,test,6e4e2a3c1a25dac510cdce9bfac5a748b4dab0763a5a96735bb12a913420fedc
+Balochi cuisine,25430284,https://en.wikipedia.org/wiki/Balochi%20cuisine,Cuisine,test,686c530df16efca7ec0767d5d29089a3607e3ed7ef9782da629df5459a07fa71
+Kyrgyz cuisine,12835704,https://en.wikipedia.org/wiki/Kyrgyz%20cuisine,Cuisine,test,0c4c21a210598eba5d5a4307cc9619dae415562f3b79b0b7aaf0ff3b08dbdc92
+Tangpyeong-chae,9079805,https://en.wikipedia.org/wiki/Tangpyeong-chae,Cuisine,test,a84b1e53867baf72cd8a7ff77ef42702a39c53abeed11499c34338825f65fbe4
+Pizza,1049283,https://en.wikipedia.org/wiki/Piza,Cuisine,test,24b79b9d9ee10ffc67a8da72fe537dc74fbdbe84998add015b63ccb6541dd47e
+Alu chat,35742412,https://en.wikipedia.org/wiki/Alu%20chat,Cuisine,test,76dc45306a2d226503610cdf10d175c4d48e3bc9bf356479c1d8f796f54cc6ac
+Galette-saucisse,42516296,https://en.wikipedia.org/wiki/Galette-saucisse,Cuisine,test,bec0430a6c183bf289f566be9181f6f19956a4ac98bcc782740bff156629fde6
+Kue kochi,8560340,https://en.wikipedia.org/wiki/Kue%20kochi,Cuisine,test,53d11cef05d19a9979269e6be54c681ab26f0afdd8c2eb6c1e1325c3084411c0
+Cuisine of Dorset,24561462,https://en.wikipedia.org/wiki/Cuisine%20of%20Dorset,Cuisine,test,16a382d03502a217b650ca43002e9fc1047b9710a4c224dcaf3956f0dee73f57
+Enchilada,50527,https://en.wikipedia.org/wiki/Enchilada,Cuisine,test,e6e4a0ae9ec0c54649ddf76aab20cf4efb4f15a084738339ec81f826c8ffd692
+Chapati,234721,https://en.wikipedia.org/wiki/Chapati,Cuisine,test,98dbc961881872f281edcfaba0565d5eea1ac645947dd2824e67cdd08ed0af43
+Panakam,70740003,https://en.wikipedia.org/wiki/Panakam,Cuisine,test,e8770bc73af0af38ccdd560891b0e889645047e816165c0a56ea0927d1b26b23
+Samsa (food),56327743,https://en.wikipedia.org/wiki/Samsa%20%28food%29,Cuisine,test,b3b47cf4fda59bb2fe7efe3f3ef2073f0b3f38f9aee3cf590b7ecf84d82697cc
+Patatnik,19486929,https://en.wikipedia.org/wiki/Patatnik,Cuisine,test,189f9ee718ebbca3dba57891dee85a8ee2ca20c921b3dd3e9a4ec65b106f4967
+Momo (food),1351345,https://en.wikipedia.org/wiki/Momo%20%28food%29,Cuisine,test,9de1ad0858ec1bb3b9ede5bf8c55d128f3f80692651c0170634e3c4da6b9f34a
+Teja (confectionery),1871960,https://en.wikipedia.org/wiki/Teja%20%28confectionery%29,Cuisine,test,ca1a500b0cedfcc7f77e4f35af19b4d5d555dd735535d1b6bd870edb44d16cef
+Crumble,229274,https://en.wikipedia.org/wiki/Crumble,Cuisine,test,6ce914155935f3ca5c66164485d79d4929ef86eb2aab2d0f7c0b1afc830b7a22
+Quesadilla,484954,https://en.wikipedia.org/wiki/Quesadilla,Cuisine,test,a9d579333272f69a745117b862bc4ba4d2c046fd62820bfe1c43bfbe93959132
+Edible mushroom,193975,https://en.wikipedia.org/wiki/Edible%20mushroom,Cuisine,test,78f361a9d52863c907f43a21e92bd3e134804ad86b03e112650093c6c6e08555
+Kapsalon,31836812,https://en.wikipedia.org/wiki/Kapsalon,Cuisine,test,211ac572f17a7c998c4dd2a73f1390462be7027c9825306f895876ae85f08a7f
+Smažený sýr,3158765,https://en.wikipedia.org/wiki/Sma%C5%BEen%C3%BD%20s%C3%BDr,Cuisine,test,e4bf4fc2800d119508bdc87b7924a01ad236a4a4b8d2fd482f59427d4d5d6251
+Pig roast,9863191,https://en.wikipedia.org/wiki/Pig%20roast,Cuisine,test,d122b010d3d94a9d40091078796d2d94e49dd049e5ab8d4f205cddfde46e7ebd
+Laapsi,32048827,https://en.wikipedia.org/wiki/Laapsi,Cuisine,test,17ec24a139484c563ffdec694b716fe7d97852504ef3b8d1c8c6023a7c1400c8
+Bake sale,2040893,https://en.wikipedia.org/wiki/Bake%20sale,Cuisine,test,38a11986a5e9e072be2283e3e2866dbf17a20a91ae799c72ec4ed33499c3ec40
+Insalata di riso,74694248,https://en.wikipedia.org/wiki/Insalata%20di%20riso,Cuisine,test,bf772aaeb0243dbb14e4a4cb78abf99ab5b92fa6acff98941dcb44fb5842d44d
+Cheese sandwich,2316124,https://en.wikipedia.org/wiki/Cheese%20sandwich,Cuisine,test,dffb7a441fe18eee608f3dac17c54cedf4939517f656f6193607c97cac5849ae
+Pork rind,47837676,https://en.wikipedia.org/wiki/Pork%20rind,Cuisine,test,8aff6a125d3da06d7e060ecbceaffe363030db9837f82302e6e4f8982611d00a
+Assyrian cuisine,3178869,https://en.wikipedia.org/wiki/Assyrian%20cuisine,Cuisine,test,0d76e67d90d42baad69356137638dde189fd07671eff40975e588cfb34736efc
+Parmesan,304667,https://en.wikipedia.org/wiki/Parmesan,Cuisine,test,be3caeec794fd410cff0861a645f0603492b4310cffb8703a48ea95125f3a2e2
+Khanom Tokyo,46294133,https://en.wikipedia.org/wiki/Khanom%20Tokyo,Cuisine,test,47a6b88fdda898e47fed972756e2d76ee33ce9e90f1821901fd166606c8cf42f
+Tableting,30163215,https://en.wikipedia.org/wiki/Tableting,Cuisine,test,a5a28160497c28de1b2e8b9346ec1cab84d4f0c02b976c4f4bd4833f8fa8b25c
+Phat kaphrao,57283266,https://en.wikipedia.org/wiki/Phat%20kaphrao,Cuisine,test,08b90dbb27316939e5901e917ce328facf88fd6381346803f718dfcfbf70561f
+Egg waffle,20149964,https://en.wikipedia.org/wiki/Egg%20waffle,Cuisine,test,f8b9e7a511dfb2932b72335a47294c699f38a24233fa8cb043c6ff651c467ed9
+Moustalevria,20224427,https://en.wikipedia.org/wiki/Moustalevria,Cuisine,test,59a6897d32cf6582cc3a65dc55071b516708e66a26650a14bac20a15d203c803
+Buddha bowl,59120160,https://en.wikipedia.org/wiki/Buddha%20bowl,Cuisine,test,fae2e8791c0dad2e314a602a74fb4802491bbb197bbb3dd5b505079e143fb5df
+Sugar plum,3220171,https://en.wikipedia.org/wiki/Sugar%20plum,Cuisine,test,53330a7305ac7d33aa263e60324f72c7f00e3286a33d65db1fdb082a726e3425
+Scottish genre art,46892917,https://en.wikipedia.org/wiki/Scottish%20genre%20art,Painting,test,5edc3e7f1d13179a4025fa3812fe249a2a7a8cc1573b6f95841fcb77dd151515
+Live painting,24185683,https://en.wikipedia.org/wiki/Live%20painting,Painting,test,4e7e5bdd965ebc1331b2a5288105c775bf43078e43bf9b9d7c2673f610c4ee68
+Combine painting,21011109,https://en.wikipedia.org/wiki/Combine%20painting,Painting,test,1be9a9d91daae6c63050ff5a93f6c050a112a285afb7b27c2639285b2bc4b833
+Konstnärsförbundets skola,61446544,https://en.wikipedia.org/wiki/Konstn%C3%A4rsf%C3%B6rbundets%20skola,Painting,test,84fecbb44ecdc445bc192b8520a3a20fec7babcd019d91fbb4b791c07b48dd19
+Volume solid,34575941,https://en.wikipedia.org/wiki/Volume%20solid,Painting,test,c7e454ba5b9ac1a286172537e0d4ef5cc22c14a1781a5cc2e2ee592a06e0f1b8
+Pentimento,1603228,https://en.wikipedia.org/wiki/Pentimento,Painting,test,a27a0321a89f567cd21db9a268e234418cd366222f246e487ae7366bbda435b7
+Pendant (art),45633113,https://en.wikipedia.org/wiki/Pendant%20%28art%29,Painting,test,f86afcb7a30c92172142893ecc276e53fc3e805560fe394d1cc221427120f85f
+Rococo painting,72051245,https://en.wikipedia.org/wiki/Rococo%20painting,Painting,test,e9c56271572e93dbe532b34411a70b9f618f586545b76485284992c4a51c28a8
+Picture frame,2248824,https://en.wikipedia.org/wiki/Picture%20frame,Painting,test,dd6fa199ddbe8c853227a81e40f0a7851bafa82e0a747c899112a6795cd8c16b
+Boston school (painting),23749140,https://en.wikipedia.org/wiki/Boston%20School%20%28painting%29,Painting,test,e0c633e03043c98f02d7b0ebb4d8ecebd7f207317561e3bf06b02503bbb9cf66
+Destination painting,67153762,https://en.wikipedia.org/wiki/Destination%20painting,Painting,test,c99b26b56b1463cebc9d63dba70a4ce60faf1a2d2173bcc9915ff47562b805b0
+Accidentalism (painting),43083249,https://en.wikipedia.org/wiki/Accidentalism%20%28painting%29,Painting,test,6071bb33432fb87829ea5d8ec40b1076926f6fca3b5f25f8d49e7029e0dd5360
+Sign painting,3206583,https://en.wikipedia.org/wiki/Sign%20painting,Painting,test,737b146c2730d55f759f4b181ec9dee114ca6653f522485f05f6e40a6d27363c
+Letras y figuras,47286071,https://en.wikipedia.org/wiki/Letras%20y%20figuras,Painting,test,beca660171f29e3fad2a349e4a3accfea5e5397a90c6a0c259b572014fe481ba
+Theory of painting,25660140,https://en.wikipedia.org/wiki/Theory%20of%20painting,Painting,test,a9c00682695e2e30c5b26858a5a7bcf093e68b9a240dc8a1d6ed9575d99a0717
+Genre art,240347,https://en.wikipedia.org/wiki/Genre%20art,Painting,test,2d9ce51a7b83825d1aef457efcba0decb41a7e1b20f30758b4311c7202d2bf24
+Local color (visual art),19839094,https://en.wikipedia.org/wiki/Local%20color%20%28visual%20art%29,Painting,test,2af76ab98a33a16f20bc97d939c70489b5fdc80e3a549f8dff8f434dac63e33c
+Hierarchy of genres,385946,https://en.wikipedia.org/wiki/Hierarchy%20of%20genres,Painting,test,f28dfb943599dbd751c89e4f807abcb1e7a2b074184c65b343445c2ca488f3fb
+Conservation and restoration of paintings,50187915,https://en.wikipedia.org/wiki/Conservation%20and%20restoration%20of%20paintings,Painting,test,6c83ef13176279a2f5ff21e2e449439a6e8fbb21f2f0a433193f6738daa1927f
+Self-portrait,7587495,https://en.wikipedia.org/wiki/Self-portrait,Painting,test,2d127d01a634b6893970d71a39697b04d79b7174be15c53f6232e5f864777a04
+Shell gold,59624215,https://en.wikipedia.org/wiki/Shell%20gold,Painting,test,d6fe26cc1fb9e87209335a0536b567861d92fab71858c0e2c87e59b36055ce65
+Support (art),72650966,https://en.wikipedia.org/wiki/Support%20%28art%29,Painting,test,a65e39155d19e079b88c6ff7bad1a19901e815f753e77b21d2009a46877e09da
+Portrait painting,3085396,https://en.wikipedia.org/wiki/Portrait%20painting,Painting,test,9fac8ff801310a7ee51f4113c9604a5bcf6d11192a7f9b72c12951eb53d0a31b
+Institute of Mural Painting,72180019,https://en.wikipedia.org/wiki/Institute%20of%20Mural%20Painting,Painting,test,875317f3108121a1da3952821e634bca257f466648f412a0ece63ffb374a242c
+Incised painting,13272867,https://en.wikipedia.org/wiki/Incised%20painting,Painting,test,a67bc0c317c38fbc73aeaa38ed8335b81266929dbc4e7865db7622dcbc914e70
+Prime version,39148223,https://en.wikipedia.org/wiki/Prime%20version,Painting,test,1474291e02e1c673ede11936444e0a233669a3c94957f62d8174e159df2320b7
+Binder (material),2076473,https://en.wikipedia.org/wiki/Binder%20%28material%29,Painting,test,412e88c1fdcbb0673dc2cf44dac97fc300851438e31d0b1759e90f34a43bcfbe
+Digital painting,770084,https://en.wikipedia.org/wiki/Digital%20painting,Painting,test,5d9abb318d534b563fb1d16c56a17ffde3b6abac8f600d30cf30b7f3c17f7301
+Conservation and restoration of panel paintings,53622622,https://en.wikipedia.org/wiki/Conservation%20and%20restoration%20of%20panel%20paintings,Painting,test,7e26af01893d723787470766097f4f60c82c15f4a25fc41101ca117e73663346
+Inscape (visual art),7488220,https://en.wikipedia.org/wiki/Inscape%20%28visual%20art%29,Painting,test,e4bc28f8231404922eb0ea5ccaa1a957d5a98c67e3ce9c37e486c1dde4c32e37
+Problem picture,2776504,https://en.wikipedia.org/wiki/Problem%20picture,Painting,test,5b30c92d29b860d904eacf9461e2ace65a98a2b7bcbedac61a77d858dacc771b
+Style (visual arts),147860,https://en.wikipedia.org/wiki/Style%20%28visual%20arts%29,Painting,test,1f3f593f26747d55286a0bebea5cb27a7beda0d11feec0ade28a148034b3d563
+Pinxit,35513484,https://en.wikipedia.org/wiki/Pinxit,Painting,test,921c7a45745d0f7932ab09c39727fce18ce4b8f3933aa982c0d0d9770f72089d
+Chicago Painter,63365829,https://en.wikipedia.org/wiki/Chicago%20Painter,Painting,test,e28f606586df557ed7dcba2cb05ed050ee37e6048bed876d8addbcc6680761b0
+Figure study,3607126,https://en.wikipedia.org/wiki/Figure%20study,Painting,test,9c66e57fc01a49ad183df4624a015bb7b1c4ae7597e99d609a1481b541caa3fe
+Night in paintings (Western art),36809948,https://en.wikipedia.org/wiki/Night%20in%20paintings%20%28Western%20art%29,Painting,test,966e3d39ca8f0bd9cb3ba05f240d04163eeb5e52e067605fda73631e1e926cb9
+Paint robot,8956851,https://en.wikipedia.org/wiki/Paint%20robot,Painting,test,78a03eac323121fbe785a325ef07465a3b384ed3d067a9f42211c1ad8b303ae0
+Painters' Guild in New Spain,40669313,https://en.wikipedia.org/wiki/Painters%27%20Guild%20in%20New%20Spain,Painting,test,f9a1b7dbd4d3bb9e9c1c82a740ef643b47e9c38d1a95c70b5e61c973041eb6a6
+Peintres de la Réalité,45162963,https://en.wikipedia.org/wiki/Peintres%20de%20la%20R%C3%A9alit%C3%A9,Painting,test,ecf69ad94b5549e53f5e6cf6dae26c234bb17e19aa39b45d2201ae6393c4c0b9
+Historic paint analysis,14104519,https://en.wikipedia.org/wiki/Historic%20paint%20analysis,Painting,test,728f1a62c4ac39be4784e4312d11e1870d532618e9f73ff318bd84fca5d8b5aa
+Mixed media,353267,https://en.wikipedia.org/wiki/Mixed%20media,Painting,test,6b8f151a9395eeb117e021657e7bc567553d01122b9171c395a581d59e99afd6
+Boston Expressionism,46409676,https://en.wikipedia.org/wiki/Boston%20Expressionism,Painting,test,e159f05317f2288a3fc2b9b3211c52d0a8653761df585dbfc07c70ca0f39f912
+Blue Star Press,50828335,https://en.wikipedia.org/wiki/Blue%20Star%20Press,Painting,test,4af1dad1bc8d807a2dab3dbda3bffefe94eeaaaaf833db1bdecc057226dba693
+Painterliness,45438,https://en.wikipedia.org/wiki/Painterliness,Painting,test,f2b7ddaaafb32415554053f71e3d2073e6eca806eb8b3868fe460f64c08aefb8
+Modern European ink painting,59858302,https://en.wikipedia.org/wiki/Modern%20European%20ink%20painting,Painting,test,f535439146f70287e305eda3344c127ff36d3a07a1c5be7b9b56003c8d793fca
+Figura serpentinata,14330368,https://en.wikipedia.org/wiki/Figura%20serpentinata,Painting,test,7455757d17ef86beaa433881cad2bf9cced2a015fd2ee17c76a85a979c36f684
+Watercolor painting,180046,https://en.wikipedia.org/wiki/Watercolor%20painting,Painting,test,c2122a5697dd7cd66ca3d215bc690d24454ab3fcbe614219cf9197df517a8ed9
+20th-century Western painting,23580511,https://en.wikipedia.org/wiki/20th-century%20Western%20painting,Painting,test,74c95bdd1d5e30759dec13093a08b991bc6d626ce14e98779974acb7228ece85
+Raking light,31614430,https://en.wikipedia.org/wiki/Raking%20light,Painting,test,e5515915eb9763064c09b721ccbae310a359149fb51b5218081e015f4b7f65fe
+Tondo (art),3626486,https://en.wikipedia.org/wiki/Tondo%20%28art%29,Painting,test,74f1c510326c085cff197027a8e9d8084dfbb4649a477aabda5058d8eb4d62c4
+Underwater art,69995476,https://en.wikipedia.org/wiki/Underwater%20art,Painting,test,0fa1951df4fbf04f5299e560d1424bd73c81011a739ce45f27ad600fc401cb00
+Figure painting,405304,https://en.wikipedia.org/wiki/Figure%20painting,Painting,test,44bbf4551f3fbb1b6ed5aa4a1efd35276ec03b09f184087909c913818485633a
+Ghost sign,13125450,https://en.wikipedia.org/wiki/Ghost%20sign,Painting,test,6b881f8c165e7440875e81f3fe079974e6c15c29ef675677cfcc215857171531
+Light in painting,70548926,https://en.wikipedia.org/wiki/Light%20in%20painting,Painting,test,1bab594c262e4345cca86e8b9321d6fda438b3e74dad97088056166ced6611b9
+House painter and decorator,2571590,https://en.wikipedia.org/wiki/House%20painter%20and%20decorator,Painting,test,ff401721ae8d8b6afd7c42e6306d7cd7a9353db83969cc3a24b35632193ac4ce
+Jerwood Painting Prize,8775117,https://en.wikipedia.org/wiki/Jerwood%20Painting%20Prize,Painting,test,09c6691bab41a1065b12d05b188a8242dd3324c17d339d1783b541ba44c2809b
+Symbolist painting,71168135,https://en.wikipedia.org/wiki/Symbolist%20painting,Painting,test,53889942ebcd2a18c84d69dd232b02538706acbcb474d8e810c6383d48d2857c
+Mural,18816,https://en.wikipedia.org/wiki/Mural,Painting,test,58e07553570002acbdbf677a78a3eb208f54878218d53eb135d3496cabae13aa
+Dance,7885,https://en.wikipedia.org/wiki/Dance,Dance,test,923595153531a683c945718eb0dc82110c21012d927a0995756cb91ce0c38985
+Light-up shoes,71229778,https://en.wikipedia.org/wiki/Light-up%20shoes,Dance,test,da02ae68d7a8e4349d2af7643e85a4dc6a547182073c827ef8b1dcf5282d4c62
+Musical canine freestyle,1007298,https://en.wikipedia.org/wiki/Musical%20canine%20freestyle,Dance,test,70da57601fce896b75cf4193b50a84e50e6bd22d9bc7e365aa7c4e9c7300c127
+Heelwork to music,10615543,https://en.wikipedia.org/wiki/Heelwork%20to%20music,Dance,test,0d69d3ba027a0424b66ac3324f7515effd287a1ead173e4f2b2a1c0cd4b1ba9a
+Entropy (choreography),69474378,https://en.wikipedia.org/wiki/Entropy%20%28choreography%29,Dance,test,0fcbc7908920c15d04f0cdb9f4dd1b48925027f3d3a10b40261b1cf8400c9c4e
+Dance (social event),74680878,https://en.wikipedia.org/wiki/Dance%20%28social%20event%29,Dance,test,0e8a54e3baf93882084611b538f092254df7388842792fe1c0de319590959817
+Musical theatre dance,72608487,https://en.wikipedia.org/wiki/Musical%20theatre%20dance,Dance,test,cfabf464f0ca69baca6f49d059d32a369527865fd5e319d19af51dbcf6fc494a
+Nudity in live performance,70663882,https://en.wikipedia.org/wiki/Nudity%20in%20live%20performance,Dance,test,daad001d0e62e5f67f49db90a84d4dd0b4f790d805d85d37525969dabe382cd5
+Drum dance,17317620,https://en.wikipedia.org/wiki/Drum%20dance,Dance,test,2af23d92679841b91fc74adbfe97be1984f32f9e8509d68eadb2983a0491a17b
+Dance Index,68877161,https://en.wikipedia.org/wiki/Dance%20Index,Dance,test,83252365220677ad71b497788f8e5c956a481012606fa6e728913a4c994c7e4a
+Rat Parties,7148277,https://en.wikipedia.org/wiki/Rat%20Parties,Dance,test,983af4bc08acd809732decb3b1572c90d0c30754df19a2f07ca6ab6d3c13d35d
+Laban/Bartenieff Institute of Movement Studies,39338947,https://en.wikipedia.org/wiki/Laban/Bartenieff%20Institute%20of%20Movement%20Studies,Dance,test,2b0ee920052eb8afd6b053891364218a1478f1270b79686be39f31dfa557fee0
+Boris Lipnitzki,66573532,https://en.wikipedia.org/wiki/Boris%20Lipnitzki,Dance,test,645b98891774218e2527828bd2a9fc5bcd69a91c5e05d775486d8affe4dec658
+Violet Alford,56569296,https://en.wikipedia.org/wiki/Violet%20Alford,Dance,test,42bd0f741fbc064adfde82631feb4e965fd452d66e1cb25eac57f2720dfcc16a
+Arlene Croce,6900512,https://en.wikipedia.org/wiki/Arlene%20Croce,Dance,test,3878074272f80d581ddf9ede9b66af7119c9392b0da765d0045fe08f8a309178
+Terpsichore (Praetorius),49934548,https://en.wikipedia.org/wiki/Terpsichore%20%28Praetorius%29,Dance,test,38de91a3115d3191eef2224228461312769887fd888b0a2461147f60cceee794
+Sher (dance),4460176,https://en.wikipedia.org/wiki/Sher%20%28dance%29,Dance,test,3231dc8142ff71aec53baf804127e0da397654a2601b699e7db117e47e57b43b
+Laban notation symbols,36840339,https://en.wikipedia.org/wiki/Laban%20notation%20symbols,Dance,test,6568ec7192bbaba8853ec24a6e4a7f72a846e738bc67ccecf596809b54f00759
+BANDALOOP,8751883,https://en.wikipedia.org/wiki/BANDALOOP,Dance,test,ad4614f1b18bb50f23b23ecec4ddcf6f5ff846ffa032a91cd7d08b01aaedf4ee
+Father–daughter dance,20390869,https://en.wikipedia.org/wiki/Father%E2%80%93daughter%20dance,Dance,test,ceaca8c11a24248c2290923487010c70013cfbf6343a8f8b63f96aa8101a3db9
+Ballet Folklorico Aztlan,7696048,https://en.wikipedia.org/wiki/Ballet%20Folklorico%20Aztlan,Dance,test,234bca39c38b061d8b1769ad9659035c14ce4858fc99c2cabc53fb8c28569ade
+Jordan Matter,75009675,https://en.wikipedia.org/wiki/Jordan%20Matter,Dance,test,39cebb5e3885bd4c1f66bea49ff4dcd6e18bb7628b7d3d31bd024cf07b04ab1d
+Beryl de Zoete,3489483,https://en.wikipedia.org/wiki/Beryl%20de%20Zoete,Dance,test,20513c6a315d21832325daa5321171d08b18006d0aad30807ba4572cbed00845
+Charleston (dance),59866,https://en.wikipedia.org/wiki/Charleston%20%28dance%29,Dance,test,5d286b12779597913d3b34f4e2efc00bc56a8815193b60ca4c3428820a52fe6c
+Cover dance,46419264,https://en.wikipedia.org/wiki/Cover%20dance,Dance,test,9886e196768a4dd5085cf6b4ea85866d3d0225a0cb91f77cec38bb821dd4a513
+Renaissance dance,25944,https://en.wikipedia.org/wiki/Renaissance%20dance,Dance,test,ec29ba2d2dd9b268a94bac2f7fec90e14952d154d182c4dda8b696a380341a10
+Benesh Movement Notation,684690,https://en.wikipedia.org/wiki/Benesh%20Movement%20Notation,Dance,test,af1e4aca3761d77851fcacd079475e93ec1bd2fde87939758cbbd50daaf00004
+Solo dance,353008,https://en.wikipedia.org/wiki/Solo%20dance,Dance,test,031c9ed8557b4ddfb801a558a0bc98f02f53cb2011056491ddb15d7315bbc870
+Mabel Elsworth Todd,8846730,https://en.wikipedia.org/wiki/Mabel%20Elsworth%20Todd,Dance,test,3dbaa8d0f4e5077460abe439d5b5f99dd3ad35da0fa32774be9dbea4a876bfc9
+Maa Aarki,6123818,https://en.wikipedia.org/wiki/Maa%20Aarki,Dance,test,38ab21565f7307739c5e5fbcda99ed65fa26924dbaa0584e7b8c5b9df7535bc7
+Wayne Albee,60219281,https://en.wikipedia.org/wiki/Wayne%20Albee,Dance,test,f1747ded385f7c336a61a6cc6c3c4311e41442c0d26069f6b2618d4b284fe191
+Sandra Noll Hammond,46202121,https://en.wikipedia.org/wiki/Sandra%20Noll%20Hammond,Dance,test,d7bfcc53107258f0ceec902f38e1002a3c386b2ca91238f9841dec8d17cbcc30
+Career Transition For Dancers,28433310,https://en.wikipedia.org/wiki/Career%20Transition%20For%20Dancers,Dance,test,90d61446b8234839a6c3255e2cb04ebac7c0c5f31a3d4c03f4215390eda36581
+History of dance,409830,https://en.wikipedia.org/wiki/History%20of%20dance,Dance,test,a82123785c5642ff51f124b4d61b0ae99b275d2dfd7113a38ec5e834bfbd96ab
+Movement Research,42431100,https://en.wikipedia.org/wiki/Movement%20Research,Dance,test,7fe0fbf6cd9b4ba13b391f4ff15b1c0887658681a6380508b18d3f68391a5298
+Stiletto dance,46773010,https://en.wikipedia.org/wiki/Stiletto%20dance,Dance,test,fb0d93e75c5d01a5f1f250c571542aa8edfb610f4e8aa6a7619035538582db60
+International Association for Dance Medicine & Science,31827286,https://en.wikipedia.org/wiki/International%20Association%20for%20Dance%20Medicine%20%26%20Science,Dance,test,6826502e5384a3ce67220763c2b24f4a95130844475db1f7b0a92a495a856572
+Jack and Jill (dance),1041183,https://en.wikipedia.org/wiki/Jack%20and%20Jill%20%28dance%29,Dance,test,cba63d9ba13bb8e1ec42f1fb288bc2733ee6a74b47eeec25fda385e7c1241b23
+Gavari,54632646,https://en.wikipedia.org/wiki/Gavari,Dance,test,9ddea10d2f580f38e7fbf414a09c69c71255714d71a495af4683ca8b5b5aa630
+Road to Ultra,50971360,https://en.wikipedia.org/wiki/Road%20to%20Ultra,Dance,test,c5657f3520eb12a541d75d3cf0b0295e6a675d91313b8b7588f8cd4854f6b127
+2wice,35126962,https://en.wikipedia.org/wiki/2wice,Dance,test,0774badee54803904e00a495c79597c02b2885f6465b4d213d16617a829d915e
+Kyoto Butoh-kan,52682418,https://en.wikipedia.org/wiki/Kyoto%20Butoh-kan,Dance,test,03b4fe6e9d43586f4ec9e6b86b46c6cc20489ca1447a018ae45e2006c88f7e04
+Release technique,477694,https://en.wikipedia.org/wiki/Release%20technique,Dance,test,7dd7d81942e0e16cfbcd2f972390bf8e73f72a6a91eff3112a4c6562ce9e9a53
+Aerial dance,2858819,https://en.wikipedia.org/wiki/Aerial%20dance,Dance,test,ba352898e428644821c94d6cfbfd35c301ccdbce2f696b5c4add8c58d535ae2a
+Dance Films Association,31004542,https://en.wikipedia.org/wiki/Dance%20Films%20Association,Dance,test,4e687cf33003e9731867433f3a65d4e280733cfc61b27e17cb1f7c1841925d72
+Hip hop dance,2024225,https://en.wikipedia.org/wiki/Hip%20hop%20dance,Dance,test,85f0cadee9d97f85aa8f1bb4c51a19343ed280688f1f22db5f0062487094e960
+Weight transfer (dancing),10447682,https://en.wikipedia.org/wiki/Weight%20transfer%20%28dancing%29,Dance,test,92d995da4463ed5f9a194f6641e3457aee28901d86c4ef96e3c17677ea015d40
+Ta Eisey,69728738,https://en.wikipedia.org/wiki/Ta%20Eisey,Dance,test,0ec4a77793c5c9b85e0850cbd03ee7836fcbf47b50226c6faafa26848298558a
+Weapon dance,6697169,https://en.wikipedia.org/wiki/Weapon%20dance,Dance,test,fcfb7d0c9e379a3d686a89bc66832c38750c717e47b155eb1279a7fd5ba1a6ab
+Peter Brinson,24790650,https://en.wikipedia.org/wiki/Peter%20Brinson,Dance,test,925a612039ea3c938f8dae4ba9baac542425cba6a85d0659297a5a369d129a25
+Foot arch stretcher,50505138,https://en.wikipedia.org/wiki/Foot%20arch%20stretcher,Dance,test,93b617cce1f4a64648f4f9d199f2a1a810886b883177a3bfafb1a38be47bb4cd
+Dance4Life,7386005,https://en.wikipedia.org/wiki/Dance4Life,Dance,test,dd4bc81c6e1403932487a0e74e2d1b6aa2acf2008786577ab5abced2d6b8ee5b
+Rogers v. Grimaldi,45681649,https://en.wikipedia.org/wiki/Rogers%20v.%20Grimaldi,Dance,test,a52be51b39192fcd559d86188ae0e022daa6d84e1849da3ef4264d47cccff2d7
+Jakob Tuggener,58228741,https://en.wikipedia.org/wiki/Jakob%20Tuggener,Dance,test,18aa1741b57b3dd462cb8c9bf2424c29441ee10ddb160e84e142520033a839fc
+Scotch Club,24745249,https://en.wikipedia.org/wiki/Scotch%20Club,Dance,test,8c1f49332b903d2f6141eab840e9c3424b3d5a9c9ca5dc3d0a5e74175e8ccf1f
+Centre National de la Danse,17760164,https://en.wikipedia.org/wiki/Centre%20National%20de%20la%20Danse,Dance,test,4427133941334f5dc0e9828e960f61b587a69ca56df03a3f952ce358d7159770
+Autobesity,74792478,https://en.wikipedia.org/wiki/Autobesity,Cars,test,732b642c0b5b20920cc6fb9d73325e1862d64579d6b5849b506d924a61c6b931
+Autonomous mobility on demand,71200583,https://en.wikipedia.org/wiki/Autonomous%20mobility%20on%20demand,Cars,test,f428bca3bafcd39737c2332b5f0b860a86f3ff50043d1249b7f4af35e1466464
+Car,13673345,https://en.wikipedia.org/wiki/Car,Cars,test,9b6e2788d888cffbbf0e4a3782563e15420c0ae7d0d9aec3277105f6b2e6a15b
+Peltoauto,72421027,https://en.wikipedia.org/wiki/Peltoauto,Cars,test,c4bf5e98e2016321e6387703abce7a553ad9876be2b0f2621dbe69fb2e6660b5
+Pickup truck,47877,https://en.wikipedia.org/wiki/Pickup%20truck,Cars,test,d2a80f2d90d46a23e9d08a100958928424a23c7e276d202120ede59bfd1cdf22
+Coso artifact,4053473,https://en.wikipedia.org/wiki/Coso%20artifact,Cars,test,cb29c255212957a9458b059c6c14e316753e186fe4231a1a9324166aa0cdb8fb
+Singer Motors,1172172,https://en.wikipedia.org/wiki/Singer%20Motors,Cars,test,ad4ae45593ca952822cc7916648d1d57e6c59cb6c01e8f16892fb107b6e76f2d
+Twenty Grand (Duesenberg),68904585,https://en.wikipedia.org/wiki/Twenty%20Grand%20%28Duesenberg%29,Cars,test,0fa9ff5b39ac82658a6c188474f831fcfae7119d412e151eb42070f415a708f6
+Jetta (car brand),60456155,https://en.wikipedia.org/wiki/Jetta%20%28marque%29,Cars,test,0c14ea7988c46239281955b3728e6ffdef52c393206f3ac72a43099f8515fe18
+Cedre,42337156,https://en.wikipedia.org/wiki/Cedre,Cars,test,e02c54cdc7af3e776b874f1d0aa3b141d604281d9b3ac85ec824f600f5079e93
+CadZZilla,58497667,https://en.wikipedia.org/wiki/CadZZilla,Cars,test,8407a9eaf6b53aa6b80fa2870a79700a864c66c1c7655c89951c84f1b202282e
+Automobile folklore,6400749,https://en.wikipedia.org/wiki/Automobile%20folklore,Cars,test,e1b27b19c41ac36f95b0786d13dbd9d3e3cff50bbd4189584081606efbf2e47b
+Challenge X,8046828,https://en.wikipedia.org/wiki/Challenge%20X,Cars,test,0124e50ad7bdd1ddb06b3449f249e284b7ff630c308d6d82e63935c6b765f19f
+Proton Arena,2085928,https://en.wikipedia.org/wiki/Proton%20Arena,Cars,test,ed8b980c2f2fd422582569b2b0da0f140b3af2ee7bf4e365f3ba497c31502fce
+Fiat Tipo (Type 160),485108,https://en.wikipedia.org/wiki/Fiat%20Tipo%20%28Type%20160%29,Cars,test,d731c043906dd070438087275f7b9a5c50d33fa8f0c0ed729460ab4fd45c0fb6
+Chevrolet,39848,https://en.wikipedia.org/wiki/Chevrolet,Cars,test,0c0d320b9540a9525606ace2a876a86bf1a17d6e1e356f53a6a003e0cbdbe154
+Vauxhall Motors,184378,https://en.wikipedia.org/wiki/Vauxhall%20Motors,Cars,test,baee259d3f35262af12a1a778cdd18d161abc5de74e072ca32920933cad13adf
+Professional car,2271003,https://en.wikipedia.org/wiki/Professional%20car,Cars,test,d6adfe7ef4ebc004e7337d7e7e6690e3ede851b56e78e1c038ba7b310b2d413d
+Statesman (automobile),11708645,https://en.wikipedia.org/wiki/Statesman%20%28automobile%29,Cars,test,e65a3b33d7edc35b8219685319f5a50fe682e234da878e4204eb29ff9b3ab407
+Wolseley 14/60,41471427,https://en.wikipedia.org/wiki/Wolseley%2014/60,Cars,test,bf2a0d53cdba288d1c4368180e6754bf04cdb89c17cebc1f9afa6901d22aa970
+Driving under the influence,511428,https://en.wikipedia.org/wiki/Driving%20under%20the%20influence,Cars,test,ce7b14d6836b03a1673f5139f7af61c73dc067ea1fa76c609ae78880ecfae7f6
+Sono Motors,69130730,https://en.wikipedia.org/wiki/Sono%20Motors,Cars,test,fbb55fdb965b0cae009463c75e40138285f13185a3e1a7a186564f729d6b236a
+Zhiguli (car brand),55739384,https://en.wikipedia.org/wiki/Zhiguli%20%28car%20brand%29,Cars,test,fce34c4729d6fca8d1253472d9d1f99afd174d6240cacb2aa35578ab700d41bd
+"Tesla, Inc.",5533631,https://en.wikipedia.org/wiki/Tesla%2C%20Inc.,Cars,test,ead26cca180485f93f2e7ef8e77c526656b434433b612d6a1f6cb214a5b0b220
+Hot hatch,377637,https://en.wikipedia.org/wiki/Hot%20hatch,Cars,test,767630dd9436a2ca6026a9b46458a213a121133e637a42dc67e0259e1ab76c0e
+Timor Putra Nasional,63525474,https://en.wikipedia.org/wiki/Timor%20Putra%20Nasional,Cars,test,07ee4fb3f01b37ef2f7f91809767d155cd53a58f885b1a0c7bb477a4a75cc24d
+Consulier GTP,2097140,https://en.wikipedia.org/wiki/Consulier%20GTP,Cars,test,0cf6e219115f62a03e6a067c9802f8a30ae83f9de55481bc044e50e87648ec81
+Luxgen,24185311,https://en.wikipedia.org/wiki/Luxgen,Cars,test,14e1dbd8caba3bcb7d8c0925dbcf01f0b3748bd0038354e14f16475ff983f4be
+Fiat Coupé,922205,https://en.wikipedia.org/wiki/Fiat%20Coup%C3%A9,Cars,test,ec1bf3d7f18b8eceab2214f76b56cb60740c5578a325757f4c0fcb012dc0bef1
+Ford Mondeo (first generation),43301540,https://en.wikipedia.org/wiki/Ford%20Mondeo%20%28first%20generation%29,Cars,test,10fae8c59013b2bc51b7701bbf7ee58af02f3d12357f3f71aca00ac2fd65d8ba
+Bordrin,66325937,https://en.wikipedia.org/wiki/Bordrin,Cars,test,9083809fd402eb7e2a9d1ff872c77a97050350ad55a6a6b2c80ddbd2b0afacae
+Touring car,743761,https://en.wikipedia.org/wiki/Touring%20car,Cars,test,a7544af9d216bc8ca786ae90494a1cbbdb71d2c83e88e4bd6bbb461001a5b46a
+Zedriv,66916164,https://en.wikipedia.org/wiki/Zedriv,Cars,test,5a3732759c68785af0507709d62d312bbbb54481f4ad6766d55447350a09d03a
+Towarzystwo Budowy Samochodów AS,69167119,https://en.wikipedia.org/wiki/Towarzystwo%20Budowy%20Samochod%C3%B3w%20AS,Cars,test,ec8210b230051a55445275614b6991b4cb8fcbbb3b6c6c8d32449a8f513fafd5
+Vintage car,337691,https://en.wikipedia.org/wiki/Vintage%20car,Cars,test,c7630ad92f23206eb7cd8ed08f408da6f9a461a0cd9fa6c8b3915fdbccfa8118
+Hofele-Design,58108457,https://en.wikipedia.org/wiki/Hofele-Design,Cars,test,0796970e0eef508aeb2f2a3701188cc7afcb3054112055764f5f2a10c656428a
+EV Electra,72102125,https://en.wikipedia.org/wiki/EV%20Electra,Cars,test,2f43672f4a407f210dba039d186bd2854ad3e958f592391326dc3e3eaa705749
+Hispano-Suiza,470476,https://en.wikipedia.org/wiki/Hispano-Suiza,Cars,test,d525cfec9f9f5e77d4319157ad59dbcb248ff19614f251cc433e68796da43c5a
+SIN Cars,50303130,https://en.wikipedia.org/wiki/SIN%20Cars,Cars,test,a142eb9526b15a65294426bef33235a9346805c35054439e7c2c0e2e83dec363
+Spania GTA,38478972,https://en.wikipedia.org/wiki/Spania%20GTA,Cars,test,13e08a0b642028974cd0a3cfe28138c8e2e24aef96eb849a8d7cc3eaa331be42
+Dial EV,66631515,https://en.wikipedia.org/wiki/Dial%20EV,Cars,test,e99091a462ff9cdb0702df8d553f1c3230446697f55bdc55e970b6b735ca2768
+Audi,848,https://en.wikipedia.org/wiki/Audi,Cars,test,08615c5b49411b15080fa8fcda43b6851386ff304a07fb8e989cd864e605bf7e
+Rover (marque),34954204,https://en.wikipedia.org/wiki/Rover%20%28marque%29,Cars,test,5c106bcfece1a1634e8cfacc50788a0a0c1a4730c512fc811ab98b0eca775d87
+Bristol 406 Zagato,74211632,https://en.wikipedia.org/wiki/Bristol%20406%20Zagato,Cars,test,444ba0531fa53101f20f6bc766677e456211fd29c9783d9e8d687668022784ba
+Willys Americar,24289598,https://en.wikipedia.org/wiki/Willys%20Americar,Cars,test,d68796f2a263d77a10ee0bd60b63d60ee3f5b939aead06d672c81bea1e7f1585
+McLaren M8A,43902763,https://en.wikipedia.org/wiki/McLaren%20M8A,Cars,test,765af590d4dc9c3c8e0dd90b812bc782339fb068a532d167fc8e51b209837a76
+Wallyscar,40075131,https://en.wikipedia.org/wiki/Wallyscar,Cars,test,e2692d9cd76a01a347ad6eab3323f88511f5733f7f67fb3a14dd82854817c6de
+AC Propulsion,279579,https://en.wikipedia.org/wiki/AC%20Propulsion,Cars,test,89fda555bd9cf197f797e6cd218a217c70b6a8c396f3e59f82c679f2db1e6b6f
+Callaway Cars,6572672,https://en.wikipedia.org/wiki/Callaway%20Cars,Cars,test,e9ad8310bfdafe2248b4acbff4719865bd27991c863618cd7d5ac1d428602720
+Miracle cars scam,9208713,https://en.wikipedia.org/wiki/Miracle%20cars%20scam,Cars,test,8b42a75a15e7f7d67a3c7b86f45302bb57a5dcfbbc993fde2b9b67e01532408e
+Wienermobile,699251,https://en.wikipedia.org/wiki/Wienermobile,Cars,test,0e8028fbee887d957cdb038ef62d98a944e09196c5d801262a3eef610b6d8d2d
+Production car speed record,4833382,https://en.wikipedia.org/wiki/Production%20car%20speed%20record,Cars,test,32999c3ae55037bba12feee2b03e277e54303de0dc5b79f94e22b632e1a5c584
+Pension,43613,https://en.wikipedia.org/wiki/Pension,Personal_finance,test,dcc2a10e73461503d878cefd2f5c6d9da9f42956fff078f60ea11d2ae646b736
+Credit history,1476274,https://en.wikipedia.org/wiki/Credit%20history,Personal_finance,test,0456f06fe5f769f87fe6150c054092f4b40fad603f540bba25c3757941209410
+Ualá,56140253,https://en.wikipedia.org/wiki/Ual%C3%A1,Personal_finance,test,5950017cb54fe350d3f1e6a85a625470afb38f0b8db2013a58ff5b1babe8ff4a
+Assets for Independence Act,39402339,https://en.wikipedia.org/wiki/Assets%20for%20Independence%20Act,Personal_finance,test,8398a8618bfc2505a536c9a2510a185bb888c0bfe92a34411ef74d7367d8a282
+American Academy of Financial Management,2938666,https://en.wikipedia.org/wiki/American%20Academy%20of%20Financial%20Management,Personal_finance,test,29a74a32a3b0458dc32a38141ffb66816c45a9d4a11cb38ba14f73eafa26c771
+Criticism of credit scoring systems in the United States,67917261,https://en.wikipedia.org/wiki/Criticism%20of%20credit%20scoring%20systems%20in%20the%20United%20States,Personal_finance,test,d17fba2433a917398de6cf6be321c3737c5f6f90033641fe8c9c2bb4d7feb3e5
+FIRE movement,57851653,https://en.wikipedia.org/wiki/FIRE%20movement,Personal_finance,test,851ec0c83042352ed86df9c03f421477e954000c0cc0b09b9d996ecfdafeffd1
+LEC billing,13466284,https://en.wikipedia.org/wiki/LEC%20billing,Personal_finance,test,bf1af00355691cef006ad64a33936092c833bb9240c2985c968df3d34fc98eee
+Sponsored repayment,51608211,https://en.wikipedia.org/wiki/Sponsored%20repayment,Personal_finance,test,eb8060d7a7bc155ebe4e36283cbc590d88ea4a022de625af56f5f752c9e1f1d2
+Net worth,405981,https://en.wikipedia.org/wiki/Net%20worth,Personal_finance,test,b3b991e1d2e11136211c6c9899860aef3d5baff7433e53f4f02f2a7ddcff1882
+Spendthrift,2107718,https://en.wikipedia.org/wiki/Spendthrift,Personal_finance,test,4a0f41bddf003f3f81cff27771f2bc31205c7bb3fe4bc635f4d2a114ebca1620
+Chartered financial consultant,39316391,https://en.wikipedia.org/wiki/Chartered%20financial%20consultant,Personal_finance,test,37ba65a66fd64d9801dd55c1dd5e3d5a66c9515f8e1c97207b84818bedc0a37c
+Down payment,2335667,https://en.wikipedia.org/wiki/Down%20payment,Personal_finance,test,181b3b897c3515468528ad51c30c9241d95a9fa9a52d956ce562cf23d6a4c275
+Short refinance,28805200,https://en.wikipedia.org/wiki/Short%20refinance,Personal_finance,test,91375fcc7deb51047602448e9ebdc4c0eaba84bacadd5eaa678c0313c4221b3b
+SAVE-study,28325331,https://en.wikipedia.org/wiki/SAVE-study,Personal_finance,test,99f23f62094a13eb3d86b34f775323291fb577e8a1c502ad389a174f92219dac
+Pre-qualification,423953,https://en.wikipedia.org/wiki/Pre-qualification,Personal_finance,test,9ad303d742120a985337aa6d2ff2b511ce0363eada328d55a26061a1c8b66b0b
+Over-investing,1011864,https://en.wikipedia.org/wiki/Over-investing,Personal_finance,test,3d6cbf8707b9ab7ada41b6df467d9ebd4c96bf52601e38dffb4ecf43ae577067
+Installment note,2919683,https://en.wikipedia.org/wiki/Installment%20note,Personal_finance,test,c04905ed7acc396b45930fd8c71a7c5af452ddb43a16a045f4ff7a317483a13b
+Portfolio (finance),1436843,https://en.wikipedia.org/wiki/Portfolio%20%28finance%29,Personal_finance,test,2852bb04425c86dca6a142a8c3fec84c75b749f6afc75a43aa828ea581c9ab99
+Debt Diet,5210194,https://en.wikipedia.org/wiki/Debt%20Diet,Personal_finance,test,dacb277090a857a9c9eb184f6df0b49215a1043ff2199d54b9824b7b4afab359
+Likelemba,25126927,https://en.wikipedia.org/wiki/Likelemba,Personal_finance,test,5a43803b49d9f0fa833a46f4f4f7844546e3de01d3454a274775ab9c4c625ece
+Pre-approval,423958,https://en.wikipedia.org/wiki/Pre-approval,Personal_finance,test,891bf11de44fc8d73a48946b20370b969b2c91bfca0600807d3b0704661a2f10
+Streamline refinancing,39778463,https://en.wikipedia.org/wiki/Streamline%20refinancing,Personal_finance,test,7863f0edf012666b53b89f5d697eceb2e50b9303df329167ea844297a56bcd39
+Qontis,41671690,https://en.wikipedia.org/wiki/Qontis,Personal_finance,test,d53e018837838fbdaa127cae6f9241c45ceda665af1437b56cc0b91f59b263ef
+Personal finance,341987,https://en.wikipedia.org/wiki/Personal%20finance,Personal_finance,test,7fae01ab8dcf2084052744cb10f3cd7e95cdd1bb73ac602bb2c0dd22649f0635
+Credit counseling,2841721,https://en.wikipedia.org/wiki/Credit%20counseling,Personal_finance,test,bf28864e7ce6b8f402e08f05c2edffe9d3aa6c36ce6bc04a6293eff51ab858eb
+Individual development account,8420739,https://en.wikipedia.org/wiki/Individual%20development%20account,Personal_finance,test,422f651f6a2447cd9d97ff6aed5aadb95cfc9fdd4618f04f66d129ddfedc49db
+Household net worth,58842560,https://en.wikipedia.org/wiki/Household%20net%20worth,Personal_finance,test,12711d771294f85c6c8c8ae1db5e0a6520d7466285125650524bad0992bcfc58
+Debt management plan,4868451,https://en.wikipedia.org/wiki/Debt%20management%20plan,Personal_finance,test,0ff0df232747fc5829959e248cd05de9db0b8f53a994543641ff1c12fe53b14c
+Electronic lien and title,25783646,https://en.wikipedia.org/wiki/Electronic%20lien%20and%20title,Personal_finance,test,e41db9b298af018cc3b94e8825f99a31c4295231a87b4370dfac8bd91b82864a
+Personal financial management,42229505,https://en.wikipedia.org/wiki/Personal%20financial%20management,Personal_finance,test,b1f334029587ecdb47689135fe8e70339d58c746be33c60539ca310a74d06c28
+Children's Savings Accounts,39696452,https://en.wikipedia.org/wiki/Children%27s%20Savings%20Accounts,Personal_finance,test,3886921c04951f6db5702953d03a903d5a5f685656892c7ce9c39e382adf51f7
+Totten trust,2164856,https://en.wikipedia.org/wiki/Totten%20trust,Personal_finance,test,46caac007491f0f79adcf9805f7fba5128853eb69a2e4bf209b10fde1b6c4e75
+Court auction,38151875,https://en.wikipedia.org/wiki/Court%20auction,Personal_finance,test,cf9e1a53c6c38607c3d75260b73bc1665108cbccd2f4f4a2c0e8da51bea11093
+Lodgement (finance),25181063,https://en.wikipedia.org/wiki/Lodgement%20%28finance%29,Personal_finance,test,902f664344fc0d92a1c6d474e4eab4c160aaf6d8e06824a93dce535c211935b4
+Saving,65228,https://en.wikipedia.org/wiki/Saving,Personal_finance,test,f9755fb9d529b0c1684c41fbb09088eabb9dd5d7f8039f94bb19579c95633c8f
+Money Box (radio programme),17520953,https://en.wikipedia.org/wiki/Money%20Box%20%28radio%20programme%29,Personal_finance,test,900b57bb437f68219a9e4fe078cfc1d6305a099eb30c30acd7df0534c271ab20
+Secured loan,4213088,https://en.wikipedia.org/wiki/Secured%20loan,Personal_finance,test,beb13307eb3ea35a603183ba0a21127b5ad0b8447b8fdedb95ed8bd940ef9d99
+Pan-European Pension,56632008,https://en.wikipedia.org/wiki/Pan-European%20Pension,Personal_finance,test,3ed54d27877d91df5e4bf91438b16883b758c07c9912e71b060e4eddfe3503db
+Loan modification company,26224991,https://en.wikipedia.org/wiki/Loan%20modification%20company,Personal_finance,test,015f51cd904f6163d03f075fd6237bc0c899f39891f495575bb6d10b88b19dae
+Income protection insurance,16375131,https://en.wikipedia.org/wiki/Income%20protection%20insurance,Personal_finance,test,7ee8a67f8abbc52df515857949caca7085cbb31f1181129be872e063b02dec49
+Bank guarantee,13887171,https://en.wikipedia.org/wiki/Bank%20guarantee,Personal_finance,test,b1d483eda39d4578d2265ebba1c4c188c815431b990e548de8b725ca52a42005
+HiddenLevers,32241844,https://en.wikipedia.org/wiki/HiddenLevers,Personal_finance,test,50c5aaf889c05b734bdd8ce0455c02d329a47e063af2033b9705ba41fbc1eab3
+Envelope system,19643737,https://en.wikipedia.org/wiki/Envelope%20system,Personal_finance,test,ffe5ca0c075b8887f680662508781433fc5c76e3f3128df7e6ad0c18038188fd
+Equity release,4388676,https://en.wikipedia.org/wiki/Equity%20release,Personal_finance,test,5abf0c91b582390acbf536f7278d7b114d8ed6581ead173658778c00383a2305
+Magic formula investing,4607950,https://en.wikipedia.org/wiki/Magic%20formula%20investing,Personal_finance,test,375625a792289e08f4bbb9b20962d78507a4b9ee282480cfb9e328de7d7f04be
+National Use Your Gift Card Day,62882100,https://en.wikipedia.org/wiki/National%20Use%20Your%20Gift%20Card%20Day,Personal_finance,test,04b14bd9b9bed019e0c00dceed78599ccc3b322697f02b1d286bfa8b58079691
+MyBudget,44171579,https://en.wikipedia.org/wiki/MyBudget,Personal_finance,test,72ba726be13b1e3519174217e308fedc754319ea12d407e0e84223e64b537796
+Asset/liability modeling,22852793,https://en.wikipedia.org/wiki/Asset/liability%20modeling,Personal_finance,test,138230de2fe11807b2eb8e01c295760ea4225e24da2ce07b01a47d5a6b338d92
+Pensions in Armenia,45563436,https://en.wikipedia.org/wiki/Pensions%20in%20Armenia,Personal_finance,test,35976b1a070919dab5d48b55dcf71da801351d1a92b66ab86197f08f0e874d3a
+West One Bridging Index,37965404,https://en.wikipedia.org/wiki/West%20One%20Bridging%20Index,Personal_finance,test,7daf01972edcd3d8be26dfa186bd32efa8cc5c43f440b198ff29ecb783bc8e94
+Money disorder,32595633,https://en.wikipedia.org/wiki/Money%20disorder,Personal_finance,test,93fcb36010ca69edb40d44f926a05fb4840ce4c666bd02c46589d59ac0370bbc
+Benefactor (law),1195271,https://en.wikipedia.org/wiki/Benefactor%20%28law%29,Personal_finance,test,dd66a0d0f7039f56962540d541f4f53708c47d366a2ffbd09985702aeb9e10a3
+Conservative Formula Investing,69708195,https://en.wikipedia.org/wiki/Conservative%20Formula%20Investing,Personal_finance,test,04cca77437c63b64589779d3d52bdd90a7a55db64495d91d56f21240d2fa8523
+Certified Financial Planner,2804087,https://en.wikipedia.org/wiki/Certified%20Financial%20Planner,Personal_finance,test,26d6fe2a9c8593709f0e186050bafcfc222c52f4c70fb5f8a193175734eaca2c
+Economic evaluation of time,65869118,https://en.wikipedia.org/wiki/Economic%20evaluation%20of%20time,Personal_finance,test,8cf886b0e7e1c54176262cbfd884ef652667cd02e0a2f8dd917be5017aa31301
+Annuitant,12351629,https://en.wikipedia.org/wiki/Annuitant,Personal_finance,test,0913bd6b195c0766bdc4578de9cbbe0c28a1115ee4f9c1f72dba30be06d2e742
+Cost of living,522934,https://en.wikipedia.org/wiki/Cost%20of%20living,Personal_finance,test,4b1f36426945efe0d79739be77099ce3bfab2ffee0577746d3fa93d6e50c7066
+Home equity loan,2278944,https://en.wikipedia.org/wiki/Home%20equity%20loan,Personal_finance,test,fb1987e05b8f395d076d48630f8afcf18afc346573f6f50505721229f119dc18
+Barley wine,96917,https://en.wikipedia.org/wiki/Barley%20wine,Beer_styles,test,c8b87c6d0051b46dd1a61ee73d76cf56de6a7e8f7aa5838e86fc38bc1f10d0b2
+Old ale,362863,https://en.wikipedia.org/wiki/Old%20ale,Beer_styles,test,8535b839c05b6f54f459f3c8fc994b36c118e47447fc02b11a49a63592563571
+Lambic,255102,https://en.wikipedia.org/wiki/Lambic,Beer_styles,test,f528d722f4dedc3b5994dddaa7a5ad11dffc8e0cc2e7d5a080e8a77fdabe51dc
+Pale ale,154062,https://en.wikipedia.org/wiki/Pale%20ale,Beer_styles,test,65fdf258fdc3145f6b0d576bf104ad40aadf9d58a7236420a0b82acfd62a7402
+Ice beer,14961,https://en.wikipedia.org/wiki/Ice%20beer,Beer_styles,test,749ef319af1b36d20b29e642e61f21f0421e4dc45f4774872d83b18e162d336c
+Light beer,3680556,https://en.wikipedia.org/wiki/Light%20beer,Beer_styles,test,e20843a7d5c88b34cfd457a378175a5c99edefa4a2e0f5184243931f44d266be
+Sour beer,28291365,https://en.wikipedia.org/wiki/Sour%20beer,Beer_styles,test,9b985015251b043b4252d24f45c173102b7e0ff830d4daa040dfa12c441f3e95
+Steinbier,25815140,https://en.wikipedia.org/wiki/Steinbier,Beer_styles,test,8b760dd095d7909d4dc6d0195ba37ccc51d2b2a4f4c8f61d1994338c3de2b331
+Porter (beer),47840869,https://en.wikipedia.org/wiki/Porter%20%28beer%29,Beer_styles,test,4b13c05211e3b42ad209b7fe891709df9ac70b6956c15b53e1b3b3fa88b9f3ac
+Grodziskie,40914286,https://en.wikipedia.org/wiki/Grodziskie,Beer_styles,test,54f3336791b55176db35ef0fb04a93c76ce060cb68646dd294946723224feadf
+Brown ale,362877,https://en.wikipedia.org/wiki/Brown%20ale,Beer_styles,test,e170b26bddf6dcd737f5fe4b0375a1ff1d3d32759c52466e4cabb04ec40bd8b1
+Experimental beer,47032821,https://en.wikipedia.org/wiki/Experimental%20beer,Beer_styles,test,9dd1a3082246ae285c5e935a707d5d41f4e17a3cd9efb75209e56566a8fe5df1
+Copper ale,41675971,https://en.wikipedia.org/wiki/Copper%20ale,Beer_styles,test,1ad2400d8ffae370daa983efd676ed27d43a260ad58d6017156e08b3806fa934
+Framboise,1164029,https://en.wikipedia.org/wiki/Framboise,Beer_styles,test,4891dfb634b447636d581d5015007dd4ed3d0e045152e39b96b9ddd5b1328c00
+Malt liquor,661061,https://en.wikipedia.org/wiki/Malt%20liquor,Beer_styles,test,76eca97b9848a679adf67dc96a2a55a31229742c044ff46176c31f966f199734
+Rye beer,1934554,https://en.wikipedia.org/wiki/Rye%20beer,Beer_styles,test,fa337f734ac08a48f0d22b246a8145756190c08e9f463dd133ab91d7f2022916
+Beer measurement,27997753,https://en.wikipedia.org/wiki/Beer%20measurement,Beer_styles,test,d8c0bbb45520d5b3fa381abba6aa7eb7b69ebfb3b7afd46dbc1c757838b4d939
+Beer style,3129812,https://en.wikipedia.org/wiki/Beer%20style,Beer_styles,test,41dc1023be626440e3e874340d1122a2efc3d099989be9c2f68cec2c7b3bbd4b
+Saison,4306326,https://en.wikipedia.org/wiki/Saison,Beer_styles,test,1a431b99cec1418251e377fdac637382a78320e63d5542676c91b0a0db4c0e0d
+Bitter (beer),838020,https://en.wikipedia.org/wiki/Bitter%20%28beer%29,Beer_styles,test,c1c1f9566d87b0d5f3f58a1c2f4e4aff2482dea014d763376ab7361375ff159c
+Australian lager,71612137,https://en.wikipedia.org/wiki/Australian%20lager,Beer_styles,test,f051295b93970a50625312a04727b9a606d9ba434413ed3cff3eb199ba837020
+Bière de Garde,11879624,https://en.wikipedia.org/wiki/Bi%C3%A8re%20de%20Garde,Beer_styles,test,6335912ca6cffa706da8642f294eb6372e85a0fa8e067d3623e9b151d284c2db
+Mild ale,19842,https://en.wikipedia.org/wiki/Mild%20ale,Beer_styles,test,20077102746d6611ae46f29c6e91255a281d4e6543daff58aca00b4d0a8f103b
+Wheat beer,173158,https://en.wikipedia.org/wiki/Wheat%20beer,Beer_styles,test,6b05b121f8dc51a16650411989ad976d86bb06bac6c347a2295e64dc2a0cc8eb
+Pale lager,327489,https://en.wikipedia.org/wiki/Pale%20lager,Beer_styles,test,55b5eb86912acffca75750c0c991c11b0bd6fa707a512afbddab48568c3ee7a3
+Flanders red ale,22386712,https://en.wikipedia.org/wiki/Flanders%20red%20ale,Beer_styles,test,9fd608f9487f28608becafee076c019b310eeff25c131a2e60c3621b9cfa4a28
+Beer from bread,57658729,https://en.wikipedia.org/wiki/Beer%20from%20bread,Beer_styles,test,120fad7c82177b88feb58822698f78d865df0722157ceb2bcb43fd2b74c1214c
+Rye IPA,45241032,https://en.wikipedia.org/wiki/Rye%20IPA,Beer_styles,test,2810fdba4b42801c19dfef6a6d3a0415d2c434a9c2ed8f413342b143c2a9efbc
+Pilsner,23884,https://en.wikipedia.org/wiki/Pilsner,Beer_styles,test,bb68c5f6ea4697c7e9007c1c796a809ca794ee6744240f64fae403fe9d518f39
+Hard soda,50819040,https://en.wikipedia.org/wiki/Hard%20soda,Beer_styles,test,1d14c9d87c471e3f19bd00609d1ab706a833f702215170c039e2c34189c0d5b2
+India pale ale,812938,https://en.wikipedia.org/wiki/India%20pale%20ale,Beer_styles,test,46f56a8d0f0a288e20e9053c6e83c1f8481c9ab24436fafcc647281c310e3dfb
+Grisette (beer),60637114,https://en.wikipedia.org/wiki/Grisette%20%28beer%29,Beer_styles,test,fe21bee0eea6aa34941f90c75560fbd11c50536dcbf5937a41edb9f1f37fc2af
+Dubbel,1867842,https://en.wikipedia.org/wiki/Dubbel,Beer_styles,test,8d2e0f27ff90ee7841b54fcb2d299730bc4522afb743a89a28915c6dc31112da
+Irish red ale,362791,https://en.wikipedia.org/wiki/Irish%20red%20ale,Beer_styles,test,913821dcdf8ccd89cb12ab617993b380f19b984b66a34f07d5dc197d22f09d50
+Gueuze,2285836,https://en.wikipedia.org/wiki/Gueuze,Beer_styles,test,bc90566fc0d9876c35e74a4bd24723ef7bc9e667b1a28b6b09af2cfa9d690991
+Kriek lambic,137772,https://en.wikipedia.org/wiki/Kriek%20lambic,Beer_styles,test,a8e38f9f4fcd9bf740f75813fa21076faea63606d4e89fafcc3a719a5197c8b7
+Burton ale,59175837,https://en.wikipedia.org/wiki/Burton%20ale,Beer_styles,test,2c747ff6f481be602eb04b71ddbc691071b7a5de2d294be4306853d0bb4b0390
+Oud bruin,2398830,https://en.wikipedia.org/wiki/Oud%20bruin,Beer_styles,test,e29f453276944c937af70b5633762dc4216f056d9d408da4cb6cd4fef98fcb49
+Stout,27991,https://en.wikipedia.org/wiki/Stout,Beer_styles,test,07cd67f367bf3c0788bbb3b88aeb6f1db6b2d28d6193660e1d787950274f58b9
+Harvest ale,37060666,https://en.wikipedia.org/wiki/Harvest%20ale,Beer_styles,test,463219eae10e43f5ee11edd75f796a5dbda739f288ed494235e91b35ba3a62c7
+American pale ale,4559758,https://en.wikipedia.org/wiki/American%20pale%20ale,Beer_styles,test,9affd188772d3cae506aad848d75e631cdf1db7508be4a285d04afd37f4d1809
+Quadrupel,6286823,https://en.wikipedia.org/wiki/Quadrupel,Beer_styles,test,3be8487243e4ff08758e1462995d10cbbdb545c365e6336911480f855ff83bfc
+Trappist beer,385386,https://en.wikipedia.org/wiki/Trappist%20beer,Beer_styles,test,92afe31017ed75a9b7f4f716cbbfdc872aa853baf351fbe58c350f3301cb707b
+Zundert Trappist,42467885,https://en.wikipedia.org/wiki/Zundert%20Trappist,Beer_styles,test,b94fece2e4600880db6bc7dcd7fa46130d79ca2254306a12ff2495311660e69b
+Kentucky common beer,11248178,https://en.wikipedia.org/wiki/Kentucky%20common%20beer,Beer_styles,test,f90cf0d8146f2cf08e0fb3eab45f4b14de7ecb8cab7d02f9f517dc1429c012ac
+Kellerbier,8737161,https://en.wikipedia.org/wiki/Kellerbier,Beer_styles,test,c42ebaa02884578c32f68b19199ba96ee2f3c3ec6eb89a2b6fdbe738ccb487e4
+Zoigl,35262685,https://en.wikipedia.org/wiki/Zoigl,Beer_styles,test,a6bdf7c7e36f24e4853cd2c0da57628effa29b62600ca1ebbcba0164722ad66d
+Smoked beer,523943,https://en.wikipedia.org/wiki/Smoked%20beer,Beer_styles,test,2d24e4d0e8b426e8cae748b58557980882a40e7f2a8ccb7f78fae5091f345ad4
+Tooheys Extra Dry,11764570,https://en.wikipedia.org/wiki/Tooheys%20Extra%20Dry,Beer_styles,test,e7239413c3156b81b082de99098ef427906b3dedd0560029fa6ea372e845d575
+Märzen,362899,https://en.wikipedia.org/wiki/M%C3%A4rzen,Beer_styles,test,4eb5bc8f0df57a716827534ffe0c01cc002d569e63fe5a18b6da6bc3faf0953a
+Schwarzbier,787674,https://en.wikipedia.org/wiki/Schwarzbier,Beer_styles,test,5fda431d6ed7c1d49a7aa24450b250d052ad50935221e46c946d1f7e2a410ba8
+Tynt Meadow,58638578,https://en.wikipedia.org/wiki/Tynt%20Meadow,Beer_styles,test,a032d10741cad3d88f7261b4133cfb84cd667b53742009e1d0d159afac669e70
+American wild ale,25918311,https://en.wikipedia.org/wiki/American%20wild%20ale,Beer_styles,test,0b9edaf674874cead51551ca922da4fe4685054105e69593e6cac58b7e7496f0
+Altbier,816175,https://en.wikipedia.org/wiki/Altbier,Beer_styles,test,1f47510a6c0e88746f5d2e4cf52ce1ac7f5e73a96815180842abb66e49da7c48
+Carlton Dry,45668763,https://en.wikipedia.org/wiki/Carlton%20Dry,Beer_styles,test,833fbfe5099a1ee0b558d569ebfe21c10ba0da294636839e45106757a9ba96e8
+Tripel,30863233,https://en.wikipedia.org/wiki/Tripel,Beer_styles,test,ae929d02f2d320bd87a4654183c961f7ed2a206d70b0e0efd854f08b947da378
+Berliner Weisse,822247,https://en.wikipedia.org/wiki/Berliner%20Weisse,Beer_styles,test,cf8efc13959731b479b8a5926d4b9b928412a6a1c4e85a1a68cb488493858d02
+Helles,496681,https://en.wikipedia.org/wiki/Helles,Beer_styles,test,36509379216c4190f69bd9429d2764afeaf6a180a13d792f969287be6a1b5038

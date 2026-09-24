@@ -1,0 +1,10 @@
+{
+  "se_subtopic_questions": 3272,
+  "se_subtopic_missing_pairs": [],
+  "se_general_titles": 32211,
+  "se_general_caps": {
+    "per_topic_per_split": 1500,
+    "ood_per_split": 6000
+  },
+  "se_general_ood_titles": 12000
+}

@@ -1,0 +1,111 @@
+{
+  "majority": {
+    "feature": "-",
+    "head": "majority",
+    "params": {},
+    "val": {
+      "n": 6464,
+      "accuracy": 0.1545,
+      "macro_f1": 0.0335,
+      "weighted_f1": 0.0414,
+      "macro_precision": 0.0193,
+      "macro_recall": 0.125,
+      "ece": 0.8455,
+      "log_loss": 23.3607
+    },
+    "test": {
+      "n": 6427,
+      "accuracy": 0.1564,
+      "macro_f1": 0.0338,
+      "weighted_f1": 0.0423,
+      "macro_precision": 0.0195,
+      "macro_recall": 0.125,
+      "ece": 0.8436,
+      "log_loss": 23.3103
+    },
+    "se_ext_dev": {
+      "n": 10124,
+      "accuracy": 0.1482,
+      "macro_f1": 0.0323,
+      "weighted_f1": 0.0382,
+      "macro_precision": 0.0185,
+      "macro_recall": 0.125,
+      "ece": 0.8518,
+      "log_loss": 23.5371
+    },
+    "se_ext_test": {
+      "n": 10087,
+      "accuracy": 0.1487,
+      "macro_f1": 0.0324,
+      "weighted_f1": 0.0385,
+      "macro_precision": 0.0186,
+      "macro_recall": 0.125,
+      "ece": 0.8513,
+      "log_loss": 23.5221
+    }
+  },
+  "minilm-l6-ft|logreg": {
+    "feature": "minilm-l6-ft",
+    "head": "logreg",
+    "params": {
+      "C": 2.0
+    },
+    "train_seconds": 1.4,
+    "val": {
+      "n": 6464,
+      "accuracy": 0.8414,
+      "macro_f1": 0.8401,
+      "weighted_f1": 0.8416,
+      "macro_precision": 0.8383,
+      "macro_recall": 0.8432,
+      "ece": 0.0828,
+      "log_loss": 0.5829
+    },
+    "test": {
+      "n": 6427,
+      "accuracy": 0.8337,
+      "macro_f1": 0.833,
+      "weighted_f1": 0.834,
+      "macro_precision": 0.8307,
+      "macro_recall": 0.837,
+      "ece": 0.0853,
+      "log_loss": 0.5991
+    },
+    "se_ext_dev": {
+      "n": 10124,
+      "accuracy": 0.7698,
+      "macro_f1": 0.7555,
+      "weighted_f1": 0.7697,
+      "macro_precision": 0.7638,
+      "macro_recall": 0.7537,
+      "ece": 0.1342,
+      "log_loss": 0.856
+    },
+    "se_ext_test": {
+      "n": 10087,
+      "accuracy": 0.7729,
+      "macro_f1": 0.7577,
+      "weighted_f1": 0.7732,
+      "macro_precision": 0.7663,
+      "macro_recall": 0.7559,
+      "ece": 0.1333,
+      "log_loss": 0.8411
+    },
+    "train": {
+      "n": 30051,
+      "accuracy": 0.9539,
+      "macro_f1": 0.954,
+      "weighted_f1": 0.954,
+      "macro_precision": 0.9534,
+      "macro_recall": 0.9547,
+      "ece": 0.0044,
+      "log_loss": 0.1629
+    },
+    "size_mb": 90.93,
+    "latency": {
+      "single_ms_median": 15.81,
+      "single_ms_p95": 21.0,
+      "batch_ms_per_text": 6.406
+    }
+  }
+}
