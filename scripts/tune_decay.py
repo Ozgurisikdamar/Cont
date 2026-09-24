@@ -1,8 +1,7 @@
 """Tune the conversation tracker on simulated conversations (docs/EXPERIMENTS.md, E-10).
 
 Conversations are simulated from **validation** passages with the trained
-model's real predictions (the test split is not used here; conversation
-metrics on held-out data are reported once by scripts/locked_eval.py):
+model's real predictions (the test split is not used here):
 
 * a conversation has 3 segments; each segment has a true topic and lasts 3-6
   turns; 75% of turns are on-topic, 15% are tangents (another topic) and 10%

@@ -6,7 +6,7 @@
 Requires the processed corpus (python scripts/download_data.py --all).
 Hyper-parameters come from configs/model.json, which records the choice made in
 the benchmark (docs/MODEL_REPORT.md). Training and tuning use development data
-only; the test splits are evaluated once after the freeze (scripts/locked_eval.py).
+only; the test splits are evaluated once after the freeze (evaluate.py --stage locked).
 """
 
 from __future__ import annotations
@@ -77,7 +77,7 @@ def fit_from_config(conf: dict, encoder: Any) -> tuple[TopicModel, dict]:
 
     Development data only: Wikipedia ``train`` / ``val`` and Stack Exchange
     ``ext_dev``. The test splits are evaluated once after the freeze
-    (scripts/locked_eval.py). ``encoder`` may be a :class:`CachingEncoder` in
+    (evaluate.py --stage locked). ``encoder`` may be a :class:`CachingEncoder` in
     development scripts; the caller puts the real encoder on the model.
     """
     cfg = train_config(conf)

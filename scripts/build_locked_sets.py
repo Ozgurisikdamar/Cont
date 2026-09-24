@@ -2,7 +2,7 @@
 
 The v1.0 ``test`` / ``ext_test`` splits were computed during development
 (they appeared in benchmark tables), so they are no longer blind. This script
-builds new data that no development script reads; ``scripts/locked_eval.py``
+builds new data that no development script reads; ``evaluate.py --stage locked``
 evaluates it exactly once, after the configuration is frozen.
 
 1. ``wiki_locked``   Wikipedia articles that the taxonomy 1.2.0 category crawl

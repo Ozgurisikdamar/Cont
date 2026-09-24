@@ -19,7 +19,7 @@ regularisation C and the threshold are chosen on the validation split.
 
 Development data only: Wikipedia ``val`` (and its multi-label subset) and Stack
 Exchange ``se_ext_dev`` / ``sesub_ext_dev``. ``test`` / ``ext_test`` are not
-read (they are evaluated once after the freeze, scripts/locked_eval.py).
+read (they are evaluated once after the freeze, evaluate.py --stage locked).
 
 Decision rule (fixed before running):
   1. score = mean(val subtopic macro-F1, sesub_ext_dev macro-F1 over supported labels)
