@@ -55,8 +55,9 @@ Saved to the database.
 ```
 
 An `uncertain` message shows `Note: uncertain - <reason>` and is not added to
-the conversation theme. An uninformative message (empty, symbols, only stop
-words) is not a turn: nothing is stored.
+the conversation theme; neither is a `non_english` message (the language gate is
+confident the text is not English). An uninformative message (empty, symbols,
+only stop words) is not a turn: nothing is stored.
 
 ## 2. Runtime settings (environment)
 
@@ -70,10 +71,12 @@ the field's type. Command-line options win over the environment.
 | `model_dir` | `models/contextlens-topic` | artifact directory |
 | `log_level` | `WARNING` | logging level when `--debug` is not given |
 | `min_confidence` | `None` | below this calibrated probability a prediction is `uncertain`; `None` uses the value tuned in the benchmark and stored in the artifact (`CONTEXTLENS_MIN_CONFIDENCE=0.5` overrides) |
-| `max_subtopics` | `3` | at most this many subtopics are reported per message |
+| `max_subtopics` | `3` | at most this many subtopics are reported per message (the primary subtopic + sibling suggestions) |
 | `decay` | `0.7` | conversation decay (`score = score·decay + weight·p`); chosen by `scripts/tune_decay.py` |
 | `theme_min_share` | `0.2` | a topic is part of the theme when it holds ≥ this share of the decayed mass |
 | `max_theme_topics` | `3` | at most this many topics in a theme |
+| `theme_expire_after` | `4` | clear the context after this many consecutive messages without a confident topic (`0` = never); chosen on validation conversations (D-31) |
+| `theme_confirm_turns` | `2` | the dominant topic changes only after this many consecutive confident messages agree on a new one (hysteresis against one-message tangents, D-31) |
 | `web_enabled` | `true` | web search on/off (`--no-web`) |
 | `web_timeout` | `6.0` | seconds per HTTP request |
 | `web_retries` | `2` | retries for timeouts, 429 and 5xx (with back-off, `Retry-After` honoured up to 30 s) |
@@ -93,17 +96,22 @@ from contextlens.models.artifact import load_artifact
 
 model = load_artifact(load_settings().model_dir)          # raises ArtifactError if missing/corrupt
 p = model.predict("Quantum processors can speed up certain algorithms by using qubits.")
-p.status          # "ok" | "uncertain" | "uninformative"
+p.status          # "ok" | "uncertain" | "non_english" | "uninformative"
 p.general         # "technology"
 p.confidence      # calibrated P(general)
-p.subtopics       # (SubtopicScore(id="quantum_computing", probability=P(sub | general)), ...)
+p.subtopics       # primary subtopic first, then sibling suggestions:
+                  # (SubtopicScore(id="quantum_computing", probability=P(sub | general)), ...)
 p.general_probs   # {"physics": ..., ...} — sums to 1
 p.subtopic_probs  # joint P(sub) = P(general) · P(sub | general), all 28 subtopics
-p.ood_score       # max cosine similarity to the training-topic centroids
+p.ood_score       # in-domain score of the off-topic detector (v1.1: negative Mahalanobis
+                  # distance to the nearest general-topic mean; higher = more in-domain)
 p.reasons         # why it is uncertain, e.g. ("low confidence (35%)",) or the language gate
-model.looks_english(text)                  # language gate: >= 40% known English words (texts of >= 3 words)
+model.looks_english(text)                  # language gate: fastText lid.176 + training lexicon,
+                                           # per-length reject confidence (configs/model.json)
 model.predict_many(texts)                  # batched
-model.predict_proba(normalised_texts)      # (P(general), P(sub | general), ood) as arrays
+model.predict_proba(normalised_texts)      # (P(general), P(sub | general), ood score) as arrays
+model.head_outputs(embeddings)             # (P(general), P(sub | general), logits)
+model.ood_scores(embeddings, general, logits)
 ```
 
 `load_artifact(directory, min_confidence=None, encoder=None, max_subtopics=3)` —
@@ -153,12 +161,22 @@ session.history(); session.reset(); session.close(); db.close()
 | `python scripts/download_data.py --corpus` | DBpedia, Wikipedia dumps (pinned) | `data/manifest/*`, `data/processed/*.parquet` |
 | `python scripts/download_data.py --stackexchange` | Stack Exchange API, MTEB titles (pinned) | `data/external/se_*_eval.jsonl` |
 | `python scripts/eda.py` | processed data | `reports/eda.json`, `reports/figures/eda_*.png` |
-| `python scripts/run_experiments.py [--sections ...] [--feats ...]` | processed + external data | `reports/experiments/{general,zeroshot,hierarchy,calibration,ood}.json` |
+| `python scripts/run_experiments.py [--sections ...] [--feats ...]` | processed + external data (development splits only) | `reports/experiments/{general,zeroshot,hierarchy,calibration,ood}.json` |
 | `python scripts/finetune_transformer.py --encoder minilm-l6` | processed + external data | `reports/experiments/finetune_<encoder>.json` |
 | `python scripts/zeroshot_nli.py --per-class 40` | processed + external data | `reports/experiments/zeroshot_nli.json` |
-| `python train.py` | `configs/model.json`, processed data | `models/contextlens-topic/` |
+| `python train.py` | `configs/model.json`, processed data, `data/external/ood_conversational.jsonl` (train half) | `models/contextlens-topic/` (no test-set evaluation) |
 | `python scripts/tune_decay.py` | artifact, processed data | `reports/experiments/decay.json` |
-| `python evaluate.py` | artifact, all held-out data | `reports/evaluation.json`, `reports/figures/*` |
+| `python evaluate.py --stage dev` | artifact, development data | `reports/evaluation_dev.json`, `reports/figures/*_dev.png` |
+| `python evaluate.py --stage locked` | artifact, `data/locked/*`, locked halves; refuses without `reports/locked/FREEZE.json` or with a fingerprint mismatch | `reports/locked/results.json`, `reports/locked/raw/`, `reports/figures/*_locked.png` |
+| `python scripts/freeze.py` | clean working tree | `reports/locked/FREEZE.json` (SHA-256 of config, taxonomy, settings, passages, locked manifest, artifact metadata); refuses once `results.json` exists |
+| `python scripts/build_locked_sets.py [--repair]` | Wikipedia dump (pinned), Stack Exchange API (questions created in 2026) | `data/locked/{wiki_locked,se_locked}.jsonl`, `data/locked/MANIFEST.json` |
+| `python scripts/build_ood_conversational.py` | CLINC150 (pinned) | `data/external/ood_conversational.jsonl` (train / dev / locked) |
+| `python scripts/build_language_eval.py` | Tatoeba (pinned) | `data/external/language_eval.jsonl` (dev / locked) |
+| `python scripts/language_gate_experiment.py` | language eval dev half | `reports/experiments/language_gate.json` |
+| `python scripts/head_comparison.py` | fine-tuned encoder, dev data | `reports/experiments/head_comparison.json` |
+| `python scripts/ood_experiment.py` | fine-tuned encoder, dev data | `reports/experiments/ood_detectors.json` |
+| `python scripts/label_audit_v2.py` | processed data | `reports/label_audit_v2.json` (310 items, Wilson intervals) |
+| `bash scripts/ci.sh` | – | ruff, format check, mypy, offline pytest, model tests (the steps of `.github/workflows/ci.yml`) |
 | `python scripts/finetune_transformer.py --encoder minilm-l6 --export DIR` | as above | + fine-tuned encoder (float16) in `DIR` |
 | `python scripts/relabel_corpus.py` | cached crawl, `configs/taxonomy.json` | relabelled manifest/passages (splits kept), `reports/relabel_taxonomy_<version>.json` |
 | `python scripts/report_tables.py` | `reports/experiments/*.json` | `reports/tables.md`, `reports/experiment_log.md` |
@@ -195,8 +213,9 @@ ORDER BY t.turn;
 * `configs/taxonomy.json` — see [TAXONOMY.md](TAXONOMY.md).
 * `configs/model.json` — training configuration chosen by the benchmark
   (encoder key, `head_type` — `flat_softmax` or `hierarchical` —, regularisation `C`,
-  OOD calibration set and quantile, minimum confidence `"auto"` + grid and coverage,
-  `min_known_word_share` of the language gate, vocabulary size).
+  OOD calibration set and quantile, `ood.method` of the off-topic detector,
+  minimum confidence `"auto"` + grid and coverage, `language_gate.reject_confidence`
+  per input length, vocabulary size).
 * `data/processed/passages.parquet` — `passage_id, wiki_id, title, general,
   subtopics ("a|b"), depth, split, text_source, text`.
 * `data/processed/ood_passages.parquet` — `passage_id, wiki_id, title, category, split, text`.
@@ -206,4 +225,9 @@ ORDER BY t.turn;
   "link", "score", "general", "subtopics": [...], "split"}` (split: `ext_dev` / `ext_test`).
 * `data/external/se_general_eval.jsonl` — `{"source", "site", "text", "general" | null,
   "is_ood", "split"}`.
+* `data/locked/wiki_locked.jsonl` — `{"source", "title", "general", "subtopics", "text"}`;
+  `data/locked/se_locked.jsonl` — `{"site", "question_id", "text", "tags", "created",
+  "general", "subtopics", "is_ood", "in_general", "site_general"}` (`in_general` and the
+  subtopic view are independent flags, decisions.md D-36). Checksums in `MANIFEST.json`.
+* `data/external/ood_conversational.jsonl` — `{"source", "intent", "split", "text"}`.
 * Artifact files — see [architecture.md §3](architecture.md#artifact-modelscontextlens-topic).
