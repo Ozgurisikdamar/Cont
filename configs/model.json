@@ -1,11 +1,10 @@
 {
   "model_name": "contextlens-topic",
-  "model_version": "1.0.0",
+  "model_version": "1.1.0",
   "encoder": "minilm-l6-ft",
   "head_type": "flat_softmax",
   "general_C": 8.0,
   "subtopic_C": 16.0,
-  "ood_calibration": "se_ext_dev",
   "ood_keep_quantile": 0.05,
   "min_confidence": "auto",
   "min_confidence_grid": [
@@ -27,5 +26,10 @@
       "3": 0.3,
       "4+": 0.3
     }
+  },
+  "ood": {
+    "method": "mahalanobis",
+    "calibration": "se_ext_dev",
+    "note": "chosen by scripts/ood_experiment.py on dev data (D-34)"
   }
 }

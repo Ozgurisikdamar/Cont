@@ -471,3 +471,39 @@ says so.
 hierarchical sigmoid (`reports/experiments/head_comparison_grid070.json`).
 The grid was widened to 0.95 in both the experiment and production training
 before any other decision, and the rerun is the one used.
+
+## D-34 · Off-topic gate: Mahalanobis distance, thresholds on dev, conversational data added
+**Decision.** The out-of-taxonomy gate uses the Mahalanobis distance to the
+nearest general-topic mean (shared Ledoit–Wolf covariance) on the fine-tuned
+embeddings, threshold = 5th percentile of the in-domain Stack Exchange ext_dev
+questions (95% kept), combined with the unchanged confidence and language
+gates. Implemented in `contextlens/models/ood.py`, stored in the artifact.
+**Data.** CLINC150 assistant chat (in-scope intents minus six that can be
+topical; CLINC's own `oos` class excluded because it contains physics, biology
+and sports questions — `scripts/build_ood_conversational.py`) joins the
+Wikipedia out-of-taxonomy categories and the Stack Exchange off-topic sites.
+**Comparison** (`scripts/ood_experiment.py`, `reports/experiments/ood_detectors.json`,
+dev data only; rule fixed before running: highest mean AUROC over three
+in-domain/off-topic pairs):
+
+| detector | mean AUROC | FPR@95TPR chat | off-topic recall at the deployed point: wiki / SE sites / chat | SE questions answered |
+|---|---:|---:|---|---:|
+| centroid cosine (v1.0) | 0.867 | 0.466 | 0.27 / 0.45 / 0.58 | 0.902 |
+| max softmax probability | 0.785 | 0.723 | 0.23 / 0.29 / 0.35 | 0.924 |
+| energy | 0.771 | 0.689 | 0.32 / 0.35 / 0.43 | 0.907 |
+| **Mahalanobis** | **0.922** | 0.234 | 0.24 / 0.56 / 0.79 | 0.891 |
+| kNN (k = 10) | 0.904 | 0.340 | 0.27 / 0.53 / 0.69 | 0.896 |
+| binary in/off-topic classifier | 0.840 | 0.048 | 0.23 / 0.63 / 0.96 | 0.883 |
+| "other" class | 0.864 | 0.037 | 0.23 / 0.63 / 0.97 | 0.886 |
+
+**Why Mahalanobis, and what it does not fix.** It is best on all three pairs
+together and needs no off-topic training data. The two detectors trained on
+CLINC chat catch almost all chat (0.96–0.97) but they learned the chat style:
+on Wikipedia out-of-taxonomy passages they are the worst (AUROC 0.65–0.70),
+i.e. they would miss off-topic text that does not look like an assistant
+command. Wikipedia out-of-taxonomy passages remain the weak spot for every
+detector (recall ≤ 0.32 at this operating point): an encyclopedia paragraph
+about cooking or cars sits close to the training passages in style and the
+threshold is set on short questions. This is reported, not tuned away.
+**Cost.** 1.1 points fewer in-domain questions answered (0.902 → 0.891), and
+accuracy on the answered ones is unchanged (0.815 vs 0.815).

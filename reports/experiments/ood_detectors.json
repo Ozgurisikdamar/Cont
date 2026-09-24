@@ -1,0 +1,324 @@
+{
+  "protocol": "Out-of-taxonomy detector comparison (docs/HARDENING.md item 3, decisions.md D-34).\n\nThe production heads are fitted exactly as ``train.py`` does (``fit_from_config``\nwith configs/model.json), then seven detectors (contextlens.models.ood) are\ncompared on development data only:\n\n  in-domain     Wikipedia ``val`` passages; Stack Exchange ``ext_dev`` in-taxonomy\n                questions (the input style users actually type)\n  off-topic     Wikipedia OOD ``val`` (out-of-taxonomy categories); Stack Exchange\n                ``ext_dev`` off-topic sites; CLINC150 ``dev`` assistant chat\n                (scripts/build_ood_conversational.py)\n\nPairs: wiki val vs wiki OOD, SE in vs SE off-topic, SE in vs CLINC chat.\nPer pair: AUROC, AUPRC (off-topic = positive), FPR@95TPR (share of off-topic\naccepted when 95% of in-domain is kept). At the deployed operating point\n(threshold = 5th percentile of the SE ext_dev in-domain scores, combined with\nthe ``min_confidence`` gate): off-topic recall (= TNR of the gate), in-domain\nretention, coverage and accuracy on the answered in-domain questions.\n\nSelection rule (fixed before running): the highest mean AUROC over the three\npairs; within 0.005, the higher mean off-topic recall at the operating point,\nthen the simpler detector (order in DETECTORS).\n\n    python scripts/ood_experiment.py      # -> reports/experiments/ood_detectors.json\n",
+  "encoder": "minilm-l6-ft",
+  "head_type": "flat_softmax",
+  "min_confidence": 0.5,
+  "sizes": {
+    "wiki_in": 5984,
+    "wiki_ood": 652,
+    "se_in": 10124,
+    "se_ood": 6000,
+    "chat_ood": 2900
+  },
+  "results": {
+    "centroid": {
+      "pairs": {
+        "wiki_in_vs_wiki_ood": {
+          "auroc": 0.8464,
+          "auprc": 0.4046,
+          "fpr_at_95tpr": 0.6135,
+          "n_in": 5984,
+          "n_out": 652
+        },
+        "se_in_vs_se_ood": {
+          "auroc": 0.8512,
+          "auprc": 0.7636,
+          "fpr_at_95tpr": 0.5998,
+          "n_in": 10124,
+          "n_out": 6000
+        },
+        "se_in_vs_chat_ood": {
+          "auroc": 0.904,
+          "auprc": 0.7362,
+          "fpr_at_95tpr": 0.4662,
+          "n_in": 10124,
+          "n_out": 2900
+        }
+      },
+      "operating_point": {
+        "threshold": 0.70401,
+        "offtopic_recall": {
+          "wiki_ood": 0.2699,
+          "se_ood": 0.4537,
+          "chat_ood": 0.5762
+        },
+        "in_domain_retention_detector_only": {
+          "wiki_in": 0.9915,
+          "se_in": 0.9499
+        },
+        "coverage": {
+          "wiki_in": 0.9507,
+          "se_in": 0.9021
+        },
+        "se_in_accuracy_answered": 0.8145
+      },
+      "mean_auroc": 0.8672,
+      "mean_offtopic_recall": 0.4333
+    },
+    "msp": {
+      "pairs": {
+        "wiki_in_vs_wiki_ood": {
+          "auroc": 0.7958,
+          "auprc": 0.2855,
+          "fpr_at_95tpr": 0.7485,
+          "n_in": 5984,
+          "n_out": 652
+        },
+        "se_in_vs_se_ood": {
+          "auroc": 0.7636,
+          "auprc": 0.6343,
+          "fpr_at_95tpr": 0.7818,
+          "n_in": 10124,
+          "n_out": 6000
+        },
+        "se_in_vs_chat_ood": {
+          "auroc": 0.7949,
+          "auprc": 0.5266,
+          "fpr_at_95tpr": 0.7228,
+          "n_in": 10124,
+          "n_out": 2900
+        }
+      },
+      "operating_point": {
+        "threshold": 0.45587,
+        "offtopic_recall": {
+          "wiki_ood": 0.2316,
+          "se_ood": 0.2865,
+          "chat_ood": 0.3466
+        },
+        "in_domain_retention_detector_only": {
+          "wiki_in": 0.9721,
+          "se_in": 0.9499
+        },
+        "coverage": {
+          "wiki_in": 0.953,
+          "se_in": 0.9238
+        },
+        "se_in_accuracy_answered": 0.8061
+      },
+      "mean_auroc": 0.7848,
+      "mean_offtopic_recall": 0.2882
+    },
+    "energy": {
+      "pairs": {
+        "wiki_in_vs_wiki_ood": {
+          "auroc": 0.7694,
+          "auprc": 0.2475,
+          "fpr_at_95tpr": 0.7791,
+          "n_in": 5984,
+          "n_out": 652
+        },
+        "se_in_vs_se_ood": {
+          "auroc": 0.7601,
+          "auprc": 0.6416,
+          "fpr_at_95tpr": 0.7677,
+          "n_in": 10124,
+          "n_out": 6000
+        },
+        "se_in_vs_chat_ood": {
+          "auroc": 0.7844,
+          "auprc": 0.5411,
+          "fpr_at_95tpr": 0.6886,
+          "n_in": 10124,
+          "n_out": 2900
+        }
+      },
+      "operating_point": {
+        "threshold": 6.78356,
+        "offtopic_recall": {
+          "wiki_ood": 0.3236,
+          "se_ood": 0.3508,
+          "chat_ood": 0.4269
+        },
+        "in_domain_retention_detector_only": {
+          "wiki_in": 0.9505,
+          "se_in": 0.9499
+        },
+        "coverage": {
+          "wiki_in": 0.9278,
+          "se_in": 0.9067
+        },
+        "se_in_accuracy_answered": 0.8121
+      },
+      "mean_auroc": 0.7713,
+      "mean_offtopic_recall": 0.3671
+    },
+    "mahalanobis": {
+      "pairs": {
+        "wiki_in_vs_wiki_ood": {
+          "auroc": 0.9037,
+          "auprc": 0.5176,
+          "fpr_at_95tpr": 0.4816,
+          "n_in": 5984,
+          "n_out": 652
+        },
+        "se_in_vs_se_ood": {
+          "auroc": 0.9038,
+          "auprc": 0.8286,
+          "fpr_at_95tpr": 0.498,
+          "n_in": 10124,
+          "n_out": 6000
+        },
+        "se_in_vs_chat_ood": {
+          "auroc": 0.9577,
+          "auprc": 0.8634,
+          "fpr_at_95tpr": 0.2341,
+          "n_in": 10124,
+          "n_out": 2900
+        }
+      },
+      "operating_point": {
+        "threshold": -4582.98101,
+        "offtopic_recall": {
+          "wiki_ood": 0.2393,
+          "se_ood": 0.5643,
+          "chat_ood": 0.79
+        },
+        "in_domain_retention_detector_only": {
+          "wiki_in": 0.9998,
+          "se_in": 0.9499
+        },
+        "coverage": {
+          "wiki_in": 0.9529,
+          "se_in": 0.891
+        },
+        "se_in_accuracy_answered": 0.8154
+      },
+      "mean_auroc": 0.9217,
+      "mean_offtopic_recall": 0.5312
+    },
+    "knn": {
+      "pairs": {
+        "wiki_in_vs_wiki_ood": {
+          "auroc": 0.8893,
+          "auprc": 0.5013,
+          "fpr_at_95tpr": 0.5046,
+          "n_in": 5984,
+          "n_out": 652
+        },
+        "se_in_vs_se_ood": {
+          "auroc": 0.8865,
+          "auprc": 0.8072,
+          "fpr_at_95tpr": 0.5197,
+          "n_in": 10124,
+          "n_out": 6000
+        },
+        "se_in_vs_chat_ood": {
+          "auroc": 0.9361,
+          "auprc": 0.8044,
+          "fpr_at_95tpr": 0.3397,
+          "n_in": 10124,
+          "n_out": 2900
+        }
+      },
+      "operating_point": {
+        "threshold": 0.81897,
+        "offtopic_recall": {
+          "wiki_ood": 0.2684,
+          "se_ood": 0.5258,
+          "chat_ood": 0.69
+        },
+        "in_domain_retention_detector_only": {
+          "wiki_in": 0.9967,
+          "se_in": 0.9499
+        },
+        "coverage": {
+          "wiki_in": 0.9515,
+          "se_in": 0.896
+        },
+        "se_in_accuracy_answered": 0.816
+      },
+      "mean_auroc": 0.904,
+      "mean_offtopic_recall": 0.4947
+    },
+    "binary": {
+      "pairs": {
+        "wiki_in_vs_wiki_ood": {
+          "auroc": 0.6463,
+          "auprc": 0.2374,
+          "fpr_at_95tpr": 0.7546,
+          "n_in": 5984,
+          "n_out": 652
+        },
+        "se_in_vs_se_ood": {
+          "auroc": 0.8834,
+          "auprc": 0.8281,
+          "fpr_at_95tpr": 0.4633,
+          "n_in": 10124,
+          "n_out": 6000
+        },
+        "se_in_vs_chat_ood": {
+          "auroc": 0.9888,
+          "auprc": 0.9645,
+          "fpr_at_95tpr": 0.0483,
+          "n_in": 10124,
+          "n_out": 2900
+        }
+      },
+      "operating_point": {
+        "threshold": 0.10529,
+        "offtopic_recall": {
+          "wiki_ood": 0.2331,
+          "se_ood": 0.6265,
+          "chat_ood": 0.9583
+        },
+        "in_domain_retention_detector_only": {
+          "wiki_in": 0.9993,
+          "se_in": 0.9499
+        },
+        "coverage": {
+          "wiki_in": 0.9527,
+          "se_in": 0.8834
+        },
+        "se_in_accuracy_answered": 0.8107
+      },
+      "mean_auroc": 0.8395,
+      "mean_offtopic_recall": 0.606
+    },
+    "other_class": {
+      "pairs": {
+        "wiki_in_vs_wiki_ood": {
+          "auroc": 0.7025,
+          "auprc": 0.2856,
+          "fpr_at_95tpr": 0.6702,
+          "n_in": 5984,
+          "n_out": 652
+        },
+        "se_in_vs_se_ood": {
+          "auroc": 0.8996,
+          "auprc": 0.8431,
+          "fpr_at_95tpr": 0.4422,
+          "n_in": 10124,
+          "n_out": 6000
+        },
+        "se_in_vs_chat_ood": {
+          "auroc": 0.991,
+          "auprc": 0.9699,
+          "fpr_at_95tpr": 0.0369,
+          "n_in": 10124,
+          "n_out": 2900
+        }
+      },
+      "operating_point": {
+        "threshold": 0.3772,
+        "offtopic_recall": {
+          "wiki_ood": 0.2316,
+          "se_ood": 0.6285,
+          "chat_ood": 0.9683
+        },
+        "in_domain_retention_detector_only": {
+          "wiki_in": 0.9995,
+          "se_in": 0.9499
+        },
+        "coverage": {
+          "wiki_in": 0.9529,
+          "se_in": 0.8857
+        },
+        "se_in_accuracy_answered": 0.8119
+      },
+      "mean_auroc": 0.8644,
+      "mean_offtopic_recall": 0.6095
+    }
+  },
+  "chosen": "mahalanobis"
+}
