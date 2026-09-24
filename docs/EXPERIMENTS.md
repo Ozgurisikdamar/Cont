@@ -9,11 +9,11 @@ and where the raw output is. Result tables are generated from the JSON files by
 
 | rule | detail |
 |---|---|
-| data | Wikipedia passages — labels v1.0 for E-0 … E-9 (train 30,266 · val 6,515 · test 6,479), labels v1.1 for E-5 (final run), E-10, E-11 (train 30,051 · val 6,464 · test 6,427; DATASET_CARD §9), Stack Exchange questions (general: ext_dev 10,124 · ext_test 10,087; subtopic: ext_dev 1,630 · ext_test 1,642), OOD (Wikipedia categories, 15 Stack Exchange sites) — [DATASET_CARD.md](DATASET_CARD.md) |
+| data | Wikipedia passages, taxonomy **1.2.0** (train 28,075 · val 5,984; the old `test` split, 6,053, is legacy), Stack Exchange questions (general ext_dev 10,124; subtopic ext_dev 1,630), off-topic: Wikipedia categories (val 652), 15 Stack Exchange sites (ext_dev 6,000), CLINC150 assistant chat (dev 2,900, train half for detectors only), Tatoeba (dev half) — [DATASET_CARD.md](DATASET_CARD.md). v1.0 ran E-0 … E-11 on labels 1.0 / 1.1; after the hardening pass the benchmark was **rerun on 1.2.0 with development splits only** (after the freeze; it does not change the frozen choice). |
 | preprocessing | `contextlens.preprocessing.text.normalize` for every split and at runtime (no lower-casing for encoders; TF-IDF lower-cases itself) |
 | fitting | featurizers and heads are fitted on **train only** |
 | selection | hyper-parameters: Wikipedia **val**; model families: **val + Stack Exchange ext_dev** |
-| reporting | **test** and **ext_test** are computed for the report only |
+| reporting | development scripts compute **no** test numbers any more. The final model is measured once on the **locked holdout** (built before any v1.1 decision, `data/locked/`) after `scripts/freeze.py` (E-17). `test` / `ext_test` were reported during v1.0 development and are kept only as a *legacy* section of the locked report |
 | seed | `RANDOM_SEED = 42` (Python, NumPy, PyTorch, scikit-learn `random_state`) |
 | hardware | 4 vCPU, 15 GB RAM, no GPU (see FINAL_REPORT §hardware) |
 | class imbalance | `class_weight="balanced"` for every logistic regression / SVM; class-weighted cross-entropy for fine-tuning |
@@ -35,7 +35,13 @@ and where the raw output is. Result tables are generated from the JSON files by
 | E-8b | which confidence floor? | coverage and accuracy of kept / rejected predictions for min_confidence ∈ {0 … 0.7}; the production value is chosen in `train.py` by the rule of D-25 | `train.py` (the `--sections selective` variant exists but was not run for the report) | artifact `metadata.json → min_confidence_sweep_ext_dev` |
 | E-9 | how to say "uncertain"? | in-distribution scores: max softmax probability (MSP), energy (logsumexp of logits / T), max cosine to class centroids, mean cosine to the 10 nearest training passages; threshold at 95% in-distribution kept, calibrated on Wikipedia val **or** on Stack Exchange ext_dev | `--sections ood` | `ood.json` |
 | E-10 | which conversation decay? | simulated conversations from held-out passages with the trained model's predictions: 3 segments × 3–6 turns, 15% tangents, 10% OOD; decay ∈ {0, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9}; select max val theme accuracy subject to 3-topic accumulation ≥ 0.80 | `tune_decay.py` | `decay.json` |
-| E-11 | final model on everything held out | trained artifact on test, ext_test (general + subtopic), OOD test, calibration, latency, acceptance probes | `evaluate.py` | `reports/evaluation.json` |
+| E-11 | v1.0 final model on the (then) held-out sets | superseded by E-17 | `evaluate.py` (v1.0) | `reports/evaluation_v1.0.json` |
+| E-12 | how wrong are the labels, and why is Science weak? | 310-passage stratified audit (10 per subtopic + 5 for six weak subtopics), verdict per item, Wilson 95% CIs, root-cause trace of every wrong Science label | `label_audit_v2.py` | `reports/label_audit_v2.json`, `relabel_taxonomy_1.2.0.json` |
+| E-13 | can short non-English text be rejected? | fastText lid.176 vs lexicon vs both; reject confidence per input length (1 / 2 / 3 / 4+ words) on the Tatoeba dev half + in-domain English; rule: max rejection subject to ≥ 99% English accepted | `language_gate_experiment.py` | `language_gate.json` |
+| E-14 | expiry and tangent robustness | E-10 grid extended: decay × share × confirm turns × expiry × switch rule (360 settings); new metrics: false switch rate, stale theme, premature expiry; rule in `decay.json` | `tune_decay.py` | `decay.json` |
+| E-15 | is the data multi-label enough for a multi-label head? | same fine-tuned encoder: flat softmax vs one-vs-rest sigmoid vs per-parent sigmoid; C and thresholds (0.20–0.95) on val; fixed selection score | `head_comparison.py` | `head_comparison.json` (first run with a 0.70 grid cap: `head_comparison_grid070.json`) |
+| E-16 | a better off-topic detector | centroid, MSP, energy, Mahalanobis, kNN, binary in-vs-out classifier, explicit "other" class; in-domain Wikipedia val + ext_dev vs Wikipedia OOD val, off-topic SE ext_dev, CLINC150 dev; threshold keeps 95% of ext_dev questions | `ood_experiment.py` | `ood_detectors.json` |
+| E-17 | the final model, once, on data never seen | locked holdout (374 Wikipedia passages, 2,713 SE questions from 2026, CLINC150 test, Tatoeba locked half) + legacy test splits; raw predictions stored | `freeze.py`, `evaluate.py --stage locked` | `reports/locked/` |
 
 ## Results and decisions
 
@@ -58,7 +64,13 @@ and the final choice are in [MODEL_REPORT.md](MODEL_REPORT.md).
 | E-8 | temperature scaling never raises ECE | applied |
 | E-9 | centroid cosine best on questions; Wikipedia-calibrated threshold answers only 66–92% of genuine questions | **gate + calibration on questions** (D-24) |
 | E-10 | see `decay.json` | decay (below) |
-| E-11 | final numbers | `reports/evaluation.json`, FINAL_REPORT |
+| E-11 | superseded | `reports/evaluation_v1.0.json` |
+| E-12 | 5.2% wrong [3.2, 8.2], 20.3% weak; Science worst (8 of 45 wrong) — its crawl pulled in every field's history and R&D pages | taxonomy 1.2.0, Science = scientific enterprise (D-32) |
+| E-13 | fastText + lexicon; on the locked half non-English is rejected 48–97% (1 word → sentence), English accepted ≥ 99.6% | deployed (D-30) |
+| E-14 | expiry 4, confirm 2: theme accuracy 0.767 → 0.729, false switches 0.488 → 0.104 | deployed (D-31) |
+| E-15 | softmax 0.660 val sub macro-F1 vs 0.649 / 0.657; sigmoid thresholds at the top of the grid | softmax kept, objective renamed (D-33) |
+| E-16 | Mahalanobis: chat recall 0.79, SE off-topic 0.56, Wikipedia OOD 0.24 at 95% question retention | deployed (D-34) |
+| E-17 | locked: Wikipedia 0.848 / 0.838, questions 0.804 / 0.730 (0.843 / 0.818 without hsm) | reported (D-36) |
 
 ## Notes on the protocol
 
@@ -69,5 +81,9 @@ and the final choice are in [MODEL_REPORT.md](MODEL_REPORT.md).
 * **Why the OOD threshold is calibrated on questions.** A cosine-to-centroid
   score is systematically lower for a 10-word question than for a 25-word passage;
   a threshold set on passages flags too many genuine questions (E-9).
+* **Why the benchmark was rerun after the freeze.** Its tables are the
+  documentation's evidence; after the 1.2.0 relabel they had to describe the
+  data the model was trained on. The rerun uses development splits only and
+  its outcome was checked against the frozen choice (MODEL_REPORT §1).
 * **Sampled experiments.** Only E-4 is sampled (320 texts per split); its numbers
   have wider uncertainty and are marked as such.
