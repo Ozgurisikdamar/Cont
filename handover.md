@@ -125,3 +125,9 @@ python evaluate.py --stage dev     # development evaluation (never --stage locke
   Exchange set (`data/external/se_general_eval.jsonl`) is missing, like its
   sibling test; it failed on a fresh clone. Offline suite 197 passed, 4
   skipped; model suite 36 passed.
+- `docs/contextlens-architecture.svg`: text overflowed its cards (message
+  modes, query builder, the persistence pills in wider fallback fonts) —
+  measured in Chromium with Inter, Liberation Sans and DejaVu Sans; shorter
+  lines, taller cards, Arial-metric fallbacks in the font stack. The language
+  gate now points at the encoder (it pointed at the OOD gate), and the dashed
+  persistence connector no longer runs through the "offline" note.

@@ -25,15 +25,15 @@
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
   <style>
-    .title{font:700 42px Inter,Segoe UI,Arial,sans-serif;fill:#F8FAFC}
-    .subtitle{font:400 19px Inter,Segoe UI,Arial,sans-serif;fill:#9FB0C6}
-    .lane{font:700 15px Inter,Segoe UI,Arial,sans-serif;fill:#8FA2BA;letter-spacing:2px}
-    .cardTitle{font:700 22px Inter,Segoe UI,Arial,sans-serif;fill:#F8FAFC}
-    .cardText{font:400 16px Inter,Segoe UI,Arial,sans-serif;fill:#B8C4D4}
-    .tiny{font:600 14px Inter,Segoe UI,Arial,sans-serif;fill:#D2DCE8}
-    .accent{font:700 14px Inter,Segoe UI,Arial,sans-serif;fill:#67E8F9;letter-spacing:1.4px}
-    .accentMint{font:700 14px Inter,Segoe UI,Arial,sans-serif;fill:#6EE7B7;letter-spacing:1.4px}
-    .accentAmber{font:700 14px Inter,Segoe UI,Arial,sans-serif;fill:#FDBA74;letter-spacing:1.4px}
+    .title{font:700 42px Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans",sans-serif;fill:#F8FAFC}
+    .subtitle{font:400 19px Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans",sans-serif;fill:#9FB0C6}
+    .lane{font:700 15px Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans",sans-serif;fill:#8FA2BA;letter-spacing:2px}
+    .cardTitle{font:700 22px Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans",sans-serif;fill:#F8FAFC}
+    .cardText{font:400 16px Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans",sans-serif;fill:#B8C4D4}
+    .tiny{font:600 14px Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans",sans-serif;fill:#D2DCE8}
+    .accent{font:700 14px Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans",sans-serif;fill:#67E8F9;letter-spacing:1.4px}
+    .accentMint{font:700 14px Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans",sans-serif;fill:#6EE7B7;letter-spacing:1.4px}
+    .accentAmber{font:700 14px Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans",sans-serif;fill:#FDBA74;letter-spacing:1.4px}
   </style>
 </defs>
 
@@ -61,30 +61,30 @@
   <rect width="244" height="118" rx="20" fill="#121C30" stroke="#06B6D4" stroke-width="2"/>
   <text x="22" y="34" class="accent">MESSAGE</text>
   <text x="22" y="68" class="cardTitle">User text</text>
-  <text x="22" y="96" class="cardText">CLI / one-shot / scripted input</text>
+  <text x="22" y="96" class="cardText">console · --once · --script</text>
 </g>
 
 <g transform="translate(86 374)">
   <rect width="244" height="132" rx="20" fill="#121C30" stroke="#3B82F6" stroke-width="2"/>
   <text x="22" y="34" class="accent">PREPROCESS</text>
-  <text x="22" y="68" class="cardTitle">Normalize &amp; validate</text>
+  <text x="22" y="68" class="cardTitle">Normalize input</text>
   <text x="22" y="96" class="cardText">NFKC · URLs · mentions</text>
   <text x="22" y="119" class="cardText">uninformative-input check</text>
 </g>
 
 <g transform="translate(86 552)">
-  <rect width="244" height="148" rx="20" fill="#17172A" stroke="#8B5CF6" stroke-width="2"/>
+  <rect width="244" height="158" rx="20" fill="#17172A" stroke="#8B5CF6" stroke-width="2"/>
   <text x="22" y="34" class="accent">LANGUAGE GATE</text>
   <text x="22" y="68" class="cardTitle">English?</text>
   <text x="22" y="96" class="cardText">fastText lid.176 + lexicon</text>
   <text x="22" y="119" class="cardText">non-English → weight 0</text>
-  <text x="22" y="140" class="tiny">classification path stops here</text>
+  <text x="22" y="142" class="tiny">the classifier is skipped</text>
 </g>
 
 <g transform="translate(86 742)">
   <rect width="244" height="92" rx="20" fill="#221817" stroke="#F59E0B" stroke-width="2"/>
   <text x="22" y="34" class="accentAmber">SAFE EXIT</text>
-  <text x="22" y="68" class="cardText">uninformative / non_english</text>
+  <text x="22" y="68" class="cardText" style="font-size:15px">uninformative / non_english</text>
 </g>
 
 <!-- INTELLIGENCE -->
@@ -96,12 +96,12 @@
 </g>
 
 <g transform="translate(422 382)">
-  <rect width="310" height="146" rx="20" fill="#121C30" stroke="#6366F1" stroke-width="2"/>
+  <rect width="310" height="156" rx="20" fill="#121C30" stroke="#6366F1" stroke-width="2"/>
   <text x="22" y="34" class="accent">TOPIC HEAD</text>
   <text x="22" y="68" class="cardTitle">28-way softmax</text>
   <text x="22" y="96" class="cardText">temperature-scaled probabilities</text>
   <text x="22" y="119" class="cardText">8 general topics = child sums</text>
-  <text x="22" y="140" class="tiny">primary + sibling suggestions</text>
+  <text x="22" y="142" class="tiny">primary + sibling suggestions</text>
 </g>
 
 <g transform="translate(422 572)">
@@ -137,10 +137,11 @@
 </g>
 
 <g transform="translate(826 604)">
-  <rect width="290" height="122" rx="20" fill="#10231F" stroke="#2DD4BF" stroke-width="2"/>
+  <rect width="290" height="138" rx="20" fill="#10231F" stroke="#2DD4BF" stroke-width="2"/>
   <text x="22" y="34" class="accentMint">QUERY BUILDER</text>
   <text x="22" y="68" class="cardTitle">Privacy-aware query</text>
-  <text x="22" y="96" class="cardText">theme + ≤2 public-vocabulary words</text>
+  <text x="22" y="96" class="cardText">theme phrase + at most two</text>
+  <text x="22" y="119" class="cardText">public-vocabulary words</text>
 </g>
 
 <g transform="translate(826 770)">
@@ -176,7 +177,7 @@
 
 <g transform="translate(1210 766)">
   <rect width="300" height="68" rx="18" fill="#241A17" stroke="#F59E0B" stroke-width="2"/>
-  <text x="150" y="42" text-anchor="middle" class="tiny">network failure → no results, not no answer</text>
+  <text x="150" y="42" text-anchor="middle" class="tiny">offline → no results, not no answer</text>
 </g>
 
 <!-- Flow arrows -->
@@ -186,12 +187,12 @@
   <path d="M208 506v46" stroke="#3B82F6" stroke-width="3"/>
   <path d="M200 540l8 12 8-12" stroke="#3B82F6" stroke-width="3"/>
 
-  <path d="M330 626 H422" stroke="#8B5CF6" stroke-width="3"/>
-  <path d="M410 618l12 8-12 8" stroke="#8B5CF6" stroke-width="3"/>
+  <path d="M330 631 H376 V274 H422" stroke="#8B5CF6" stroke-width="3"/>
+  <path d="M410 266l12 8-12 8" stroke="#8B5CF6" stroke-width="3"/>
 
   <path d="M577 338v44" stroke="#6366F1" stroke-width="3"/>
   <path d="M569 370l8 12 8-12" stroke="#6366F1" stroke-width="3"/>
-  <path d="M577 528v44" stroke="#A855F7" stroke-width="3"/>
+  <path d="M577 538v34" stroke="#A855F7" stroke-width="3"/>
   <path d="M569 560l8 12 8-12" stroke="#A855F7" stroke-width="3"/>
   <path d="M577 710v42" stroke="#C084FC" stroke-width="3"/>
   <path d="M569 740l8 12 8-12" stroke="#C084FC" stroke-width="3"/>
@@ -216,14 +217,14 @@
 <rect x="58" y="892" width="1482" height="108" rx="22" fill="#0D1422" stroke="#475569" stroke-width="2"/>
 <text x="88" y="926" class="lane">PERSISTENCE &amp; MODEL SAFETY</text>
 
-<rect x="88" y="944" width="650" height="38" rx="12" fill="#131B29" stroke="#64748B"/>
-<text x="413" y="969" text-anchor="middle" class="tiny">SQLite · texts · predictions · conversation themes · queries · search results · 72 h cache</text>
+<rect x="88" y="944" width="630" height="38" rx="12" fill="#131B29" stroke="#64748B"/>
+<text x="403" y="969" text-anchor="middle" class="tiny">SQLite · texts · predictions · themes · queries · search results · 72 h cache</text>
 
-<rect x="776" y="944" width="734" height="38" rx="12" fill="#17172A" stroke="#8B5CF6"/>
-<text x="1143" y="969" text-anchor="middle" class="tiny">Artifact loaded once · skops allow-list · SHA-256 files + encoder manifest · no startup retraining</text>
+<rect x="748" y="944" width="762" height="38" rx="12" fill="#17172A" stroke="#8B5CF6"/>
+<text x="1129" y="969" text-anchor="middle" class="tiny">Model loaded once · skops allow-list · SHA-256 + encoder manifest · no start-up retraining</text>
 
 <!-- persistence connectors -->
 <path d="M577 834v58" stroke="#64748B" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
 <path d="M971 834v58" stroke="#64748B" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
-<path d="M1360 722v170" stroke="#64748B" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
+<path d="M1360 722v44M1360 834v58" stroke="#64748B" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
 </svg>
