@@ -65,8 +65,9 @@ def test_evaluate_and_decay_scripts_run(tmp_path, monkeypatch):
 
     try:
         dataset.load_passages()
+        dataset.load_se_general()  # git-ignored; built by scripts/download_data.py --all
     except dataset.DataMissingError:
-        pytest.skip("processed corpus not available")
+        pytest.skip("processed corpus or Stack Exchange evaluation set not available")
     import evaluate
 
     out, small, se_small = _small_artifact(tmp_path, monkeypatch)

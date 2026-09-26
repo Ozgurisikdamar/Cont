@@ -121,3 +121,7 @@ python evaluate.py --stage dev     # development evaluation (never --stage locke
   used`; `history` marks such rows `uncertain (best guess: …)` and non-English
   rows `not English (not analysed)` (`tests/test_cli_render.py`). Console
   output only: model, thresholds and the frozen fingerprint are unchanged.
+- `test_evaluate_and_decay_scripts_run` now skips when the git-ignored Stack
+  Exchange set (`data/external/se_general_eval.jsonl`) is missing, like its
+  sibling test; it failed on a fresh clone. Offline suite 197 passed, 4
+  skipped; model suite 36 passed.
