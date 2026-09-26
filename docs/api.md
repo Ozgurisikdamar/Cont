@@ -54,10 +54,23 @@ Search query  : "<query that produced the results>"
 Saved to the database.
 ```
 
-An `uncertain` message shows `Note: uncertain - <reason>` and is not added to
-the conversation theme; neither is a `non_english` message (the language gate is
-confident the text is not English). An uninformative message (empty, symbols,
-only stop words) is not a turn: nothing is stored.
+An `uncertain` message leads with the verdict instead of a topic, keeps the
+rejected prediction only as a demoted best guess, and is not added to the
+conversation theme:
+
+```
+[Text analysis]
+General topic : uncertain - no confident topic.
+                This message was not added to the conversation theme.
+Reason        : <reason>[; <reason>].
+Best guess    : <general topic> (<confidence>) > <subtopic> (<P(subtopic | general)>) - not used
+```
+
+A `non_english` message (the language gate is confident the text is not
+English) shows `Language : not English` and is not added to the theme either.
+In `history`, such messages read `uncertain (best guess: …)` and
+`not English (not analysed)`. An uninformative message (empty, symbols, only
+stop words) is not a turn: nothing is stored.
 
 ## 2. Runtime settings (environment)
 

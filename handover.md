@@ -112,3 +112,12 @@ python evaluate.py --stage dev     # development evaluation (never --stage locke
 - Benchmark rerun on the 1.2.0 corpus after the freeze, development splits
   only; it does not change the frozen selection.
 
+
+### 2026-09-26 — console output for uncertain messages
+- An `uncertain` turn printed `General topic : Books` and `Confidence : 53.0%`
+  before its "uncertain" note, so off-topic input read like a confident wrong
+  answer. The block now leads with `General topic : uncertain - no confident
+  topic.`, then the reason and the rejected prediction as `Best guess : … - not
+  used`; `history` marks such rows `uncertain (best guess: …)` and non-English
+  rows `not English (not analysed)` (`tests/test_cli_render.py`). Console
+  output only: model, thresholds and the frozen fingerprint are unchanged.

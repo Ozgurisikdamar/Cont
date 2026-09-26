@@ -42,6 +42,13 @@ def pct(p: float) -> str:
     return f"{p * 100:.1f}%"
 
 
+def best_guess(general: str, confidence: float, subtopics: Iterable[str], tax_display: Callable[[str], str]) -> str:
+    """The rejected top prediction, e.g. ``Books (53.0%) > Novels (94.3%)`` - shown for reference only."""
+    guess = f"{tax_display(general)} ({pct(confidence)})"
+    subs = ", ".join(subtopics)
+    return f"{guess} > {subs}" if subs else guess
+
+
 def render_turn(result: TurnResult, tax_display: Callable[[str], str], print_: Callable[[str], None]) -> None:
     pred = result.prediction
     if pred.status == "uninformative":
@@ -51,15 +58,21 @@ def render_turn(result: TurnResult, tax_display: Callable[[str], str], print_: C
     if pred.status == "non_english":
         print_("Language      : not English - ContextLens analyses English text only.")
         print_("                This message was not added to the conversation theme.")
+    elif pred.uncertain:
+        # The headline is the verdict, not the rejected guess: an off-topic message
+        # must not read like a confident (wrong) topic.
+        print_("General topic : uncertain - no confident topic.")
+        print_("                This message was not added to the conversation theme.")
+        print_("Reason        : " + "; ".join(pred.reasons) + ".")
+        if pred.general is not None:
+            subs = [f"{tax_display(s.id)} ({pct(s.probability)})" for s in pred.subtopics]
+            print_(f"Best guess    : {best_guess(pred.general, pred.confidence, subs, tax_display)} - not used")
     else:
         print_(f"General topic : {tax_display(pred.general or '')}")
         print_(f"Confidence    : {pct(pred.confidence)}")
         print_("Subtopics     :")
         for s in pred.subtopics:
             print_(f"  - {tax_display(s.id)} ({pct(s.probability)})")
-        if pred.uncertain:
-            print_("Note          : uncertain - " + "; ".join(pred.reasons) + ".")
-            print_("                This message was not added to the conversation theme.")
     print_("\n[Conversation]")
     print_(f"Theme         : {result.theme.label}")
     if result.context_expired:
@@ -91,11 +104,19 @@ def render_history(
         print_("No messages in this conversation yet.")
         return
     for r in records:
-        subs = ", ".join(f"{tax_display(s['id'])} {pct(s['probability'])}" for s in r.subtopics)
-        topic = tax_display(r.general_topic) if r.general_topic else "-"
-        conf = pct(r.general_confidence or 0.0)
-        flag = " [uncertain]" if r.uncertain else ""
-        print_(f"{r.turn:>3}. {r.content}\n     -> {topic} ({conf}){flag}; {subs}")
+        conf = r.general_confidence or 0.0
+        if r.status == "non_english":
+            verdict = "not English (not analysed)"
+        elif r.uncertain and r.general_topic:
+            subs = [f"{tax_display(s['id'])} ({pct(s['probability'])})" for s in r.subtopics]
+            verdict = f"uncertain (best guess: {best_guess(r.general_topic, conf, subs, tax_display)})"
+        elif r.uncertain:
+            verdict = "uncertain"
+        else:
+            topic = tax_display(r.general_topic) if r.general_topic else "-"
+            subs_text = ", ".join(f"{tax_display(s['id'])} {pct(s['probability'])}" for s in r.subtopics)
+            verdict = f"{topic} ({pct(conf)}); {subs_text}"
+        print_(f"{r.turn:>3}. {r.content}\n     -> {verdict}")
     print_(f"Current theme: {session.current_theme().label}")
 
 

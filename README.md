@@ -470,16 +470,15 @@ Search query  : "science books about biology cells evolution"
 > I'm going to order pizza tonight.
 
 [Text analysis]
-General topic : Books
-Confidence    : 53.0%
-Subtopics     :
-  - Novels (94.3%)
-Note          : uncertain - far from all training topics (possible out-of-taxonomy input).
+General topic : uncertain - no confident topic.
                 This message was not added to the conversation theme.
+Reason        : far from all training topics (possible out-of-taxonomy input).
+Best guess    : Books (53.0%) > Novels (94.3%) - not used
 
 [Conversation]
 Theme         : Books + Biology + Science
 In words      : science books about biology
+Search query  : "science books about biology"
 ```
 
 (The second and third turns are condensed here; the application prints them in
